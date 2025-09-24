@@ -55,7 +55,7 @@ INSTALLED_APPS = [
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
-    # 'whitenoise.middleware.WhiteNoiseMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -97,13 +97,38 @@ DATABASES = {
 
 # Cloudflare R2 Storage for Static and Media Files
 AWS_S3_ENDPOINT_URL = os.environ.get('AWS_S3_ENDPOINT_URL')
-AWS_ACCESS_KEY_ID = os.environ.get('R2_ACCESS_KEY_ID')
-AWS_SECRET_ACCESS_KEY = os.environ.get('R2_SECRET_ACCESS_KEY')
-AWS_STORAGE_BUCKET_NAME = os.environ.get('R2_BUCKET_NAME')
+AWS_ACCESS_KEY_ID = os.environ.get('AWS_ACCESS_KEY_ID')
+AWS_SECRET_ACCESS_KEY = os.environ.get('AWS_SECRET_ACCESS_KEY')
+AWS_STORAGE_BUCKET_NAME = os.environ.get('AWS_STORAGE_BUCKET_NAME')
 AWS_CUSTOM_DOMAIN=os.environ.get('AWS_CUSTOM_DOMAIN')
 AWS_S3_SIGNATURE_VERSION = 's3v4'
 AWS_S3_REGION_NAME = 'auto'
 AWS_DEFAULT_ACL = os.environ.get('AWS_DEFAULT_ACL') # Make sure files are publicly accessible
+AWS_QUERYSTRING_AUTH = False
+AWS_S3_PARAMETERS = {
+    'CacheControl': 'max-age=86400',
+}
+
+# Static and Media Files
+# https://docs.djangoproject.com/en/5.1/howto/static-files/
+STATICFILES_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
+STATICFILES_STORAGE =f"https://{AWS_CUSTOM_DOMAIN}/static/"
+STATICFILES_DIRS = (
+    os.path.join(BASE_DIR, 'static')
+)
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+# STATIC_URL = '/static/'
+DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+
+STATIC_URL =f"https://{AWS_CUSTOM_DOMAIN}/static/" if not DEBUG else '/static/'
+
+
+
+
+
+# Directory to save files (configurable)
+FILE_SAVE_DIRECTORY = os.path.join(BASE_DIR, 'saved_files')
 
 # Password validation
 # https://docs.djangoproject.com/en/5.1/ref/settings/#auth-password-validators
@@ -130,19 +155,7 @@ USE_I18N = True
 USE_TZ = True
 
 
-# Static and Media Files
-# https://docs.djangoproject.com/en/5.1/howto/static-files/
-STATIC_URL = F'https://{AWS_CUSTOM_DOMAIN}/static/'
-STATICFILES_DIRS = (
-    os.path.join(BASE_DIR, 'static'),
-)
-STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
-DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
-STATICFILES_STORAGE = 'storages.backends.s3boto3.S3StaticStorage'
 
-
-# Directory to save files (configurable)
-FILE_SAVE_DIRECTORY = os.path.join(BASE_DIR, 'saved_files')
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field
@@ -152,3 +165,6 @@ if DEBUG:
     BASE_URL = 'http://127.0.0.1:8000/'
 else:
     BASE_URL = 'https://bytecub.onrender.com'
+
+
+
