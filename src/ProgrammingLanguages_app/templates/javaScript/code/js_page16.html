@@ -1,0 +1,231 @@
+{%load static%}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Array Methods and Loops</title>
+    <link rel="stylesheet" type="text/css" href="{%static 'assets/CSS/IntroToHTML/index.css'%}">
+    <link rel="stylesheet" type="text/css" href="{%static 'assets/CSS/IntroToHTML/header.css'%}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style>
+        .chapter-pointer-16{
+	        border: 2px solid skyblue;
+        }
+        .js-shots{
+            width: 50%;
+        }
+        @media(max-width: 760px){
+            .js-shots{
+                width: 100%;
+            }
+            
+            
+        }
+        .code-container::-webkit-scrollbar{
+            /* overflow: hidden; */
+            display: none;
+        }
+        pre.code-editor-content{
+            overflow-y: hidden;
+            margin-bottom: -60px;
+            overflow-x: scroll;
+        }
+        .code-editor-content{
+            margin-top: -160px;
+            padding: 2px 0px;
+        }
+        @media(max-width:720px){
+            pre.code-editor-content{
+            width: 1500px;
+            
+            }
+        }
+    </style>
+	
+</head>
+{%include 'all/snippets/header_snippet.html'%}
+<body>
+<main>
+    <div class="main-container">
+        <div class="left-container">
+            {%include 'javaScript/snippets/left-container_snippet.html'%}
+        </div>
+        <div class="mid-container">
+            <h1>Array Methods and Loops</h1>
+            <div class="button-container">
+                <a href="{%url 'js_page15'%}"><button class="prev">Prev</button></a>
+                <a href="{%url 'js_page17'%}"><button class="next">Next</button></a>
+            </div>
+
+            <div class="notes nb">
+                <p><i style="font-size: 2.5em; color: #ffc200;" class="fa fa-lightbulb-o"></i></p>
+                <p style="font-size: large; line-height: 1.5;">"Great programming isn't just about writing code; it's about thinking critically and creatively to solve problems.
+                     Remember, if you encounter code that confuses you, take a step back and read through it line by line. 
+                     This process will not only help you understand the logic but also sharpen your problem-solving skills. Embrace the challenge, for every line of code is an opportunity to grow as a thinker!"
+                </p>
+            </div>
+           
+
+            <h2>Array Methods</h2>
+            <div class="notes">
+                <p>
+                    JavaScript provides many built-in methods to work with arrays. Here are a few commonly used methods:
+                </p>
+                <ul>
+                    <li><strong>push()</strong>: Adds one or more elements to the end of an array.</li>
+                    <li><strong>pop()</strong>: Removes the last element from an array and returns it.</li>
+                    <li><strong>shift()</strong>: Removes the first element from an array and returns it.</li>
+                    <li><strong>unshift()</strong>: Adds one or more elements to the beginning of an array.</li>
+                    <li><strong>length</strong>: A property that returns the number of elements in an array.</li>
+                </ul>
+            </div>
+
+            <h2 style="text-align: center; color: skyblue; margin-top: 50px;">Example</h2>
+           <div class="code-view">
+            {% for snippet in code_1 %}
+   
+                <div class="code-container">
+                    <button class="copy-button" onclick="copyToClipboard()">Copy</button>
+                    <pre class="code-editor-content">
+                        
+                        <style>
+                            {{ snippet.get_highlighted_code.css | safe }}
+                        </style>
+                        {{ snippet.get_highlighted_code.html | safe }}
+                        
+                    </pre>
+                    
+                </div>
+            
+            {% endfor %}
+        </div>
+
+        <h2 style="text-align: center; color: skyblue; margin-top: 50px;">Output</h2>
+
+        <div class="code-view">
+            <div class="sub-view">
+                <div class="code-block">
+                    <p><strong>&gt;</strong> ['apple', 'banana', 'orange']</p>
+                    <p><strong>&gt;</strong> orange</p>
+                    <p><strong>&gt;</strong> ['apple', 'banana']</p>
+                </div>
+            </div>
+        </div>
+
+        <h2>Looping Through Arrays</h2>
+        <div class="notes">
+            <p>You can use loops to iterate through the elements of an array. The <span class="emphasis">for</span> loop is commonly used for this purpose.</p>
+        </div>
+
+        <h2 style="text-align: center; color: skyblue; margin-top: 50px;">Example</h2>
+           <div class="code-view">
+            {% for snippet in code_2 %}
+   
+                <div class="code-container">
+                    <button class="copy-button" onclick="copyToClipboard()">Copy</button>
+                    <pre class="code-editor-content">
+                        
+                        <style>
+                            {{ snippet.get_highlighted_code.css | safe }}
+                        </style>
+                        {{ snippet.get_highlighted_code.html | safe }}
+                        
+                    </pre>
+                    
+                </div>
+            
+            {% endfor %}
+        </div>
+
+        <h2 style="text-align: center; color: skyblue; margin-top: 50px;">Output</h2>
+
+        <div class="code-view">
+            <div class="sub-view">
+                <div class="code-block">
+                    <p><strong>&gt;</strong> apple</p>
+                    <p><strong>&gt;</strong> banana</p>
+                    <p><strong>&gt;</strong> orange</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="notes">
+            <p><span class="emphasis">fruits.length</span> returns the number of elements in the array, which is 3. The value 3 is then used by the loop for comparison.</p>
+        </div>
+
+        <h2>Using Arrays with User Input</h2>
+
+        <div class="notes">
+            <p>
+                You can also create an array based on user input. For example, let's create a program that allows the user to enter their favorite fruits.
+            </p>
+        </div>
+
+        <h2 style="text-align: center; color: skyblue; margin-top: 50px;">Example</h2>
+        <div class="code-view">
+            {% for snippet in code_3 %}
+   
+                <div class="code-container">
+                    <button class="copy-button" onclick="copyToClipboard()">Copy</button>
+                    <pre class="code-editor-content">
+                        
+                        <style>
+                            {{ snippet.get_highlighted_code.css | safe }}
+                        </style>
+                        {{ snippet.get_highlighted_code.html | safe }}
+                        
+                    </pre>
+                    
+                </div>
+            
+            {% endfor %}
+        </div>
+
+        <h2 style="text-align: center; color: skyblue; margin-top: 50px;">Output</h2>
+
+        <div class="code-view">
+            <div class="sub-view">
+                <div class="code-block">
+                    <p><strong>&gt;</strong> How many favorite fruits do you want to enter? &nbsp;<i class="fa fa-caret-right"></i> 2</p>
+                    <p><strong>&gt;</strong> Enter fruit #1 <i class="fa fa-caret-right"></i> banana</p>
+                    <p><strong>&gt;</strong> Enter fruit #2 <i class="fa fa-caret-right"></i> avocado</p>
+                    <p><strong>&gt;</strong> Your favorite fruits are: banana, avocado</p>
+            
+                </div>
+            </div>
+        </div>
+
+        <div class="notes">
+            <p>In the above example:</p>
+            <ul>
+                <li>The user is prompted to enter how many fruits they want to input.</li>
+                <li>A <span class="emphasis">for</span> loop collects each fruit and adds it to the <span class="emphasis">favoriteFruits</span> array.</li>
+                <li>Finally, the program prints out the list of favorite fruits.</li>
+            </ul>
+        </div>
+
+
+        <h2 style="text-align: center; color: skyblue; margin-top: 50px;">Exercise</h2>
+        <div class="notes">
+            <ol>
+               <li>Write a program that prompts the user to enter 5 numbers and stores them in an array. After all numbers are entered, calculate and print the sum of the numbers.</li>
+               <li>Create a program that prompts the user for their favorite colors until they enter "done". Store the colors in an array and then print the list of colors entered by the user.</li>
+            </ol>
+        </div>
+
+
+        <div class="button-container">
+            <a href="{%url 'js_page15'%}"><button class="prev">Prev</button></a>
+            <a href="{%url 'js_page17'%}"><button class="next">Next</button></a>
+        </div>
+
+        </div>
+    </div>
+</main>
+<footer>
+    {%include 'footer.html'%}
+</footer>
+<script type="text/javascript" src="{%static 'assets/js/main/scripts.js'%}"></script>
+</body>
+</html>

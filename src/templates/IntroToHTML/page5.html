@@ -1,0 +1,96 @@
+{%load static%}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTML paragraphs</title>
+    <link rel="stylesheet" type="text/css" href="{%static 'assets/CSS/IntroToHTML/index.css'%}">
+    <link rel="stylesheet" type="text/css" href="{%static 'assets/CSS/IntroToHTML/header.css'%}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style>
+        .chapter-pointer-5{
+	        border: 2px solid skyblue;
+        }
+    </style>
+</head>
+{%include 'all/snippets/header_snippet.html'%}
+<body>
+    <main>
+    <div class="main-container">
+        <div class="left-container">
+            {%include 'introToHTML_app/snippets/left-container_snippet.html'%} 
+        </div>
+        <div class="mid-container">
+           <h1>HTML Paragraphs</h1>
+           <div class="button-container">
+                <a href="{%url 'page4_view'%}"><button class="prev">Prev</button></a>
+                {%if has_answered == True%}
+                <a href="{%url 'page5b_view'%}"><button class="next">Next</button></a>
+                {%else%}
+                <a href="{{BASE_URL}}/HTMLQ1/"><button class="next">Next</button></a>
+                {%endif%}
+            </div>
+
+           <h2 style="margin-top: 20px;">4.1 Introduction to HTML Paragraphs</h2>
+           <div class="notes">
+            <p>HTML Paragraphs are fundamental building blocks for structuring text content on web pages. They are defined using the <span class="emphasis">&lt;p&gt;</span> tag. This tag helps to 
+            seperate blocks of text, making it more readable and organised for users. An example of how a paragraph is declared can be seen below.</p>
+           </div>
+           <img style="height: 200px; display: block; margin: auto;" src="{%static 'assets/images/IntroToHTML/tags2.png'%}" alt="">
+           
+           <h3 style="text-align: center; color: skyblue; margin-top: 50px;">Result</h3>
+           <div style="color: black;" class="result">
+            <p>This is a Paragraph</p>
+           </div>
+           <button class="run">Try it Yourself</button>
+           <div class="notes">
+            <p><strong>Note:</strong></p>
+            <p>They are line breaks between paragraphs. That is, each paragraph declaration starts on a new line.</p>
+           </div>
+           <h2 style="text-align: center; color: skyblue; margin-top: 50px;">Code example</h2>
+           <div class="code-view">
+            {% for snippet in code %}
+   
+                <div class="code-container">
+                    <button class="copy-button" onclick="copyToClipboard()">Copy</button>
+                    <pre class="code-editor-content">
+                        
+                        <style>
+                            {{ snippet.get_highlighted_code.css | safe }}
+                        </style>
+                        {{ snippet.get_highlighted_code.html | safe }}
+                        
+                    </pre>
+                    
+                </div>
+            
+            {% endfor %}
+        </div>
+                <hr>
+                <h3 style="text-align: center; color: skyblue; margin-top: 50px;">Result</h3>
+                <div style="color: black;" class="result">
+                    <p>This is the First Paragraph</p>
+                    <p>This is the Second Paragraph</p>
+                </div>
+                <button class="run">Try it Yourself</button>
+           
+             <div class="button-container">
+                <a href="{%url 'page4_view'%}"><button class="prev">Prev</button></a>
+                {%if has_answered == True%}
+                <a href="{%url 'page5b_view'%}"><button class="next">Next</button></a>
+                {%else%}
+                <a href="{{BASE_URL}}/HTMLQ1/"><button class="next">Next</button></a>
+                {%endif%}
+            </div>
+        </div>
+        
+        
+    </div>
+</main>
+<footer>
+    {%include 'footer.html'%}
+</footer>
+<script type="text/javascript" src="{%static 'assets/js/main/scripts.js'%}"></script>
+</body>
+</html>

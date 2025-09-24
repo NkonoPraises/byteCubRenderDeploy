@@ -1,0 +1,247 @@
+{%load static%}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Styling Lists</title>
+    <link rel="stylesheet" type="text/css" href="{%static 'assets/CSS/IntroToHTML/index.css'%}">
+    <link rel="stylesheet" type="text/css" href="{%static 'assets/CSS/IntroToHTML/header.css'%}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style>
+        .result{
+            width: 80%;
+            display: block;
+            margin: auto;
+        }
+        .chapter-pointer-5{
+	        border: 2px solid skyblue;
+        }
+    </style>
+</head>
+{%include 'all/snippets/header_snippet.html'%}
+  <body>
+    <main>
+    <div class="main-container">
+        <div class="left-container">
+            {%include 'introToCSS_app/snippets/left-container_snippet.html'%}
+        </div>
+        <div class="mid-container">
+           <h1>Styling Lists</h1>
+
+            <div class="button-container">
+                <a href="{%url 'css_ex2'%}"><button class="prev">Prev</button></a>
+                {%if has_answered == True%}
+                <a href="{%url 'css_6'%}"><button class="next">Next</button></a>
+                {%else%}
+                <a href="{{BASE_URL}}/CSSQ2/"><button class="next">Next</button></a>
+                {%endif%}
+            </div>
+
+           <div class="notes">
+           <p>Styling lists in CSS can enhance the visual presentation of your web content. Both odered lists [<span class="emphasis">&lt;ol&gt;</span>] and 
+            unordered lists [<span class="emphasis">&lt;ul&gt;</span>] can be customized using a variety of CSS properties.</p>
+           </div>
+           <h2>5.1 Common CSS Properties for Lists</h2>
+          <div class="notes">
+            <p>1. <strong>List Style Type</strong></p>
+            <p>Define the bullet style for unordered lists or the numbering style for ordered lists.</p>
+            <h3 style="margin-bottom: 20px; text-align: center; color: skyblue;">Example</h3>
+            <div class="i-code">
+                <div class="sub-icode">
+                    <div class="open-brace">
+                        ul{
+                    </div>
+                    <div class="css-body"><span class="css-property">list-style-type</span><span class="css-value">: disc;</span></div>
+                    <div class="close-brace">
+                    }
+                    </div>
+
+                    <div class="open-brace">
+                        ol{
+                    </div>
+                    <div class="css-body"><span class="css-property">list-style-type</span><span class="css-value">: decimal-leading-zero;</span></div>
+                    <div class="close-brace">
+                    }
+                    </div>
+                </div>
+            </div>
+
+            <h3 style="text-align: center; color: skyblue; margin-top: 50px;">Result</h3>
+                <div class="result">
+                    <ul style="list-style-type: disc;">
+                        <li>First</li>
+                        <li>Second</li>
+                        <li>Third</li>
+                    </ul>
+                </div>
+                <div class="result">
+                    <ul style="list-style-type: decimal-leading-zero;">
+                        <li>One</li>
+                        <li>Two</li>
+                        <li>Three</li>
+                    </ul>
+                </div>
+
+                <!-- section 2 -->
+
+                <p>2. <strong>List Style Position</strong></p>
+                <p>Controls the possition of the bullet or number, either inside or outside the list item's content.</p>
+
+                <h3 style="margin-bottom: 20px; text-align: center; color: skyblue;">Example</h3>
+            <div class="i-code">
+                <div class="sub-icode">
+                    <div class="open-brace">
+                        ul{
+                    </div>
+                    <div class="css-body"><span class="css-property">list-style-position </span><span class="css-value">: inside;</span></div>
+                    <div class="close-brace">
+                    }
+                    </div>
+                    
+                </div>
+            </div>
+
+            <h3 style="text-align: center; color: skyblue; margin-top: 50px;">Result</h3>
+            <div class="result">
+                <ul style="list-style-position: inside;">
+                    <li>First</li>
+                    <li>Second</li>
+                    <li>Third</li>
+                </ul>
+            </div>
+
+            <!-- section 3 -->
+
+            <p>3. <strong>Padding and Margin</strong></p>
+            <p>Adjust the spacing around and within the list items.</p>
+
+            <h3 style="margin-bottom: 20px; text-align: center; color: skyblue;">Example</h3>
+        <div class="i-code">
+            <div class="sub-icode">
+                <div class="open-brace">
+                    ul{
+                </div>
+                <div class="css-body"><span class="css-property">padding </span><span class="css-value">: 20px;</span></div>
+                <div class="css-body"><span class="css-property">margin </span><span class="css-value">: 10px;</span></div>
+                <div class="close-brace">
+                }
+                </div>
+                
+            </div>
+        </div>
+
+        <h3 style="text-align: center; color: skyblue; margin-top: 50px;">Result</h3>
+        <div class="result">
+            <ul style="padding: 20px; margin: 10px;">
+                <li>First</li>
+                <li>Second</li>
+                <li>Third</li>
+            </ul>
+        </div>
+
+            <!-- section 4 -->
+
+            <p>4. <strong>Custom Bullet Points</strong></p>
+            <p>You can use images or custom shapes as bullet points.</p>
+
+            <h3 style="margin-bottom: 20px; text-align: center; color: skyblue;">Example</h3>
+        <div class="i-code">
+            <div class="sub-icode">
+                <div class="open-brace">
+                    ul{
+                </div>
+                <div class="css-body"><span class="css-property">list-style-type </span><span class="css-value">: none;</span></div>
+                <div class="close-brace">
+                }
+                </div>
+
+                <div class="open-brace">
+                    ul li{
+                </div>
+                <div class="css-body"><span class="css-property">background-image </span><span class="css-value">: url('path/to/your/image.png');</span></div>
+                <div class="css-body"><span class="css-property">background-size </span><span class="css-value">: 10px 10px;</span></div>
+                <div class="css-body"><span class="css-property">background-repeat </span><span class="css-value">:no-repeat;</span></div>
+                <div class="css-body"><span class="css-property">background-position </span><span class="css-value">: 0 5px;</span></div>
+                <div class="css-body"><span class="css-property">padding-left </span><span class="css-value">: 15px;</span></div>
+                <div class="close-brace">
+                }
+                </div>
+                
+            </div>
+         </div>
+
+        <h3 style="text-align: center; color: skyblue; margin-top: 50px;">Result</h3>
+            <div class="result">
+            <ul style="list-style: none;">
+                <li style="background-image:  url({%static 'assets/images/introToCSS/css_boxmodel2.jpg'%}); background-size: 10px 10px; background-repeat: no-repeat; background-position: 0 5px; padding-left: 15px;">First</li>
+                <li style="background-image: url({%static 'assets/images/introToCSS/css_boxmodel2.jpg'%}); background-size: 10px 10px; background-repeat: no-repeat; background-position: 0 5px; padding-left: 15px;">Second</li>
+                <li style="background-image: url({%static 'assets/images/introToCSS/css_boxmodel2.jpg'%}); background-size: 10px 10px; background-repeat: no-repeat; background-position: 0 5px; padding-left: 15px;">Third</li>
+            </ul>
+            </div>
+
+            <p><strong>Note:</strong></p>
+         <p><span class="emphasis">list-style-type: none;</span> removes default bullets.</p>
+         <p><span class="emphasis">background-image</span> holds the image.</p>
+         <p><span class="emphasis">background-size</span> controls the size of the image.</p>
+         <p><span class="emphasis">background-position</span> Adjusts the image's position.</p>
+         <p><span class="emphasis">padding-left</span> Creates a space at the left side of the image.</p>
+
+          <!-- section 5 -->
+
+          <p style="margin-top: 40px;">5. <strong>Typography</strong></p>
+          <p>Style the text within the list to be more visually appealing.</p>
+
+          <h3 style="margin-bottom: 20px; text-align: center; color: skyblue;">Example</h3>
+      <div class="i-code">
+          <div class="sub-icode">
+              <div class="open-brace">
+                  li{
+              </div>
+              <div class="css-body"><span class="css-property">font-size </span><span class="css-value">: 16px;</span></div>
+              <div class="css-body"><span class="css-property">color </span><span class="css-value">: #333;</span></div>
+              <div class="css-body"><span class="css-property">line-height </span><span class="css-value">: 1.5;</span></div>
+
+              <div class="close-brace">
+              }
+              </div>
+              
+          </div>
+       </div>
+
+      <h3 style="text-align: center; color: skyblue; margin-top: 50px;">Result</h3>
+          <div class="result">
+          <ul>
+              <li style="font-size: 16px; color: #333; line-height: 1.5;">First</li>
+              <li style="font-size: 16px; color: #333; line-height: 1.5;">Second</li>
+              <li style="font-size: 16px; color: #333; line-height: 1.5;">Third</li>
+          </ul>
+          </div>
+
+
+          </div>
+
+            
+
+           
+           
+                <button class="run">Try it Yourself</button>
+
+        <div class="button-container">
+            <a href="{%url 'css_ex2'%}"><button class="prev">Prev</button></a>
+            {%if has_answered == True%}
+            <a href="{%url 'css_6'%}"><button class="next">Next</button></a>
+            {%else%}
+            <a href="{{BASE_URL}}/CSSQ2/"><button class="next">Next</button></a>
+            {%endif%}
+        </div>
+        
+        
+    </div>
+   </main>
+  <footer>
+    {%include 'footer.html'%}
+</footer>
+<script type="text/javascript" src="{%static 'assets/js/main/scripts.js'%}"></script>
+</body>
+</html>

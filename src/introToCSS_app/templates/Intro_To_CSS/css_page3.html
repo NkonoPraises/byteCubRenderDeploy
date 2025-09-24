@@ -1,0 +1,389 @@
+{%load static%}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Text Styling</title>
+    <link rel="stylesheet" type="text/css" href="{%static 'assets/CSS/IntroToHTML/index.css'%}">
+    <link rel="stylesheet" type="text/css" href="{%static 'assets/CSS/IntroToHTML/header.css'%}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style>
+        .result{
+            width: 80%;
+            display: block;
+            margin: auto;
+        }
+        .chapter-pointer-3{
+	        border: 2px solid skyblue;
+        }
+    </style>
+</head>
+{%include 'all/snippets/header_snippet.html'%}
+  <body>
+    <main>
+    <div class="main-container">
+        <div class="left-container">
+            {%include 'introToCSS_app/snippets/left-container_snippet.html'%}
+        </div>
+        <div class="mid-container">
+           <h1>Text Styling</h1>
+           
+            <div class="button-container">
+                <a href="{%url 'css_2'%}"><button class="prev">Prev</button></a>
+                {%if has_answered == True%}
+                <a href="{%url 'css_ex1'%}"><button class="next">Next</button></a>
+                {%else%}
+                <a href="{{BASE_URL}}/CSSQ1/"><button class="next">Next</button></a>
+                {%endif%}
+            </div>
+
+           <div class="notes">
+            <p><span class="emphasis">CSS</span> provides various properties to style text in webpages. The properties allow you to control the appearance of text including color,spacing, font, size, and alignment.</p>
+            <p>In this chapter, we are going to be looking at the key text styling properties in CSS. </p>
+           </div>
+           <h2>3.1 Font Properties</h2>
+
+           <div class="notes">
+                <p>In this section, we are going to be working with the following HTML: <span class="emphasis">&lt;p&gt;This is a Paragraph&lt;/p&gt;</span></p>
+                <ul>
+                    <li><span class="emphasis">font-family</span>: Specifies the font of the text.</li> 
+                </ul>
+                <h3 style="margin-bottom: 20px; text-align: center; color: skyblue;">Example</h3>
+                <div class="i-code">
+                    <div class="sub-icode">
+                        <div class="open-brace">
+                            p{
+                        </div>
+                        <div class="css-body"><span class="css-property">font-family</span><span class="css-value">: Times;</span></div>
+                        <div class="close-brace">
+                        }
+                        </div>
+                    </div>
+                </div>
+                <h3 style="text-align: center; color: skyblue; margin-top: 50px;">Result</h3>
+                <div class="result">
+                    <p style="font-family: Times;">This is a Paragraph</p>
+                </div>
+
+                    <!-- subsection-2 -->
+
+                <ul style="margin-top: 50px;">
+                    <li><span class="emphasis">font-size</span>: Sets the size of the text.</li> 
+                </ul>
+                <h3 style="margin-bottom: 20px; text-align: center; color: skyblue;">Example</h3>
+                <div class="i-code">
+                    <div class="sub-icode">
+                        <div class="open-brace">
+                            p{
+                        </div>
+                        <div class="css-body"><span class="css-property">font-size</span><span class="css-value">: 30px;</span></div>
+                        <div class="close-brace">
+                        }
+                        </div>
+                    </div>
+                </div>
+                <h3 style="text-align: center; color: skyblue; margin-top: 50px;">Result</h3>
+                <div class="result">
+                    <p style="font-size: 30px;">This is a Paragraph</p>
+                </div>
+
+                   <!-- subsection-3 -->
+
+                   <ul style="margin-top: 50px;">
+                    <li><span class="emphasis">font-weight</span>: Controls the thickness of the text. Values can be normal, bold, bolder, or a number from 100 to 900.</li> 
+                </ul>
+                <h3 style="margin-bottom: 20px; text-align: center; color: skyblue;">Example</h3>
+                <div class="i-code">
+                    <div class="sub-icode">
+                        <div class="open-brace">
+                            p{
+                        </div>
+                        <div class="css-body"><span class="css-property">font-weight</span><span class="css-value">: bold;</span></div>
+                        <div class="close-brace">
+                        }
+                        </div>
+                    </div>
+                </div>
+                <h3 style="text-align: center; color: skyblue; margin-top: 50px;">Result</h3>
+                <div class="result">
+                    <p style="font-weight: bold;">This is a Paragraph</p>
+                </div>
+
+                <!-- subsection-4 -->
+
+                <ul style="margin-top: 50px;">
+                    <li><span class="emphasis">font-style</span>: Defines the style of the text as normal, italic, or oblique.</li> 
+                </ul>
+                <h3 style="margin-bottom: 20px; text-align: center; color: skyblue;">Example</h3>
+                <div class="i-code">
+                    <div class="sub-icode">
+                        <div class="open-brace">
+                            p{
+                        </div>
+                        <div class="css-body"><span class="css-property">font-style</span><span class="css-value">: italic;</span></div>
+                        <div class="close-brace">
+                        }
+                        </div>
+                    </div>
+                </div>
+                <h3 style="text-align: center; color: skyblue; margin-top: 50px;">Result</h3>
+                <div class="result">
+                    <p style="font-style: italic;">This is a Paragraph</p>
+                </div>
+
+            </div>
+
+            <h2>3.2 Text Color and Background</h2>
+
+            <div class="notes">
+                <p>Colors in CSS can be set using a variety of formats, which include Color name, Hexadecimal, RGB, etc. </p>
+                <ol>
+                    <li><strong>Color Name</strong>: You can use predefined names in CSS. For example: <span class="emphasis">color:orange;</span></li>
+                    <li><strong>Hexadecimal</strong>: Hex codes are a popular way to define colors. For Orange, you would simply use: <span class="emphasis">color:#FFA500;</span></li>
+                    <li><strong>RGB[Red, Green, Blue]</strong>: The RGB format allows you to define colors using their red, green, and blue components. For oronage, it would be: <span class="emphasis">color: rgb(255, 165, 0);</span></li>
+                </ol>
+                <p>Lets use the <strong>class</strong> attribute in this section. Here is the HTML: <span class="emphasis">&lt;p class="text"&gt;This is a Paragraph&lt;/p&gt;</span></p>
+                <!-- subsection-1 -->
+
+                <ul style="margin-top: 50px;">
+                    <li><span class="emphasis">color</span>: Sets the color of the text.</li> 
+                </ul>
+                <h3 style="margin-bottom: 20px; text-align: center; color: skyblue;">Example</h3>
+                <div class="i-code">
+                    <div class="sub-icode">
+                        <div class="open-brace">
+                            .text{
+                        </div>
+                        <div class="css-body"><span class="css-property">color</span><span class="css-value">: orange;</span></div>
+                        <div class="close-brace">
+                        }
+                        </div>
+                    </div>
+                </div>
+                <h3 style="text-align: center; color: skyblue; margin-top: 50px;">Result</h3>
+                <div class="result">
+                    <p style="color: orange;">This is a Paragraph</p>
+                </div>
+
+                <!-- subsection-2 -->
+
+                <ul style="margin-top: 50px;">
+                    <li><span class="emphasis">background-color</span>: Sets the background color behind the text.</li> 
+                </ul>
+                <h3 style="margin-bottom: 20px; text-align: center; color: skyblue;">Example</h3>
+                <div class="i-code">
+                    <div class="sub-icode">
+                        <div class="open-brace">
+                            .text{
+                        </div>
+                        <div class="css-body"><span class="css-property">background-color</span><span class="css-value">: #FFA500;</span></div>
+                        <div class="close-brace">
+                        }
+                        </div>
+                    </div>
+                </div>
+                <h3 style="text-align: center; color: skyblue; margin-top: 50px;">Result</h3>
+                <div class="result">
+                    <p style="background-color: #FFA500;">This is a Paragraph</p>
+                </div>
+
+            </div>
+            
+            <h2>3.4 Text Alignment and Decoration</h2>
+            <div class="notes">
+                <p>Lets use the <strong>ID</strong> attribute in this section. Here is the HTML: <span class="emphasis">&lt;p id="text"&gt;This is a Paragraph&lt;/p&gt;</span></p>
+                <!-- subsection-1 -->
+
+                <ul style="margin-top: 50px;">
+                    <li><span class="emphasis">text-align</span>: Specifies the horizontal alignment of text. Possible values are left, right, center or justify.</li> 
+                </ul>
+                <h3 style="margin-bottom: 20px; text-align: center; color: skyblue;">Example</h3>
+                <div class="i-code">
+                    <div class="sub-icode">
+                        <div class="open-brace">
+                            #text{
+                        </div>
+                        <div class="css-body"><span class="css-property">text-align</span><span class="css-value">: right;</span></div>
+                        <div class="close-brace">
+                        }
+                        </div>
+                    </div>
+                </div>
+                <h3 style="text-align: center; color: skyblue; margin-top: 50px;">Result</h3>
+                <div class="result">
+                    <p style="text-align: right;">This is a Paragraph</p>
+                </div>
+
+                 <!-- subsection-2 -->
+
+                 <ul style="margin-top: 50px;">
+                    <li><span class="emphasis">text-decoration</span>: Adds decoration to text, such as underlin, overline, or line-through.</li> 
+                </ul>
+                <h3 style="margin-bottom: 20px; text-align: center; color: skyblue;">Example</h3>
+                <div class="i-code">
+                    <div class="sub-icode">
+                        <div class="open-brace">
+                            #text{
+                        </div>
+                        <div class="css-body"><span class="css-property">text-decoration</span><span class="css-value">: underline;</span></div>
+                        <div class="close-brace">
+                        }
+                        </div>
+                    </div>
+                </div>
+                <h3 style="text-align: center; color: skyblue; margin-top: 50px;">Result</h3>
+                <div class="result">
+                    <p style="text-decoration: underline;">This is a Paragraph</p>
+                </div>
+
+            </div>
+
+            <h2>3.4 Text Alignment and Decoration</h2>
+            <div class="notes">
+                <p>Lets use the h2 element in this section: <span class="emphasis">&lt;h2&gt;This is a Heading&lt;/h2&gt;</span></p>
+                <!-- subsection-1 -->
+
+                <ul style="margin-top: 50px;">
+                    <li><span class="emphasis">text-transform</span>: Controls the capitalization of text. Values include <strong>uppercase</strong>, <strong>lowercase</strong>, and <strong>capitalize</strong>.</li> 
+                </ul>
+                <h3 style="margin-bottom: 20px; text-align: center; color: skyblue;">Example</h3>
+                <div class="i-code">
+                    <div class="sub-icode">
+                        <div class="open-brace">
+                            h2{
+                        </div>
+                        <div class="css-body"><span class="css-property">text-transform</span><span class="css-value">: uppercase;</span></div>
+                        <div class="close-brace">
+                        }
+                        </div>
+                    </div>
+                </div>
+                <h3 style="text-align: center; color: skyblue; margin-top: 50px;">Result</h3>
+                <div class="result">
+                    <h2 style="text-transform: uppercase; margin-top: 0;">This is a Heading</h2>
+                </div>
+            </div>
+
+            <h2>3.5 Letter and Word Spacing</h2>
+            <div class="notes">
+                <p>Lets use the h2 element in this section: <span class="emphasis">&lt;h2&gt;This is a Heading&lt;/h2&gt;</span></p>
+                <!-- subsection-1 -->
+
+                <ul style="margin-top: 50px;">
+                    <li><span class="emphasis">letter-spacing</span>: Adjusts the space between characters.</li> 
+                </ul>
+                <h3 style="margin-bottom: 20px; text-align: center; color: skyblue;">Example</h3>
+                <div class="i-code">
+                    <div class="sub-icode">
+                        <div class="open-brace">
+                            h2{
+                        </div>
+                        <div class="css-body"><span class="css-property">letter-spacing</span><span class="css-value">: 2px;</span></div>
+                        <div class="close-brace">
+                        }
+                        </div>
+                    </div>
+                </div>
+                <h3 style="text-align: center; color: skyblue; margin-top: 50px;">Result</h3>
+                <div class="result">
+                    <h2 style="letter-spacing: 2px; margin-top: 0;">This is a Heading</h2>
+                </div>
+
+                 <!-- subsection-2 -->
+
+                 <ul style="margin-top: 50px;">
+                    <li><span class="emphasis">word-spacing</span>: Adjusts the space between words.</li> 
+                </ul>
+                <h3 style="margin-bottom: 20px; text-align: center; color: skyblue;">Example</h3>
+                <div class="i-code">
+                    <div class="sub-icode">
+                        <div class="open-brace">
+                            h2{
+                        </div>
+                        <div class="css-body"><span class="css-property">word-spacing</span><span class="css-value">: 10px;</span></div>
+                        <div class="close-brace">
+                        }
+                        </div>
+                    </div>
+                </div>
+                <h3 style="text-align: center; color: skyblue; margin-top: 50px;">Result</h3>
+                <div class="result">
+                    <h2 style="word-spacing: 10px; margin-top: 0;">This is a Heading</h2>
+                </div>
+
+            </div>
+
+            <h2>3.6 Letter and Word Spacing</h2>
+            <div class="notes">
+                <p>Lets use the p element in this section: <span class="emphasis">&lt;p&gt;This is a sentence&lt;/p&gt;</span></p>
+                <!-- subsection-1 -->
+
+                <ul style="margin-top: 50px;">
+                    <li><span class="emphasis">line-height</span>: Sets the height of each line of text.</li> 
+                </ul>
+                <h3 style="margin-bottom: 20px; text-align: center; color: skyblue;">Example</h3>
+                <div class="i-code">
+                    <div class="sub-icode">
+                        <div class="open-brace">
+                            p{
+                        </div>
+                        <div class="css-body"><span class="css-property">line-height</span><span class="css-value">: 2.5;</span></div>
+                        <div class="close-brace">
+                        }
+                        </div>
+                    </div>
+                </div>
+                <h3 style="text-align: center; color: skyblue; margin-top: 50px;">Result</h3>
+                <div class="result">
+                    <p style="line-height: 2.5; margin-top: 0;">This is a Heading</p>
+                </div>
+
+                 <!-- subsection-2 -->
+
+                 <ul style="margin-top: 50px;">
+                    <li><span class="emphasis">text-indent</span>: Indents the first line in a block.</li> 
+                </ul>
+                <h3 style="margin-bottom: 20px; text-align: center; color: skyblue;">Example</h3>
+                <div class="i-code">
+                    <div class="sub-icode">
+                        <div class="open-brace">
+                            p{
+                        </div>
+                        <div class="css-body"><span class="css-property">text-indent</span><span class="css-value">: 50px;</span></div>
+                        <div class="close-brace">
+                        }
+                        </div>
+                    </div>
+                </div>
+                <h3 style="text-align: center; color: skyblue; margin-top: 50px;">Result</h3>
+                <div class="result">
+                    <p style="text-indent: 50px; margin-top: 0;">This is a Heading</p>
+                </div>
+
+            </div>
+
+            
+
+           
+           
+                <button class="run">Try it Yourself</button>
+            <div class="button-container">
+                <a href="{%url 'css_2'%}"><button class="prev">Prev</button></a>
+                {%if has_answered == True%}
+                <a href="{%url 'css_ex1'%}"><button class="next">Next</button></a>
+                {%else%}
+                <a href="{{BASE_URL}}/CSSQ1/"><button class="next">Next</button></a>
+                {%endif%}
+            </div>
+        </div>
+        
+        
+    </div>
+   </main>
+  <footer>
+    {%include 'footer.html'%}
+</footer>
+<script type="text/javascript" src="{%static 'assets/js/main/scripts.js'%}"></script>
+</body>
+</html>

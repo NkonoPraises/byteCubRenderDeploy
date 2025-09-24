@@ -1,0 +1,110 @@
+{%load static%}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact - Fashion Forward</title>
+    <link rel="stylesheet" href="{%static 'assets/CSS/blog_preview/style.css'%}">
+    <link rel="stylesheet" href="{%static 'assets/CSS/blog_preview/contact.css'%}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+</head>
+<style>
+    .back{
+       position: fixed;
+       padding: 3px 10px;
+       background-color: lightblue;
+       opacity: 0.7;
+       
+   }
+</style>
+<body>
+
+    <header class="site-header">
+        {%include 'blog_preview/blog_preview_snippets/header.html'%}
+     </header>
+
+    <main>
+        <span class="back"><a href="{%url 'blog_pg59'%}"><i class="fa fa-arrow-left"></i> Back</a></span>
+
+        <section id="contact-hero">
+            <div class="hero-image">
+                <img src="{%static 'assets/images/Front End Dev/pexels-karolina-grabowska-7876973.jpg'%}" alt="Contact Us Hero Image">
+            </div>
+            <div class="hero-content">
+                <h1>Get in Touch</h1>
+                <p>We'd love to hear from you! Whether you have a question, suggestion, or just want to connect, please feel free to reach out to us using the form below.</p>
+            </div>
+        </section>
+
+        <section id="contact-form-section">
+            <h2>Send Us a Message</h2>
+            <form id="contact-form">
+                <div class="form-group">
+                    <label for="name">Your Name:</label>
+                    <input type="text" id="name" name="name" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Your Email:</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="subject">Subject:</label>
+                    <input type="text" id="subject" name="subject">
+                </div>
+                <div class="form-group">
+                    <label for="message">Message:</label>
+                    <textarea id="message" name="message" rows="5" required></textarea>                </div>
+                <button type="submit" class="button">Send Message</button>
+            </form>
+        </section>
+
+        <section id="contact-info-section">
+            <h2>Contact Information</h2>
+            <div class="contact-info-grid">
+                <div class="contact-info-item">
+                    <i class="fas fa-envelope"></i>
+                    <h3>Email:</h3>
+                    <p><a href="mailto:info@yourfashionblog.com">info@yourfashionblog.com</a></p>
+                </div>
+                <div class="contact-info-item">
+                    <i class="fas fa-phone"></i>
+                    <h3>Phone:</h3>
+                    <p>[Your Phone Number]</p>
+                </div>
+                <div class="contact-info-item">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <h3>Address:</h3>
+                    <p>[Your Address (Optional)]</p>
+                </div>
+                <!-- Add Social Media Links -->
+                <div class="contact-info-item">
+                    <i class="fa fa-instagram"></i>
+                    <h3>Instagram:</h3>
+                    <p><a href="#">@yourfashionblog</a></p>
+                </div>
+                 <div class="contact-info-item">
+                    <i class="fa fa-twitter"></i>
+                    <h3>Twitter:</h3>
+                    <p><a href="#">@yourfashionblog</a></p>
+                </div>
+
+            </div>
+        </section>
+
+    </main>
+
+    <footer>
+        <!-- Your Footer: Copyright, Social Links, Contact Info -->
+        <p>&copy; 2023 [Your Fashion Blog Name]</p>
+    </footer>
+
+  <footer>
+    {%include 'footer.html'%}
+</footer>
+<script type="text/javascript" src="{%static 'assets/js/main/scripts.js'%}"></script>
+</main>
+</body>
+</html>

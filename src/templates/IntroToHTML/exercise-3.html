@@ -1,0 +1,119 @@
+{%load static%}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercise Three</title>
+    <link rel="stylesheet" type="text/css" href="{%static 'assets/CSS/IntroToHTML/index.css'%}">
+    <link rel="stylesheet" type="text/css" href="{%static 'assets/CSS/IntroToHTML/header.css'%}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style>
+        .HTML-exercise-3-pointer{
+	        border: 2px solid skyblue;
+        }
+        h1,h2{
+            text-align: center;
+            margin-top: -5px;
+        }
+        p{
+            text-align: center;
+        }
+
+        
+    </style>
+</head>
+{%include 'all/snippets/header_snippet.html'%}
+<body>
+    <main>
+    <div class="main-container">
+        <div class="left-container">
+            {%include 'introToHTML_app/snippets/left-container_snippet.html'%}
+        </div>
+        <div class="mid-container">
+            <h1 style="text-align: center; margin-bottom: 15px;">Exercise Three</h1>
+
+            <div class="button-container">
+                <a href="{%url 'page6b_view'%}"><button class="prev">Prev</button></a>
+                <a href="{%url 'page7_view'%}"><button class="next">Next</button></a>
+            </div>
+
+           <div class="notes">
+            <p>Replicate the following table about the various iPhone specifications below [name it <span class="emphasis">iphone.html</span>].</p>
+           </div>
+           <div class="result">
+            <table border="1">
+                <tr>
+                    <td colspan="6" style="text-align: center;"><strong>iPhone Specifications</strong></td>
+                </tr>
+                <tr>
+                    <th>Model</th>
+                    <th>Display Size</th>
+                    <th>Processor</th>
+                    <!-- <th colspan="2">Camera</th> -->
+                    <th>Camera</th>
+                    <th>Battery Life</th>
+                </tr>
+                <tr>
+                    <td>iPhone X</td>
+                    <td>5.8 inches</td>
+                    <td>A11 Bionic</td>
+                    <!-- <td rowspan="3">Dual 12 MP</td> -->
+                    <td>Dual 12 MP (Wide & Telephoto)</td>
+                    <td>21 hours talk time</td>
+                </tr>
+                <tr>
+                    <td>iPhone 11</td>
+                    <td>6.1 inches</td>
+                    <td>A13 Bionic</td>
+                    <td>Dual 12 MP (Ultra Wide & Wide)</td>
+                    <td>17 hours talk time</td>
+                </tr>
+                <tr>
+                    <td>iPhone 12</td>
+                    <td>6.1 inches</td>
+                    <td>A14 Bionic</td>
+                    <td>Dual 12 MP (Ultra Wide & Wide)</td>
+                    <td>17 hours talk time</td>
+                </tr>
+                <tr>
+                    <td>iPhone 13</td>
+                    <td>6.1 inches</td>
+                    <td>A15 Bionic</td>
+                    <td>Dual 12 MP (Wide & Ultra Wide)</td>
+                    <!-- <td colspan="2">Dual 12 MP (Wide & Ultra Wide)</td> -->
+                    <td>19 hours talk time</td>
+                </tr>
+            </table>
+           </div>
+           <button class="run">Try it Yourself</button>
+
+            <!-- Whatsapp community button -->
+            <section id="whatsapp-community">
+                <div class="whatsapp">
+                    <p>Encountering difficulties? Our Whatsapp community is a collaborative space for sharing and assistance.</p>
+                </div>
+
+                <div class="whatsapp-button-floating">
+                    <a href="https://chat.whatsapp.com/EleIRPRKMN73Ly1GkHnjGV?mode=ems_copy_t" target="_blank">
+                        <i class="fab fa-whatsapp"></i>
+                        <span>Chat</span>
+                    </a>
+                </div>
+            </section>
+
+           <div class="button-container">
+            <a href="{%url 'page6b_view'%}"><button class="prev">Prev</button></a>
+            <a href="{%url 'page7_view'%}"><button class="next">Next</button></a>
+        </div>
+        </div>
+        
+        
+    </div>
+</main>
+<footer>
+    {%include 'footer.html'%}
+</footer>
+<script type="text/javascript" src="{%static 'assets/js/main/scripts.js'%}"></script>
+</body>
+</html>

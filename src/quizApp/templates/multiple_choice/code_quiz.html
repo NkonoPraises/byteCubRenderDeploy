@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Code Input Quiz</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Fira+Code&display=swap');
+
+  body {
+    margin: 0;
+    background: linear-gradient(135deg, #1e2a38, #283e51);
+    font-family: 'Fira Code', monospace;
+    color: #d0d7de;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    min-height: 100vh;
+    padding: 30px 15px;
+  }
+
+  .container {
+    background: #0f1620;
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.8);
+    max-width: 720px;
+    width: 100%;
+    padding: 25px 30px 40px;
+    display: flex;
+    flex-direction: column;
+  }
+
+  h1 {
+    margin-bottom: 25px;
+    font-weight: 700;
+    font-size: 1.8rem;
+    color: #61dafb;
+    text-align: center;
+  }
+
+  label {
+    font-size: 1rem;
+    margin-bottom: 10px;
+    color: #a0b8d9;
+    user-select: none;
+  }
+
+  /* Code editor container */
+  .code-editor {
+    position: relative;
+    font-family: 'Fira Code', monospace;
+    font-size: 1rem;
+    line-height: 1.4;
+    background: #011627;
+    border-radius: 8px;
+    box-shadow: inset 0 0 15px #0a2239;
+    color: #d6deeb;
+    display: flex;
+    height: 280px;
+    overflow: hidden;
+  }
+
+  /* Line numbers */
+  .line-numbers {
+    user-select: none;
+    padding: 10px 12px;
+    background: #011627;
+    color: #4d5bce;
+    text-align: right;
+    border-right: 1px solid #0a2239;
+    font-size: 0.9rem;
+    line-height: 1.4;
+    width: 40px;
+    overflow: hidden;
+  }
+
+  /* Textarea styled as code editor */
+  textarea.code-input {
+    flex-grow: 1;
+    padding: 10px 15px;
+    border: none;
+    outline: none;
+    resize: none;
+    background: transparent;
+    color: #d6deeb;
+    font-family: inherit;
+    font-size: 1rem;
+    line-height: 1.4;
+    caret-color: #61dafb;
+    white-space: pre-wrap;
+    overflow-y: auto;
+    overflow-x: auto;
+  }
+
+  /* Scrollbar styling */
+  textarea.code-input::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+  }
+  textarea.code-input::-webkit-scrollbar-thumb {
+    background: #4d5bce;
+    border-radius: 4px;
+  }
+  textarea.code-input::-webkit-scrollbar-track {
+    background: #011627;
+  }
+
+  /* Submit button */
+  button.submit-btn {
+    margin-top: 25px;
+    padding: 14px 0;
+    font-family: 'Fira Code', monospace;
+    font-weight: 700;
+    font-size: 1.2rem;
+    background: #4d5bce;
+    color: white;
+        border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    box-shadow: 0 5px 15px rgba(77, 91, 206, 0.7);
+    transition: background-color 0.3s ease, transform 0.15s ease;
+  }
+
+  button.submit-btn:hover {
+    background-color: #3c4bb7;
+    transform: scale(1.05);
+  }
+
+  button.submit-btn:active {
+    transform: scale(0.95);
+  }
+
+  /* Responsive */
+  @media (max-width: 480px) {
+    .container {
+      padding: 20px 15px 30px;
+    }
+    .code-editor {
+      height: 220px;
+    }
+  }
+</style>
+</head>
+<body>
+
+<div class="container" role="main" aria-label="Code input quiz form">
+  <h1>Code Input Quiz</h1>
+  <form action="{% url 'code_quiz_answer' %}" method="post" id="codeQuizForm">
+    {% csrf_token %}
+    <label for="codeInput">Write your answer below:</label>
+    <div class="code-editor" aria-live="polite">
+      <div class="line-numbers" aria-hidden="true" id="lineNumbers">
+        1
+      </div>
+      <textarea
+        id="codeInput"
+        name="user_code"
+        class="code-input"
+        spellcheck="false"
+        autocomplete="off"
+        autocorrect="off"
+        autocapitalize="off"
+        aria-describedby="codeHelp"
+        rows="15"
+        required
+        placeholder="Type your code here..."
+      ></textarea>
+    </div>
+    <small id="codeHelp" style="color:#7a8ca8; display:block; margin-top:6px;">Your answer will be compared word-for-word.</small>
+
+    <button type="submit" class="submit-btn" aria-label="Submit your code answer">Submit</button>
+  </form>
+</div>
+
+<script>
+  const textarea = document.getElementById('codeInput');
+  const lineNumbers = document.getElementById('lineNumbers');
+
+  function updateLineNumbers() {
+    const lines = textarea.value.split('\n').length;
+    let lineNumbersContent = '';
+    for (let i = 1; i <= lines; i++) {
+      lineNumbersContent += i + '\n';
+    }
+    lineNumbers.textContent = lineNumbersContent;
+  }
+
+  textarea.addEventListener('input', updateLineNumbers);
+  textarea.addEventListener('scroll', () => {
+    lineNumbers.scrollTop = textarea.scrollTop;
+  });
+
+  // Initialize line numbers on page load
+  updateLineNumbers();
+</script>
+
+</body>
+</html>

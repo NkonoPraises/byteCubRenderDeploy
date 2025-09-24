@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>My Subscription</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 40px; }
+        table { width: 100%; border-collapse: collapse; margin: 20px 0; }
+        th, td { border: 1px solid #ddd; padding: 8px; text-align: left; }
+        th { background-color: #f2f2f2; }
+        .active { background-color: #d4edda; }
+        .pending { background-color: #fff3cd; }
+        .expired { background-color: #f8d7da; }
+        .upgrades-container { margin: 20px 0; }
+        .upgrade-card { border: 1px dashed #FF9800; padding: 15px; margin: 10px 0; border-radius: 5px; }
+    </style>
+</head>
+<body>
+    <h1>My Subscription</h1>
+    
+    {% if active_subscription %}
+    <div class="active">
+        <h2>Active Plan: {{ active_subscription.plan.name }}</h2>
+        <p>Status: {{ active_subscription.get_status_display }}</p>
+        <p>Start Date: {{ active_subscription.start_date|date:"M d, Y" }}</p>
+        <p>End Date: {{ active_subscription.end_date|date:"M d, Y" }}</p>
+        <p>Payment Method: {{ active_subscription.payment_method }}</p>
+    </div>
+    
+    {% if available_upgrades %}
+    <div class="upgrades-container">
+        <h3>Available Upgrades</h3>
+        {% for upgrade in available_upgrades %}
+        <div class="upgrade-card">
+            <h4>{{ upgrade.name }}</h4>
+            <p>Price: ${{ upgrade.price_usd }} USD / {{ upgrade.price_cfa }} CFA Frs</p>
+            <a href="{% url 'choose_plan' upgrade.id %}" class="upgrade-btn">
+                Upgrade to {{ upgrade.name }}
+            </a>
+        </div>
+        {% endfor %}
+    </div>
+    {% endif %}
+    
+    {% elif pending_subscription %}
+    <div class="pending">
+        <h2>Pending Plan: {{ pending_subscription.plan.name }}</h2>
+        <p>Status: {{ pending_subscription.get_status_display }}</p>
+        <p>Created: {{ pending_subscription.created_at|date:"M d, Y" }}</p>
+        <p class="warning">Please complete your payment to activate this subscription.</p>
+    </div>
+    {% endif %}
+    
+    <h2>Subscription History</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>Plan</th>
+                <th>Status</th>
+                <th>Start Date</th>
+                <th>End Date</th>
+                <th>Type</th>
+                <th>Created At</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for subscription in subscriptions %}
+            <tr class="{{ subscription.status }}">
+                <td>{{ subscription.plan.name }}</td>
+                <td>{{ subscription.get_status_display }}</td>
+                <td>{% if subscription.start_date %}{{ subscription.start_date|date:"M d, Y" }}{% else %}N/A{% endif %}</td>
+                <td>{% if subscription.end_date %}{{ subscription.end_date|date:"M d, Y" }}{% else %}N/A{% endif %}</td>
+                <td>{% if subscription.is_upgrade %}Upgrade{% else %}New{% endif %}</td>
+                <td>{{ subscription.created_at|date:"M d, Y" }}</td>
+            </tr>
+            {% empty %}
+            <tr>
+                <td colspan="6">No subscription history</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    
+    <p><a href="{% url 'plans' %}">View All Plans</a></p>
+</body>
+</html>

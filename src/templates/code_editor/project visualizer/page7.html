@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Links and File Paths in HTML</title>
+    <link rel="stylesheet" type="text/css" href="CSS/index.css">
+</head>
+<body>
+    <div class="main-container">
+        <div class="left-container"></div>
+        <div class="mid-container">
+           <h1 id="mainHeading">Links and Filepaths in HTML</h1>
+           <div class="notes">
+            <p>In HTML, links and file paths are essential for navigating between documents and resources on the web. Understanding how to create and manage this links is crucial for web development.</p>
+           </div>
+           <h2 style="margin-top: 20px;">7.1 Links in HTML</h2>
+           <div class="notes">
+            <p>Links are created using the <span class="emphasis">&lt;a&gt;</span>[anchor] element. Users can click on anything 
+                between the opening <span class="emphasis">&lt;a&gt;</span> tag and the closing <span class="emphasis">&lt;/a&gt;</span> tag. The primary attribute for linking is <span class="emphasis">href</span>,
+                which specifies the <strong>URL</strong> of the page or the resource the link points to.
+            </p>
+           </div>
+           <img style="height: 300px; display: block; margin: auto;" src="images/link1.png" alt="">
+           
+           <h2 style="text-align: center; margin-top: 50px;">Types of Links</h2>
+           <h3 style="margin-top: 20px;">1- External Links:</h3>
+           <div class="notes">
+            <p>This are links that point to a different website.</p>
+           </div>
+           <h2 style="text-align: center; color: skyblue; margin-top: 50px;">Code example</h2>
+                <hr>
+                <h3 style="text-align: center; color: skyblue; margin-top: 50px;">Result</h3>
+                <div class="result">
+                    <a href="https://www.google.com">Google</a>
+                </div>
+                <button class="run">Try it Yourself</button>
+
+            <h3 style="margin-top: 20px;">1- Internal Links:</h3>
+            <div class="notes">
+            <p>This are links that point to another page within the same website.</p>
+            </div>
+            <h2 style="text-align: center; color: skyblue; margin-top: 50px;">Code example</h2>
+                <hr>
+                <h3 style="text-align: center; color: skyblue; margin-top: 50px;">Result</h3>
+                <div class="result">
+                    <a href="page7.html">HTML Lists</a>
+                </div>
+                <button class="run">Try it Yourself</button>
+
+            <h3 style="margin-top: 20px;">3- Anchor Links:</h3>
+            <div class="notes">
+            <p>This are links that navigates to a specific section within the same page.</p>
+            </div>
+            <h2 style="text-align: center; color: skyblue; margin-top: 50px;">Code example</h2>
+                <hr>
+                <h3 style="text-align: center; color: skyblue; margin-top: 50px;">Result</h3>
+                <div class="result">
+                    <a href="#mainHeading">Main Heading</a>
+                </div>
+                <button class="run">Try it Yourself</button>
+
+            <h3 style="margin-top: 20px;">4- Email Links:</h3>
+            <div class="notes">
+            <p>This are links that opens the user's email clint to send an email.</p>
+            </div>
+            <h2 style="text-align: center; color: skyblue; margin-top: 50px;">Code example</h2>
+                <hr>
+                <h3 style="text-align: center; color: skyblue; margin-top: 50px;">Result</h3>
+                <div class="result">
+                    <a href="mailto:example@gmail.com">Email Us</a>
+                </div>
+                <button class="run">Try it Yourself</button>
+
+                <h2>7.2 Filepaths in HTML</h2>
+                <div class="notes">
+                    <p>Filepaths are used to specify the location of files on the server or in the web project. There are two types of filepaths: <strong>absolute</strong> and <strong>relative</strong>.</p>
+                </div>
+
+                <h3 style="margin-top: 20px;">1- Absolute Filepaths:</h3>
+                <div class="notes">
+                    <p>Absolute filepaths provide the full <strong>URL</strong> to a resource. Example, we want to access an image <span class="emphasis">[photo.jpg]</span> in the <strong>images</strong> folder of a website with domain name <strong>'example.com'</strong>: <br> <span class="emphasis">&lt;img src="https://www.example.com/images/photo.jpg"&gt;</span>. </p>
+                </div>
+
+                <h3 style="margin-top: 20px;">2- Relative Filepaths:</h3>
+                <div class="notes">
+                    <p>Relative a path relative to the current document's location. Example, we want to access an image <span class="emphasis">[photo.jpg]</span> in the <strong>the same</strong> folder that we have the HTML document we are current working on:<br> <span class="emphasis">&lt;img src="images/photo.jpg"&gt;</span>. </p>
+                </div>
+
+            <div class="button-container" style="margin-top: 50px; margin-bottom: 100px;">
+                <a href="page6.html"><button class="prev">Prev</button></a>
+                <a href="page8.html"><button class="next">Next</button></a>
+            </div>
+        </div>
+        
+        
+    </div>
+</body>
+</html>

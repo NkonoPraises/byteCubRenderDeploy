@@ -1,0 +1,141 @@
+{%load static%}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lists</title>
+    <link rel="stylesheet" type="text/css" href="{%static 'assets/CSS/IntroToHTML/index.css'%}">
+    <link rel="stylesheet" type="text/css" href="{%static 'assets/CSS/IntroToHTML/header.css'%}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style>
+        .chapter-pointer-6{
+	        border: 2px solid skyblue;
+        }
+        .js-shots{
+            width: 50%;
+        }
+        @media(max-width: 760px){
+            .js-shots{
+                width: 100%;
+            }
+            
+        }
+        .code-container{
+            overflow: hidden;
+        }
+        pre.code-editor-content{
+            width: 100%;
+            overflow-y: hidden;
+            margin-bottom: -60px;
+        }
+        .code-editor-content{
+            margin-top: -160px;
+            padding: 2px 0px;
+        }
+    </style>
+	
+</head>
+{%include 'all/snippets/header_snippet.html'%}
+<body>
+<main>
+    <div class="main-container">
+        <div class="left-container">
+            {%include 'python/snippets/left-container_snippet.html'%}
+        </div>
+        <div class="mid-container">
+            <h1>Lists</h1>
+            <div class="button-container">
+                <a href="{%url 'py_page5'%}"><button class="prev">Prev</button></a>
+                <a href="{%url 'py_page7'%}"><button class="next">Next</button></a>
+            </div>
+           
+
+            <h2>What is a List?</h2>
+            <div class="notes">
+                <p>
+                    In Python, a <span class="emphasis">list</span> is a built-in data structure that allows you to store multiple items in a single variable. 
+                    Lists are versatile and can hold items of different types, including numbers, strings, and even other lists.
+                    They are defined using square brackets [], with items separated by commas.
+                </p>
+            </div>
+
+            <h2>Example of a List</h2>
+            <div class="notes">
+               <p>Here’s an example of how to create a list:</p>
+            </div>
+
+           <div class="code-view">
+            {% for snippet in code_1 %}
+   
+                <div class="code-container">
+                    <button class="copy-button" onclick="copyToClipboard()">Copy</button>
+                    <pre class="code-editor-content">
+                        
+                        <style>
+                            {{ snippet.get_highlighted_code.css | safe }}
+                        </style>
+                        {{ snippet.get_highlighted_code.html | safe }}
+                        
+                    </pre>
+                    
+                </div>
+            
+            {% endfor %}
+        </div>
+
+        <div class="notes">
+            <p>In this example, <span class="emphasis">fruits</span> is a list that contains four string elements:<span class="emphasis">"apple"</span>, <span class="emphasis">"banana"</span>,<span class="emphasis">"cherry"</span>, and <span class="emphasis">"date"</span>.</p>
+        </div>
+        <h2>Characteristics of Lists</h2>
+  
+        <div class="notes">
+            <ol>
+                <li><p><strong>Ordered:</strong> The items in a list have a specific order. This means that the first item has an index of 0, the second item has an index of 1, and so on.</p></li>
+                <li><p><strong>Mutable:</strong> Lists can be changed after they are created. You can add, remove, or change items.</p></li>
+                <li><p><strong>Heterogeneous:</strong> Lists can contain items of different data types. For example, a list can contain integers, strings, and even other lists.</p></li>
+            </ol>
+            
+        </div>
+       
+
+        <h2 style=" margin-bottom: 20px;">Example of a Mixed List</h2>
+           <div class="code-view">
+            {% for snippet in code_2 %}
+   
+                <div class="code-container">
+                    <button class="copy-button" onclick="copyToClipboard()">Copy</button>
+                    <pre class="code-editor-content">
+                        
+                        <style>
+                            {{ snippet.get_highlighted_code.css | safe }}
+                        </style>
+                        {{ snippet.get_highlighted_code.html | safe }}
+                        
+                    </pre>
+                    
+                </div>
+            
+            {% endfor %}
+        </div>
+       
+        <div class="notes">
+            <p>In this example, <span class="emphasis">mixed_list</span> contains an integer, a string, a float, and another list.</p>
+        </div>
+
+
+       
+        <div class="button-container">
+            <a href="{%url 'py_page5'%}"><button class="prev">Prev</button></a>
+            <a href="{%url 'py_page7'%}"><button class="next">Next</button></a>
+        </div>
+
+        </div>
+    </div>
+</main>
+<footer>
+    {%include 'footer.html'%}
+</footer>
+<script type="text/javascript" src="{%static 'assets/js/main/scripts.js'%}"></script>
+</body>
+</html>

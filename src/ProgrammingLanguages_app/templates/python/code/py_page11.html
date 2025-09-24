@@ -1,0 +1,286 @@
+{%load static%}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nested If Statements in Python</title>
+    <link rel="stylesheet" type="text/css" href="{%static 'assets/CSS/IntroToHTML/index.css'%}">
+    <link rel="stylesheet" type="text/css" href="{%static 'assets/CSS/IntroToHTML/header.css'%}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style>
+        .chapter-pointer-11{
+	        border: 2px solid skyblue;
+        }
+        .js-shots{
+            width: 50%;
+        }
+        @media(max-width: 760px){
+            .js-shots{
+                width: 100%;
+            }
+            
+        }
+        .code-container{
+            overflow: hidden;
+        }
+        pre.code-editor-content{
+            width: 100%;
+            overflow-y: hidden;
+            margin-bottom: -60px;
+        }
+        .code-editor-content{
+            margin-top: -160px;
+            padding: 2px 0px;
+        }
+    </style>
+	
+</head>
+{%include 'all/snippets/header_snippet.html'%}
+<body>
+<main>
+    <div class="main-container">
+        <div class="left-container">
+            {%include 'python/snippets/left-container_snippet.html'%}
+        </div>
+        <div class="mid-container">
+            <h1>Nested If Statements</h1>
+    
+            <div class="button-container">
+                <a href="{%url 'py_page10'%}"><button class="prev">Prev</button></a>
+                {%if has_answered == True%}
+                <a href="{%url 'py_page12'%}"><button class="next">Next</button></a>
+                {%else%}
+                <a href="{{BASE_URL}}/PYQ3/"><button class="next">Next</button></a>
+                {%endif%}
+            </div>
+           
+
+            <h2>What are Nested If Statements?</h2>
+            <div class="notes">
+                <p>
+                  <strong>Nested if statements</strong> are if statements placed inside another if statement. This allows you to check multiple conditions in a hierarchical manner.
+                    In other words, you can have an if statement inside another if statement to create more complex decision-making processes in your code.
+                </p>
+            </div>
+
+            <h2>Why Use Nested If Statements?</h2>
+            <div class="notes">
+                <p>Nested if statements are useful when you need to evaluate multiple conditions that depend on one another. For example, you might want to check if a number is positive, and if it is, then check if it is even or odd.</p>
+            </div>
+
+            <h2>Basic Syntax of Nested If Statements</h2>
+            <div class="notes">
+               <p>The syntax for nested if statements looks like this:</p>
+            </div>
+
+
+           <div class="code-view">
+            {% for snippet in code_1 %}
+   
+                <div class="code-container">
+                    <button class="copy-button" onclick="copyToClipboard()">Copy</button>
+                    <pre class="code-editor-content">
+                        
+                        <style>
+                            {{ snippet.get_highlighted_code.css | safe }}
+                        </style>
+                        {{ snippet.get_highlighted_code.html | safe }}
+                        
+                    </pre>
+                    
+                </div>
+            
+            {% endfor %}
+        </div>
+
+
+
+        <h2>Example of Nested If Statements</h2>
+
+        <div class="notes">
+            <p>Let's look at a practical example:</p>
+        </div>
+
+           <div class="code-view">
+            {% for snippet in code_2 %}
+   
+                <div class="code-container">
+                    <button class="copy-button" onclick="copyToClipboard()">Copy</button>
+                    <pre class="code-editor-content">
+                        
+                        <style>
+                            {{ snippet.get_highlighted_code.css | safe }}
+                        </style>
+                        {{ snippet.get_highlighted_code.html | safe }}
+                        
+                    </pre>
+                    
+                </div>
+            
+            {% endfor %}
+        </div>
+        <h2 style="text-align: center; color: skyblue; margin-top: 50px;">Output</h2>
+
+        <div class="code-view">
+            <div class="sub-view">
+                <div class="code-block">
+                    <p><i class="fa fa-angle-double-right"></i> The number is positive.</p>
+                    <p><i class="fa fa-angle-double-right"></i> The number is even.</p>
+                </div>
+            </div>
+        </div>
+
+        <h2>Explanation of the Example:</h2>
+        <div class="notes">
+            <ol>
+                <li>  <strong>Outer If Statement</strong>: The first <span class="emphasis">if</span> checks whether the variable <span class="emphasis">number</span> is greater than <span class="emphasis">0</span>.
+                    <ul>
+                        <li> If this condition is true (which it is, since <span class="emphasis">10</span> is positive), it prints "The number is positive."</li>
+                        <li>It then moves on to the nested <span class="emphasis">if</span> statement.</li>
+                    </ul>
+                </li>
+                <li><strong>Inner If Statement</strong>: The nested <span class="emphasis">if</span> checks whether the number is even by using the modulus operator (<span class="emphasis">%</span>).
+                    <ul>
+                        <li> If <span class="emphasis">number % 2 == 0 </span> evaluates to true [which it does for <span class="emphasis">10</span> because <span class="emphasis">10</span> divides <span class="emphasis">2</span> with no remainder (<span class="emphasis">0</span>)], it prints "The number is even."
+                            <p><span class="emphasis">if number % 2 == 0</span> reads, "<span class="emphasis">if</span> the remainder of <span class="emphasis">number</span> divided by <span class="emphasis">2</span> equals <span class="emphasis">0</span>."</p>
+                        </li>
+                        <li> If the number were odd, it would execute the <span class="emphasis">else</span> block, printing "The number is odd."</li>
+                    </ul>
+                </li>
+                <li><strong>Else Block</strong>: If the outer condition (number > 0) were false, it would print "The number is not positive."</li>
+            </ol>
+        </div>
+
+       
+        <h2>Indentation in Nested If Statements</h2>
+        <div class="notes">
+            <p>
+               Just like regular if statements, nested if statements rely on indentation to define which block of code belongs to which condition. Each level of nesting requires an additional level of indentation. 
+            </p>
+        </div>
+
+        <h2>Multiple Levels of Nesting</h2>
+        <div class="notes">
+            <p>
+                You can nest multiple levels of if statements if needed. However, this can make your code harder to read and maintain. Here's an example with multiple levels:
+            </p>
+        </div>
+        
+           <div class="code-view">
+            {% for snippet in code_3 %}
+   
+                <div class="code-container">
+                    <button class="copy-button" onclick="copyToClipboard()">Copy</button>
+                    <pre class="code-editor-content">
+                        
+                        <style>
+                            {{ snippet.get_highlighted_code.css | safe }}
+                        </style>
+                        {{ snippet.get_highlighted_code.html | safe }}
+                        
+                    </pre>
+                    
+                </div>
+            
+            {% endfor %}
+        </div>
+        <br>
+
+        <h2 style="text-align: center; color: skyblue; margin-top: 50px;">Output</h2>
+
+        <div class="code-view">
+            <div class="sub-view">
+                <div class="code-block">
+                    <p><i class="fa fa-angle-double-right"></i>  Grade: B</p>
+                    <p><i class="fa fa-angle-double-right"></i>  Excellent work!</p>
+                </div>
+            </div>
+        </div>
+
+        <h2>Explanation of Multiple Levels:</h2>
+        <div class="notes">
+            <ul>
+                <li>The first <span class="emphasis">if</span> checks if the score is <span class="emphasis">90</span> or above.
+                    <ul>
+                        <li>If true, it prints "Grade: A".</li>
+                    </ul>
+                </li>
+                <li>If false, it checks if the score is <span class="emphasis">80</span> or above.
+                    <ul>
+                        <li>If true, it prints "Grade: B" and checks again if the score is <span class="emphasis">85</span> or above.</li>
+                        <li> If true, it prints "Excellent work!"</li>
+                    </ul>
+                </li>
+                <li>If none of these conditions are met, it prints "Grade: C or lower".</li>
+            </ul>
+        </div>
+
+       
+        <h2>Best Practices for Nested If Statements</h2>
+        <div class="notes">
+            <ol>
+                <li><strong>Keep It Simple</strong>: Try to limit the number of nested levels. Deeply nested code can become difficult to read and understand.</li>
+                <li><strong>Use Logical Operators</strong>: Sometimes, you can simplify your code by using logical operators (<span class="emphasis">and</span>, <span class="emphasis">or</span>, <span class="emphasis">not</span>) instead of nesting.</li>
+                <li><strong>Comment Your Code</strong>: Adding comments can help explain the logic behind your nested conditions, making it easier for others (and yourself) to understand later.</li>
+            </ol>
+        </div>
+
+        
+       
+        <h2 style="text-align: center; color: skyblue; margin-top: 50px;">Exercise</h2>
+        <div class="notes">
+            <p>Now that you've learned about nested if statements, here's an exercise for you:</p>
+            
+           <ol>
+            <li>Create a variable called <span class="emphasis">temperature</span> and set it to a value representing the current temperature in degrees Celsius.</li>
+            <li>Write a nested if statement that checks:
+                <ul>
+                    <li> If <span class="emphasis">temperature</span> is greater than or equal to 30:
+                        <ul>
+                            <li>print "It's a hot day."</li>
+                            <li> If <span class="emphasis">temperature</span> is greater than 35, print "Stay hydrated!"</li>
+                        </ul> 
+                    </li>
+                    
+                    <li>If <span class="emphasis">temperature</span> is between 20 and 29 (inclusive "<span class="emphasis">if 20 <= temperature <= 29:</span>"):
+                        <ul>
+                            <li>Print "It's a pleasant day."</li>
+                        </ul>
+                    </li>
+                    <li> If <span class="emphasis">temperature</span> is closer to 25 (between 24 and 26, "<span class="emphasis">if 24 <= temperature <= 26:</span>"), print "Perfect weather!"
+                        <ul>
+                            <li> If <span class="emphasis">temperature</span> is less than 20:
+                                <ul>
+                                    <li>Print "It's a cold day."</li>
+                                    <li>If <span class="emphasis">temperature</span> is below 10, print "Wear a heavy jacket!"</li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </li>
+            
+           </ol>
+
+        </div>
+
+
+            <div class="button-container">
+                <a href="{%url 'py_page10'%}"><button class="prev">Prev</button></a>
+                {%if has_answered == True%}
+                <a href="{%url 'py_page12'%}"><button class="next">Next</button></a>
+                {%else%}
+                <a href="{{BASE_URL}}/PYQ3/"><button class="next">Next</button></a>
+                {%endif%}
+            </div>
+
+        </div>
+    </div>
+</main>
+<footer>
+    {%include 'footer.html'%}
+</footer>
+<script type="text/javascript" src="{%static 'assets/js/main/scripts.js'%}"></script>
+</body>
+</html>

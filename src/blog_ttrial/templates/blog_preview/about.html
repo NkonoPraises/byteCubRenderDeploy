@@ -1,0 +1,78 @@
+{%load static%}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About - Fashion Forward</title>
+    <link rel="stylesheet" href="{%static 'assets/CSS/blog_preview/style.css'%}">
+    <link rel="stylesheet" href="{%static 'assets/CSS/blog_preview/about.css'%}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
+
+    <header class="site-header">
+        {%include 'blog_preview/blog_preview_snippets/header.html'%}
+     </header>
+
+    <main>
+        <section id="about-hero">
+            <div class="hero-image">
+                <img src="{%static 'assets/images/Front End Dev/about-us.jpg'%}" alt="About Us Hero Image">
+            </div>
+            <div class="hero-content">
+                <h1>Our Story: Fashion Forward</h1>
+                <p>Welcome to Fashion Forward, your destination for all things fashion, beauty, and style. We're passionate about empowering you to express your unique personality through fashion and providing you with the latest trends and expert advice.</p>
+            </div>
+        </section>
+
+        <section id="our-mission">
+            <h2>Our Mission</h2>
+            <p>At Fashion Forward, our mission is to inspire and inform you with high-quality content that helps you discover your personal style, stay up-to-date with the latest trends, and make confident fashion choices. We believe that fashion should be fun, accessible, and empowering for everyone.</p>
+        </section>
+
+        <section id="team-section">
+            <h2>Meet the Team</h2>
+            <div class="team-grid">
+                <div class="team-member">
+                    <img src="{%static 'assets/images/Front End Dev/team_member_1.jpg'%}" alt="Team Member 1">
+                    <h3>John Emmerich</h3>
+                    <p class="role">Designer</p>
+                    <p class="bio">[Short bio of team member 1]</p>
+                </div>
+                <div class="team-member">
+                    <img src="{%static 'assets/images/Front End Dev/team_member_2.jpg'%}" alt="Team Member 2">
+                    <h3>Hanna Melvic</h3>
+                    <p class="role">Designer</p>
+                    <p class="bio">[Short bio of team member 2]</p>
+                </div>
+                <!-- Add more team members as needed -->
+            </div>
+        </section>
+
+        <section id="values-section">
+            <h2>Our Core Values</h2>
+            <ul>
+                <li><strong>Authenticity:</strong> We strive to provide genuine and unbiased information.</li>
+                <li><strong>Creativity:</strong> We embrace innovative ideas and unique perspectives.</li>
+                <li><strong>Inclusivity:</strong> We celebrate diversity and welcome everyone to our community.</li>
+                <li><strong>Quality:</strong> We are committed to delivering high-quality content that is informative and engaging.</li>
+            </ul>
+        </section>
+
+        <section id="contact-cta">
+            <h2>Connect With Us!</h2>
+            <p>Have questions, suggestions, or just want to say hello? We'd love to hear from you!</p>
+            <a href="contact.html" class="button">Contact Us</a>
+        </section>
+
+    </main>
+
+    <footer class="site-footer">
+        <div class="container">
+            <p>&copy; 2025 Fashion Forward. All rights reserved.</p>
+        </div>
+    </footer>
+
+</body>
+</html>

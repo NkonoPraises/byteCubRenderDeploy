@@ -1,0 +1,106 @@
+{%load static%}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercise Three</title>
+    <link rel="stylesheet" type="text/css" href="{%static 'assets/CSS/IntroToHTML/index.css'%}">
+    <link rel="stylesheet" type="text/css" href="{%static 'assets/CSS/IntroToHTML/header.css'%}">
+    <link rel="stylesheet" type="text/css" href="{%static 'assets/CSS/blog_ttrial/header.css'%}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style>
+        .chapter-pointer-39{
+	        border: 2px solid skyblue;
+        }
+
+       .edit ul{
+            list-style-type : none;
+        }
+       .edit ul li{
+            background-size : 20px 20px;
+            background-repeat :no-repeat;
+            background-position : 0 5px;
+            padding-left : 30px;
+        }
+        .edit ul a{
+            text-decoration: underline;
+        }
+
+
+    </style>
+</head>
+{%include 'all/snippets/header_snippet.html'%}
+<body>
+    <main>
+    <div class="main-container">
+        <div class="left-container">
+            {%include 'snippets/trends-left-container_snippet.html'%} 
+        </div>
+        <div class="mid-container">
+             {%if messages%}
+            <div class="alert alert-warning">
+                <p><strong>Action Required:</strong> You must complete this Exercise before you can proceed. Submit your work using internal CSS.</p>
+            </div>
+            {%endif%}
+           <h1>Exercise Three</h1>
+
+            <div class="button-container">
+                <a href="{%url 'blog_pg38'%}"><button class="prev">Prev</button></a>
+                {%if has_submitted%}
+                <a href="{%url 'blog_pg40'%}"><button class="next">Next</button></a>
+                {%else%}
+                <a href="{%url 'blog_ex3_submission'%}"><button class="next">Next</button></a>
+                {%endif%}
+            </div>
+
+            <p style="font-size: x-large; text-align: center; line-height: 1.5;">You are required to build the <strong>Designers</strong> page of Fashion Forward.</p>
+            <p style="text-align: center;">All the tools you would need are provided below.</p>
+
+            <h2>Images:</h2>
+            <div class="notes edit">
+                <ul>
+                    <a href="{%static 'assets/images/Front End Dev/designer_1.jpg'%}" download=""><li style="background-image : url({%static 'assets/images/Front End Dev/designer_1.jpg'%});">Download</li></a>
+                    <a href="{%static 'assets/images/Front End Dev/designer_2.jpg'%}" download=""><li style="background-image : url({%static 'assets/images/Front End Dev/designer_2.jpg'%});">Download</li></a>
+                    <a href="{%static 'assets/images/Front End Dev/designer_3.jpg'%}" download=""><li style="background-image : url({%static 'assets/images/Front End Dev/designer_3.jpg'%});">Download</li></a>
+                    <a href="{%static 'assets/images/Front End Dev/designer_4.jpg'%}" download=""><li style="background-image : url({%static 'assets/images/Front End Dev/designer_4.jpg'%});">Download</li></a>
+                    <a href="{%static 'assets/images/Front End Dev/pexels-olly-3837268.jpg'%}" download=""><li style="background-image : url({%static 'assets/images/Front End Dev/pexels-olly-3837268.jpg'%});">Download</li></a>
+                </ul>
+            </div>
+
+            <h2>Colors:</h2>
+            <div class="notes">
+                <ul>
+                    <li><span style="padding: 0 15px; margin-right: 20px; background-color: #c0392b;"></span> #c0392b</li>
+                    <li><span style="padding: 0 15px; margin-right: 20px; background-color: #e74c3c;"></span> #e74c3c</li>
+                    <li><span style="padding: 0 15px; margin-right: 20px; background-color: #27ae60;"></span> #27ae60</li>
+                    <li><span style="padding: 0 15px; margin-right: 20px; background-color: #2ecc71;"></span> #2ecc71</li>
+                    <li><span style="padding: 0 15px; margin-right: 20px; background-color: #2980b9;"></span> #2980b9</li>
+                    <li><span style="padding: 0 15px; margin-right: 20px; background-color: #3498db;"></span> #3498db</li>
+                    <li><span style="padding: 0 15px; margin-right: 20px; background-color: #333;"></span> #333</li>
+                    <li><span style="padding: 0 15px; margin-right: 20px; background-color: #666;"></span> #666</li>
+            
+                </ul>
+            </div>
+            <p style="text-align: center;">Click the link below to see a Preview of the <strong>Designers</strong> page.</p>
+            <a href="{%url 'blogPreview_designers'%}"><button class="start">Designers page <i class="fa fa-arrow-right"></i></button></a>
+    
+            <div class="button-container">
+                <a href="{%url 'blog_pg38'%}"><button class="prev">Prev</button></a>
+                {%if has_submitted%}
+                <a href="{%url 'blog_pg40'%}"><button class="next">Next</button></a>
+                {%else%}
+                <a href="{%url 'blog_ex3_submission'%}"><button class="next">Next</button></a>
+                {%endif%}
+            </div>
+        </div>
+        
+        
+    </div>
+  <footer>
+    {%include 'footer.html'%}
+</footer>
+<script type="text/javascript" src="{%static 'assets/js/main/scripts.js'%}"></script>
+</main>
+</body>
+</html>

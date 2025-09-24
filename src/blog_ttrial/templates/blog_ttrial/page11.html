@@ -1,0 +1,266 @@
+{%load static%}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Coding Plan: Blog Posts</title>
+    <link rel="stylesheet" type="text/css" href="{%static 'assets/CSS/IntroToHTML/index.css'%}">
+    <link rel="stylesheet" type="text/css" href="{%static 'assets/CSS/IntroToHTML/header.css'%}">
+    <link rel="stylesheet" type="text/css" href="{%static 'assets/CSS/blog_ttrial/header.css'%}">
+    <link rel="stylesheet" href="{%static 'assets/CSS/tabs/tabs.css'%}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style>
+        .chapter-pointer-11{
+	        border: 2px solid skyblue;
+        }
+
+        /* result styling */
+        .result{
+            padding: 0;
+        }
+        /* result styling */
+        .menu{
+            background: none;
+            border: none;
+            font-size: 25px;
+            color: #333;
+            cursor: pointer; /*cursor arrow changes to a pointer whenever it moves above the button*/
+        }
+        .result ul{
+            display: none;
+        }
+        
+        
+    </style>
+</head>
+{%include 'all/snippets/header_snippet.html'%}
+<body>
+    <main>
+    <div class="main-container">
+        <div class="left-container">
+            {%include 'snippets/2-left-container_snippet.html'%} 
+        </div>
+        <div class="mid-container">
+           <h1>Coding Plan: Blog Posts</h1>
+            <div class="button-container">
+                <a href="{%url 'blog_pg10'%}"><button class="prev">Prev</button></a>
+                <a href="{%url 'blog_pg12'%}"><button class="next">Next</button></a>
+            </div>
+            <h2>Breaking It Down</h2>
+            <img style="width: 100%; margin-top: 20px;" src="{%static 'assets/images/Front End Dev/blog-body-partitioning.png'%}" alt="A view from a desktop browser">
+
+            <div class="notes">
+                <p>Looking at the image above, we notice that the <strong>&lt;main&gt;</strong> can be divided into three components, which are the <strong>Parent</strong>, child <strong>One</strong>, and child <strong>Two</strong>.</p>
+                <p>We also notice that child <strong>One</strong> and child <strong>Two</strong> are <i>nested</i> in the parent component.</p>
+            </div>
+
+            <h2>Coding The Idea</h2>
+            <div class="notes">
+                <p>Now let's write an HTML representation of our annalysis. We are going to call;</p>
+                <ul>
+                    <li>The Parent, <span style="color: orange;">main-container</span>,</li>
+                    <li> Child One, <span style="color: orange;">blog-posts</span> and,</li>
+                    <li>Child Two, <span style="color: orange;">side-bar</span>.</li>
+                </ul>
+            </div>
+            
+           <h2 style="text-align: center; color: skyblue; margin-top: 50px;">index.html</h2>
+            <div class="tab">
+        <button class="tablinks active" onclick="openTab(event, 'Tab1')">Code Snippet</button>
+        <button class="tablinks" onclick="openTab(event, 'Tab2')">Full Code</button>
+        <!-- <button class="tablinks" onclick="openTab(event, 'Tab3')">Tab 3</button> -->
+        </div>
+
+        <div id="Tab1" class="tabcontent" style="display: block;">
+        <div class="code-view">
+                    {% for snippet in code_1a %}
+        
+                        <div class="code-container">
+                            <button class="copy-button" onclick="copyToClipboard()">Copy</button>
+                            <pre class="code-editor-content">
+                                
+                                <style>
+                                    {{ snippet.get_highlighted_code.css | safe }}
+                                </style>
+                                {{ snippet.get_highlighted_code.html | safe }}
+                                
+                            </pre>
+                            
+                        </div>
+                    
+                    {% endfor %}
+                </div>
+        </div>
+
+        <div id="Tab2" class="tabcontent">
+        <div class="code-view">
+                    {% for snippet in code_1 %}
+        
+                        <div class="code-container">
+                            <button class="copy-button" onclick="copyToClipboard()">Copy</button>
+                            <pre class="code-editor-content">
+                                
+                                <style>
+                                    {{ snippet.get_highlighted_code.css | safe }}
+                                </style>
+                                {{ snippet.get_highlighted_code.html | safe }}
+                                
+                            </pre>
+                            
+                        </div>
+                    
+                    {% endfor %}
+                </div>
+        </div>
+
+        <!-- <div id="Tab3" class="tabcontent">
+        <h3>Tab 3 Content</h3>
+        <p>This is the content of Tab 3.</p>
+        </div> -->
+
+
+
+        <h2 style="text-align: center; color: skyblue; margin-top: 50px;">Result</h2>
+        <div class="result">
+           
+            <div class="header-div">
+                <div style="display: flex; justify-content: space-between; align-items: center;" class="header-container">
+                    <div class="logo-2" >Fashion Farward</div>
+                    <nav class="main-nav nav-style">
+                        <button class="menu" style="display: none;">Menu</button>
+                        <ul style="list-style-position: inside; list-style: none; display: flex;">
+                            <li><a href="#">Trends</a></li>
+                            <li><a href="#">Designers</a></li>
+                            <li><a href="#">Outfits</a></li>
+                            <li><a href="#">Beauty</a></li>
+                            <li><a href="#">About</a></li>
+                            <li><a href="#">Contacts</a></li>
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+        
+            <div class="blog-main">
+                <div class="main-containa" style="display: block;"> <!-- parent -->
+
+                    <div class="blog-posts">One </div><!-- child-one -->
+                    <div class="side-bar">Two</div><!-- child-two -->
+            
+                </div>
+            </div>
+        </div>
+
+        <div class="notes">
+            <p>For explanation purposes, we are going to give some temporale heights and borders to the components involved [parent and children &lt;div&gt;].</p>
+        </div>
+
+        <h2 style="text-align: center; color: skyblue; margin-top: 50px;">index.html</h2>
+           <div class="taba">
+        <button class="tablinksa activea" onclick="openTaba(event, 'Tab1a')">Code Snippet</button>
+        <button class="tablinksa" onclick="openTaba(event, 'Tab2a')">Full Code</button>
+        <!-- <button class="tablinks" onclick="openTab(event, 'Tab3')">Tab 3</button> -->
+        </div>
+
+        <div id="Tab1a" class="tabcontenta" style="display: block;">
+        <div class="code-view">
+                    {% for snippet in code_2a %}
+        
+                        <div class="code-container">
+                            <button class="copy-button" onclick="copyToClipboard()">Copy</button>
+                            <pre class="code-editor-content">
+                                
+                                <style>
+                                    {{ snippet.get_highlighted_code.css | safe }}
+                                </style>
+                                {{ snippet.get_highlighted_code.html | safe }}
+                                
+                            </pre>
+                            
+                        </div>
+                    
+                    {% endfor %}
+                </div>
+        </div>
+
+        <div id="Tab2a" class="tabcontenta">
+        <div class="code-view">
+                    {% for snippet in code_2 %}
+        
+                        <div class="code-container">
+                            <button class="copy-button" onclick="copyToClipboard()">Copy</button>
+                            <pre class="code-editor-content">
+                                
+                                <style>
+                                    {{ snippet.get_highlighted_code.css | safe }}
+                                </style>
+                                {{ snippet.get_highlighted_code.html | safe }}
+                                
+                            </pre>
+                            
+                        </div>
+                    
+                    {% endfor %}
+                </div>
+        </div>
+
+        <!-- <div id="Tab3" class="tabcontent">
+        <h3>Tab 3 Content</h3>
+        <p>This is the content of Tab 3.</p>
+        </div> -->
+
+
+        <h2 style="text-align: center; color: skyblue; margin-top: 50px;">Result</h2>
+        <div class="result">
+           
+            <div class="header-div">
+                <div style="display: flex; justify-content: space-between; align-items: center;" class="header-container">
+                    <div class="logo-2" >Fashion Farward</div>
+                    <nav class="main-nav nav-style">
+                        <button class="menu" style="display: none;">Menu</button>
+                        <ul style="list-style-position: inside; list-style: none; display: flex;">
+                            <li><a href="#">Trends</a></li>
+                            <li><a href="#">Designers</a></li>
+                            <li><a href="#">Outfits</a></li>
+                            <li><a href="#">Beauty</a></li>
+                            <li><a href="#">About</a></li>
+                            <li><a href="#">Contacts</a></li>
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+        
+            <div class="blog-main">
+                <div class="main-containa" style="display: block; border: 4px solid black;"> <!-- parent -->
+
+                    <div class="blog-posts" style="border: 2px solid orange; height: 200px;">One </div><!-- child-one -->
+                    <div class="side-bar" style="border: 2px solid skyblue; height: 200px;">Two</div><!-- child-two -->
+            
+                </div>
+            </div>
+        </div>
+
+        <div class="notes">
+            <p>Now let's make our navigation disappear and our <strong>Menu</strong> button re-appear in smaller screens like mobile phone screens. </p>
+        </div>
+
+        
+
+       
+        
+            <div class="button-container" style="margin-top: 50px; margin-bottom: 100px;">
+                <a href="{%url 'blog_pg10'%}"><button class="prev">Prev</button></a>
+                <a href="{%url 'blog_pg12'%}"><button class="next">Next</button></a>
+            </div>
+        </div>
+        
+        
+    </div>
+    <script src="{%static 'assets/js/tabs/tabs.js'%}"></script>
+  <footer>
+    {%include 'footer.html'%}
+</footer>
+<script type="text/javascript" src="{%static 'assets/js/main/scripts.js'%}"></script>
+</main>
+</body>
+</html>

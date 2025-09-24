@@ -1,0 +1,356 @@
+{%load static%}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>A Responsive Layout</title>
+    <link rel="stylesheet" type="text/css" href="{%static 'assets/CSS/IntroToHTML/index.css'%}">
+    <link rel="stylesheet" type="text/css" href="{%static 'assets/CSS/IntroToHTML/header.css'%}">
+    <link rel="stylesheet" type="text/css" href="{%static 'assets/CSS/blog_ttrial/header.css'%}">
+    <link rel="stylesheet" href="{%static 'assets/CSS/tabs/tabs.css'%}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style>
+        .chapter-pointer-58{
+	        border: 2px solid skyblue;
+        }
+
+        /* result styling */
+        .result{
+            padding: 0;
+            max-height: 1150px;
+            overflow-y: scroll;
+        }
+        /* result styling */
+        .menu{
+            background: none;
+            border: none;
+            font-size: 25px;
+            color: #333;
+            cursor: pointer; /*cursor arrow changes to a pointer whenever it moves above the button*/
+        }
+       .result h1{
+        margin: 0;
+       }
+
+       .hero-container{
+            display: flex;
+            align-items: center;
+            padding: 30px;
+            background-color: #f9f9f9;
+        }
+ 
+        .hero-container .left-hero{
+            flex: 1;
+            max-width: 50%;
+        }
+        .tip-item img,
+        .product-item img,
+        .left-hero img {
+            max-width: 100%;
+            height: auto;
+        }
+
+        .hero-container .right-hero{
+            flex: 1;
+        }
+
+        .hero-container .right-hero{
+            flex: 1;
+            max-width: 50%;
+            padding-left: 20px;
+        }
+        .hero-container h1 {
+            font-size: 3em;
+            margin-bottom: 15px;
+            color: #e91e63; 
+        }
+
+        .hero-container p {
+            font-size: 1.2em;
+            color: #555;
+            margin-bottom: 20px;
+        }
+
+        .button {
+            display: inline-block;
+            background-color: #e91e63; /* Pink */
+            color: white;
+            padding: 12px 24px;
+            border-radius: 5px;
+            text-transform: uppercase;
+            font-weight: bold;
+            letter-spacing: 0.5px;
+            transition: background-color 0.3s ease;
+        }
+
+        .button:hover {
+            background-color: #d81b60; /* Darker Pink */
+        }
+
+        .edit ul{
+            list-style-type : none;
+        }
+       .edit ul li{
+            background-size : 20px 20px;
+            background-repeat :no-repeat;
+            background-position : 0 5px;
+            padding-left : 30px;
+        }
+        .edit ul a{
+            text-decoration: underline;
+        }
+
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(265px, 1fr));
+            gap: 20px;
+        }
+        .product-item p,
+        .product-item span{
+            padding-left: 0;
+        }
+        .product-item h3{
+            margin-top: 0;
+        }
+        .tip-item,
+        .product-item {
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            padding: 30px;
+            text-align: left;
+        }
+        .tip-item img,
+        .product-item img{
+            border-radius: 5px;
+            margin-bottom: 20px;
+        }
+        .tip-item h3,
+        .product-item h3{
+            font-size: 1.5em;
+            margin-bottom: 10px;
+            color: #333;
+        }
+        .tip-item,
+        .product-item p {
+            color: #777;
+            margin-bottom: 15px;
+        }
+
+        .product-item .price {
+            font-size: 1.3em;
+            font-weight: bold;
+            color: #e91e63; /* Pink */
+            display: block;
+            margin-bottom: 20px;
+        }
+        .beauty-tips,
+        .featured-products.edit {
+            padding: 20px;
+            text-align: center;
+        }
+        .beauty-categories h2{
+            margin-top: 0;
+        }
+
+        .beauty-categories.edit h2,
+        .beauty-tips h2,
+        .featured-header{
+            font-size: 2.5em;
+            margin-bottom: 40px;
+            color: #e91e63; /* Pink */
+        }
+
+        .tip-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+        }
+        .tip-grid p,
+        .tip-item h3{
+            margin-top: 0;
+            padding: 0;
+        }
+        .beauty-tips{
+            background-color: #f9f9f9;
+        }
+        .beauty-categories { 
+            padding: 60px;
+            text-align: center;
+        }
+
+        .category-list {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+        }
+
+        .category-list a { /* updated */
+            font-size: 1.2em;
+            padding: 12px 24px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            color: black;
+            transition: all 0.3s ease;
+        }
+
+        .category-list a:hover { /* updated */
+            background-color: #e91e63; /* Pink */
+            color: #fff;
+            border-color: #e91e63;
+        }
+
+        .newsletter {
+            background-color: #e91e63; /* Pink */
+            color: white;
+            padding: 50px 20px;
+            text-align: center;
+        }
+        .newsletter h2 {
+            margin-bottom: 20px;
+            font-size: 2em;
+            color: white;
+        }
+        .newsletter form{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .newsletter .email {
+            padding: 12px;
+            margin-bottom: 15px;
+            border: none;
+            border-radius: 5px;
+            width: 80%;
+            max-width: 400px;
+            font-size: 1em;
+        }
+        .newsletter.edit button {
+            background-color: white;
+            color: #e91e63; /* Pink */
+            border: none;
+            padding: 12px 24px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .newsletter.edit button:hover {
+            background-color: #f0f0f0;
+            color: #d81b60; /* Darker Pink */
+        }
+
+        
+    </style>
+</head>
+{%include 'all/snippets/header_snippet.html'%}
+<body>
+    <main>
+    <div class="main-container">
+        <div class="left-container">
+            {%include 'snippets/beauty-left-container_snippet.html'%} 
+        </div>
+        <div class="mid-container">
+           <h1>A Responsive Layout</h1>
+            <div class="button-container">
+                <a href="{%url 'blog_pg57'%}"><button class="prev">Prev</button></a>
+                <a href="{%url 'blog_pg59'%}"><button class="next">Next</button></a>
+            </div>
+
+            <h2>The Hero & Category Sections</h2>
+            <div class="notes">
+                <p>If you have noticed, resizing our beauty page to fit smaller viewports/screens causes the Hero and Category Sections of our page to shrink together until they finally break, making our page less visually appealing on smaller screens.
+                    This happens mainly because we used the flex-box to design those sections. Therefore we need to use a <strong>@media</strong> query to make the flex items collapse [or stack above each other]
+                    on smaller screens or viewports.
+                </p>
+            </div>
+
+            <h2>Beauty Products & Beauty Tips Sections</h2>
+            <div class="notes">
+                <p>Also, going beyond 350px causes the page to become even messier due to the fact that the minimum width of the tip-grid items was defined at <strong>350px</strong> [<span class="emphasis">grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));</span>].</p>
+                <p>To fix this, we would have to stack the grid items below each other at a viewport width greater than <strong>350px</strong>. Let's just go ahead an implement this idea for a better understanding. </p>
+            </div>
+
+            <h2 style="text-align: center; color: skyblue; margin-top: 50px;">beauty.css [@media]</h2>
+           <div class="tab">
+        <button class="tablinks active" onclick="openTab(event, 'Tab1')">Code Snippet</button>
+        <button class="tablinks" onclick="openTab(event, 'Tab2')">Full Code</button>
+        <!-- <button class="tablinks" onclick="openTab(event, 'Tab3')">Tab 3</button> -->
+        </div>
+
+        <div id="Tab1" class="tabcontent" style="display: block;">
+        <div class="code-view">
+                    {% for snippet in code_1a %}
+        
+                        <div class="code-container">
+                            <button class="copy-button" onclick="copyToClipboard()">Copy</button>
+                            <pre class="code-editor-content">
+                                
+                                <style>
+                                    {{ snippet.get_highlighted_code.css | safe }}
+                                </style>
+                                {{ snippet.get_highlighted_code.html | safe }}
+                                
+                            </pre>
+                            
+                        </div>
+                    
+                    {% endfor %}
+                </div>
+        </div>
+
+        <div id="Tab2" class="tabcontent">
+        <div class="code-view">
+                    {% for snippet in code_1 %}
+        
+                        <div class="code-container">
+                            <button class="copy-button" onclick="copyToClipboard()">Copy</button>
+                            <pre class="code-editor-content">
+                                
+                                <style>
+                                    {{ snippet.get_highlighted_code.css | safe }}
+                                </style>
+                                {{ snippet.get_highlighted_code.html | safe }}
+                                
+                            </pre>
+                            
+                        </div>
+                    
+                    {% endfor %}
+                </div>
+        </div>
+
+        <!-- <div id="Tab3" class="tabcontent">
+        <h3>Tab 3 Content</h3>
+        <p>This is the content of Tab 3.</p>
+        </div> -->
+
+  
+        <h2 style="text-align: center; color: skyblue; margin-top: 50px;">Result [Mobile View]</h2>
+        <img src="{%static 'assets/images/Front End Dev/responsive_beauty_page.png'%}" alt="Tip 2">
+       
+        <div class="notes">
+            <p>Applying <span class="emphasis">grid-template-columns: 1fr;</span> to a grid container stacks the grid items below each other [in a vertical block] giving each item a max-width of <strong>100%</strong>.</p>
+            <p>You can now go ahead and apply this property to the grid container on the Trends page to make it fit better on smaller screens. </p>
+        </div>
+
+        
+            <div class="button-container" style="margin-top: 50px; margin-bottom: 100px;">
+                <a href="{%url 'blog_pg57'%}"><button class="prev">Prev</button></a>
+                <a href="{%url 'blog_pg59'%}"><button class="next">Next</button></a>
+            </div>
+        </div>
+        
+        
+    </div>
+    <script src="{%static 'assets/js/tabs/tabs.js'%}"></script>
+  <footer>
+    {%include 'footer.html'%}
+</footer>
+<script type="text/javascript" src="{%static 'assets/js/main/scripts.js'%}"></script>
+</main>
+</body>
+</html>

@@ -1,0 +1,298 @@
+{%load static%}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Classes in Python</title>
+    <link rel="stylesheet" type="text/css" href="{%static 'assets/CSS/IntroToHTML/index.css'%}">
+    <link rel="stylesheet" type="text/css" href="{%static 'assets/CSS/IntroToHTML/header.css'%}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style>
+        .chapter-pointer-16{
+	        border: 2px solid skyblue;
+        }
+        .js-shots{
+            width: 50%;
+        }
+        @media(max-width: 760px){
+            .js-shots{
+                width: 100%;
+            }
+            
+        }
+        /* .code-container{
+            overflow: hidden;
+        } */
+        pre.code-editor-content{
+            width: 100%;
+            overflow-y: hidden;
+            margin-bottom: -60px;
+        }
+        .code-editor-content{
+            margin-top: -160px;
+            padding: 2px 0px;
+        }
+    </style>
+	
+</head>
+{%include 'all/snippets/header_snippet.html'%}
+<body>
+<main>
+    <div class="main-container">
+        <div class="left-container">
+            {%include 'python/snippets/left-container_snippet.html'%}
+        </div>
+        <div class="mid-container">
+            <h1>Classes in Python</h1>
+
+            <div class="button-container">
+                <a href="{%url 'py_page15'%}"><button class="prev">Prev</button></a>
+                {%if has_answered == True%}
+                <a href="{%url 'py_page16'%}"><button class="next">Next</button></a>
+                {%else%}
+                <a href="{{BASE_URL}}/PYQ5/"><button class="next">Next</button></a>
+                {%endif%}
+            </div>
+           
+
+            <h2>What is a Class?</h2>
+            <div class="notes">
+                <p>
+                    In Python, a class is a blueprint for creating objects. Objects are instances of classes, and they can contain data (attributes) and functions (methods) that operate on that data.
+                    Classes allow you to bundle data and functionality together, making it easier to create complex programs.
+                </p>
+
+                <p>
+                    Imagine you want to create a representation of a dog in your video gaming program. Each dog has certain characteristics (like breed, age, and color) and can perform actions (like barking, eating, and playing).
+                </p>
+            </div>
+
+            <h2>Key Concepts</h2>
+            <div class="notes">
+                <ol>
+                    <li><strong>Class</strong>: A template for creating objects. It defines the properties and behaviors that the objects created from the class will have.</li>
+                    <li><strong>Object</strong>: An instance of a class. Each object can hold different values for its attributes.</li>
+                    <li><strong>Attribute</strong>: A variable that belongs to a class (or an object). Attributes define the state or characteristics of an object.</li>
+                    <li><strong>Method</strong>: A function that belongs to a class. Methods define the behaviors of an object.</li>
+                </ol>
+            </div>
+            
+            <h2>Creating a Class</h2>
+            <div class="notes">
+                <p>To create a class in Python, you use the <span class="emphasis">class</span> keyword followed by the class name (by convention, class names start with an uppercase letter).
+                 Inside the class, you define its attributes and methods.
+                </p>
+            </div>
+
+            <h2>Example of Creating a Class</h2>
+            <div class="notes">
+                <p>Let's create a simple class called <span class="emphasis">Dog</span>:</p>
+            </div>
+           <div class="code-view">
+            {% for snippet in code_1 %}
+   
+                <div class="code-container">
+                    <button class="copy-button" onclick="copyToClipboard()">Copy</button>
+                    <pre class="code-editor-content">
+                        
+                        <style>
+                            {{ snippet.get_highlighted_code.css | safe }}
+                        </style>
+                        {{ snippet.get_highlighted_code.html | safe }}
+                        
+                    </pre>
+                    
+                </div>
+            
+            {% endfor %}
+        </div>
+
+       
+        <h2>Explanation of the Example</h2>
+        <div class="notes">
+            <ol>
+                <li><strong>Class Definition</strong>: We define a class named <span class="emphasis">Dog</span>.</li>
+                <li><strong>Constructor Method</strong> (<span class="emphasis">__init__</span>): This special method is called when we create a new instance of the class. It initializes the attributes of the class:
+                    <ul>
+                        <li><span class="emphasis">self.name</span>: This attribute holds the dog's name.</li>
+                        <li><span class="emphasis">self.breed</span>: This attribute holds the dog's breed.</li>
+                    </ul>
+                </li>
+                <li> <strong>Method</strong>: We define a method called <span class="emphasis">bark</span>, which returns a string indicating that the dog is barking.</li>
+            </ol>
+        </div>
+        
+
+        <h2>Creating Objects from a Class</h2>
+        <div class="notes">
+            <p>Once you have defined a class, you can create objects (instances) of that class.</p>
+        </div>
+
+        <h2>Example of Creating Objects</h2>
+        <br>
+
+           <div class="code-view">
+            {% for snippet in code_2 %}
+   
+                <div class="code-container">
+                    <button class="copy-button" onclick="copyToClipboard()">Copy</button>
+                    <pre class="code-editor-content">
+                        
+                        <style>
+                            {{ snippet.get_highlighted_code.css | safe }}
+                        </style>
+                        {{ snippet.get_highlighted_code.html | safe }}
+                        
+                    </pre>
+                    
+                </div>
+            
+            {% endfor %}
+        </div>
+       
+        <h2 style="text-align: center; color: skyblue; margin-top: 50px;">Output</h2>
+
+        <div class="code-view">
+            <div class="sub-view">
+                <div class="code-block">
+                    <p><i class="fa fa-angle-double-right"></i> Buddy</p>
+                    <p><i class="fa fa-angle-double-right"></i> Beagle</p>
+                    <p><i class="fa fa-angle-double-right"></i> Buddy says Woof!</p>
+                    <p><i class="fa fa-angle-double-right"></i> Max says Woof!</p>
+                </div>
+            </div>
+        </div>
+
+        <h2>Explanation of Object Creation</h2>
+        <div class="notes">
+            <ol>
+                <li>We create two instances of the <span class="emphasis">Dog</span> class: <span class="emphasis">dog1</span> and <span class="emphasis">dog2</span>.</li>
+                <li> We can access their attributes using dot notation (<span class="emphasis">dog1.name</span>).</li>
+                <li> We can call methods on these objects (<span class="emphasis">dog1.bark()</span>).</li>
+            </ol>
+        </div>
+
+        <h2>Class Attributes vs Instance Attributes</h2>
+        <div class="notes">
+            <ul>
+                <li> <strong>Instance Attributes</strong>: Attributes defined inside the constructor (<span class="emphasis">__init__</span>) using <span class="emphasis">self</span>. Each instance has its own copy of these attributes.</li>
+                <li> <strong>Class Attributes</strong>: Attributes defined directly inside the class but outside any methods. These are shared among all instances of the class.</li>
+            </ul>
+        </div>
+
+        <h2>Example of Class Attributes</h2>
+        <br>
+           <div class="code-view">
+            {% for snippet in code_3 %}
+   
+                <div class="code-container">
+                    <button class="copy-button" onclick="copyToClipboard()">Copy</button>
+                    <pre class="code-editor-content">
+                        
+                        <style>
+                            {{ snippet.get_highlighted_code.css | safe }}
+                        </style>
+                        {{ snippet.get_highlighted_code.html | safe }}
+                        
+                    </pre>
+                    
+                </div>
+            
+            {% endfor %}
+        </div>
+
+        <h2 style="text-align: center; color: skyblue; margin-top: 50px;">Output</h2>
+
+        <div class="code-view">
+            <div class="sub-view">
+                <div class="code-block">
+                    <p><i class="fa fa-angle-double-right"></i> Canis lupus familiaris</p>
+                    <p><i class="fa fa-angle-double-right"></i> Buddy</p>
+                    <p><i class="fa fa-angle-double-right"></i> Max</p>
+                </div>
+            </div>
+        </div>
+        
+
+
+       <h2>Inheritance</h2>
+        <div class="notes">
+            <p>Inheritance allows one class (child class) to inherit the attributes and methods from another class (parent class). This promotes code reusability.</p>
+        </div>
+
+        <div class="code-view">
+            {% for snippet in code_4 %}
+   
+                <div class="code-container">
+                    <button class="copy-button" onclick="copyToClipboard()">Copy</button>
+                    <pre class="code-editor-content">
+                        
+                        <style>
+                            {{ snippet.get_highlighted_code.css | safe }}
+                        </style>
+                        {{ snippet.get_highlighted_code.html | safe }}
+                        
+                    </pre>
+                    
+                </div>
+            
+            {% endfor %}
+        </div>
+
+        <h2 style="text-align: center; color: skyblue; margin-top: 50px;">Output</h2>
+
+        <div class="code-view">
+            <div class="sub-view">
+                <div class="code-block">
+                    <p><i class="fa fa-angle-double-right"></i> Buddy says Woof!</p>
+                    <p><i class="fa fa-angle-double-right"></i> Whiskers says Meow!</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="notes">
+            <p>Both <span class="emphasis">Dog</span> and <span class="emphasis">Cat</span> classes inherit from the <span class="emphasis">Animal</span> class, allowing them to use the <span class="emphasis">speak</span> method.</p>
+        </div>
+
+       
+       
+        <h2 style="text-align: center; color: skyblue; margin-top: 50px;">Exercise</h2>
+        <div class="notes">
+           <ol>
+            <li>Ex1:
+                <ul>
+                    <li>Create a class named <span class="emphasis">Car</span> with attributes for <span class="emphasis">make</span>, <span class="emphasis">model</span>, and <span class="emphasis">year</span>.</li>
+                    <li>Add a method called <span class="emphasis">description()</span> that returns a string describing the car (e.g., "2020 Toyota Camry").</li>
+                </ul>
+            </li>
+            <li>Ex2:
+                <ul>
+                    <li>Create class named <span class="emphasis">Vehicle</span> with an attribute for <span class="emphasis">type</span>.</li>
+                    <li>Create two subclasses, <span class="emphasis">Bicycle</span> and <span class="emphasis">Motorcycle</span>, that inherit from <span class="emphasis">Vehicle</span>.</li>
+                    <li>Each subclass should have its own method that describes its unique characteristics (e.g., number of wheels, color, etc).</li>
+                </ul>
+            </li>
+           </ol>
+
+        </div>
+
+
+            <div class="button-container">
+                <a href="{%url 'py_page15'%}"><button class="prev">Prev</button></a>
+                {%if has_answered == True%}
+                <a href="{%url 'py_page16'%}"><button class="next">Next</button></a>
+                {%else%}
+                <a href="{{BASE_URL}}/PYQ5/"><button class="next">Next</button></a>
+                {%endif%}
+            </div>
+
+        </div>
+    </div>
+</main>
+<footer>
+    {%include 'footer.html'%}
+</footer>
+<script type="text/javascript" src="{%static 'assets/js/main/scripts.js'%}"></script>
+</body>
+</html>

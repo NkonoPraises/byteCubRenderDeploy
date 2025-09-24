@@ -1,0 +1,119 @@
+# Query: </main>
+# Including: C:\Users\user\Desktop\bytecub\bytenv\src\ProgrammingLanguages_app\templates\javaScript\code
+# ContextLines: 1
+
+22 results - 22 files
+
+src\ProgrammingLanguages_app\templates\javaScript\code\js_page1.html:
+  124      </div>
+  125: </main>
+  <footer>
+    {%include 'footer.html'%}
+</footer>
+<script type="text/javascript" src="{%static 'assets/js/main/scripts.js'%}"></script>
+  126  </body>
+
+src\ProgrammingLanguages_app\templates\javaScript\code\js_page2.html:
+  204      </div>
+  205: </main>
+  206  </body>
+
+src\ProgrammingLanguages_app\templates\javaScript\code\js_page3.html:
+  166      </div>
+  167: </main>
+  168  </body>
+
+src\ProgrammingLanguages_app\templates\javaScript\code\js_page4.html:
+  193      </div>
+  194: </main>
+  195  </body>
+
+src\ProgrammingLanguages_app\templates\javaScript\code\js_page5.html:
+  127      </div>
+  128: </main>
+  129  </body>
+
+src\ProgrammingLanguages_app\templates\javaScript\code\js_page6.html:
+  218      </div>
+  219: </main>
+  220  </body>
+
+src\ProgrammingLanguages_app\templates\javaScript\code\js_page7.html:
+  111      </div>
+  112: </main>
+  113  </body>
+
+src\ProgrammingLanguages_app\templates\javaScript\code\js_page8.html:
+  219      </div>
+  220: </main>
+  221  </body>
+
+src\ProgrammingLanguages_app\templates\javaScript\code\js_page9.html:
+  143      </div>
+  144: </main>
+  145  </body>
+
+src\ProgrammingLanguages_app\templates\javaScript\code\js_page10.html:
+  161      </div>
+  162: </main>
+  163  </body>
+
+src\ProgrammingLanguages_app\templates\javaScript\code\js_page11.html:
+  166      </div>
+  167: </main>
+  168  </body>
+
+src\ProgrammingLanguages_app\templates\javaScript\code\js_page12.html:
+  216      </div>
+  217: </main>
+  218  </body>
+
+src\ProgrammingLanguages_app\templates\javaScript\code\js_page13.html:
+  222      </div>
+  223: </main>
+  224  </body>
+
+src\ProgrammingLanguages_app\templates\javaScript\code\js_page14.html:
+  283      </div>
+  284: </main>
+  285  </body>
+
+src\ProgrammingLanguages_app\templates\javaScript\code\js_page15.html:
+  209      </div>
+  210: </main>
+  211  </body>
+
+src\ProgrammingLanguages_app\templates\javaScript\code\js_page16.html:
+  224      </div>
+  225: </main>
+  226  </body>
+
+src\ProgrammingLanguages_app\templates\javaScript\code\js_page17.html:
+  206      </div>
+  207: </main>
+  208  </body>
+
+src\ProgrammingLanguages_app\templates\javaScript\code\js_page18.html:
+  200      </div>
+  201: </main>
+  202  </body>
+
+src\ProgrammingLanguages_app\templates\javaScript\code\js_page19.html:
+  258      </div>
+  259: </main>
+  260  </body>
+
+src\ProgrammingLanguages_app\templates\javaScript\code\js_page20.html:
+  194      </div>
+  195: </main>
+  196  </body>
+
+src\ProgrammingLanguages_app\templates\javaScript\code\js_page21.html:
+  267      </div>
+  268: </main>
+  269  </body>
+
+src\ProgrammingLanguages_app\templates\javaScript\code\js_page22.html:
+  157      </div>
+  158: </main>
+  159  </body>

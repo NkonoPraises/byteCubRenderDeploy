@@ -1,0 +1,200 @@
+{%load static%}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Data Types: Strings</title>
+    <link rel="stylesheet" type="text/css" href="{%static 'assets/CSS/IntroToHTML/index.css'%}">
+    <link rel="stylesheet" type="text/css" href="{%static 'assets/CSS/IntroToHTML/header.css'%}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style>
+        .chapter-pointer-4{
+	        border: 2px solid skyblue;
+        }
+        .js-shots{
+            width: 50%;
+        }
+        @media(max-width: 760px){
+            .js-shots{
+                width: 100%;
+            }
+            
+        }
+        .code-container{
+            overflow: hidden;
+        }
+        pre.code-editor-content{
+            width: 100%;
+            overflow-y: hidden;
+            margin-bottom: -60px;
+        }
+        .code-editor-content{
+            margin-top: -160px;
+            padding: 2px 0px;
+        }
+    </style>
+	
+</head>
+{%include 'all/snippets/header_snippet.html'%}
+<body>
+<main>
+    <div class="main-container">
+        <div class="left-container">
+            {%include 'javaScript/snippets/left-container_snippet.html'%}
+        </div>
+        <div class="mid-container">
+            <h1>Data Types: Strings</h1>
+            <div class="button-container">
+                <a href="{%url 'js_page3'%}"><button class="prev">Prev</button></a>
+                <a href="{%url 'js_page5'%}"><button class="next">Next</button></a>
+            </div>
+           
+
+            <h2>What is a String?</h2>
+            <div class="notes">
+                <p>A string in javaScript is a series of characters used to represent text. Strings can include letters, numbers, symbols, and spaces.</p>
+                <p>In javaScript ,strings are always enclosed in qoutes.</p>
+            </div>
+
+            <h2>Using Qoutes with Strings</h2>
+            <div class="notes">
+                <p>You can create a string using either <strong>double qoutes</strong> [" ... "] or <strong>single qoutes</strong> [' ... ']. Both types of qoutes work thesame way, so you can use whichever you prefer.</p>
+                <p>However, it's important to be consistent throughout your code.</p>
+            </div>
+
+    
+
+            <h2 style="text-align: center; color: skyblue; margin-top: 50px;"> Example</h2>
+           <div class="code-view">
+            {% for snippet in code_1 %}
+   
+                <div class="code-container">
+                    <button class="copy-button" onclick="copyToClipboard()">Copy</button>
+                    <pre class="code-editor-content">
+                        
+                        <style>
+                            {{ snippet.get_highlighted_code.css | safe }}
+                        </style>
+                        {{ snippet.get_highlighted_code.html | safe }}
+                        
+                    </pre>
+                    
+                </div>
+            
+            {% endfor %}
+        </div>
+  
+        <h2 style="text-align: center; color: skyblue; margin-top: 50px;">Output</h2>
+
+        <div class="code-view">
+            <div class="sub-view">
+                <div class="code-block">
+                    <p><strong>&gt;</strong> Hello, World!</p>
+                    <p><strong>&gt;</strong> Goodbye, everyone!</p>
+                </div>
+            </div>
+        </div>
+
+        <h2>Why Use Qoutes?</h2>
+        <div class="notes">
+            <p>Qoutes are necessary because they tell javaScript where the string starts and ends. If you forget to use qoutes or use them incorrectly, you will get an error.</p>
+        </div>
+        <div class="notes">
+            <p>If you want to include a qoute inside a string, you can use the opposite type of qoute to avoid confusion:</p>
+        </div>
+        
+           <div class="code-view">
+            {% for snippet in code_2 %}
+   
+                <div class="code-container">
+                    <button class="copy-button" onclick="copyToClipboard()">Copy</button>
+                    <pre class="code-editor-content">
+                        
+                        <style>
+                            {{ snippet.get_highlighted_code.css | safe }}
+                        </style>
+                        {{ snippet.get_highlighted_code.html | safe }}
+                        
+                    </pre>
+                    
+                </div>
+            
+            {% endfor %}
+        </div>
+        <h2 style="text-align: center; color: skyblue; margin-top: 50px;">Output</h2>
+
+        <div class="code-view">
+            <div class="sub-view">
+                <div class="code-block">
+                    <p><strong>&gt;</strong> She said, 'Hello!'</p>
+                    <p><strong>&gt;</strong> He replied, "Hi!"</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="notes">
+            <p>You can also, declare and empty string and later on assign a value to it, e.g <span class="emphasis">let name = "";</span> </p>
+        </div>
+        
+        <h2>Concatenating Strings</h2>
+        <div class="notes">
+            <p>Concatenation is the process of joining two or more strings together to create a new string. You can concatenate strings using the + operator.</p>
+        </div>
+
+        <h2 style="text-align: center; color: skyblue; margin-top: 50px;">Example</h2>
+        <div class="code-view">
+            {% for snippet in code_3 %}
+   
+                <div class="code-container">
+                    <button class="copy-button" onclick="copyToClipboard()">Copy</button>
+                    <pre class="code-editor-content">
+                        
+                        <style>
+                            {{ snippet.get_highlighted_code.css | safe }}
+                        </style>
+                        {{ snippet.get_highlighted_code.html | safe }}
+                        
+                    </pre>
+                    
+                </div>
+            
+            {% endfor %}
+        </div>
+
+        <h2 style="text-align: center; color: skyblue; margin-top: 50px;">Output</h2>
+
+        <div class="code-view">
+            <div class="sub-view">
+                <div class="code-block">
+                    <p><strong>&gt;</strong> John Clark</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="notes nb" style="margin-top: 20px;">
+            <p><strong>Note:</strong></p>
+            <p>The double spaced qoutes [" "] creates a space between the name.</p>
+        </div>
+        
+        <h2 style="text-align: center; color: skyblue; margin-top: 50px;">Exercise</h2>
+        <div class="notes">
+            <p>Create a variable called userName and concatenate it with a greeting message.</p>
+            <p>The final output should be, "Welcome, [userName]!" where [userName] is the value of the userName variable [e.g Welcome, John!].</p>
+        </div>
+
+
+        <div class="button-container">
+            <a href="{%url 'js_page3'%}"><button class="prev">Prev</button></a>
+            <a href="{%url 'js_page5'%}"><button class="next">Next</button></a>
+        </div>
+
+        </div>
+    </div>
+</main>
+<footer>
+    {%include 'footer.html'%}
+</footer>
+<script type="text/javascript" src="{%static 'assets/js/main/scripts.js'%}"></script>
+</body>
+</html>

@@ -1,0 +1,201 @@
+{%load static%}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTML Lists</title>
+    <link rel="stylesheet" type="text/css" href="{%static 'assets/CSS/IntroToHTML/index.css'%}">
+    <link rel="stylesheet" type="text/css" href="{%static 'assets/CSS/IntroToHTML/header.css'%}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style>
+        .chapter-pointer-6{
+	        border: 2px solid skyblue;
+        }
+    </style>
+</head>
+{%include 'all/snippets/header_snippet.html'%}
+
+<body>
+    <main>
+    <div class="main-container">
+        <div class="left-container">
+            {%include 'introToHTML_app/snippets/left-container_snippet.html'%}
+        </div>
+        <div class="mid-container">
+           <h1>HTML Lists</h1>
+
+            <div class="button-container">
+                <a href="{%url 'HTMLIntro_ex1'%}"><button class="prev">Prev</button></a>
+                {%if has_answered == True%}
+                <a href="{%url 'HTMLIntro_ex2'%}"><button class="next">Next</button></a>
+                {%else%}
+                <a href="{{BASE_URL}}/HTMLQ2/"><button class="next">Next</button></a>
+                {%endif%}
+            </div>
+
+           <div class="notes">HTML provides various ways to create lists, the most common being:</div>
+           <h2 style="margin-top: 20px;">5.1 Unorderd Lists (ul):</h2>
+           <div class="notes">
+            <p>Used to create a bulleted list of items. Each item is denoted by the <span class="emphasis">&lt;li&gt;</span>[list item] tag wraped in the <span class="emphasis">&lt;ul&gt;</span> tag.</p>
+           </div>
+           <h2 style="text-align: center; color: skyblue; margin-top: 50px;">Code example</h2>
+           <div class="code-view">
+            {% for snippet in code_1 %}
+   
+                <div class="code-container">
+                    <button class="copy-button" onclick="copyToClipboard()">Copy</button>
+                    <pre class="code-editor-content">
+                        
+                        <style>
+                            {{ snippet.get_highlighted_code.css | safe }}
+                        </style>
+                        {{ snippet.get_highlighted_code.html | safe }}
+                        
+                    </pre>
+                    
+                </div>
+            
+            {% endfor %}
+        </div>
+                <hr>
+                <h3 style="text-align: center; color: skyblue; margin-top: 50px;">Result</h3>
+                <div class="result">
+                    <ul style="margin-left: 10px;">
+                        <li>First Item</li>
+                        <li>Second Item</li>
+                        <li>Third Item</li>
+                    </ul>
+                </div>
+                <button class="run">Try it Yourself</button>
+            <h2 style="margin-top: 20px;">5.2 Orderd Lists (ol):</h2>
+            <div class="notes">
+                <p>Used to create a numbered list of items. Each item is denoted by the <span class="emphasis">&lt;li&gt;</span>[list item] tag wraped in the <span class="emphasis">&lt;ol&gt;</span> tag.</p>
+            </div>
+            <h2 style="text-align: center; color: skyblue; margin-top: 50px;">Code example</h2>
+            <div class="code-view">
+                {% for snippet in code_2 %}
+       
+                    <div class="code-container">
+                        <button class="copy-button" onclick="copyToClipboard()">Copy</button>
+                        <pre class="code-editor-content">
+                            
+                            <style>
+                                {{ snippet.get_highlighted_code.css | safe }}
+                            </style>
+                            {{ snippet.get_highlighted_code.html | safe }}
+                            
+                        </pre>
+                        
+                    </div>
+                
+                {% endfor %}
+            </div>
+                <hr>
+                <h3 style="text-align: center; color: skyblue; margin-top: 50px;">Result</h3>
+                <div class="result">
+                    <ol style="margin-left: 10px;">
+                        <li>First Item</li>
+                        <li>Second Item</li>
+                        <li>Third Item</li>
+                    </ol>
+                </div>
+                <button class="run">Try it Yourself</button>
+                <h2 style="margin-top: 20px;">5.3 Definition Lists (dl):</h2>
+                <div class="notes">
+                    <p>Used to create a list of terms and thier definitions. The <span class="emphasis">&lt;dt&gt;</span>[definition term] tag is used for the definition while the <span class="emphasis">&lt;dd&gt;</span> term is used to contain the term being defined.</p>
+                </div>
+                <h2 style="text-align: center; color: skyblue; margin-top: 50px;">Code example</h2>
+                <div class="code-view">
+                    {% for snippet in code_3 %}
+           
+                        <div class="code-container">
+                            <button class="copy-button" onclick="copyToClipboard()">Copy</button>
+                            <pre class="code-editor-content">
+                                
+                                <style>
+                                    {{ snippet.get_highlighted_code.css | safe }}
+                                </style>
+                                {{ snippet.get_highlighted_code.html | safe }}
+                                
+                            </pre>
+                            
+                        </div>
+                    
+                    {% endfor %}
+                </div>
+                    <hr>
+                    <h3 style="text-align: center; color: skyblue; margin-top: 50px;">Result</h3>
+                    <div class="result">
+                        <dl>
+                            <dt>HTML:</dt>
+                            <dd style="margin-left: 35px;">HTML stands for HyperText Markup Language.</dd>
+                            <dt>CSS:</dt>
+                            <dd style="margin-left: 35px;">Cascading Style Sheet.</dd>
+                        
+                        </dl>
+                    </div>
+                    <button class="run">Try it Yourself</button>
+
+                <h2 style="margin-top: 20px;">5.4 Nested Lists:</h2>
+                <div class="notes">
+                    <p>Putting a second list inside an <span class="emphasis">&lt;li&gt;</span> tag creates a sub-list in it called a <strong>nested list.</strong></p>
+                </div>
+                <h2 style="text-align: center; color: skyblue; margin-top: 50px;">Code example</h2>
+                <div class="code-view">
+                    {% for snippet in code_4 %}
+           
+                        <div class="code-container">
+                            <button class="copy-button" onclick="copyToClipboard()">Copy</button>
+                            <pre class="code-editor-content">
+                                
+                                <style>
+                                    {{ snippet.get_highlighted_code.css | safe }}
+                                </style>
+                                {{ snippet.get_highlighted_code.html | safe }}
+                                
+                            </pre>
+                            
+                        </div>
+                    
+                    {% endfor %}
+                </div>
+                    <hr>
+                    <h3 style="text-align: center; color: skyblue; margin-top: 50px;">Result</h3>
+                    <div class="result">
+                        <ol style="margin-left: 10px;">
+                            <li>First Item
+                             <ul style="margin-left: 35px;">
+                                 <li>sub 1.1</li>
+                                <li>sub 1.2</li>
+                                </ul>
+                            </li>
+                            <li>Second Item
+                                <ul style="margin-left: 35px;">
+                                    <li>sub 2.1</li>
+                                    <li>sub 2.2</li>
+                                </ul>
+                            </li>
+                            <li>Third Item</li>
+                        </ol>
+                    </div>
+                    <button class="run">Try it Yourself</button>
+                   <div class="button-container">
+                    <a href="{%url 'HTMLIntro_ex1'%}"><button class="prev">Prev</button></a>
+                    {%if has_answered == True%}
+                    <a href="{%url 'HTMLIntro_ex2'%}"><button class="next">Next</button></a>
+                    {%else%}
+                    <a href="{{BASE_URL}}/HTMLQ2/"><button class="next">Next</button></a>
+                    {%endif%}
+                </div>
+
+        
+        
+    </div>
+</main>
+<footer>
+    {%include 'footer.html'%}
+</footer>
+<script type="text/javascript" src="{%static 'assets/js/main/scripts.js'%}"></script>
+</body>
+</html>

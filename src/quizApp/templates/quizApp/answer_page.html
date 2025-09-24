@@ -1,0 +1,62 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load quiz_filters %}
+
+
+{% block title %}Answers{% endblock %}
+
+{% block content %}
+    <h2>Answers and Results</h2>
+
+    {% for data in answers_data %}
+        <section class="answer-section">
+            <h3>{{ data.quiz.title }}</h3>
+            {% if data.submission %}
+                <p>Your score for this quiz is <span style="font-weight: bold; background-color:#98c379; color: white; padding: 2px; border-radius: 4px;">{{ data.submission.score }}/{{data.answers.count}}</span></p>
+                <br>
+                {% for answer in data.answers %}
+                    <div class="answer-container">
+                        <p class="question-text">{{question.text|safe}}</p>
+                        {% if answer.chosen_answer %}
+                            <p>Your answer:
+                                {% if answer.chosen_answer == answer.question.correct_answer %}
+                                    {{ answer.chosen_answer }} (Correct)
+                                {% else %}
+                                    <span class="incorrect-answer">{{ answer.chosen_answer }}</span>
+                                {% endif %}
+                            </p>
+                        {% else %}
+                            <p>You did not answer this question.</p>
+                        {% endif %}
+
+                        <p class="correct-answer">Correct Answer: {{ answer.question.correct_answer }}</p>
+                        <p class="explanation">Explanation: {{ answer.question.explanation }}</p>
+                        <br>
+
+                    </div>
+                {% endfor %}
+            {% else %}
+                <p>You did not take this quiz.</p>
+            {% endif %}
+        </section>
+    {% endfor %}
+
+
+    <section class="score-section">
+        <h3>Your Scores</h3>
+        <p>Score on most recently answered questions: {{ recent_score }}</p>
+        <p>Total Score: {{ total_score }}</p>
+    </section>
+
+    <section class="leaderboard-section">
+        <h3>Leaderboard</h3>
+        <p>Your Rank: {{ rank }}</p>
+        <ol>
+            {% for entry in leaderboard %}
+                <li>{{ entry.user.username }} - {{ entry.total_score }}</li>
+            {% endfor %}
+        </ol>
+    </section>
+
+    <a href="{{BASE_URL}}/{{quiz.link}}/" class="next-button">Next</a>
+{% endblock %}

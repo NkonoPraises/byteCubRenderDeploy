@@ -1,0 +1,238 @@
+/* about.css */
+
+/* General Styles */
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f8f8f8;
+    color: #333;
+    line-height: 1.7;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 8px; /* Round image corners */
+}
+
+.button {
+    display: inline-block;
+    background-color: #4CAF50; /* Green */
+    color: white;
+    padding: 12px 24px;
+    border-radius: 5px;
+    text-transform: uppercase;
+    font-weight: bold;
+    letter-spacing: 0.5px;
+    transition: background-color 0.3s ease;
+}
+
+.button:hover {
+    background-color: #367C39; /* Darker Green */
+}
+
+/* Header Styles (Keeping Basic) */
+header {
+    background-color: #fff;
+    padding: 20px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+    position: sticky;
+    top: 0;
+    z-index: 10;
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    justify-content: space-around;
+}
+
+nav a {
+    display: block;
+    padding: 10px;
+    transition: color 0.3s ease;
+}
+
+nav a:hover {
+    color: #4CAF50;
+}
+
+/* About Hero Section */
+#about-hero {
+    display: flex;
+    align-items: center;
+    padding: 60px;
+    background-color: #fff;
+}
+
+#about-hero .hero-image {
+    flex: 1;
+    max-width: 50%;
+}
+
+#about-hero .hero-content {
+    flex: 1;
+    padding-left: 40px;
+}
+
+#about-hero h1 {
+    font-size: 3em;
+    margin-bottom: 15px;
+    color: #333;
+}
+
+#about-hero p {
+    font-size: 1.2em;
+    color: #555;
+}
+
+/* Our Mission Section */
+#our-mission {
+    padding: 60px;
+    text-align: center;
+}
+
+#our-mission h2 {
+    font-size: 2.5em;
+    margin-bottom: 30px;
+    color: #4CAF50;
+}
+
+#our-mission p {
+    font-size: 1.2em;
+    color: #555;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+/* Team Section */
+#team-section {
+    padding: 60px;
+    background-color: #fff;
+}
+
+#team-section h2 {
+    font-size: 2.5em;
+    margin-bottom: 40px;
+    text-align: center;
+    color: #4CAF50;
+}
+
+.team-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 40px;
+}
+
+.team-member {
+    text-align: center;
+}
+
+.team-member img {
+    border-radius: 50%;
+    width: 150px;
+    height: 150px;
+    object-fit: cover; /* Ensures images fit without distortion */
+    margin-bottom: 20px;
+}
+
+.team-member h3 {
+    font-size: 1.5em;
+    margin-bottom: 5px;
+}
+
+.team-member .role {
+    font-style: italic;
+    color: #777;
+    margin-bottom: 10px;
+}
+
+.team-member .bio {
+    color: #555;
+}
+
+/* Values Section */
+#values-section {
+    padding: 60px;
+    background-color: #f8f8f8;
+}
+
+#values-section h2 {
+    font-size: 2.5em;
+    margin-bottom: 30px;
+    text-align: center;
+    color: #4CAF50;
+}
+
+#values-section ul {
+    list-style: none;
+    padding: 0;
+    margin: 0 auto;
+    max-width: 600px;
+}
+
+#values-section li {
+    font-size: 1.2em;
+    padding: 15px;
+    border-bottom: 1px solid #ddd;
+}
+
+#values-section li:last-child {
+    border-bottom: none;
+}
+
+/* Contact CTA Section */
+#contact-cta {
+    padding: 60px;
+    text-align: center;
+}
+
+#contact-cta h2 {
+    font-size: 2.5em;
+    margin-bottom: 20px;
+    color: #4CAF50;
+}
+
+#contact-cta p {
+    font-size: 1.2em;
+    color: #555;
+    margin-bottom: 30px;
+}
+
+/* Footer Styles (Basic) */
+footer {
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 20px;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    #about-hero {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    #about-hero .hero-image {
+        max-width: 100%;
+        margin-bottom: 30px;
+    }
+
+    #about-hero .hero-content {
+        padding-left: 0;
+    }
+
+    .team-grid {
+        grid-template-columns: 1fr;
+    }
+}

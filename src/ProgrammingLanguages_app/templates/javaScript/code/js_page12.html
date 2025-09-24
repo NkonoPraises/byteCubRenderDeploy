@@ -1,0 +1,223 @@
+{%load static%}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>While Loops</title>
+    <link rel="stylesheet" type="text/css" href="{%static 'assets/CSS/IntroToHTML/index.css'%}">
+    <link rel="stylesheet" type="text/css" href="{%static 'assets/CSS/IntroToHTML/header.css'%}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style>
+        .chapter-pointer-12{
+	        border: 2px solid skyblue;
+        }
+        .js-shots{
+            width: 50%;
+        }
+        @media(max-width: 760px){
+            .js-shots{
+                width: 100%;
+            }
+            
+            
+        }
+        .code-container::-webkit-scrollbar{
+            /* overflow: hidden; */
+            display: none;
+        }
+        pre.code-editor-content{
+            overflow-y: hidden;
+            margin-bottom: -60px;
+            overflow-x: scroll;
+        }
+        .code-editor-content{
+            margin-top: -160px;
+            padding: 2px 0px;
+        }
+        @media(max-width:720px){
+            pre.code-editor-content{
+            width: 1500px;
+            
+            }
+        }
+    </style>
+	
+</head>
+{%include 'all/snippets/header_snippet.html'%}
+<body>
+<main>
+    <div class="main-container">
+        <div class="left-container">
+            {%include 'javaScript/snippets/left-container_snippet.html'%}
+        </div>
+        <div class="mid-container">
+            <h1>Introduction to While Loops in JavaScript</h1>
+            <div class="button-container">
+                <a href="{%url 'js_page11'%}"><button class="prev">Prev</button></a>
+                <a href="{%url 'js_page13'%}"><button class="next">Next</button></a>
+            </div>
+           
+
+            <h2>While Loops</h2>
+            <div class="notes">
+                <p>A <span class="emphasis">while</span> loop is a control structure in JavaScript that allows you to execute a block of code repeatedly as long as a specified condition is true. This is useful when you don't know in advance how many times you need to repeat the code, and you want to keep looping until a certain condition changes.</p>
+            </div>
+            <h2 style="text-align: center; color: skyblue; margin-top: 50px;">Syntax of While Loop</h2>
+           <div class="code-view">
+            {% for snippet in code_1 %}
+   
+                <div class="code-container">
+                    <button class="copy-button" onclick="copyToClipboard()">Copy</button>
+                    <pre class="code-editor-content">
+                        
+                        <style>
+                            {{ snippet.get_highlighted_code.css | safe }}
+                        </style>
+                        {{ snippet.get_highlighted_code.html | safe }}
+                        
+                    </pre>
+                    
+                </div>
+            
+            {% endfor %}
+        </div>
+        <div class="notes">
+            <ul>
+                <li> <strong>condition</strong>: This is an expression that evaluates to true or false. The loop will continue to execute as long as this condition is true.    </li>
+            </ul>
+        </div>
+
+
+
+
+        <h2 style="text-align: center; color: skyblue; margin-top: 50px;">Example</h2>
+        <div class="notes">
+            <p>Let's look at a simple example where we use a <span class="emphasis">while</span> loop to count from 1 to 5 and print each number.</p>
+        </div>
+
+           <div class="code-view">
+            {% for snippet in code_2 %}
+   
+                <div class="code-container">
+                    <button class="copy-button" onclick="copyToClipboard()">Copy</button>
+                    <pre class="code-editor-content">
+                        
+                        <style>
+                            {{ snippet.get_highlighted_code.css | safe }}
+                        </style>
+                        {{ snippet.get_highlighted_code.html | safe }}
+                        
+                    </pre>
+                    
+                </div>
+            
+            {% endfor %}
+        </div>
+
+  
+        <h2 style="text-align: center; color: skyblue; margin-top: 50px;">Output</h2>
+
+        <div class="code-view">
+            <div class="sub-view">
+                <div class="code-block">
+                    <p><strong>&gt;</strong> 1</p>
+                    <p><strong>&gt;</strong> 2</p>
+                    <p><strong>&gt;</strong> 3</p>
+                    <p><strong>&gt;</strong> 4</p>
+                    <p><strong>&gt;</strong> 5</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="notes">
+            <p>In the above example:</p>
+            <ul>
+                <li>We started with a variable <strong>count</strong> initialized to 1.</li>
+                <li>The <span class="emphasis">while</span> loop checks if <strong>count</strong> is less than or equal to 5.</li>
+                <li>Inside the loop, we print the current value of <strong>count</strong> and then increment it by 1 [count++]. This can also be written as <span class="emphasis">count = count + 1</span>.</li>
+                <li>The loop continues until <strong>count</strong> exceeds 5.</li>
+            </ul>
+        </div>
+
+
+        <h2>Using While Loops with User Input</h2>
+        <div class="notes">
+            <p>You can also use <span class="emphasis">while</span> loops to repeatedly prompt the user for input until a certain condition is met. For example, let's create a program that keeps asking the user for a number until they enter a negative number.</p>
+        </div>
+
+        <div class="code-view">
+            {% for snippet in code_3 %}
+   
+                <div class="code-container">
+                    <button class="copy-button" onclick="copyToClipboard()">Copy</button>
+                    <pre class="code-editor-content">
+                        
+                        <style>
+                            {{ snippet.get_highlighted_code.css | safe }}
+                        </style>
+                        {{ snippet.get_highlighted_code.html | safe }}
+                        
+                    </pre>
+                    
+                </div>
+            
+            {% endfor %}
+        </div>
+
+        <h2 style="text-align: center; color: skyblue; margin-top: 50px;">Output</h2>
+
+        <div class="code-view">
+            <div class="sub-view">
+                <div class="code-block">
+                    <p><strong>&gt;</strong> You entered: 2</p>
+                    <p><strong>&gt;</strong> You entered: 40</p>
+                    <p><strong>&gt;</strong> You entered: 7</p>
+                    <p><strong>&gt;</strong> You entered a negative number.</p>
+                    <p><strong>&gt;</strong> Exiting the loop.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="notes">
+            <p>In the above example:</p>
+            <ul>
+                <li>We used an infinite loop <span class="emphasis">(while (true))</span> to keep asking for input</li>
+                <li>If the user enters a negative number, we print a message and use <span class="emphasis">break</span> to exit the loop.</li>
+                <li>Otherwise, we print the number entered by the user.</li>
+            </ul>
+        </div>
+
+        <h2>Important Considerations</h2>
+        <div class="notes">
+            <ul>
+                <li><strong>Infinite Loops</strong>: Be careful with <span class="emphasis">while</span> loops, as it's easy to create an infinite loop if the condition never becomes false. Always ensure that the loop will eventually terminate.</li>
+                <li><strong>Initialization and Increment</strong>: Make sure to initialize your loop variable before the loop starts and update it within the loop to avoid infinite loops.</li>
+            </ul>
+        </div>
+
+
+
+        <h2 style="text-align: center; color: skyblue; margin-top: 50px;">Exercise</h2>
+        <div class="notes">
+            <ol>
+                <li> Write a program that prompts the user to enter positive numbers and keeps a running total. The loop should continue until the user enters a negative number. After exiting the loop, print the total sum of the positive numbers entered.</li>
+                <li> Create a program that randomly selects a number between 1 and 10. Use a <span class="emphasis">while</span> loop to prompt the user to guess the number. If the guess is too high or too low, provide feedback. The loop should continue until the user guesses the correct number.</li>
+            </ol>
+        </div>
+
+
+        <div class="button-container">
+            <a href="{%url 'js_page11'%}"><button class="prev">Prev</button></a>
+            <a href="{%url 'js_page13'%}"><button class="next">Next</button></a>
+        </div>
+
+        </div>
+    </div>
+</main>
+<footer>
+    {%include 'footer.html'%}
+</footer>
+<script type="text/javascript" src="{%static 'assets/js/main/scripts.js'%}"></script>
+</body>
+</html>

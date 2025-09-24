@@ -1,0 +1,362 @@
+{%load static%}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Child One</title>
+    <link rel="stylesheet" type="text/css" href="{%static 'assets/CSS/IntroToHTML/index.css'%}">
+    <link rel="stylesheet" type="text/css" href="{%static 'assets/CSS/IntroToHTML/header.css'%}">
+    <link rel="stylesheet" type="text/css" href="{%static 'assets/CSS/blog_ttrial/header.css'%}">
+    <link rel="stylesheet" href="{%static 'assets/CSS/tabs/tabs.css'%}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style>
+        .chapter-pointer-13{
+	        border: 2px solid skyblue;
+        }
+
+        /* result styling */
+        .result{
+            padding: 0;
+        }
+        /* result styling */
+        .menu{
+            background: none;
+            border: none;
+            font-size: 25px;
+            color: #333;
+            cursor: pointer; /*cursor arrow changes to a pointer whenever it moves above the button*/
+        }
+        .result ul{
+            display: none;
+        }
+        .result .main-containa{
+            display: grid;
+            grid-template-columns: 3fr 1fr;
+            
+        }
+        .result .edit-1{
+            gap: 30px;
+            padding: 0 20px;
+        }
+        
+        
+    </style>
+</head>
+{%include 'all/snippets/header_snippet.html'%}
+<body>
+    <main>
+    <div class="main-container">
+        <div class="left-container">
+            {%include 'snippets/2-left-container_snippet.html'%} 
+        </div>
+        <div class="mid-container">
+           <h1>Child One</h1>
+            <div class="button-container">
+                <a href="{%url 'blog_pg12'%}"><button class="prev">Prev</button></a>
+                <a href="{%url 'blog_pg14'%}"><button class="next">Next</button></a>
+            </div>
+            
+            <img style="width: 100%; margin-top: 20px;" src="{%static 'assets/images/Front End Dev/blog-body-partitioning-3.png'%}" alt="A blog-post">
+
+            <div class="notes">
+                <p>Looking closely at the image above we'd see that, within the  child One container [<span style="color: orange;">blog-posts</span> class], we have a sub-container [marked in red] which houses the blog elements; <strong>image</strong>, an <strong>h1</strong> heading [title], two paragraphs [one containing the publishing info and the other containing the description of the post], and a link saying <strong>Read More</strong>. </p>
+                <p>This sub-container [let's call it <span style="color: red;">blog-post</span>] is a stand-alone component and can be reused independently. That is, it would be multiplied to generate multiple blog-posts [reason we named it <span style="color: red;">blog-post</span> without the 's'].</p>
+                <p>Instead of just using another &lt;div&gt; to create this sub-container let's use the &lt;article&gt; tag which is popularly used by programmers to create independent reusable content.</p>
+            </div>
+            <h2 style="text-align: center; color: skyblue; margin-top: 50px;">index.html</h2>
+           <div class="tab">
+        <button class="tablinks active" onclick="openTab(event, 'Tab1')">Code Snippet</button>
+        <button class="tablinks" onclick="openTab(event, 'Tab2')">Full Code</button>
+        <!-- <button class="tablinks" onclick="openTab(event, 'Tab3')">Tab 3</button> -->
+        </div>
+
+        <div id="Tab1" class="tabcontent" style="display: block;">
+        <div class="code-view">
+                    {% for snippet in code_1a %}
+        
+                        <div class="code-container">
+                            <button class="copy-button" onclick="copyToClipboard()">Copy</button>
+                            <pre class="code-editor-content">
+                                
+                                <style>
+                                    {{ snippet.get_highlighted_code.css | safe }}
+                                </style>
+                                {{ snippet.get_highlighted_code.html | safe }}
+                                
+                            </pre>
+                            
+                        </div>
+                    
+                    {% endfor %}
+                </div>
+        </div>
+
+        <div id="Tab2" class="tabcontent">
+        <div class="code-view">
+                    {% for snippet in code_1 %}
+        
+                        <div class="code-container">
+                            <button class="copy-button" onclick="copyToClipboard()">Copy</button>
+                            <pre class="code-editor-content">
+                                
+                                <style>
+                                    {{ snippet.get_highlighted_code.css | safe }}
+                                </style>
+                                {{ snippet.get_highlighted_code.html | safe }}
+                                
+                            </pre>
+                            
+                        </div>
+                    
+                    {% endfor %}
+                </div>
+        </div>
+
+        <!-- <div id="Tab3" class="tabcontent">
+        <h3>Tab 3 Content</h3>
+        <p>This is the content of Tab 3.</p>
+        </div> -->
+
+
+         <h2 style="text-align: center; color: skyblue; margin-top: 50px;">Result</h2>
+        <div class="result">
+           
+            <div class="header-div">
+                <div style="display: flex; justify-content: space-between; align-items: center;" class="header-container">
+                    <div class="logo-2" >Fashion Farward</div>
+                    <nav class="main-nav nav-style">
+                        <button class="menu" style="display: none;">Menu</button>
+                        <ul style="list-style-position: inside; list-style: none; display: flex;">
+                            <li><a href="#">Trends</a></li>
+                            <li><a href="#">Designers</a></li>
+                            <li><a href="#">Outfits</a></li>
+                            <li><a href="#">Beauty</a></li>
+                            <li><a href="#">About</a></li>
+                            <li><a href="#">Contacts</a></li>
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+        
+            <div class="blog-main">
+                <div class="main-containa edit-1" style=" border: 4px solid black;"> <!-- parent -->
+
+                    <div class="blog-posts" style="border: 2px solid orange; height: 200px;"><!-- child-one -->
+                        <article class="blog-post" style="border: 2px solid red; height:60px; margin: 2px;"></article>
+                    </div>
+                    <div class="side-bar" style="border: 2px solid skyblue; height: 200px;">Two</div><!-- child-two -->
+            
+                </div>
+            </div>
+        </div>
+
+        <div class="notes">
+            <p>To illustrate the reusable nature of our sub-container also known as <span class="emphasis">blog-post</span> [&lt;article&gt;]. Let's add multiple &lt;article&gt; tags with class name <span style="color: red;">blog-post</span> inside the <span style="color: orange;">blog-posts</span> container.</p>
+        </div>
+
+
+           <h2 style="text-align: center; color: skyblue; margin-top: 50px;">index.html</h2>
+            <div class="taba">
+        <button class="tablinksa activea" onclick="openTaba(event, 'Tab1a')">Code Snippet</button>
+        <button class="tablinksa" onclick="openTaba(event, 'Tab2a')">Full Code</button>
+        <!-- <button class="tablinks" onclick="openTab(event, 'Tab3')">Tab 3</button> -->
+        </div>
+
+        <div id="Tab1a" class="tabcontenta" style="display: block;">
+        <div class="code-view">
+                    {% for snippet in code_2a %}
+        
+                        <div class="code-container">
+                            <button class="copy-button" onclick="copyToClipboard()">Copy</button>
+                            <pre class="code-editor-content">
+                                
+                                <style>
+                                    {{ snippet.get_highlighted_code.css | safe }}
+                                </style>
+                                {{ snippet.get_highlighted_code.html | safe }}
+                                
+                            </pre>
+                            
+                        </div>
+                    
+                    {% endfor %}
+                </div>
+        </div>
+
+        <div id="Tab2a" class="tabcontenta">
+        <div class="code-view">
+                    {% for snippet in code_2 %}
+        
+                        <div class="code-container">
+                            <button class="copy-button" onclick="copyToClipboard()">Copy</button>
+                            <pre class="code-editor-content">
+                                
+                                <style>
+                                    {{ snippet.get_highlighted_code.css | safe }}
+                                </style>
+                                {{ snippet.get_highlighted_code.html | safe }}
+                                
+                            </pre>
+                            
+                        </div>
+                    
+                    {% endfor %}
+                </div>
+        </div>
+
+        <!-- <div id="Tab3" class="tabcontent">
+        <h3>Tab 3 Content</h3>
+        <p>This is the content of Tab 3.</p>
+        </div> -->
+
+
+        <h2 style="text-align: center; color: skyblue; margin-top: 50px;">Result</h2>
+        <div class="result">
+           
+            <div class="header-div">
+                <div style="display: flex; justify-content: space-between; align-items: center;" class="header-container">
+                    <div class="logo-2" >Fashion Farward</div>
+                    <nav class="main-nav nav-style">
+                        <button class="menu" style="display: none;">Menu</button>
+                        <ul style="list-style-position: inside; list-style: none; display: flex;">
+                            <li><a href="#">Trends</a></li>
+                            <li><a href="#">Designers</a></li>
+                            <li><a href="#">Outfits</a></li>
+                            <li><a href="#">Beauty</a></li>
+                            <li><a href="#">About</a></li>
+                            <li><a href="#">Contacts</a></li>
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+        
+            <div class="blog-main">
+                <div class="main-containa edit-1" style=" border: 4px solid black;"> <!-- parent -->
+
+                    <div class="blog-posts" style="border: 2px solid orange; height: 200px;"><!-- child-one -->
+                        <article class="blog-post" style="border: 2px solid red; height:60px; margin: 2px;"></article>
+                        <article class="blog-post" style="border: 2px solid red; height:60px; margin: 2px;"></article>
+                        <article class="blog-post" style="border: 2px solid red; height:60px; margin: 2px;"></article>
+                    </div>
+                    <div class="side-bar" style="border: 2px solid skyblue; height: 200px;">Two</div><!-- child-two -->
+            
+                </div>
+            </div>
+        </div>
+        <div class="notes">
+            <p><span class="emphasis">margin: 2px;</span> was added to separate the individual blog-post from eachother and make them clearly visible.</p>
+        </div>
+
+        <div class="notes nb">
+            <p><strong>Note:</strong></p>
+            <p>A &lt;div&gt; could still be used in place of an &lt;article&gt; but it is a universal HTML block tag [as it has no specific semantic meaning] and wouldn't standout at first glance as a reusable code-block to other programmers reviewing your code or even screen readers. </p>
+        </div>
+
+        <div class="notes">
+            <p>Now let's take away the style attributes from  <span style="color: orange;">blog-posts</span> and  <span style="color: orange;">blog-post</span> then remove the &lt;article&gt; tags within <span style="color: orange;">blog-posts</span> leaving only one. </p>
+            <p>This is so that we can start adding the elements of the blog-post in the following chapter. That is <strong>image</strong>, <strong>h1</strong> and the other blog-post info.</p>
+        </div>
+        <h2 style="text-align: center; color: skyblue; margin-top: 50px;">index.html</h2>
+            <div class="tabb">
+        <button class="tablinksb activeb" onclick="openTabb(event, 'Tab1b')">Code Snippet</button>
+        <button class="tablinksb" onclick="openTabb(event, 'Tab2b')">Full Code</button>
+        <!-- <button class="tablinks" onclick="openTab(event, 'Tab3')">Tab 3</button> -->
+        </div>
+
+        <div id="Tab1b" class="tabcontentb" style="display: block;">
+        <div class="code-view">
+                    {% for snippet in code_3a %}
+        
+                        <div class="code-container">
+                            <button class="copy-button" onclick="copyToClipboard()">Copy</button>
+                            <pre class="code-editor-content">
+                                
+                                <style>
+                                    {{ snippet.get_highlighted_code.css | safe }}
+                                </style>
+                                {{ snippet.get_highlighted_code.html | safe }}
+                                
+                            </pre>
+                            
+                        </div>
+                    
+                    {% endfor %}
+                </div>
+        </div>
+
+        <div id="Tab2b" class="tabcontentb">
+        <div class="code-view">
+                    {% for snippet in code_3 %}
+        
+                        <div class="code-container">
+                            <button class="copy-button" onclick="copyToClipboard()">Copy</button>
+                            <pre class="code-editor-content">
+                                
+                                <style>
+                                    {{ snippet.get_highlighted_code.css | safe }}
+                                </style>
+                                {{ snippet.get_highlighted_code.html | safe }}
+                                
+                            </pre>
+                            
+                        </div>
+                    
+                    {% endfor %}
+                </div>
+        </div>
+
+        <!-- <div id="Tab3" class="tabcontent">
+        <h3>Tab 3 Content</h3>
+        <p>This is the content of Tab 3.</p>
+        </div> -->
+
+        <h2 style="text-align: center; color: skyblue; margin-top: 50px;">Result</h2>
+        <div class="result">
+           
+            <div class="header-div">
+                <div style="display: flex; justify-content: space-between; align-items: center;" class="header-container">
+                    <div class="logo-2" >Fashion Farward</div>
+                    <nav class="main-nav nav-style">
+                        <button class="menu" style="display: none;">Menu</button>
+                        <ul style="list-style-position: inside; list-style: none; display: flex;">
+                            <li><a href="#">Trends</a></li>
+                            <li><a href="#">Designers</a></li>
+                            <li><a href="#">Outfits</a></li>
+                            <li><a href="#">Beauty</a></li>
+                            <li><a href="#">About</a></li>
+                            <li><a href="#">Contacts</a></li>
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+        
+            <div class="blog-main">
+                <div class="main-containa edit-1" style=" border: 4px solid black;"> <!-- parent -->
+
+                    <div class="blog-posts"><!-- child-one -->
+                        <article class="blog-post"></article>
+                    </div>
+                    <div class="side-bar" style="border: 2px solid skyblue; height: 200px;">Two</div><!-- child-two -->
+            
+                </div>
+            </div>
+        </div>
+
+    
+            <div class="button-container" style="margin-top: 50px; margin-bottom: 100px;">
+                <a href="{%url 'blog_pg12'%}"><button class="prev">Prev</button></a>
+                <a href="{%url 'blog_pg14'%}"><button class="next">Next</button></a>
+            </div>
+        </div>
+        
+        
+    </div>
+    <script src="{%static 'assets/js/tabs/tabs.js'%}"></script>
+  <footer>
+    {%include 'footer.html'%}
+</footer>
+<script type="text/javascript" src="{%static 'assets/js/main/scripts.js'%}"></script>
+</main>
+</body>
+</html>

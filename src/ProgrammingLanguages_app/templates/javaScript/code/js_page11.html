@@ -1,0 +1,173 @@
+{%load static%}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Switch Statements</title>
+    <link rel="stylesheet" type="text/css" href="{%static 'assets/CSS/IntroToHTML/index.css'%}">
+    <link rel="stylesheet" type="text/css" href="{%static 'assets/CSS/IntroToHTML/header.css'%}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style>
+        .chapter-pointer-11{
+	        border: 2px solid skyblue;
+        }
+        .js-shots{
+            width: 50%;
+        }
+        @media(max-width: 760px){
+            .js-shots{
+                width: 100%;
+            }
+            
+            
+        }
+        .code-container::-webkit-scrollbar{
+            /* overflow: hidden; */
+            display: none;
+        }
+        pre.code-editor-content{
+            overflow-y: hidden;
+            margin-bottom: -60px;
+            overflow-x: scroll;
+        }
+        .code-editor-content{
+            margin-top: -160px;
+            padding: 2px 0px;
+        }
+        @media(max-width:720px){
+            pre.code-editor-content{
+            width: 1500px;
+            
+            }
+        }
+    </style>
+	
+</head>
+{%include 'all/snippets/header_snippet.html'%}
+<body>
+<main>
+    <div class="main-container">
+        <div class="left-container">
+            {%include 'javaScript/snippets/left-container_snippet.html'%}
+        </div>
+        <div class="mid-container">
+            <h1>Introduction to Switch Statements in JavaScript</h1>
+            <div class="button-container">
+                <a href="{%url 'js_page10'%}"><button class="prev">Prev</button></a>
+                <a href="{%url 'js_page12'%}"><button class="next">Next</button></a>
+            </div>
+           
+
+            <h2>Switch Statements</h2>
+            <div class="notes">
+                <p>A <span class="emphasis">switch</span> statement is a control structure in JavaScript that allows you to execute different blocks of code based on the value of a variable or expression. It is often used as an alternative to multiple <span class="emphasis">if</span> statements when you have many conditions to check against a single value.</p>
+            </div>
+            <h2 style="text-align: center; color: skyblue; margin-top: 50px;">Syntax of Switch Statement</h2>
+            <p style="text-align: center;">The basic syntax of a switch statement is as follows:</p>
+           <div class="code-view">
+            {% for snippet in code_1 %}
+   
+                <div class="code-container">
+                    <button class="copy-button" onclick="copyToClipboard()">Copy</button>
+                    <pre class="code-editor-content">
+                        
+                        <style>
+                            {{ snippet.get_highlighted_code.css | safe }}
+                        </style>
+                        {{ snippet.get_highlighted_code.html | safe }}
+                        
+                    </pre>
+                    
+                </div>
+            
+            {% endfor %}
+        </div>
+        <div class="notes">
+            <ul>
+                <li> <strong>expression</strong>: The variable or expression you want to evaluate.</li>
+                <li><strong>case value</strong>: Each <span class="emphasis">case</span> checks if the expression matches the specified value</li>
+                <li><strong>break</strong>: This statement exits the <span class="emphasis">switch</span> block. If you omit it, the code will continue to execute into the next case [this is called "fall-through"].</li>
+                <li><strong>default</strong>: This is optional and runs if none of the cases match.</li>
+            </ul>
+        </div>
+
+
+
+
+        <h2 style="text-align: center; color: skyblue; margin-top: 50px;">Example</h2>
+        <div class="notes">
+            <p>Let's look at a simple example where we use a <span class="emphasis">switch</span> statement to determine the day of the week based on a number input from the user.
+            </p>
+        </div>
+
+           <div class="code-view">
+            {% for snippet in code_2 %}
+   
+                <div class="code-container">
+                    <button class="copy-button" onclick="copyToClipboard()">Copy</button>
+                    <pre class="code-editor-content">
+                        
+                        <style>
+                            {{ snippet.get_highlighted_code.css | safe }}
+                        </style>
+                        {{ snippet.get_highlighted_code.html | safe }}
+                        
+                    </pre>
+                    
+                </div>
+            
+            {% endfor %}
+        </div>
+
+  
+        <h2 style="text-align: center; color: skyblue; margin-top: 50px;">Output</h2>
+
+        <div class="code-view">
+            <div class="sub-view">
+                <div class="code-block">
+                    <p><strong>&gt;</strong>Tuesday  &nbsp; <i class="fa fa-caret-right"></i> if the user inputs 2.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="notes">
+            <p>In the above example:</p>
+            <ul>
+                <li>The user is prompted to enter a number between 1 and 7.</li>
+                <li>The <span class="emphasis">switch</span> statement checks the value of `dayNumber` and logs the corresponding day of the week.</li>
+                <li>If the input is not between 1 and 7, the <span class="emphasis">default</span> case is executed, informing the user of the invalid input.</li>
+            </ul>
+        </div>
+
+        <h2>When to Use Nested if Statements</h2>
+        <div class="notes">
+            <p>Use a <span class="emphasis">switch</span> statement when:</p>
+            <ul>
+                <li>You have multiple conditions to check against a single variable.</li>
+                <li>The conditions are based on discrete values [like numbers or strings].</li>
+                <li>You want cleaner and more readable code compared to multiple <span class="emphasis">if</span> statements.</li>
+            </ul>
+        </div>
+
+
+        <h2 style="text-align: center; color: skyblue; margin-top: 50px;">Exercise</h2>
+        <div class="notes">
+            <p>Write a program that prompts the user to enter a fruit name [e.g., "apple", "banana", "orange"]. Use a <span class="emphasis">switch</span> statement to log a message about the fruit. For example, if the user enters "apple", log "Apples are red or green." If the user enters a fruit not listed, print "Unknown fruit."</p>
+        </div>
+
+
+        <div class="button-container">
+            <a href="{%url 'js_page10'%}"><button class="prev">Prev</button></a>
+            <a href="{%url 'js_page12'%}"><button class="next">Next</button></a>
+        </div>
+
+        </div>
+    </div>
+</main>
+<footer>
+    {%include 'footer.html'%}
+</footer>
+<script type="text/javascript" src="{%static 'assets/js/main/scripts.js'%}"></script>
+</body>
+</html>

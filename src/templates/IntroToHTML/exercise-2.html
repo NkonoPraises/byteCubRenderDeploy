@@ -1,0 +1,89 @@
+{%load static%}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercise Two</title>
+    <link rel="stylesheet" type="text/css" href="{%static 'assets/CSS/IntroToHTML/index.css'%}">
+    <link rel="stylesheet" type="text/css" href="{%static 'assets/CSS/IntroToHTML/header.css'%}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style>
+        .HTML-exercise-2-pointer{
+	        border: 2px solid skyblue;
+        }
+        h1,h2{
+            text-align: center;
+            margin-top: -5px;
+        }
+        p{
+            text-align: center;
+        }
+
+        
+    </style>
+</head>
+{%include 'all/snippets/header_snippet.html'%}
+<body>
+    <main>
+    <div class="main-container">
+        <div class="left-container">
+            {%include 'introToHTML_app/snippets/left-container_snippet.html'%}
+        </div>
+        <div class="mid-container">
+            <h1 style="text-align: center; margin-bottom: 15px;">Exercise Two</h1>
+
+            <div class="button-container">
+                <a href="{%url 'page6_view'%}"><button class="prev">Prev</button></a>
+                <a href="{%url 'page6b_view'%}"><button class="next">Next</button></a>
+            </div>
+
+           <div class="notes">
+            <p>Write the HTML code for the butter cake recipe shown below [name it <span class="emphasis">steps.html</span>].</p>
+            <p><strong>HINT</strong>: Use the <span class="emphasis">&lt;center&gt; content &lt;\center&gt;</span> tag to centralise the headings.</p>
+           </div>
+           <div class="result">
+            <h1 >HOW TO MAKE THE BEST BUTTER CAKE</h1>
+            <h2>(8 simple steps)</h2>
+            <ol style="list-style-position: inside;">
+                <li>Cream the butter and sugar</li>
+                <li>Prepare the dry ingredients</li>
+                <li>Measure the wet ingredients</li>
+                <li>Add the egg and milk to the batter</li>
+                <li>Add the dry incredients</li>
+                <li>Scaling and panning</li>
+                <li>Baking temperatures and the duration</li>
+                <li>How to keep the butter cake</li>
+            </ol>
+           </div>
+           <button class="run">Try it Yourself</button>
+
+            <!-- Whatsapp community button -->
+            <section id="whatsapp-community">
+                <div class="whatsapp">
+                    <p>Encountering difficulties? Our Whatsapp community is a collaborative space for sharing and assistance.</p>
+                </div>
+
+                <div class="whatsapp-button-floating">
+                    <a href="https://chat.whatsapp.com/EleIRPRKMN73Ly1GkHnjGV?mode=ems_copy_t" target="_blank">
+                        <i class="fab fa-whatsapp"></i>
+                        <span>Chat</span>
+                    </a>
+                </div>
+            </section>
+
+           <div class="button-container">
+            <a href="{%url 'page6_view'%}"><button class="prev">Prev</button></a>
+            <a href="{%url 'page6b_view'%}"><button class="next">Next</button></a>
+        </div>
+        </div>
+        
+        
+    </div>
+</main>
+<footer>
+    {%include 'footer.html'%}
+</footer>
+<script type="text/javascript" src="{%static 'assets/js/main/scripts.js'%}"></script>
+</body>
+</html>

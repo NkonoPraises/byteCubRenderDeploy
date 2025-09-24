@@ -1,0 +1,105 @@
+{%load static%}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Beauty - Fashion Forward</title>
+    <link rel="stylesheet" href="{%static 'assets/CSS/blog_preview/style.css'%}">
+    <link rel="stylesheet" href="{%static 'assets/CSS/blog_preview/beauty.css'%}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css">
+
+    
+</head>
+<body>
+
+    <header class="site-header">
+        {%include 'blog_preview/blog_preview_snippets/header.html'%}
+     </header>
+
+    <main>
+        <section id="beauty-hero">
+            <div class="hero-image">
+                <img src="{%static 'assets/images/Front End Dev/pexels-thirdman-5313642.jpg'%}" alt="Beauty Hero Image">
+            </div>
+            <div class="hero-text">
+                <h1>Glow Up: Your Guide to Radiant Beauty</h1>
+                <p>Discover the latest beauty trends, expert tips, and product reviews to enhance your natural beauty and confidence.</p>
+                <a href="#featured-products" class="button">Explore Featured Products</a>
+            </div>
+        </section>
+
+        <section id="featured-products">
+            <h2>Featured Beauty Products</h2>
+            <div class="product-grid">
+                <div class="product-item">
+                    <img src="{%static 'assets/images/Front End Dev/pexels-zeal-creatives-58866141-30592270.jpg'%}" alt="Product 1">
+                    <h3>Essie Nail Polish</h3>
+                    <p>A Popular brand of nail polish known for it's wide range of colors and long-lasting formula.</p>
+                    <span class="price">$173.00</span>
+                    <a href="#" class="button">Shop Now</a>
+                </div>
+                <div class="product-item">
+                    <img src="{%static 'assets/images/Front End Dev/pexels-laurachouette-21574949.jpg'%}" alt="Product 2">
+                    <h3>Chanel No. 5</h3>
+                    <p>An iconic and classic fragrance known for it's elegant and sophisticated scent.</p>
+                    <span class="price">$2500.00</span>
+                    <a href="#" class="button">Shop Now</a>
+                </div>                
+                <div class="product-item">
+                    <img src="{%static 'assets/images/Front End Dev/pexels-alesiakozik-7795655.jpg'%}" alt="Product 3">
+                    <h3>Moroccanoil Treatment</h3>
+                    <p>A versatile hair oil that adds shine, smooths frizz, and protects the hair from heat damage.</p>
+                    <span class="price">$90.99</span>
+                    <a href="#" class="button">Shop Now</a>
+                </div>
+                <!-- Add more product items as needed -->
+            </div>
+        </section>
+
+        <section id="beauty-tips">
+            <h2>Beauty Tips & Tutorials</h2>
+            <div class="tip-grid">
+                <article class="tip-item">
+                    <img src="{%static 'assets/images/Front End Dev/pexels-cottonbro-4156300.jpg'%}" alt="Tip 1">
+                    <h3><a href="#">Double Cleanse at Night</a></h3>
+                    <p>Remove makeup, then cleanse your skin again to get rid of dirt and oil that built up during the day. This prevents clogged pores and breakouts.</p>
+                </article>
+                <article class="tip-item">
+                    <img src="{%static 'assets/images/Front End Dev/pexels-enginakyurt-8537880.jpg'%}" alt="Tip 2">
+                    <h3><a href="#">Hydrate from the Inside Out</a></h3>
+                    <p>Drink plenty of water throughout the day to keep your skin hydrated and glowing.</p>
+                </article>
+                <!-- Add more beauty tips as needed -->
+            </div>
+        </section>
+
+        <section id="beauty-categories">
+            <h2>Explore Beauty by Category</h2>
+            <div class="category-list">
+                <a href="#">Makeup</a>
+                <a href="#">Skincare</a>
+                <a href="#">Haircare</a>
+                <a href="#">Fragrance</a>
+                <a href="#">Nails</a>
+            </div>
+        </section>
+
+        <section id="newsletter">
+            <h2>Subscribe for Exclusive Beauty Deals!</h2>
+            <form>
+                <input type="email" placeholder="Enter your email">
+                <button type="submit">Subscribe</button>
+            </form>
+        </section>
+
+    </main>
+
+    <footer class="site-footer">
+        <div class="container">
+            <p>&copy; 2025 Fashion Forward. All rights reserved.</p>
+        </div>
+    </footer>
+
+</body>
+</html>

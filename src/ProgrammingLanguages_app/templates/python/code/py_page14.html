@@ -1,0 +1,298 @@
+{%load static%}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Functions in Python</title>
+    <link rel="stylesheet" type="text/css" href="{%static 'assets/CSS/IntroToHTML/index.css'%}">
+    <link rel="stylesheet" type="text/css" href="{%static 'assets/CSS/IntroToHTML/header.css'%}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style>
+        .chapter-pointer-14{
+	        border: 2px solid skyblue;
+        }
+        .js-shots{
+            width: 50%;
+        }
+        @media(max-width: 760px){
+            .js-shots{
+                width: 100%;
+            }
+            
+        }
+        .code-container{
+            overflow: hidden;
+        }
+        pre.code-editor-content{
+            width: 100%;
+            overflow-y: hidden;
+            margin-bottom: -60px;
+        }
+        .code-editor-content{
+            margin-top: -160px;
+            padding: 2px 0px;
+        }
+    </style>
+	
+</head>
+{%include 'all/snippets/header_snippet.html'%}
+<body>
+<main>
+    <div class="main-container">
+        <div class="left-container">
+            {%include 'python/snippets/left-container_snippet.html'%}
+        </div>
+        <div class="mid-container">
+            <h1>Functions in Python</h1>
+            <div class="button-container">
+                <a href="{%url 'py_page13'%}"><button class="prev">Prev</button></a>
+                <a href="{%url 'py_page14b'%}"><button class="next">Next</button></a>
+            </div>
+           
+
+            <h2>What is a Function?</h2>
+            <div class="notes">
+                <p>
+                    A <strong>function</strong> is a reusable block of code that performs a specific task. Functions allow you to organize your code into manageable sections, making it easier to read, maintain, and debug. They can take inputs, perform operations on those inputs, and return outputs.
+                </p>
+            </div>
+
+            <h2>Why Use Functions?</h2>
+            <div class="notes">
+                <ol>
+                    <li><strong>Reusability</strong>: Once a function is defined, it can be reused multiple times throughout your code, reducing redundancy.</li>
+                    <li><strong>Organization</strong>: Functions help break down complex problems into smaller, more manageable pieces.</li>
+                    <li><strong>Abstraction</strong>: You can use functions without needing to understand their internal workings, allowing you to focus on higher-level design.</li>
+                    <li><strong>Maintainability</strong>: If you need to change the behavior of a function, you can do so in one place rather than in every instance where that code appears.</li>
+                </ol>
+            </div>
+
+          
+
+            <h2>Basic Syntax of a Function</h2>
+            <div class="notes">
+                <p>The syntax for defining a function in Python is as follows:</p>
+            </div>
+
+
+           <div class="code-view">
+            {% for snippet in code_1 %}
+   
+                <div class="code-container">
+                    <button class="copy-button" onclick="copyToClipboard()">Copy</button>
+                    <pre class="code-editor-content">
+                        
+                        <style>
+                            {{ snippet.get_highlighted_code.css | safe }}
+                        </style>
+                        {{ snippet.get_highlighted_code.html | safe }}
+                        
+                    </pre>
+                    
+                </div>
+            
+            {% endfor %}
+        </div>
+
+        <br>
+       <div class="notes">
+            <ul>
+                <li><strong>def</strong>: This keyword is used to define a function.</li>
+                <li><strong>function_name</strong>: This is the name you give to your function. It should be descriptive of what the function does.</li>
+                <li><strong>parameters</strong>: These are optional inputs that you can pass to the function. You can have zero or more parameters.</li>
+                <li><strong>return</strong>: This keyword is used to send a value back to the caller of the function. If no return statement is present, the function returns <span class="emphasis">None</span> by default.</li>
+            </ul>
+        </div>
+
+        <h2> Example of a Simple Function</h2>
+        <div class="notes">
+            <p>Let's create a simple function that adds two numbers:</p>
+        </div>
+
+           <div class="code-view">
+            {% for snippet in code_2 %}
+   
+                <div class="code-container">
+                    <button class="copy-button" onclick="copyToClipboard()">Copy</button>
+                    <pre class="code-editor-content">
+                        
+                        <style>
+                            {{ snippet.get_highlighted_code.css | safe }}
+                        </style>
+                        {{ snippet.get_highlighted_code.html | safe }}
+                        
+                    </pre>
+                    
+                </div>
+            
+            {% endfor %}
+        </div>
+       
+        <h2>Explanation of the Example</h2>
+        <div class="notes">
+            <ol>
+                <li><strong>Defining the Function</strong>: We define a function called <span class="emphasis">add_numbers</span> that takes two parameters, <span class="emphasis">a</span> and <span class="emphasis">b</span>.</li>
+                <li><strong>Performing an Operation</strong>: Inside the function, we calculate the sum of <span class="emphasis">a</span> and <span class="emphasis">b</span> and store it in a variable called <span class="emphasis">result</span>.</li>
+                <li><strong>Returning the Result</strong>: We use the <span class="emphasis">return</span> statement to send the result back to wherever the function was called.</li>
+            </ol>
+        </div>
+
+        
+
+       
+        <h2>Calling a Function</h2>
+        <div class="notes">
+            <p>
+                To use (or "call") the function we just defined, we simply use its name followed by parentheses containing any arguments:
+            </p>
+        </div>
+        
+           <div class="code-view">
+            {% for snippet in code_3 %}
+   
+                <div class="code-container">
+                    <button class="copy-button" onclick="copyToClipboard()">Copy</button>
+                    <pre class="code-editor-content">
+                        
+                        <style>
+                            {{ snippet.get_highlighted_code.css | safe }}
+                        </style>
+                        {{ snippet.get_highlighted_code.html | safe }}
+                        
+                    </pre>
+                    
+                </div>
+            
+            {% endfor %}
+        </div>
+
+        <h2 style="text-align: center; color: skyblue; margin-top: 50px;">Output</h2>
+
+        <div class="code-view">
+            <div class="sub-view">
+                <div class="code-block">
+                    <p><i class="fa fa-angle-double-right"></i> The sum is: 8</p>
+                </div>
+            </div>
+        </div>
+        
+
+       <div class="notes">
+        <p>In this example:</p>
+        <ul>
+            <li>We call <span class="emphasis">add_numbers</span> with <span class="emphasis">5</span> and <span class="emphasis">3</span> as arguments.</li>
+            <li>The function computes the sum and returns <span class="emphasis">8</span>, which we store in <span class="emphasis">sum_result</span>.</li>
+            <li>Finally, we print the result.</li>
+        </ul>
+       </div>
+
+
+       <h2>Default Parameters</h2>
+        <div class="notes">
+            <p>You can also define default values for parameters. If no argument is provided for that parameter when calling the function, the default value will be used.</p>
+        </div>
+
+        <div class="code-view">
+            {% for snippet in code_4 %}
+   
+                <div class="code-container">
+                    <button class="copy-button" onclick="copyToClipboard()">Copy</button>
+                    <pre class="code-editor-content">
+                        
+                        <style>
+                            {{ snippet.get_highlighted_code.css | safe }}
+                        </style>
+                        {{ snippet.get_highlighted_code.html | safe }}
+                        
+                    </pre>
+                    
+                </div>
+            
+            {% endfor %}
+        </div>
+
+        <h2 style="text-align: center; color: skyblue; margin-top: 50px;">Output</h2>
+
+        <div class="code-view">
+            <div class="sub-view">
+                <div class="code-block">
+                    <p><i class="fa fa-angle-double-right"></i> Hello, Alice</p>
+                    <p><i class="fa fa-angle-double-right"></i> Hello, Guest</p>
+                </div>
+            </div>
+        </div>
+
+        <h2>Variable-Length Arguments</h2>
+            <div class="notes">
+                <p>
+                    Sometimes you may want to pass a variable number of arguments to a function. You can achieve this using <span class="emphasis">*args</span> for non-keyword arguments and <span class="emphasis">**kwargs</span> for keyword arguments.
+                </p>
+            </div>
+
+            <h2>Using *args</h2>
+            <br>
+           <div class="code-view">
+            {% for snippet in code_5 %}
+   
+                <div class="code-container">
+                    <button class="copy-button" onclick="copyToClipboard()">Copy</button>
+                    <pre class="code-editor-content">
+                        
+                        <style>
+                            {{ snippet.get_highlighted_code.css | safe }}
+                        </style>
+                        {{ snippet.get_highlighted_code.html | safe }}
+                        
+                    </pre>
+                    
+                </div>
+            
+            {% endfor %}
+        </div>
+
+        <h2 style="text-align: center; color: skyblue; margin-top: 50px;">Output</h2>
+
+        <div class="code-view">
+            <div class="sub-view">
+                <div class="code-block">
+                    <p><i class="fa fa-angle-double-right"></i> 6</p>
+                    <p><i class="fa fa-angle-double-right"></i> 15</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="notes">
+            <p>In this example, the function <span class="emphasis">add_multiple</span> accepts any number of arguments and sums them up using Python's built-in <span class="emphasis">sum()</span> function.</p>
+        </div>
+        
+
+        
+       
+        <h2 style="text-align: center; color: skyblue; margin-top: 50px;">Exercise</h2>
+        <div class="notes">
+            <p>Now that you have learned about functions, here's an exercise for you:</p>
+           <ol>
+            <li>Create a function called <span class="emphasis">calculate_area</span> that takes two parameters: <span class="emphasis">length</span> and <span class="emphasis">width</span>.</li>
+            <li>Inside the function, calculate the area of a rectangle (area = length * width).</li>
+            <li>Return the calculated area.</li>
+            <li>Call the function with different values and print the results.</li>
+           </ol>
+
+        </div>
+
+
+        <div class="button-container">
+            <a href="{%url 'py_page13'%}"><button class="prev">Prev</button></a>
+            <a href="{%url 'py_page14b'%}"><button class="next">Next</button></a>
+        </div>
+
+        </div>
+    </div>
+</main>
+<footer>
+    {%include 'footer.html'%}
+</footer>
+<script type="text/javascript" src="{%static 'assets/js/main/scripts.js'%}"></script>
+</body>
+</html>

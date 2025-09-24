@@ -1,0 +1,152 @@
+{%load static%}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercise Five</title>
+    <link rel="stylesheet" type="text/css" href="{%static 'assets/CSS/IntroToHTML/index.css'%}">
+    <link rel="stylesheet" type="text/css" href="{%static 'assets/CSS/IntroToHTML/header.css'%}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style>
+        .HTML-exercise-5-pointer{
+	        border: 2px solid skyblue;
+        }
+        h1,h2{
+            text-align: center;
+            margin-top: -5px;
+        }
+        p{
+            text-align: center;
+        }
+
+        
+    </style>
+</head>
+{%include 'all/snippets/header_snippet.html'%}
+<body>
+    <main>
+    <div class="main-container">
+        <div class="left-container">
+            {%include 'introToHTML_app/snippets/left-container_snippet.html'%}
+        </div>
+        <div class="mid-container">
+            {%if messages%}
+            <div class="alert alert-warning">
+                <p><strong>Action Required:</strong> You must complete the Exercise before you can proceed</p>
+            </div>
+            {%endif%}
+            <h1 style="text-align: center; margin-bottom: 15px;">Exercise Five</h1>
+
+            <div class="button-container">
+                <a href="{%url 'page8_view'%}"><button class="prev">Prev</button></a>
+                {%if has_submitted%}
+                <a href="{%url 'intro_to_css'%}"><button class="next">Next</button></a>
+                {%else%}
+                <a href="{%url 'Exercise5_submission'%}"><button class="next">Next</button></a>
+                {%endif%}
+            </div>
+            <div class="notes">
+                <p><strong>HINT</strong>: Use the following markup to create the title/border effect as seen below.</p>
+            </div>
+
+            <h2 style="text-align: center; color: skyblue; margin-top: 50px;">HTML</h2>
+            <div class="code-view">
+             {% for snippet in code %}
+    
+                 <div class="code-container">
+                     <button class="copy-button" onclick="copyToClipboard()">Copy</button>
+                     <pre class="code-editor-content">
+                         
+                         <style>
+                             {{ snippet.get_highlighted_code.css | safe }}
+                         </style>
+                         {{ snippet.get_highlighted_code.html | safe }}
+                         
+                     </pre>
+                     
+                 </div>
+             
+             {% endfor %}
+         </div>
+
+<h3 style="text-align: center; color: skyblue; margin-top: 50px;">Result</h3>
+            <div class="result">
+                <fieldset>
+                    <legend>Title</legend>
+                    <p>Content</p>
+               </fieldset>
+            </div>
+            <button class="run">Try it Yourself</button>
+            <br><br>
+            <h2>Exercise</h2>
+           <div class="notes">
+            <p>Replicate the following signup form below [name it <span class="emphasis">form.html</span>].</p>
+            
+           </div> 
+
+           <div class="result" style="padding: 10px; ">
+            <h1>Register</h1>
+            <fieldset>
+                <legend>Account Information</legend>
+          
+                 <label for="email">Email:</label><br>
+                <input type="email" id="email" name="email"><br><br>
+          
+                <label for="username">Username:</label><br>
+                <input type="text" id="username" name="username"><br><br>
+          
+                <label for="password">Password:</label><br>
+                <input type="password" id="password" name="password"><br><br>
+          
+                <label for="confirmPassword">Confirm Password:</label><br>
+                <input type="password" id="confirmPassword" name="confirmPassword"><br><br>
+          
+          </fieldset>
+          <br>
+           <fieldset>
+                  <legend>Terms & Conditions</legend>
+                  <input type="checkbox" id="terms" name="terms" value="agree">
+                  <label for="terms">I agree to the Terms and Conditions</label><br><br>
+              </fieldset>
+          
+          
+              <input type="submit" value="Sign Up">
+              <input type="reset" value="Reset">
+           </div>
+      
+           <button class="run">Try it Yourself</button>
+
+            <!-- Whatsapp community button -->
+            <section id="whatsapp-community">
+                <div class="whatsapp">
+                    <p>Encountering difficulties? Our Whatsapp community is a collaborative space for sharing and assistance.</p>
+                </div>
+
+                <div class="whatsapp-button-floating">
+                    <a href="https://chat.whatsapp.com/EleIRPRKMN73Ly1GkHnjGV?mode=ems_copy_t" target="_blank">
+                        <i class="fab fa-whatsapp"></i>
+                        <span>Chat</span>
+                    </a>
+                </div>
+            </section>
+
+            <div class="button-container">
+                <a href="{%url 'page8_view'%}"><button class="prev">Prev</button></a>
+                {%if has_submitted%}
+                <a href="{%url 'intro_to_css'%}"><button class="next">Next</button></a>
+                {%else%}
+                <a href="{%url 'Exercise5_submission'%}"><button class="next">Next</button></a>
+                {%endif%}
+            </div>
+        </div>
+        
+        
+    </div>
+</main>
+<footer>
+    {%include 'footer.html'%}
+</footer>
+<script type="text/javascript" src="{%static 'assets/js/main/scripts.js'%}"></script>
+</body>
+</html>

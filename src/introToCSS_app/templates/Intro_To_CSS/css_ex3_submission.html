@@ -1,0 +1,92 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>byteCub Exercises</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/6.65.7/codemirror.min.css">
+    <link rel="stylesheet" href="{% static 'assets/CSS/quiz/style.css' %}">
+    
+</head>
+  <body>
+    <main>
+    <header>
+        <h1>CSS Exercise</h1>
+        <nav>
+            {% if user.is_authenticated %}
+                <span>Welcome, {{ user.username }}!</span>
+                <a href="{% url 'logout' %}">Logout</a>
+            {% else %}
+                <a href="{% url 'login' %}">Login</a>
+                <a href="{% url 'register' %}">Register</a>
+            {% endif %}
+        </nav>
+    </header>
+
+    <main>
+        <h2>Submit your code below</h2>
+        <p>You can't proceed without submitting your exercise.</p>
+        {%if not has_submitted%}
+  <form method="post" style="width: 90%;">
+    {% csrf_token %}
+      <textarea id="code-editor" name="code" style="width: 100%;"></textarea>
+      <input type="hidden" name="title" value="CSS Exercise 3">
+      <input type="hidden" name="type" value="CSS">
+    <button type="submit">Submit Code</button>
+    <a href="{%url 'css_ex3'%}"><button type="button">Back</button></a>
+  </form>
+  {%else%}
+  <br>
+  <p>Your work was successfully submitted</p>
+  <a href="{%url 'css_ex3'%}"><button type="button">Back</button></a>
+  {%endif%}
+  
+  
+
+
+
+    </main>
+
+    <footer>
+        {%include 'footer.html'%}
+    </footer>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/6.65.7/codemirror.min.js"></script>
+<script>
+    var editor = CodeMirror.fromTextArea(document.getElementById("code-editor"), {
+        mode: "python",
+        theme: "default",
+        lineNumbers: true,
+        indentUnit: 4,
+        indentWithTabs: true,
+        lineWrapping: true,
+        autofocus: true,
+        styleActiveLine: true
+    });
+</script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+  const codeEditor = document.querySelector('.code-editor');
+
+  if (codeEditor) {
+    codeEditor.addEventListener('input', function() {
+      // Implement code highlighting here using libraries like Prism.js or Highlight.js
+      // For example:
+      // Prism.highlightElement(codeEditor);
+      // The specific code will depend on the chosen library
+
+      //Preserves Code - just keeps the same code.
+    });
+  }
+});
+    </script>
+   </main>
+  <footer>
+    {%include 'footer.html'%}
+</footer>
+<script type="text/javascript" src="{%static 'assets/js/main/scripts.js'%}"></script>
+</body>
+</html>

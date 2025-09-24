@@ -1,0 +1,47 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load quiz_filters %}
+
+
+{% block title %}Quizzes{% endblock %}
+
+{% block content %}
+    <h2>Quizzes</h2>
+    <form method="post" action="{% url 'quizApp:submit_quiz' quizzes.0.quiz_name %}">
+        {% csrf_token %}
+        {% for quiz in quizzes %}
+            <section class="quiz-section">
+                <h3>{{ quiz.title }}</h3>
+                <p>{{ quiz.description }}</p>
+
+                {% for question in quiz.questions.all %}
+                    <div class="question-container">
+                        <!-- <pre class="question-text">{{ question.text|safe }}</pre> -->
+                        <pre class="question-text">{{ question.text }}</pre>
+                        <div class="choices-container">
+                            <label class="choice-label">
+                                <input type="radio" name="question_{{ question.id }}" value="A">
+                                A. {{ question.option_a }}
+                            </label>
+                            <label class="choice-label">
+                                <input type="radio" name="question_{{ question.id }}" value="B">
+                                B. {{ question.option_b }}
+                            </label>
+                            <label class="choice-label">
+                                <input type="radio" name="question_{{ question.id }}" value="C">
+                                C. {{ question.option_c }}
+                            </label>
+                            <label class="choice-label">
+                                <input type="radio" name="question_{{ question.id }}" value="D">
+                                D. {{ question.option_d }}
+                            </label>
+                        </div>
+                    </div>
+                {% endfor %}
+            </section>
+        {% endfor %}
+        <button type="submit" class="submit-button">Submit Quizzes</button>
+    </form>
+{% endblock %}
+
+

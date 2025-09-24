@@ -1,0 +1,243 @@
+{%load static%}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=8.0">
+    <title>HTML Images, Videos, and Audios</title>
+    <link rel="stylesheet" type="text/css" href="{%static 'assets/CSS/IntroToHTML/index.css'%}">
+    <link rel="stylesheet" type="text/css" href="{%static 'assets/CSS/IntroToHTML/header.css'%}">
+    <link rel="stylesheet" href="{%static 'assets/CSS/videos/video.css'%}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style>
+        .chapter-pointer-7b{
+	        border: 2px solid skyblue;
+        }
+    </style>
+	
+</head>
+{%include 'all/snippets/header_snippet.html'%}
+<main>
+<body>
+    <main>
+    <div class="main-container">
+        <div class="left-container">
+            {%include 'introToHTML_app/snippets/left-container_snippet.html'%}
+        </div>
+        <div class="mid-container">
+            <h1 style="text-align: center; margin-bottom: 15px;">HTML Images, Videos, and Audios</h1>
+            <h2>8.1 HTML Images</h2>
+            <div class="button-container">
+                <a href="{%url 'page7_view'%}"><button class="prev">Prev</button></a>
+                <a href="{%url 'page8_view'%}"><button class="next">Next</button></a>
+            </div>
+
+              <!-- Featured Video      -->
+            <div class="main-video-container">
+                    <div class="content">
+                        <h2>Featured Video</h2>
+                    </div>
+                    
+                    <div class="video-wrapper">
+                        <video id="videoPlayer" width="560" height="315"  poster="{%static 'assets/images/IntroToHTML/1757183118927.jpg'%}" controls>
+                            <!-- Sample video from Pexels -->
+                            <source  src="{%static 'assets/videos/HTML/Images and Vidoes In HTML-byteCub.mp4'%}" type="video/mp4">
+                            Your browser does not support the video tag.
+                        </video>
+                        
+                        <!-- Overlay navigation buttons -->
+                        <div class="overlay-controls">
+                            <div class="nav-btn" id="rewindOverlayBtn" title="Rewind 10 seconds"><i class="fa-solid fa-backward"></i></div>
+                            <div class="nav-btn" id="forwardOverlayBtn" title="Forward 10 seconds"><i class="fa-solid fa-forward"></i></div>
+                        </div>
+                    </div>
+                    
+                <div class="content">
+                    <div class="dropdown">
+                        <button class="dropdown-button">
+                            <span>Video Description</span>
+                            <span class="arrow"></span>
+                        </button>
+                        <div class="dropdown-content">
+                            <p><strong>Video Description:</strong></p>
+                            <p><strong>Image:</strong> <a href="{%static 'assets/images/IntroToHTML/pexels-anastasia-shuraeva-5705477.jpg'%}" download>Download</a></p>
+                            <p><strong>Video:</strong> <a href="{%static 'assets/videos/HTML/3173312-hd_1920_1080_30fps.mp4'%}" download>Download</a></p>
+                            <p><strong>Audio:</strong> <a href="{%static 'assets/audio/relaxing-guitar-loop-v5-245859.mp3'%}" download>Download</a></p>
+
+                        </div>
+                    </div>
+
+                    <button class="interaction-button" id="interactiveButton">Click Me!</button>
+                </div>
+            </div>
+
+            <div class="notes">
+                <p><span class="emphasis">Images</span> can be embedded in HTML using the<span class="emphasis">&lt;img&gt;</span> tag. The <span class="emphasis">&lt;img&gt;</span> is a self closing tag that requires specific attributes.  </p>
+            </div>
+            <h3>Key attributes:</h3>
+            <div class="notes">
+                <ul style="margin-left: 35px;">
+                    <li><strong>src:</strong> The path to the image.</li>
+                    <li><strong>alt:</strong> Alternative text for the image.</li>
+                    <li><strong>width:</strong> Specifies the width of the image[optional].</li>
+                    <li><strong>height:</strong> Specifies the height of the image[optional].</li>
+                </ul>
+            </div>
+             <h2 style="text-align: center; color: skyblue; margin-top: 50px;">Code example</h2>
+           <div class="code-view">
+            {% for snippet in code_1 %}
+   
+                <div class="code-container">
+                    <button class="copy-button" onclick="copyToClipboard()">Copy</button>
+                    <pre class="code-editor-content">
+                        
+                        <style>
+                            {{ snippet.get_highlighted_code.css | safe }}
+                        </style>
+                        {{ snippet.get_highlighted_code.html | safe }}
+                        
+                    </pre>
+                    
+                </div>
+            
+            {% endfor %}
+        </div>
+                <hr>
+                <h3 style="text-align: center; color: skyblue; margin-top: 50px;">Result</h3>
+                <div class="result">
+                    <img src="{%static 'assets/images/IntroToHTML/pexels-anastasia-shuraeva-5705477.jpg'%}" alt="This is an image" width="200" height="200">
+                </div>
+                <button class="run">Try it Yourself</button>
+
+
+            <h2>8.2 HTML Videos</h2>
+            <div class="notes">
+                <p><span class="emphasis">Videos</span> can be added to a webpage using the<span class="emphasis">&lt;video&gt;</span> tag. This tag allows you to control multiple sources and control playback</p>
+            </div>
+            <h3>Key attributes:</h3>
+            <div class="notes">
+                <ul style="margin-left: 35px;">
+                    <li><strong>src:</strong> This attribute specifies the path to the video.</li>
+                    <li><strong>poster:</strong> This attribute allows you to specify an image to show while the video is downloading or until the user tells the video to play.</li>
+                    <li><strong>width:</strong> Specifies the width of the video in pixels.</li>
+                    <li><strong>height:</strong> Specifies the height of the video in pixels.</li>
+                    <li><strong>preload:</strong> This attribute tells the browser what to do when the page loads. It can have one of three values:
+                        <ol style="margin-left: 35px;">
+                            <li><strong>none:</strong> The browser should not load the video until the user presses play.</li>
+                            <li><strong>auto:</strong> The browser should download the video when the page loads.</li>
+                            <li><strong>metadata:</strong> The browser should just collect information such as the size, first frame, track list, and duration.</li>
+                        </ol>
+                    </li>
+                    <li><strong>autoplay:</strong> Starts playing the video automaticaly [this can be restricted by some browsers].</li>
+                    <li><strong>loop:</strong> When used, it replays the video once it ends.</li>
+                    <li>You can specify multiple video sources for a <span class="emphasis">&lt;video&gt;</span> element using the<span class="emphasis">&lt;source&gt;</span> tag. This tag allows the browser to choose the best video format it can play.</li>
+
+                </ul>
+            </div>
+             <h2 style="text-align: center; color: skyblue; margin-top: 50px;">Code example</h2>
+           <div class="code-view">
+            {% for snippet in code_2 %}
+   
+                <div class="code-container">
+                    <button class="copy-button" onclick="copyToClipboard()">Copy</button>
+                    <pre class="code-editor-content">
+                        
+                        <style>
+                            {{ snippet.get_highlighted_code.css | safe }}
+                        </style>
+                        {{ snippet.get_highlighted_code.html | safe }}
+                        
+                    </pre>
+                    
+                </div>
+            
+            {% endfor %}
+        </div>
+                <hr>
+                <h3 style="text-align: center; color: skyblue; margin-top: 50px;">Result</h3>
+                <div class="result">
+                    <center>
+                        <video  width="250" height="250" controls loop>
+                            <!-- Sample video from Pexels -->
+                            <source  src="{%static 'assets/videos/HTML/3173312-hd_1920_1080_30fps.mp4'%}" type="video/mp4">
+                            Your browser does not support the video tag.
+                        </video>
+                    </center>
+                </div>
+                <button class="run">Try it Yourself</button>
+
+            <!-- <h2>8.3 Multiple Video Sources</h2>
+            <div class="notes">
+                <p>You can specify multiple video sources for a <span class="emphasis">&lt;video&gt;</span> element using the<span class="emphasis">&lt;source&gt;</span> tag. This tag allows the browser to choose the best video format it can play.</p>
+            </div>
+            <h3>Using the <span class="emphasis">&lt;video&gt;</span> and <span class="emphasis">&lt;source&gt;</span> Tags:</h3>
+
+            <h2 style="text-align: center; color: skyblue; margin-top: 50px;">Code example</h2>
+                <hr>
+                <h3 style="text-align: center; color: skyblue; margin-top: 50px;">Result</h3>
+            <video controls  src="{%static 'assets/images/IntroToHTML/vid.mp4'%}" > -->
+               
+           <!--  <button class="run" style="margin-bottom: 20px;">Try it Yourself</button>
+            <div class="notes">
+
+                <ul style="margin-left: 35px;">
+                    <li>The <span class="emphasis">&lt;video&gt;</span> tag is used to embed the video player</li>
+                    <li>Each <span class="emphasis">&lt;source&gt;</span> tag a different video file and its <strong>MIME[Multipurpose Internet Mail Extensions]</strong> type. The browser will attempt to play the first source it supports.</li>
+                </ul>
+            </div>
+ -->
+            <h2 style="margin-top: 50px;">8.4 HTML Audios</h2>
+            <div class="notes">
+                <p><span class="emphasis">Audios</span> can be added to a webpage using the<span class="emphasis">&lt;audio&gt;</span> tag which is similar to the <span class="emphasis">&lt;video&gt;</span> tag.</p>
+            </div>
+
+             <h2 style="text-align: center; color: skyblue; margin-top: 50px;">Code example</h2>
+           <div class="code-view">
+            {% for snippet in code_3 %}
+   
+                <div class="code-container">
+                    <button class="copy-button" onclick="copyToClipboard()">Copy</button>
+                    <pre class="code-editor-content">
+                        
+                        <style>
+                            {{ snippet.get_highlighted_code.css | safe }}
+                        </style>
+                        {{ snippet.get_highlighted_code.html | safe }}
+                        
+                    </pre>
+                    
+                </div>
+            
+            {% endfor %}
+        </div>
+                <hr>
+                <h3 style="text-align: center; color: skyblue; margin-top: 50px;">Result</h3>
+                <div class="result">
+                    <center>
+                        <audio controls>
+                            <source  src="{%static 'assets/audio/relaxing-guitar-loop-v5-245859.mp3'%}" type="audio/mp3">
+                        </audio>
+            
+                    </center>
+                </div>
+                <button class="run">Try it Yourself</button>
+            
+
+            
+            
+            <div class="button-container">
+                <a href="{%url 'page7_view'%}"><button class="prev">Prev</button></a>
+                <a href="{%url 'page8_view'%}"><button class="next">Next</button></a>
+            </div>
+        </div>
+        
+        
+    </div>
+</main>
+<footer>
+    {%include 'footer.html'%}
+</footer>
+<script src="{%static 'assets/js/videos/video.js'%}"></script>
+<script type="text/javascript" src="{%static 'assets/js/main/scripts.js'%}"></script>
+</body>
+</html>

@@ -1,0 +1,60 @@
+{%load static%}
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Sign in</title>
+	<link rel="stylesheet" type="text/css" href="{%static 'assets/CSS/accounts/Sign-in.css'%}">
+</head>
+<body>
+<main>
+	<h1> Sign in</h1>
+	<center>
+		{% if form.errors %}
+       <ul style="font-size: small;">
+           {% for field in form %}
+               {% for error in field.errors %}
+                   <li style="color: red; font-weight: bold;">{{ error }}</li>
+               {% endfor %}
+           {% endfor %}
+           {% for error in form.non_field_errors %}
+               <li style="color: red; font-weight: bold;">{{ error }}</li>
+           {% endfor %}
+       </ul>
+   {% endif %}
+	</center>
+	<br>
+	<br>
+	<form  method="post" autocomplete="off" action="{%url 'register'%}">{% csrf_token %}
+		<div class="main-container">
+
+		<div class="email">
+			{{form.email}}
+		</div>
+		<div class="username">
+			{{form.username}}
+		</div>
+		<div class="First-and-last-name">
+			<div class="first-name">
+				{{form.first_name}}
+			</div>
+			<div class="last-name">
+				{{form.last_name}}
+			</div>
+		</div>
+		<div class="password">
+			{{form.password1}}
+		</div>
+		<div class="confirm-password">
+			{{form.password2}}
+		</div>
+		<a href="{%url 'login'%}" style="color: #1b9bff; font-weight: bold; "><small>Already have an account?</small></a>
+	</div>
+		<button type="submit">Sign in</button>
+	</form>
+	
+	
+</main>
+</body>
+</html>

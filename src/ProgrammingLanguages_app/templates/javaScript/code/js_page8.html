@@ -1,0 +1,226 @@
+{%load static%}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Conditional Statements: else if</title>
+    <link rel="stylesheet" type="text/css" href="{%static 'assets/CSS/IntroToHTML/index.css'%}">
+    <link rel="stylesheet" type="text/css" href="{%static 'assets/CSS/IntroToHTML/header.css'%}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style>
+        .chapter-pointer-8{
+	        border: 2px solid skyblue;
+        }
+        .js-shots{
+            width: 50%;
+        }
+        @media(max-width: 760px){
+            .js-shots{
+                width: 100%;
+            }
+            
+            
+        }
+        .code-container::-webkit-scrollbar{
+            /* overflow: hidden; */
+            display: none;
+        }
+        pre.code-editor-content{
+            overflow-y: hidden;
+            margin-bottom: -60px;
+            overflow-x: scroll;
+        }
+        .code-editor-content{
+            margin-top: -160px;
+            padding: 2px 0px;
+        }
+        @media(max-width:720px){
+            pre.code-editor-content{
+            width: 1500px;
+            
+            }
+        }
+    </style>
+	
+</head>
+{%include 'all/snippets/header_snippet.html'%}
+<body>
+<main>
+    <div class="main-container">
+        <div class="left-container">
+            {%include 'javaScript/snippets/left-container_snippet.html'%}
+        </div>
+        <div class="mid-container">
+            <h1>Conditional Statements: else if</h1>
+            <div class="button-container">
+                <a href="{%url 'js_page7'%}"><button class="prev">Prev</button></a>
+                <a href="{%url 'js_page9'%}"><button class="next">Next</button></a>
+            </div>
+           
+
+            <h2>The else if Statement</h2>
+            <div class="notes">
+                <p>The else if statement allows you to check multiple conditions. If the first condition is false, it will check the next one.</p>
+            </div>
+            <h2 style="text-align: center; color: skyblue; margin-top: 50px;">Syntax [layout]</h2>
+           <div class="code-view">
+            {% for snippet in code_1 %}
+   
+                <div class="code-container">
+                    <button class="copy-button" onclick="copyToClipboard()">Copy</button>
+                    <pre class="code-editor-content">
+                        
+                        <style>
+                            {{ snippet.get_highlighted_code.css | safe }}
+                        </style>
+                        {{ snippet.get_highlighted_code.html | safe }}
+                        
+                    </pre>
+                    
+                </div>
+            
+            {% endfor %}
+        </div>
+
+        <h2 style="text-align: center; color: skyblue; margin-top: 50px;">Example</h2>
+           <div class="code-view">
+            {% for snippet in code_2 %}
+   
+                <div class="code-container">
+                    <button class="copy-button" onclick="copyToClipboard()">Copy</button>
+                    <pre class="code-editor-content">
+                        
+                        <style>
+                            {{ snippet.get_highlighted_code.css | safe }}
+                        </style>
+                        {{ snippet.get_highlighted_code.html | safe }}
+                        
+                    </pre>
+                    
+                </div>
+            
+            {% endfor %}
+        </div>
+  
+        <h2 style="text-align: center; color: skyblue; margin-top: 50px;">Output</h2>
+
+        <div class="code-view">
+            <div class="sub-view">
+                <div class="code-block">
+                    <p><strong>&gt;</strong>In this example, the program checks the score and gives feedback based on the range it falls into.</p>
+                </div>
+            </div>
+        </div>
+
+        <h2>Comparison Operators</h2>
+        <div class="notes">
+            <p>To make decisions in your conditional statements, you often use comparison operators:</p>
+            <ul>
+                <li><strong>></strong> [greater than]</li>
+                <li><strong><</strong> [less than]</li>
+                <li><strong>>=</strong> [greater than or equal to]</li>
+                <li><strong><=</strong> [less than or equal to]</li>
+                <li><strong>==</strong> [equal to]</li>
+                <li><strong>===</strong> [strictly equal to]</li>
+                <li><strong>!=</strong> [not equal to]</li>
+                <li><strong>!==</strong> [strictly not equal to]</li>
+            </ul>
+        </div>
+
+        <h2 style="text-align: center; color: skyblue; margin-top: 50px;">Example</h2>
+        <div class="code-view">
+         {% for snippet in code_3 %}
+
+             <div class="code-container">
+                 <button class="copy-button" onclick="copyToClipboard()">Copy</button>
+                 <pre class="code-editor-content">
+                     
+                     <style>
+                         {{ snippet.get_highlighted_code.css | safe }}
+                     </style>
+                     {{ snippet.get_highlighted_code.html | safe }}
+                     
+                 </pre>
+                 
+             </div>
+         
+         {% endfor %}
+     </div>
+     <div class="notes" style="margin-top: 40px;">
+        <p>By default, javaScript considers any entry through the prompt() function a string. Since our comparison is with numbers, we have to convert the stored string to a number before it reaches the conditional statements. 
+            Reason we have the line <span class="emphasis">dayNumber = Number(dayNumber);</span> in our code.
+        </p>
+        <p>The function <span class="emphasis">Number()</span> converts <strong>dayNumber</strong> from a string to a number before storing it again.</p>
+     </div>
+
+     <h2 style="text-align: center; color: skyblue; margin-top: 50px;">Output</h2>
+
+        <div class="code-view">
+            <div class="sub-view">
+                <div class="code-block">
+                    <p><strong>&gt;</strong>Monday &nbsp; <i class="fa fa-caret-right"></i> dayNumber = 1</p>
+                    <p><strong>&gt;</strong>Tuesday &nbsp; <i class="fa fa-caret-right"></i> dayNumber = 2, etc.</p>
+                </div>
+            </div>
+        </div>
+
+        <h2 style="text-align: center; color: skyblue; margin-top: 50px;">Example Two: A Simple Calculator</h2>
+        <div class="notes">
+            <p>The following program prompts the user for two numbers and an operator (+, -, *, /), then performs the corresponding operation.</p>
+        </div>
+        <div class="code-view">
+         {% for snippet in code_4 %}
+
+             <div class="code-container">
+                 <button class="copy-button" onclick="copyToClipboard()">Copy</button>
+                 <pre class="code-editor-content">
+                     
+                     <style>
+                         {{ snippet.get_highlighted_code.css | safe }}
+                     </style>
+                     {{ snippet.get_highlighted_code.html | safe }}
+                     
+                 </pre>
+                 
+             </div>
+         
+         {% endfor %}
+     </div>
+     
+
+     <h2 style="text-align: center; color: skyblue; margin-top: 50px;">Output</h2>
+
+        <div class="code-view">
+            <div class="sub-view">
+                <div class="code-block">
+                    <p><strong>&gt;</strong>Result: 5 &nbsp; <i class="fa fa-caret-right"></i> 3 + 2</p>
+                </div>
+            </div>
+        </div>
+
+       
+        
+        <h2 style="text-align: center; color: skyblue; margin-top: 50px;">Exercise</h2>
+        <div class="notes">
+            <ol>
+                <li>Create a program that prompts the user for a month number (1-12) and displays the corresponding month name.</li>
+                <li>Write a program that prompts the user for a fruit name and outputs its price.</li>
+            </ol>
+        </div>
+
+
+        <div class="button-container">
+            <a href="{%url 'js_page7'%}"><button class="prev">Prev</button></a>
+            <a href="{%url 'js_page9'%}"><button class="next">Next</button></a>
+        </div>
+
+        </div>
+    </div>
+</main>
+<footer>
+    {%include 'footer.html'%}
+</footer>
+<script type="text/javascript" src="{%static 'assets/js/main/scripts.js'%}"></script>
+</body>
+</html>

@@ -1,0 +1,231 @@
+{%load static%}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Data Types</title>
+    <link rel="stylesheet" type="text/css" href="{%static 'assets/CSS/IntroToHTML/index.css'%}">
+    <link rel="stylesheet" type="text/css" href="{%static 'assets/CSS/IntroToHTML/header.css'%}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style>
+        .chapter-pointer-3{
+	        border: 2px solid skyblue;
+        }
+        .js-shots{
+            width: 50%;
+        }
+        @media(max-width: 760px){
+            .js-shots{
+                width: 100%;
+            }
+            
+        }
+        .code-container{
+            overflow: hidden;
+        }
+        pre.code-editor-content{
+            width: 100%;
+            overflow-y: hidden;
+            margin-bottom: -60px;
+        }
+        .code-editor-content{
+            margin-top: -160px;
+            padding: 2px 0px;
+        }
+    </style>
+	
+</head>
+{%include 'all/snippets/header_snippet.html'%}
+<body>
+<main>
+    <div class="main-container">
+        <div class="left-container">
+            {%include 'python/snippets/left-container_snippet.html'%}
+        </div>
+        <div class="mid-container">
+            <h1>Data Types</h1>
+            <div class="button-container">
+                <a href="{%url 'py_page2'%}"><button class="prev">Prev</button></a>
+                <a href="{%url 'py_page4'%}"><button class="next">Next</button></a>
+            </div>
+           
+
+            <h2>Introduction to Data Types in Python</h2>
+            <div class="notes">
+                <p>
+                    In Python, <span class="emphasis">data types</span> are classifications that specify the type of data a variable can hold.
+                     Understanding data types is crucial because it helps you know what kind of operations you can perform on the data. 
+                     Python has several built-in data types, but we will focus on <span class="emphasis">numbers</span> and <span class="emphasis">booleans</span> in this chapter.
+                </p>
+            </div>
+
+            <h2>Integers</h2>
+            <div class="notes">
+               <p>
+                <strong>Integers</strong> are whole numbers without any decimal points. They can be positive [e.g., a=10], negative [e.g., b=-5], or zero [e.g., c=0].
+               </p>
+               <p>You can perform various arithmetic operations with integers, such as addition, subtraction, multiplication, and division.</p>
+            </div>
+
+           <div class="code-view">
+            {% for snippet in code_1 %}
+   
+                <div class="code-container">
+                    <button class="copy-button" onclick="copyToClipboard()">Copy</button>
+                    <pre class="code-editor-content">
+                        
+                        <style>
+                            {{ snippet.get_highlighted_code.css | safe }}
+                        </style>
+                        {{ snippet.get_highlighted_code.html | safe }}
+                        
+                    </pre>
+                    
+                </div>
+            
+            {% endfor %}
+        </div>
+
+        <h2 style="text-align: center; color: skyblue; margin-top: 50px;">Output</h2>
+
+        <div class="code-view">
+            <div class="sub-view">
+                <div class="code-block">
+                    <p><i class="fa fa-angle-double-right"></i> 19</p>
+                    <p><i class="fa fa-angle-double-right"></i> 11</p>
+                    <p><i class="fa fa-angle-double-right"></i> 60</p>
+                    <p><i class="fa fa-angle-double-right"></i> 3.75</p>
+                    <p><i class="fa fa-angle-double-right"></i> 3</p>
+                </div>
+            </div>
+        </div>
+
+        <h2>Floats</h2>
+  
+        <div class="notes">
+            <p><strong>Floats</strong> [or floating-point numbers] are numbers that contain a decimal point. They can represent fractional values.</p>
+        </div>
+
+        <h2 style="text-align: center; color: skyblue; margin-top: 50px;">Example</h2>
+           <div class="code-view">
+            {% for snippet in code_2 %}
+   
+                <div class="code-container">
+                    <button class="copy-button" onclick="copyToClipboard()">Copy</button>
+                    <pre class="code-editor-content">
+                        
+                        <style>
+                            {{ snippet.get_highlighted_code.css | safe }}
+                        </style>
+                        {{ snippet.get_highlighted_code.html | safe }}
+                        
+                    </pre>
+                    
+                </div>
+            
+            {% endfor %}
+        </div>
+        <div class="notes">
+            <p>
+                Just like integers, you can perform arithmetic operations with floats.
+            </p>
+        </div>
+
+        <h2>Boolean Data Type</h2>
+
+        <div class="notes">
+            <p>
+                The <strong>boolean</strong> data type represents one of two values: <span class="emphasis">True</span> or <span class="emphasis">False</span>. Booleans are often used in conditional statements to control the flow of a program.</p>
+           
+        </div>
+        
+        <h2 style="text-align: center; color: skyblue; margin-top: 50px;">Example</h2>
+           <div class="code-view">
+            {% for snippet in code_3 %}
+   
+                <div class="code-container">
+                    <button class="copy-button" onclick="copyToClipboard()">Copy</button>
+                    <pre class="code-editor-content">
+                        
+                        <style>
+                            {{ snippet.get_highlighted_code.css | safe }}
+                        </style>
+                        {{ snippet.get_highlighted_code.html | safe }}
+                        
+                    </pre>
+                    
+                </div>
+            
+            {% endfor %}
+        </div>
+        <br>
+        <div class="notes">
+            <p>
+                You can use booleans in logical operations, such as comparisons and conditions.
+            </p>
+        </div>
+
+        <h2 style="text-align: center; color: skyblue; margin-top: 50px;">Example</h2>
+        <div class="code-view">
+            {% for snippet in code_4 %}
+   
+                <div class="code-container">
+                    <button class="copy-button" onclick="copyToClipboard()">Copy</button>
+                    <pre class="code-editor-content">
+                        
+                        <style>
+                            {{ snippet.get_highlighted_code.css | safe }}
+                        </style>
+                        {{ snippet.get_highlighted_code.html | safe }}
+                        
+                    </pre>
+                    
+                </div>
+            
+            {% endfor %}
+        </div>
+
+        <h2 style="text-align: center; color: skyblue; margin-top: 50px;">Output</h2>
+
+        <div class="code-view">
+            <div class="sub-view">
+                <div class="code-block">
+                    <p><i class="fa fa-angle-double-right"></i> True</p>
+                    <p><i class="fa fa-angle-double-right"></i>  False</p>
+                    <p><i class="fa fa-angle-double-right"></i> False</p>
+                    <p><i class="fa fa-angle-double-right"></i> True</p>
+                </div>
+            </div>
+        </div>
+
+
+
+        <h2 style="text-align: center; color: skyblue; margin-top: 50px;">Exercise</h2>
+        <div class="notes">
+            <p>
+                Write a Python program based on the following instructions:
+            </p>
+            <ul>
+                <li>Create two variables, <span class="emphasis">num_1</span> and <span class="emphasis">num_2</span>, then assign values [numbers] to them.</li>
+                <li>Print the sum, difference, product, quotient, and modulus of the two numbers.</li>
+                <li>Check if the first number is greater than the second number. Print the result as a boolean value [True or False].</li>
+            </ul>
+
+        </div>
+
+
+        <div class="button-container">
+            <a href="{%url 'py_page2'%}"><button class="prev">Prev</button></a>
+            <a href="{%url 'py_page4'%}"><button class="next">Next</button></a>
+        </div>
+
+        </div>
+    </div>
+</main>
+<footer>
+    {%include 'footer.html'%}
+</footer>
+<script type="text/javascript" src="{%static 'assets/js/main/scripts.js'%}"></script>
+</body>
+</html>

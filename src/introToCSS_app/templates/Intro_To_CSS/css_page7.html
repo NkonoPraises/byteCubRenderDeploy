@@ -1,0 +1,215 @@
+{%load static%}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Styling Images</title>
+    <link rel="stylesheet" type="text/css" href="{%static 'assets/CSS/IntroToHTML/index.css'%}">
+    <link rel="stylesheet" type="text/css" href="{%static 'assets/CSS/IntroToHTML/header.css'%}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style>
+        .result{
+            width: 80%;
+            display: block;
+            margin: auto;
+        }
+        .chapter-pointer-7{
+	        border: 2px solid skyblue;
+        }
+    </style>
+</head>
+{%include 'all/snippets/header_snippet.html'%}
+<body style="background-color: white;">
+    <div class="main-container">
+        <div class="left-container">
+            {%include 'introToCSS_app/snippets/left-container_snippet.html'%}
+
+        </div>
+        <div class="mid-container">
+           <h1>Styling Images</h1>
+
+
+            <div class="button-container">
+                <a href="{%url 'css_6'%}"><button class="prev">Prev</button></a>
+                {%if has_answered == True%}
+                <a href="{%url 'css_ex3'%}"><button class="next">Next</button></a>
+                {%else%}
+                <a href="{{BASE_URL}}/CSSQ3/"><button class="next">Next</button></a>
+                {%endif%}
+            </div>
+
+           <div class="notes">
+            <p>Styling images in CSS allows you to enhance their appearance and integrate them seamlessly into your web design.</p>
+            <p>Lets consider the HTML below:</p>
+           </div>
+           <h2 style="margin-bottom: 20px; text-align: center; color: skyblue;">HTML</h2>
+           <div class="code-view">
+            {% for snippet in code %}
+   
+                <div class="code-container">
+                    <button class="copy-button" onclick="copyToClipboard()">Copy</button>
+                    <pre class="code-editor-content">
+                        
+                        <style>
+                            {{ snippet.get_highlighted_code.css | safe }}
+                        </style>
+                        {{ snippet.get_highlighted_code.html | safe }}
+                        
+                    </pre>
+                    
+                </div>
+            
+            {% endfor %}
+        </div>
+           <p style="color: black;"> click here to <a href="{%static 'assets/images/IntroToCSS/AdobeStock_92246077-1024x765.jpeg'%}" download="">download</a> the image.</p> 
+           <h2>8.1 Basic Image Styling Techniques </h2>
+           <div class="notes">
+            <p>1.<strong> Sizing Images:</strong></p>
+            <p>Use the <span class="emphasis">height</span> and <span class="emphasis">width</span> properties to control the dimensions of an image.</p>
+
+            <h3 style="margin-bottom: 20px; text-align: center; color: skyblue;">Example</h3>
+            <div class="i-code">
+                <div class="sub-icode">
+                    <div class="open-brace">
+                        img{
+                    </div>
+                    <div class="css-body"><span class="css-property">width</span><span class="css-value">: 100%;</span></div>
+                    <div class="css-body"><span class="css-property">height</span><span class="css-value">: auto;</span></div>
+
+                    <div class="close-brace">
+                    }
+                    </div>
+                </div>
+            </div>
+
+            <h3 style="text-align: center; color: skyblue; margin-top: 50px;">Result</h3>
+            <div class="result">
+                <img style="width: 100%; height: auto;"  src="{%static 'assets/images/IntroToCSS/AdobeStock_92246077-1024x765.jpeg'%}" alt="image of a CEO sitting in a chair">
+            </div>
+            <p><span class="emphasis">width: 100%;</span> Ensures that the image fills the entire width of the container [using <strong>%</strong> makes the image responsive].</p>
+
+            <p><span class="emphasis">height: auto;</span> maintains the image's aspect ratio no matter how much the width is stretched.</p>
+
+           </div>
+
+           <div class="notes">
+            <p>2.<strong> Borders:</strong></p>
+            <p>Add borders to images using the <span class="emphasis">border</span> property. You can customize the border's width, style, and color.</p>
+
+            <h3 style="margin-bottom: 20px; text-align: center; color: skyblue;">Example</h3>
+            <div class="i-code">
+                <div class="sub-icode">
+                    <div class="open-brace">
+                        img{
+                    </div>
+                    <div class="css-body"><span class="css-property">border</span><span class="css-value">: 2px solid green;</span></div>
+                    <div class="css-body"><span class="css-property">border-radius</span><span class="css-value">: 8px;</span></div>
+
+                    <div class="close-brace">
+                    }
+                    </div>
+                </div>
+            </div>
+           </div>
+           <h3 style="text-align: center; color: skyblue; margin-top: 50px;">Result</h3>
+            <div class="result">
+                <img style="width: 60%; height: auto; border: 2px solid green; border-radius: 8px;"  src="{%static 'assets/images/IntroToCSS/AdobeStock_92246077-1024x765.jpeg'%}" alt="image of a CEO sitting in a chair">
+            </div>
+            <p style="margin-top: 10px;">The <span class="emphasis">border-radius</span> property creates rounded corners around the image.</p>
+
+           <div class="notes">
+            <p>3.<strong> Box Shadow:</strong></p>
+            <p>Create depth and dimension with the <span class="emphasis">box-shadow</span> property. This adds a shadow effect around the image.</p>
+
+            <h3 style="margin-bottom: 20px; text-align: center; color: skyblue;">Example</h3>
+            <div class="i-code">
+                <div class="sub-icode">
+                    <div class="open-brace">
+                        img{
+                    </div>
+                    <div class="css-body"><span class="css-property">box-shadow</span><span class="css-value">: 0 4px 8px gray;</span></div>
+
+                    <div class="close-brace">
+                    }
+                    </div>
+                </div>
+            </div>
+
+           </div>
+           <h3 style="text-align: center; color: skyblue; margin-top: 50px;">Result</h3>
+           <div class="result">
+               <img style="width: 60%; height: auto; box-shadow: 0 4px 8px gray;"  src="{%static 'assets/images/IntroToCSS/AdobeStock_92246077-1024x765.jpeg'%}" alt="image of a CEO sitting in a chair">
+           </div>
+
+           <div class="notes">
+            <p>4.<strong> Opacity:</strong></p>
+            <p>Adjust the transparency of an image using the <span class="emphasis">opacity</span> property.</p>
+            <p>Values range from 0 [completely transparent] to 1 [fully opaque].</p>
+
+            <div class="i-code">
+                <div class="sub-icode">
+                    <div class="open-brace">
+                        img{
+                    </div>
+                    <div class="css-body"><span class="css-property">opacity</span><span class="css-value">: 0.7;</span></div>
+
+                    <div class="close-brace">
+                    }
+                    </div>
+                </div>
+            </div>
+
+           </div>
+           <h3 style="text-align: center; color: skyblue; margin-top: 50px;">Result</h3>
+           <div class="result">
+               <img style="width: 60%; height: auto; opacity: 0.7;"  src="{%static 'assets/images/IntroToCSS/AdobeStock_92246077-1024x765.jpeg'%}" alt="image of a CEO sitting in a chair">
+           </div>
+
+         <div class="notes">
+            <p>5. <strong>Filters</strong>:</p>
+            <p>Apply visual effects to images using the <span class="emphasis">filter</span> property. Common filters include <span class="emphasis">blur</span>, <span class="emphasis">brightness</span>, and <span class="emphasis">grayscale</span>.</p>
+
+            <div class="i-code">
+                <div class="sub-icode">
+                    <div class="open-brace">
+                        img{
+                    </div>
+                    <div class="css-body"><span class="css-property">filter</span><span class="css-value">: grayscale(100%);</span></div>
+
+                    <div class="close-brace">
+                    }
+                    </div>
+                </div>
+            </div>
+            
+         </div>
+         <h3 style="text-align: center; color: skyblue; margin-top: 50px;">Result</h3>
+           <div class="result">
+               <img style="width: 60%; height: auto; filter: grayscale(100%);"  src="{%static 'assets/images/IntroToCSS/AdobeStock_92246077-1024x765.jpeg'%}" alt="image of a CEO sitting in a chair">
+           </div>
+
+            
+
+           
+           
+                <button class="run">Try it Yourself</button>
+            <div class="button-container">
+                <a href="{%url 'css_6'%}"><button class="prev">Prev</button></a>
+                {%if has_answered == True%}
+                <a href="{%url 'css_ex3'%}"><button class="next">Next</button></a>
+                {%else%}
+                <a href="{{BASE_URL}}/CSSQ3/"><button class="next">Next</button></a>
+                {%endif%}
+            </div>
+        </div>
+        
+        
+    </div>
+   </main>
+  <footer>
+    {%include 'footer.html'%}
+</footer>
+<script type="text/javascript" src="{%static 'assets/js/main/scripts.js'%}"></script>
+</body>
+</html>

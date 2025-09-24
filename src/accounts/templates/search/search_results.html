@@ -1,0 +1,124 @@
+{% load search_filters %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Search Results</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            background-color: #f8f9fa;
+            color: #333;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            max-width: 900px;
+            margin: 40px auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+        }
+        .header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        .header h1 {
+            color: #007bff; /* A nice shade of blue */
+            font-size: 2.5em;
+            margin: 0;
+            font-weight: 600;
+        }
+        .search-form {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 30px;
+        }
+        .search-input {
+            width: 100%;
+            max-width: 600px;
+            padding: 12px 20px;
+            border: 2px solid #e9ecef;
+            border-radius: 30px;
+            font-size: 1em;
+            outline: none;
+            transition: border-color 0.3s ease;
+        }
+        .search-input:focus {
+            border-color: #007bff;
+        }
+        .results-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        .result-item {
+            display: block;
+            padding: 20px;
+            margin-bottom: 15px;
+            background-color: #f0f8ff; /* Skyblue light shade */
+            border-radius: 8px;
+            text-decoration: none;
+            color: #333;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+        }
+        .result-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+            background-color: #e6f7ff; /* A slightly darker skyblue on hover */
+        }
+        .result-title {
+            font-size: 1.5em;
+            font-weight: 600;
+            color: #0056b3; /* A darker blue for the title */
+            margin-bottom: 5px;
+        }
+        .no-results {
+            text-align: center;
+            color: #6c757d;
+            font-style: italic;
+            font-size: 1.2em;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Search_byteCub</h1>
+            <form action="{% url 'search_results' %}" method="get" class="search-form">
+                <input type="search" name="query" placeholder="Search links..." class="search-input" value="{{ query|default:'' }}">
+            </form>
+        </div>
+
+        {% if query %}
+            {% if results %}
+                <ul class="results-list">
+                    {% for item in results %}
+                        <a href="{% url item.url_name|get_link_url %}" class="result-item">
+                            <div class="result-title">{{ item.url_name|get_display_name }}</div>
+                        </a>
+                    {% endfor %}
+                </ul>
+            {% else %}
+                <p class="no-results">No results found for "{{ query }}".</p>
+            {% endif %}
+        {% else %}
+            {% if results %}
+                 <ul class="results-list">
+                    {% for item in results %}
+                        <a href="{% url item.url_name|get_link_url %}" class="result-item">
+                            <div class="result-title">{{ item.url_name|get_display_name }}</div>
+                        </a>
+                    {% endfor %}
+                </ul>
+            {% else %}
+                <p class="no-results">There are no items to display.</p>
+            {% endif %}
+        {% endif %}
+    </div>
+</body>
+</html>

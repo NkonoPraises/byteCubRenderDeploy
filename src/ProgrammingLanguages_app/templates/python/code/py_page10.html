@@ -1,0 +1,293 @@
+{%load static%}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>If Statements in Python</title>
+    <link rel="stylesheet" type="text/css" href="{%static 'assets/CSS/IntroToHTML/index.css'%}">
+    <link rel="stylesheet" type="text/css" href="{%static 'assets/CSS/IntroToHTML/header.css'%}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style>
+        .chapter-pointer-10{
+	        border: 2px solid skyblue;
+        }
+        .js-shots{
+            width: 50%;
+        }
+        @media(max-width: 760px){
+            .js-shots{
+                width: 100%;
+            }
+            
+        }
+        .code-container{
+            overflow: hidden;
+        }
+        pre.code-editor-content{
+            width: 100%;
+            overflow-y: hidden;
+            margin-bottom: -60px;
+        }
+        .code-editor-content{
+            margin-top: -160px;
+            padding: 2px 0px;
+        }
+    </style>
+	
+</head>
+{%include 'all/snippets/header_snippet.html'%}
+<body>
+<main>
+    <div class="main-container">
+        <div class="left-container">
+            {%include 'python/snippets/left-container_snippet.html'%}
+        </div>
+        <div class="mid-container">
+            <h1>If Statements in Python</h1>
+            <div class="button-container">
+                <a href="{%url 'py_page9b'%}"><button class="prev">Prev</button></a>
+                <a href="{%url 'py_page11'%}"><button class="next">Next</button></a>
+            </div>
+           
+
+            <h2>What is an If Statement?</h2>
+            <div class="notes">
+                <p>
+                  An <strong>if statement</strong> is a fundamental concept in programming that allows you to execute a block of code based on a certain condition. It helps you make decisions in your code. 
+                  If the condition evaluates to <span class="emphasis">True</span>, the code inside the if statement will run; if it evaluates to <span class="emphasis">False</span>, the code will be skipped.
+                </p>
+            </div>
+
+            <h2>Basic Syntax of an If Statement</h2>
+            <div class="notes">
+               <p>The basic syntax of an if statement in Python is as follows:</p>
+            </div>
+
+
+           <div class="code-view">
+            {% for snippet in code_1 %}
+   
+                <div class="code-container">
+                    <button class="copy-button" onclick="copyToClipboard()">Copy</button>
+                    <pre class="code-editor-content">
+                        
+                        <style>
+                            {{ snippet.get_highlighted_code.css | safe }}
+                        </style>
+                        {{ snippet.get_highlighted_code.html | safe }}
+                        
+                    </pre>
+                    
+                </div>
+            
+            {% endfor %}
+        </div>
+
+
+       <div class="notes">
+            <p>Here's how it works:</p>
+            <ul>
+                <li> <span class="emphasis">condition</span>: This is an expression that evaluates to either True or False.</li>
+                <li>The indented block of code following the colon (<span class="emphasis">:</span>) is what gets executed if the condition is true.</li>
+            </ul>
+        </div>
+
+        <h2>Example of an If Statement</h2>
+
+        <div class="notes">
+            <p>Let's look at a simple example:</p>
+        </div>
+
+           <div class="code-view">
+            {% for snippet in code_2 %}
+   
+                <div class="code-container">
+                    <button class="copy-button" onclick="copyToClipboard()">Copy</button>
+                    <pre class="code-editor-content">
+                        
+                        <style>
+                            {{ snippet.get_highlighted_code.css | safe }}
+                        </style>
+                        {{ snippet.get_highlighted_code.html | safe }}
+                        
+                    </pre>
+                    
+                </div>
+            
+            {% endfor %}
+        </div>
+        <h2 style="text-align: center; color: skyblue; margin-top: 50px;">Output</h2>
+
+        <div class="code-view">
+            <div class="sub-view">
+                <div class="code-block">
+                    <p><i class="fa fa-angle-double-right"></i> You are an adult.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="notes">
+            <p>In this example:</p>
+            <ul>
+                <li> We have a variable <span class="emphasis">age</span> set to <span class="emphasis">18</span>.</li>
+                <li>The condition checks if <span class="emphasis">age</span> is greater than or equal to <span class="emphasis">18</span>.</li>
+                <li>Since the condition is true, the message "You are an adult." gets printed.</li>
+            </ul>
+        </div>
+
+       
+        <h2>Indentation</h2>
+        <div class="notes">
+            <p>
+               In Python, indentation is crucial. It defines the block of code that belongs to the if statement. 
+               All lines of code that should run if the condition is true must be indented with spaces or tabs (but not both). 
+            </p>
+        </div>
+
+        <h2>Using Else and Elif</h2>
+        <div class="notes">
+            <p>
+                You can extend your if statements using <span class="emphasis">else</span> and <span class="emphasis">elif</span> (short for "else if"). This allows you to check multiple conditions.
+            </p>
+        </div>
+        
+           <div class="code-view">
+            {% for snippet in code_3 %}
+   
+                <div class="code-container">
+                    <button class="copy-button" onclick="copyToClipboard()">Copy</button>
+                    <pre class="code-editor-content">
+                        
+                        <style>
+                            {{ snippet.get_highlighted_code.css | safe }}
+                        </style>
+                        {{ snippet.get_highlighted_code.html | safe }}
+                        
+                    </pre>
+                    
+                </div>
+            
+            {% endfor %}
+        </div>
+        <br>
+
+        <h2 style="text-align: center; color: skyblue; margin-top: 50px;">Output</h2>
+
+        <div class="code-view">
+            <div class="sub-view">
+                <div class="code-block">
+                    <p><i class="fa fa-angle-double-right"></i>  You are a teenager.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="notes">
+            <p>In this example:</p>
+            <ul>
+                <li>The first condition checks if the person is an adult.</li>
+                <li>If that's false, it checks if they are a teenager.</li>
+                <li>If both conditions are false, it executes the else block, printing "You are a child."</li>
+            </ul>
+        </div>
+
+        <div class="notes nb">
+            <p><strong>Note:</strong></p>
+            <p>If you expect only two outcomes, use <span class="emphasis" style="color: skyblue;">else</span> directly after the <span class="emphasis" style="color: skyblue;">if</span> statement and leave out the <span class="emphasis" style="color: skyblue;">elif</span> statement(s). </p>
+        </div>
+
+        <h2>Comparison Operators</h2>
+        <div class="notes">
+            <p>
+               When working with conditions, you often use comparison operators. Here are some common ones:
+            </p>
+            <ul>
+                <li><span class="emphasis">==</span>: Equal to</li>
+                <li><span class="emphasis">!=</span>: Not equal to</li>
+                <li><span class="emphasis">></span>: Greater than</li>
+                <li><span class="emphasis"><</span>: Less than</li>
+                <li><span class="emphasis">>=</span>: Greater than or equal to</li>
+                <li><span class="emphasis"><=</span>: Less than or equal to</li>
+            </ul>
+        </div>
+
+        <h2>Logical Operators</h2>
+        <div class="notes">
+            <p>You can also combine conditions using logical operators:</p>
+            <ul>
+                <li><span class="emphasis">and</span>: True if both conditions are true.</li>
+                <li><span class="emphasis">or</span>: True if at least one of the conditions is true.</li>
+                <li><span class="emphasis">not</span>: Inverts the truth value of a condition.</li>
+            </ul>
+        </div>
+
+        <h2>Example with Logical Operators</h2>
+        <div class="code-view">
+            {% for snippet in code_4 %}
+   
+                <div class="code-container">
+                    <button class="copy-button" onclick="copyToClipboard()">Copy</button>
+                    <pre class="code-editor-content">
+                        
+                        <style>
+                            {{ snippet.get_highlighted_code.css | safe }}
+                        </style>
+                        {{ snippet.get_highlighted_code.html | safe }}
+                        
+                    </pre>
+                    
+                </div>
+            
+            {% endfor %}
+        </div>
+
+        <h2 style="text-align: center; color: skyblue; margin-top: 50px;">Output</h2>
+
+        <div class="code-view">
+            <div class="sub-view">
+                <div class="code-block">
+                    <p><i class="fa fa-angle-double-right"></i> You can enter the club.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="notes">
+            <p>In this example, both conditions must be true for the message "You can enter the club." to be printed.</p>
+            <p>Play with the variables <span class="emphasis">age</span> and <span class="emphasis">has_permission</span>, and change the logical <span class="emphasis">and</span> operator to observe different outcomes. </p>
+        </div>
+
+       
+        <h2 style="text-align: center; color: skyblue; margin-top: 50px;">Exercise</h2>
+        <div class="notes">
+            <p>Now that you have learned about if statements, here's an exercise for you:</p>
+            
+           <ol>
+            <li>Create a variable called <span class="emphasis">temperature</span> and set it to a value representing the current temperature in degrees Celsius.</li>
+            <li>Write an if statement that checks:
+                <ul>
+                    <li> If <span class="emphasis">temperature</span> is greater than or equal to 30, print "It's a hot day."</li>
+                    <li> If <span class="emphasis">temperature</span> is between 20 and 29 (inclusive), that is if temperature is greater than or equal to 20, print "It's a pleasant day."</li>
+                    <li>If <span class="emphasis">temperature</span> is less than 20, print "It's a cold day."</li>
+                </ul>
+            </li>
+            <li>Don't forget to comments explaining each part of your code.</li>
+            
+           </ol>
+
+        </div>
+
+
+        <div class="button-container">
+            <a href="{%url 'py_page9b'%}"><button class="prev">Prev</button></a>
+            <a href="{%url 'py_page11'%}"><button class="next">Next</button></a>
+        </div>
+
+        </div>
+    </div>
+</main>
+<footer>
+    {%include 'footer.html'%}
+</footer>
+<script type="text/javascript" src="{%static 'assets/js/main/scripts.js'%}"></script>
+</body>
+</html>

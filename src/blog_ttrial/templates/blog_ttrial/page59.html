@@ -1,0 +1,111 @@
+{%load static%}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercise Four</title>
+    <link rel="stylesheet" type="text/css" href="{%static 'assets/CSS/IntroToHTML/index.css'%}">
+    <link rel="stylesheet" type="text/css" href="{%static 'assets/CSS/IntroToHTML/header.css'%}">
+    <link rel="stylesheet" type="text/css" href="{%static 'assets/CSS/blog_ttrial/header.css'%}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style>
+        .chapter-pointer-59{
+	        border: 2px solid skyblue;
+        }
+
+       .edit ul{
+            list-style-type : none;
+        }
+       .edit ul li{
+            background-size : 20px 20px;
+            background-repeat :no-repeat;
+            background-position : 0 5px;
+            padding-left : 30px;
+        }
+        .edit ul a{
+            text-decoration: underline;
+        }
+
+
+    </style>
+</head>
+{%include 'all/snippets/header_snippet.html'%}
+<body>
+    <main>
+    <div class="main-container">
+        <div class="left-container">
+            {%include 'snippets/Final_blog_exercise_left_snippet.html'%} 
+        </div>
+        <div class="mid-container">
+             {%if messages%}
+            <div class="alert alert-warning">
+                <p><strong>Action Required:</strong> You must complete this Exercise before you can proceed. Submit your work using internal CSS.</p>
+            </div>
+            {%endif%}
+           <h1>Exercise Four</h1>
+
+            <div class="button-container">
+                <a href="{%url 'blog_pg58'%}"><button class="prev">Prev</button></a>
+                {%if has_submitted%}
+                <a href="{%url 'blog_pg60'%}"><button class="next">Next</button></a>
+                {%else%}
+                <a href="{%url 'blog_ex4_submission'%}"><button class="next">Next</button></a>
+                {%endif%}
+            </div>
+            <p style="font-size: x-large; text-align: center; line-height: 1.5;">This is the final exercise of the <strong>Fashion Blog</strong> programming Series.</p>
+            <p style="font-size: x-large; text-align: center; line-height: 1.5;">You are required to build the <strong>Contact</strong> page of Fashion Forward.</p>
+
+            <p style="text-align: center;">All the tools you would need are provided below.</p>
+
+            <h2>Images:</h2>
+            <div class="notes edit">
+                <ul>
+                    <a href="{%static 'assets/images/Front End Dev/pexels-karolina-grabowska-7876973.jpg'%}" download=""><li style="background-image : url({%static 'assets/images/Front End Dev/pexels-karolina-grabowska-7876973.jpg'%});">Download</li></a>
+                </ul>
+            </div>
+
+            <h2>Colors:</h2>
+            <div class="notes">
+                <ul>
+                    <li><span style="padding: 0 15px; margin-right: 20px; background-color: #1976D2;"></span> #1976D2</li>
+                    <li><span style="padding: 0 15px; margin-right: 20px; background-color: #2196F3;"></span> #2196F3</li>
+                    <li><span style="padding: 0 15px; margin-right: 20px; background-color: #333;"></span> #333</li>
+                    <li><span style="padding: 0 15px; margin-right: 20px; background-color: #555;"></span> #555</li>
+                    <li><span style="padding: 0 15px; margin-right: 20px; background-color: #ccc;"></span> #ccc</li>
+                </ul>
+            </div>
+
+            <h2>Fonts:</h2>
+            <div class="notes">
+                <ul>
+                    <li><i style="padding: 0 15px; margin-right: 20px;" class="fa fa-envelope"></i> fa fa-envelope </li>
+                    <li><i style="padding: 0 15px; margin-right: 20px;" class="fa fa-phone"></i> fa fa-phone </li>
+                    <li><i style="padding: 0 15px; margin-right: 23px;" class="fa fa-map-marker"></i> fa fa-map-marker </li>
+                    <li><i style="padding: 0 15px; margin-right: 20px;" class="fa fa-instagram"></i> fa fa-instagram </li>
+                    <li><i style="padding: 0 15px; margin-right: 20px;" class="fa fa-twitter"></i> fas fa-twitter </li>
+                </ul>
+            </div>
+            
+            <p style="text-align: center;">Click the link below to see a Preview of the <strong>Contact</strong> page.</p>
+            <a href="{%url 'blog_pg59_b'%}"><button class="run">Contact page <i class="fa fa-arrow-right"></i></button></a>
+    
+             <div class="button-container">
+                <a href="{%url 'blog_pg58'%}"><button class="prev">Prev</button></a>
+                {%if has_submitted%}
+                <a href="{%url 'blog_pg60'%}"><button class="next">Next</button></a>
+                {%else%}
+                <a href="{%url 'blog_ex4_submission'%}"><button class="next">Next</button></a>
+                {%endif%}
+            </div>
+        </div>
+        
+        
+    </div>
+  <footer>
+    {%include 'footer.html'%}
+</footer>
+<script type="text/javascript" src="{%static 'assets/js/main/scripts.js'%}"></script>
+</main>
+</body>
+</html>

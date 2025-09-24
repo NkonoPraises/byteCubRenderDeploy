@@ -1,0 +1,70 @@
+{%load static%}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Overview</title>
+    <link rel="stylesheet" type="text/css" href="{%static 'assets/CSS/IntroToHTML/index.css'%}">
+    <link rel="stylesheet" type="text/css" href="{%static 'assets/CSS/IntroToHTML/header.css'%}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style>
+        .chapter-pointer-1{
+	        border: 2px solid skyblue;
+        }
+        
+    </style>
+</head>
+{%include 'all/snippets/header_snippet.html'%}
+<body>
+    <main>
+    <div class="main-container">
+        <div class="left-container">
+            {%include 'snippets/left-container_snippet.html'%} 
+        </div>
+        <div class="mid-container">
+           <h1>Project Introduction</h1>
+
+            <div class="button-container">
+                <a href="{%url 'css_ex3'%}"><button class="prev">Prev</button></a>
+                <a href="{%url 'blog_pg2'%}"><button class="next">Next</button></a>
+            </div>
+           <h2 style="margin-top: 20px;">Project Overview</h2>
+           <div class="notes">
+            <p>In this part of the course, we are going to be building a proffesional fashion blog with HTML, CSS and javaSCript.</p>
+            <p>This course assumes that you have already gone through our free courses on HTML and CSS, or atleast have basic web dev knowledge. If not, click on the following link to explore our <a style="text-decoration: underline;" href="{%url 'page1_view'%}">web dev begginer's course</a>.  </p>
+            <p>We are going to build the Fashion Blog to be responsive on all screen sizes [mobile screens to large monitors]. But continuing this course would require you to program on a PC/mac or Desktop computer for simplicity.  </p>
+           </div>
+
+           <h2 style="margin-top: 20px;">Project Preview</h2>
+           <div class="notes">
+            <p>Now, lets take a quick look at what we are going to be building.</p>
+           </div>
+
+           <div class="notes nb">
+            <p><strong>Note</strong>:</p>
+            <p class="mobile">If you wish to know what the website look's like on desktop/larger screen, tilt [rotate] your mobile device to portrait mode.</p>
+            <p class="desktop">If you wish to know what the website look's like on a mobile phone, right click on your desktop screen and click inspect as seen below.</p>
+           </div>
+           <img src="{%static 'assets/images/Front End Dev/inspect.png'%}" alt="right clicking on browser screenshot" class="desktop">
+           <div class="notes">
+            <p>Click on the following button to explore the project.</p>
+           </div>
+           <a href="{%url 'blogPreview_home'%}"><button class="start">Explore Project</button></a>
+
+
+            <div class="button-container" style="margin-top: 50px; margin-bottom: 100px;">
+                <a href="{%url 'css_ex3'%}"><button class="prev">Prev</button></a>
+                <a href="{%url 'blog_pg2'%}"><button class="next">Next</button></a>
+            </div>
+        </div>
+        
+        
+    </div>
+  <footer>
+    {%include 'footer.html'%}
+</footer>
+<script type="text/javascript" src="{%static 'assets/js/main/scripts.js'%}"></script>
+</main>
+</body>
+</html>

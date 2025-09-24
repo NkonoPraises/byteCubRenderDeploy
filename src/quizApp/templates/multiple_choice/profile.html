@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Your Profile & Leaderboard</title>
+<style>
+  body {
+    font-family: 'Montserrat', sans-serif;
+    background: linear-gradient(135deg, #3a7bd5, #00d2ff);
+    color: #e0f0ff;
+    padding: 20px;
+    min-height: 100vh;
+  }
+  .container {
+    max-width: 700px;
+    margin: auto;
+    background: rgba(10, 40, 80, 0.85);
+    border-radius: 15px;
+    padding: 30px;
+    box-shadow: 0 10px 40px rgba(0,70,140,0.6);
+  }
+  h1, h2 {
+    margin-bottom: 20px;
+    text-align: center;
+    text-shadow: 0 2px 8px rgba(0,40,90,0.8);
+  }
+  .stats {
+    text-align: center;
+    margin-bottom: 30px;
+    font-size: 1.3rem;
+  }
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    color: #c0d9ff;
+  }
+  th, td {
+    padding: 12px 15px;
+    border-bottom: 1px solid rgba(255,255,255,0.15);
+    text-align: left;
+  }
+  th {
+    background: rgba(0, 120, 255, 0.3);
+  }
+  tbody tr:hover {
+    background: rgba(0, 120, 255, 0.15);
+  }
+  .highlight {
+    background: rgba(0, 180, 255, 0.4);
+    font-weight: 700;
+  }
+</style>
+</head>
+<body>
+  <div class="container" role="main" aria-label="User profile and leaderboard">
+    <h1>Your Profile</h1>
+    <div class="stats">
+      <p><strong>Points:</strong> {{ user_points }}</p>
+      <p><strong>Your Rank:</strong> {{ user_rank }} out of {{ total_users }}</p>
+    </div>
+
+    <h2>Top 10 Users Leaderboard</h2>
+    <table aria-label="Leaderboard table">
+      <thead>
+        <tr>
+          <th>Rank</th>
+          <th>Username</th>
+          <th>Points</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for profile in leaderboard_top %}
+          <tr class="{% if profile.user == user %}highlight{% endif %}">
+            <td>{{ forloop.counter }}</td>
+            <td>{{ profile.user.username }}</td>
+            <td>{{ profile.points }}</td>
+          </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+</body>
+</html>

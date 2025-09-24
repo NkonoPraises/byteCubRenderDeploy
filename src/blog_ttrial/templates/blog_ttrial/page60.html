@@ -1,0 +1,71 @@
+{%load static%}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercise Four: Page Two</title>
+    <link rel="stylesheet" type="text/css" href="{%static 'assets/CSS/IntroToHTML/index.css'%}">
+    <link rel="stylesheet" type="text/css" href="{%static 'assets/CSS/IntroToHTML/header.css'%}">
+    <link rel="stylesheet" type="text/css" href="{%static 'assets/CSS/blog_ttrial/header.css'%}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style>
+        .chapter-pointer-60{
+	        border: 2px solid skyblue;
+        }
+
+       .edit ul{
+            list-style-type : none;
+        }
+       .edit ul li{
+            background-size : 20px 20px;
+            background-repeat :no-repeat;
+            background-position : 0 5px;
+            padding-left : 30px;
+        }
+        .edit ul a{
+            text-decoration: underline;
+        }
+
+
+    </style>
+</head>
+{%include 'all/snippets/header_snippet.html'%}
+<body>
+    <main>
+    <div class="main-container">
+        <div class="left-container">
+            {%include 'snippets/Final_blog_exercise_left_snippet.html'%} 
+        </div>
+        <div class="mid-container">
+           <h1>Exercise Four: Page Two</h1>
+            <div class="button-container">
+                <a href="{%url 'blog_pg59'%}"><button class="prev">Prev</button></a>
+                <a href="{%url 'congrats'%}"><button class="next">Next</button></a>
+            </div>
+            <p style="font-size: large; text-align: center; line-height: 1.5;">Since the <strong>Outfits</strong> page is similar in structure and design with the <strong>Trends</strong> and <strong>Designers</strong> page, we would just provide the program files to keep the project as interesting and unrepetitive as possible.</p>
+
+            <p style="text-align: center;">Download the zipped files below.</p>
+
+            
+            
+            
+            <a href="#" download=""><button class="run">Download <i class="fa fa-arrow-down"></i></button></a>
+
+            <p style="font-size: large; text-align: center; line-height: 1.5; margin-top: 30px;">Finally, link all the pages to form a proffesional Fashion Blogging website.</p>
+    
+            <div class="button-container" style="margin-top: 50px; margin-bottom: 100px;">
+                <a href="{%url 'blog_pg59'%}"><button class="prev">Prev</button></a>
+                <a href="{%url 'congrats'%}"><button class="next">Next</button></a>
+            </div>
+        </div>
+        
+        
+    </div>
+  <footer>
+    {%include 'footer.html'%}
+</footer>
+<script type="text/javascript" src="{%static 'assets/js/main/scripts.js'%}"></script>
+</main>
+</body>
+</html>

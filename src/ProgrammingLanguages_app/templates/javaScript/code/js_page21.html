@@ -1,0 +1,274 @@
+{%load static%}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Objects</title>
+    <link rel="stylesheet" type="text/css" href="{%static 'assets/CSS/IntroToHTML/index.css'%}">
+    <link rel="stylesheet" type="text/css" href="{%static 'assets/CSS/IntroToHTML/header.css'%}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style>
+        .chapter-pointer-21{
+	        border: 2px solid skyblue;
+        }
+        .js-shots{
+            width: 50%;
+        }
+        @media(max-width: 760px){
+            .js-shots{
+                width: 100%;
+            }
+            
+            
+        }
+        .code-container::-webkit-scrollbar{
+            /* overflow: hidden; */
+            display: none;
+        }
+        pre.code-editor-content{
+            overflow-y: hidden;
+            margin-bottom: -60px;
+            overflow-x: scroll;
+        }
+        .code-editor-content{
+            margin-top: -160px;
+            padding: 2px 0px;
+        }
+        @media(max-width:720px){
+            pre.code-editor-content{
+            width: 1500px;
+            
+            }
+        }
+    </style>
+	
+</head>
+{%include 'all/snippets/header_snippet.html'%}
+<body>
+<main>
+    <div class="main-container">
+        <div class="left-container">
+            {%include 'javaScript/snippets/left-container_snippet.html'%}
+        </div>
+        <div class="mid-container">
+            <h1>Objects</h1>
+
+            <div class="button-container">
+                <a href="{%url 'js_page20'%}"><button class="prev">Prev</button></a>
+                {%if has_answerd == True%}
+                <a href="{%url 'js_page22'%}"><button class="next">Next</button></a>
+                {%else%}
+                <a href="{{BASE_URL}}/JSQ5/"><button class="next">Next</button></a>
+                {%endif%}
+            </div>
+           
+            <h2>What is an Object?</h2>
+            <div class="notes">
+                <p>
+                    In JavaScript, an object is a standalone entity, with properties and type. It is similar to real-life objects, like a car or a dog, which have characteristics [properties] and behaviors [methods]. 
+                </p>
+                <p>Objects are very useful when designing real life models, like a character's behavior/attributes in a video game. </p>
+            </div>
+
+            <h2>Creating an Object</h2>
+            <div class="notes">
+                <p>You can create an object in several ways. The most common methods are using object literals or the <span class="emphasis">new Object()</span> syntax.</p>
+            </div>
+
+            <h2>1. Object Literal</h2>
+            <div class="notes">
+                <p>This is the simplest way to create an object.</p>
+            </div>
+
+            <h2 style="text-align: center; color: skyblue; margin-top: 50px;">Example</h2>
+
+           <div class="code-view">
+            {% for snippet in code_1 %}
+   
+                <div class="code-container">
+                    <button class="copy-button" onclick="copyToClipboard()">Copy</button>
+                    <pre class="code-editor-content">
+                        
+                        <style>
+                            {{ snippet.get_highlighted_code.css | safe }}
+                        </style>
+                        {{ snippet.get_highlighted_code.html | safe }}
+                        
+                    </pre>
+                    
+                </div>
+            
+            {% endfor %}
+        </div>
+
+        <h2 style="text-align: center; color: skyblue; margin-top: 50px;">Output</h2>
+
+        <div class="code-view">
+            <div class="sub-view">
+                <div class="code-block">
+                    <p><strong>&gt;</strong> Toyota</p>
+                    <p><strong>&gt;</strong> Corolla</p>
+                    <p><strong>&gt;</strong> Car started</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="notes">
+           <p>In the above example, <span class="emphasis">car</span> is an object with three properties [<strong>brand</strong>, <strong>model</strong>, <strong>year</strong>] and one method [<strong>start</strong>].</p>
+           <p>Also notice that, there are two ways in accessing the properties of an object.</p>
+        </div>
+
+        <h2>2. Using the new Object() Syntax</h2>
+        <div class="notes">
+            <p>You can also create an object using the <span class="emphasis">new Object()</span> syntax.</p>
+        </div>
+
+        <h2 style="text-align: center; color: skyblue; margin-top: 50px;">Example</h2>
+        <div class="code-view">
+            {% for snippet in code_2 %}
+   
+                <div class="code-container">
+                    <button class="copy-button" onclick="copyToClipboard()">Copy</button>
+                    <pre class="code-editor-content">
+                        
+                        <style>
+                            {{ snippet.get_highlighted_code.css | safe }}
+                        </style>
+                        {{ snippet.get_highlighted_code.html | safe }}
+                        
+                    </pre>
+                    
+                </div>
+            
+            {% endfor %}
+        </div>
+
+        <h2 style="text-align: center; color: skyblue; margin-top: 50px;">Output</h2>
+
+        <div class="code-view">
+            <div class="sub-view">
+                <div class="code-block">
+                    <p><strong>&gt;</strong> John</p>
+                    <p><strong>&gt;</strong> Hello, my name is John</p>
+                </div>
+            </div>
+        </div>
+        <div class="notes">
+            <p>From the above example, the <span class="emphasis">this</span> keyword referes to the object itself. That is, <span class="emphasis">this.firstName</span> is equivalent to <span class="emphasis">person.firstName</span>. </p>
+        </div>
+
+        <h2>Adding and Modifying Properties</h2>
+        <div class="notes">
+            <p>You can add new properties to an existing object or modify existing ones.</p>
+        </div>
+        
+           <div class="code-view">
+            {% for snippet in code_3 %}
+   
+                <div class="code-container">
+                    <button class="copy-button" onclick="copyToClipboard()">Copy</button>
+                    <pre class="code-editor-content">
+                        
+                        <style>
+                            {{ snippet.get_highlighted_code.css | safe }}
+                        </style>
+                        {{ snippet.get_highlighted_code.html | safe }}
+                        
+                    </pre>
+                    
+                </div>
+            
+            {% endfor %}
+        </div>
+
+        <h2 style="text-align: center; color: skyblue; margin-top: 50px;">Output</h2>
+
+        <div class="code-view">
+            <div class="sub-view">
+                <div class="code-block">
+                    <p><strong>&gt;</strong> Red</p>
+                    <p><strong>&gt;</strong> 2022</p>
+                </div>
+            </div>
+        </div>
+
+        <h2>Looping Through Object Properties</h2>
+        <div class="notes">
+            <p>You can loop through the properties of an object using a <span class="emphasis">for...in loop</span>.</p>
+        </div>
+
+        <div class="code-view">
+            {% for snippet in code_4 %}
+   
+                <div class="code-container">
+                    <button class="copy-button" onclick="copyToClipboard()">Copy</button>
+                    <pre class="code-editor-content">
+                        
+                        <style>
+                            {{ snippet.get_highlighted_code.css | safe }}
+                        </style>
+                        {{ snippet.get_highlighted_code.html | safe }}
+                        
+                    </pre>
+                    
+                </div>
+            
+            {% endfor %}
+        </div>
+
+        <h2 style="text-align: center; color: skyblue; margin-top: 50px;">Output</h2>
+
+        <div class="code-view">
+            <div class="sub-view">
+                <div class="code-block">
+                    <p><strong>&gt;</strong> brand: Toyota</p>
+                    <p><strong>&gt;</strong> model: Corolla</p>
+                    <p><strong>&gt;</strong> year: 2022</p>
+                    <p><strong>&gt;</strong> color: Red</p>
+                    <p><strong>&gt;</strong> start: function() { ... }</p>
+                </div>
+            </div>
+        </div>
+
+        
+
+        <h2 style="text-align: center; color: skyblue; margin-top: 50px;">Exercise</h2>
+        <div class="notes">
+           <p>Now that you have a basic understanding of objects in JavaScript, here are two exercises for you to try:</p>
+        </div>
+
+        <div class="notes">
+            <p>1.  Create an object called <span class="emphasis">book</span> with the following properties:</p>
+            <ul>
+               <li> title [string]</li>
+               <li>author [string]</li>
+               <li>yearPublished (number)</li>
+               <li> read (function that logs a message like "Reading [title] by [author]")</li>
+            </ul>
+            <p>2.  Loop through the properties of the <span class="emphasis">book</span> object and log them.</p>
+            <ul>
+               
+            </ul>
+        </div>
+        
+
+
+            vb <div class="button-container">
+                <a href="{%url 'js_page20'%}"><button class="prev">Prev</button></a>
+                {%if has_answerd == True%}
+                <a href="{%url 'js_page22'%}"><button class="next">Next</button></a>
+                {%else%}
+                <a href="{{BASE_URL}}/JSQ5/"><button class="next">Next</button></a>
+                {%endif%}
+            </div>
+
+        </div>
+    </div>
+</main>
+<footer>
+    {%include 'footer.html'%}
+</footer>
+<script type="text/javascript" src="{%static 'assets/js/main/scripts.js'%}"></script>
+</body>
+</html>

@@ -1,0 +1,217 @@
+{%load static%}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS Box Model</title>
+    <link rel="stylesheet" type="text/css" href="{%static 'assets/CSS/IntroToHTML/index.css'%}">
+    <link rel="stylesheet" type="text/css" href="{%static 'assets/CSS/IntroToHTML/header.css'%}">
+    <link rel="stylesheet" href="{%static 'assets/CSS/videos/video.css'%}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style>
+          body {
+      font-family: 'Arial', sans-serif; /* A more professional default font */
+      margin: 0;
+      padding: 0;
+      
+      color: #333;
+    }
+
+    
+
+    .section1 { background-color: #e9ecef; /* Light Gray */
+        padding: 20px;
+      margin-bottom: 20px;
+      border-radius: 5px;
+    }
+
+    .h1style {
+      color: #343a40; /* Dark Gray */
+      font-size: 2.0em;
+      font-family: 'Georgia', serif; /* A more professional font for headings */
+      text-align: center;
+    }
+
+
+    .pstyle {
+      font-size: 1.1em;
+      line-height: 1.6; /* Improved readability */
+    }
+
+        .result{
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+        .chapter-pointer-4{
+	        border: 2px solid skyblue;
+        }
+    </style>
+</head>
+{%include 'all/snippets/header_snippet.html'%}
+  <body>
+    <main>
+    <div class="main-container">
+        <div class="left-container">
+            {%include 'introToCSS_app/snippets/left-container_snippet.html'%}
+        </div>
+        <div class="mid-container">
+           <h1>CSS Box Model</h1>
+            <div class="button-container">
+                <a href="{%url 'css_ex1'%}"><button class="prev">Prev</button></a>
+                <a href="{%url 'css_ex2'%}"><button class="next">Next</button></a>
+            </div>
+            <!-- Featured Video      -->
+            <div class="main-video-container">
+                    <div class="content">
+                        <h2>Featured Video</h2>
+                    </div>
+                    
+                    <div class="video-wrapper">
+                        <video id="videoPlayer" width="560" height="315"  poster="{%static 'assets/images/IntroToHTML/1757183118927.jpg'%}" controls>
+                            <!-- Sample video from Pexels -->
+                            <source  src="{%static 'assets/videos/CSS/CSS Box Model-byteCub.mp4'%}" type="video/mp4">
+                            Your browser does not support the video tag.
+                        </video>
+                        
+                        <!-- Overlay navigation buttons -->
+                        <div class="overlay-controls">
+                            <div class="nav-btn" id="rewindOverlayBtn" title="Rewind 10 seconds"><i class="fa-solid fa-backward"></i></div>
+                            <div class="nav-btn" id="forwardOverlayBtn" title="Forward 10 seconds"><i class="fa-solid fa-forward"></i></div>
+                        </div>
+                    </div>
+                    
+                <div class="content">
+                    <div class="dropdown">
+                        <button class="dropdown-button">
+                            <span>Video Description</span>
+                            <span class="arrow"></span>
+                        </button>
+                        <div class="dropdown-content">
+                            <p><strong>Video Description:</strong></p>
+                        </div>
+                    </div>
+
+                    <button class="interaction-button" id="interactiveButton">Click Me!</button>
+                </div>
+            </div>
+
+           <div class="notes">
+           <p>The <span class="emphasis">CSS Box Model</span> is a fundamental concept in the design and layout.</p>
+           <p>It describes how elements on a webpage are structured and spaced. Understanding the box model is essential for effective CSS styling and layout management.</p>
+           </div>
+           <h2>4.1 Components of the Box Model</h2>
+           <div class="notes">
+            <p><strong>1. Content:</strong></p>
+            <p>This is the actual content of the box, such as text, images, or other media.</p>
+            <p>The dimensions of the content area are defined by the <span class="emphasis">height</span> and <span class="emphasis">width</span> properties.</p>
+           </div>
+
+           <div class="notes">
+            <p><strong>2. Padding:</strong></p>
+            <p>Padding is the space between the border and the box.</p>
+            <p>It creates an inner space within the box, enhancing the visual separation of the content from the box's edges.</p>
+            <p>Padding can be set using properties like <span class="emphasis">padding-top</span>, <span class="emphasis">padding-bottom</span>, <span class="emphasis">padding-left</span>, and <span class="emphasis">padding-right</span>, or the shorthand <span class="emphasis">padding</span>.</p>
+           </div>
+
+           <div class="notes">
+            <p><strong>3. Border:</strong></p>
+            <p>The <span class="emphasis">border</span> is a line that sorrounds the padding[if any] and content.</p>
+            <p>It can be styled using properties such as <span class="emphasis">border-width</span>, <span class="emphasis">border-radius</span>, <span class="emphasis">border-style</span>, and <span class="emphasis">border-color</span>.</p>
+           </div>
+
+           <div class="notes">
+            <p><strong>4. Margin:</strong></p>
+            <p><span class="emphasis">Margin</span> is the outer space that surrounds the border of the box and separates it from other elements.</p>
+            <p>It creates space between the boxes of different elements.</p>
+            <p>Margin can be set using properties like <span class="emphasis">margin-top</span>, <span class="emphasis">margin-bottom</span>, <span class="emphasis">margin-left</span>, and <span class="emphasis">margin-right</span>, or the shorthand <span class="emphasis">margin</span>.</p>
+           </div>
+
+        <img src="{%static 'assets/images/IntroToCSS/css_boxmodel.png'%}" alt="css_boxmodel">
+
+        <h2 style="text-align: center;">Example</h2>
+           <div class="notes">
+            <p style="text-align: center;">Lets look modify the article from <strong>Exercise One</strong>.</p>
+           </div>
+           <h3 style="margin-bottom: 5px; text-align: center; color: skyblue;">CSS</h3>
+                <div class="i-code">
+                    <div class="sub-icode">
+                        <div class="open-brace">
+                            article{
+                        </div>
+                        <div class="css-body"><span class="css-property">padding</span><span class="css-value">: 20px;</span></div>
+                        <div class="css-body"><span class="css-property">margin-bottom</span><span class="css-value">: 20px;</span></div>
+                        <div class="css-body"><span class="css-property">border-radius</span><span class="css-value">: 5px;</span></div>
+                        <div class="close-brace">
+                        }
+                        </div>
+                    </div>
+                </div>
+
+                <h3 style="margin-bottom: 5px; text-align: center; color: skyblue;">Result</h3>
+                <div class="result" style="padding: 10px;">
+                    <article class="section1">
+                        <h1 class="h1style">The Web: A Double-Edged Sword</h1>
+                        <p class="pstyle">The internet, built by diligent <i>web developers</i>, has revolutionized communication and commerce. They craft intricate systems, turning lines of code into interactive experiences. These digital architects design websites and applications that power our modern world.</p>
+                    </article>
+                
+                  </div>
+
+                  <h3 style="margin-bottom: 5px; text-align: center; color: skyblue;">Before</h3>
+                  <div class="result">
+                      <article style="background-color: #e9ecef;">
+                          <h1 class="h1style" style="margin-top: 0;">The Web: A Double-Edged Sword</h1>
+                          <p class="pstyle">The internet, built by diligent <i>web developers</i>, has revolutionized communication and commerce. They craft intricate systems, turning lines of code into interactive experiences. These digital architects design websites and applications that power our modern world.</p>
+                      </article>
+                  
+                    </div>
+
+                  <button class="run">Try it Yourself</button>
+
+              
+
+
+         <h2>4.2 Box-Sizing Property</h2>
+         <div class="notes">
+            <p>The <span class="emphasis">box-sizing</span> property changes how the width height of an element are calculated:</p>
+            <ul>
+                <li><strong>content-box</strong>: The default value. Width and height apply to the content box only.</li>
+                <li><strong>border-box</strong>: Width and height include padding and border, making layout easier.</li>
+            </ul>
+
+            <h3 style="margin-bottom: 20px; text-align: center; color: skyblue;">Example</h3>
+            <div class="i-code">
+                <div class="sub-icode">
+                    <div class="open-brace">
+                        *{
+                    </div>
+                    <div class="css-body"><span class="css-property">box-sizing</span><span class="css-value">: border-box;</span></div>
+                    <div class="close-brace">
+                    }
+                    </div>
+                </div>
+            </div>
+         </div>
+
+            
+
+           
+           
+                <button class="run">Try it Yourself</button>
+                <div class="button-container">
+                    <a href="{%url 'css_ex1'%}"><button class="prev">Prev</button></a>
+                    <a href="{%url 'css_ex2'%}"><button class="next">Next</button></a>
+                </div>
+        </div>
+        
+        
+    </div>
+   </main>
+  <footer>
+    {%include 'footer.html'%}
+</footer>
+<script type="text/javascript" src="{%static 'assets/js/main/scripts.js'%}"></script>
+<script src="{%static 'assets/js/videos/video.js'%}"></script>
+</body>
+</html>

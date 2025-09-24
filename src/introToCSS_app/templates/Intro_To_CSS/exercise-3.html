@@ -1,0 +1,176 @@
+{%load static%}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercise Three</title>
+    <link rel="stylesheet" type="text/css" href="{%static 'assets/CSS/IntroToHTML/index.css'%}">
+    <link rel="stylesheet" type="text/css" href="{%static 'assets/CSS/IntroToHTML/header.css'%}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style>
+         input{
+          border: 2px solid skyblue;
+          outline: none;
+         }
+         input:hover{
+          border: none;
+          border-bottom: 2px solid skyblue;
+         }
+         button{
+          padding: 8px;
+          font-weight: bold;
+          color: white;
+          background-color: green;
+          border: none;
+          cursor: pointer;
+         }
+
+        .chapter-pointer-ex3{
+	        border: 2px solid skyblue;
+        }
+    .result{
+        margin: 0;
+        padding: 0;
+    }
+
+    .result.body {
+       display: flex;
+       justify-content: center;
+       align-items: center;
+       height: 100vh; /* Center the content vertically */
+       background-color: #f0f0f0; /* Light background color */
+       margin: 0;
+   }
+
+   .image-container {
+       width: 320px; /* Set the width of the container */
+       height: 250px; /* Set the height of the container */
+       border: 5px solid #4CAF50; /* Green border */
+       border-radius: 15px; /* Rounded corners */
+       box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3); /* Shadow effect */
+       overflow: hidden; /* Ensure the image fits within the container */
+       display: flex;
+       justify-content: center;
+       align-items: center;
+   }
+
+   .image-container img {
+       width: 100%; /* Make the image take the full width of the container */
+       height: 100%; /* Maintain aspect ratio */
+       border-radius: 15px; /* Rounded corners for the image as well */
+   }
+    </style>
+</head>
+{%include 'all/snippets/header_snippet.html'%}
+  <body>
+    <main>
+    <div class="main-container">
+        <div class="left-container">
+            {%include 'introToCSS_app/snippets/left-container_snippet.html'%}
+        </div>
+        <div class="mid-container">
+             {%if messages%}
+            <div class="alert alert-warning">
+                <p><strong>Action Required:</strong> You must complete the Exercise before you can proceed</p>
+            </div>
+            {%endif%}
+           <h1>Exercise Three</h1>
+
+             <div class="button-container">
+                <a href="{%url 'css_7'%}"><button class="prev">Prev</button></a>
+                {%if has_submitted%}
+                <a href="{%url 'blog_pg1'%}"><button class="next">Next</button></a>
+                {%else%}
+                <a href="{%url 'Exercise3_submission'%}"><button class="next">Next</button></a>
+                {%endif%}
+            </div>
+
+            <h2>Intructions for Submission:</h2>
+            <div class="notes">
+                <p>Complete the two provided exercises. Styling must be applied using internal CSS only. When submitting your work, combine both exercises into a single file
+                    then copy and paste the code on the form located on the subsequent page. Ensure the exercises are clearly demarcated using HTML comments (like &lt;!-- Exercise One --&gt; and &lt;!-- Exercise Two --&gt;).
+                </p>
+            </div>
+
+            <div class="notes">
+                <p>1-Replicate the image style below. Name it <span class="emphasis">image-style.html</span>:</p>
+            </div>
+            <br>
+            <div class="result body">
+                <div class="image-container">
+                    <img src="{%static 'assets/images/IntroToCSS/AdobeStock_92246077-1024x765.jpeg'%}" alt="Placeholder Image">
+                </div>
+            </div>
+            <button class="run">Try it Yourself</button>
+            <br>
+            <br>
+            <div class="notes">
+                <p>2- Replicate the signup form below. Name it <span class="emphasis">form2.html</span>. Make sure to interact with the sample form below to see how it funtions.</p>
+           </div>
+
+           <div class="notes nb" style="margin-bottom: 20px;">
+            <p><strong>Tips:</strong></p>
+            <p>- Use <span class="emphasis">outline:none;</span> to disable the default borders around the input field and then use <span class="emphasis">border:2px solid skyblue;</span> to create a custom skyblue border around the input fields.</p>
+            <p>- In the <strong>hover</strong> functionality settings,  use <span class="emphasis">'border:none;'</span> together with <span class="emphasis">'border-bottom:2px solid skyblue;'</span> to create a sky blue underline on the input fields whenever the user hovers or click on them. </p>
+
+           </div>
+          <div class="result">
+            <center>
+                <form>
+                      <h1>Register</h1>
+                 <br><br>
+                 <label>Email:</label>
+                 <br>
+                 <input type="email" name="email">
+                 <br><br>
+                 <label>Username:</label>
+                 <br>
+                 <input type="text" name="username">
+                 <br><br>
+                 <label>Password:</label>
+                 <br>
+                 <input type="password" name="password_1">
+                 <br><br>
+                 <label>Confirm Password:</label>
+                 <br>
+                 <input type="password" name="password_2">
+                 <br><br>
+                 <button type="submit">Submit</button>
+                 <br><br>
+            
+                </form>
+            </center>
+          </div>
+          <button class="run">Try it Yourself</button>
+
+           <!-- Whatsapp community button -->
+            <section id="whatsapp-community">
+                <div class="whatsapp">
+                    <p>Encountering difficulties? Our Whatsapp community is a collaborative space for sharing and assistance.</p>
+                </div>
+
+                <div class="whatsapp-button-floating">
+                    <a href="https://chat.whatsapp.com/EleIRPRKMN73Ly1GkHnjGV?mode=ems_copy_t" target="_blank">
+                        <i class="fab fa-whatsapp"></i>
+                        <span>Chat</span>
+                    </a>
+                </div>
+            </section>
+        
+        <div class="button-container">
+            <a href="{%url 'css_7'%}"><button class="prev">Prev</button></a>
+            {%if has_submitted%}
+            <a href="{%url 'blog_pg1'%}"><button class="next">Next</button></a>
+            {%else%}
+            <a href="{%url 'Exercise3_submission'%}"><button class="next">Next</button></a>
+            {%endif%}
+        </div>
+    </div>
+   </main>
+  <footer>
+    {%include 'footer.html'%}
+</footer>
+<script type="text/javascript" src="{%static 'assets/js/main/scripts.js'%}"></script>
+</body>
+</html>

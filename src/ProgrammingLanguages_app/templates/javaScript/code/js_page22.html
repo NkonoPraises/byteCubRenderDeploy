@@ -1,0 +1,164 @@
+{%load static%}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Final Lesson</title>
+    <link rel="stylesheet" type="text/css" href="{%static 'assets/CSS/IntroToHTML/index.css'%}">
+    <link rel="stylesheet" type="text/css" href="{%static 'assets/CSS/IntroToHTML/header.css'%}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style>
+        .chapter-pointer-22{
+	        border: 2px solid skyblue;
+        }
+        .js-shots{
+            width: 50%;
+        }
+        @media(max-width: 760px){
+            .js-shots{
+                width: 100%;
+            }
+            
+            
+        }
+        .code-container::-webkit-scrollbar{
+            /* overflow: hidden; */
+            display: none;
+        }
+        pre.code-editor-content{
+            overflow-y: hidden;
+            margin-bottom: -60px;
+            overflow-x: scroll;
+        }
+        .code-editor-content{
+            margin-top: -160px;
+            padding: 2px 0px;
+        }
+        @media(max-width:720px){
+            pre.code-editor-content{
+            width: 1500px;
+            
+            }
+        }
+    </style>
+	
+</head>
+{%include 'all/snippets/header_snippet.html'%}
+<body>
+<main>
+    <div class="main-container">
+        <div class="left-container">
+            {%include 'javaScript/snippets/left-container_snippet.html'%}
+        </div>
+        <div class="mid-container">
+            <h1>Final Lesson</h1>
+            <div class="button-container">
+                <a href="{%url 'js_page21'%}"><button class="prev">Prev</button></a>
+                <a href="{%url 'js_page22'%}"><button class="next">Next</button></a>
+            </div>
+           
+            
+            <div class="notes" style="margin-top: -60px;">
+               <p style="text-align: center; font-size: large; line-height: 1.5;">Congratulations on reaching the end of our JavaScript lesson! You've made great progress, and we are proud of your dedication and hard work.</p>
+               <p>Before we wrap up, there's something important I want to mention that you might encounter in the code written by other programmers. It's related to how strings and variables can be combined when outputting to the console, particularly using template literals.</p>
+            </div>
+            <div class="notes">
+                <p>
+                    Template literals are a powerful feature in JavaScript that allow you to create strings in a more readable and flexible way. They are enclosed by backticks [`...`] instead of single or double quotes ['...' or "..."]. This allows you to easily embed variables and expressions within your strings using the <span class="emphasis">${variable} </span> syntax. For example:
+                </p>
+            </div>
+
+           <div class="code-view">
+            {% for snippet in code_1 %}
+   
+                <div class="code-container">
+                    <button class="copy-button" onclick="copyToClipboard()">Copy</button>
+                    <pre class="code-editor-content">
+                        
+                        <style>
+                            {{ snippet.get_highlighted_code.css | safe }}
+                        </style>
+                        {{ snippet.get_highlighted_code.html | safe }}
+                        
+                    </pre>
+                    
+                </div>
+            
+            {% endfor %}
+        </div>
+
+        <h2 style="text-align: center; color: skyblue; margin-top: 50px;">Output</h2>
+
+        <div class="code-view">
+            <div class="sub-view">
+                <div class="code-block">
+                    <p><strong>&gt;</strong> Hello, Alice!</p>
+                   
+                </div>
+            </div>
+        </div>
+
+        <div class="notes">
+            <p>This method not only makes your code cleaner but also helps avoid issues with string concatenation.</p>
+        </div>
+
+        <div class="notes">
+            <p>Additionally, you might come across the use of commas in <span class="emphasis">console.log</span> statements. When you separate multiple values with commas, JavaScript will print each value with a space in between. For instance:</p>
+        </div>
+
+        <h2 style="text-align: center; color: skyblue; margin-top: 50px;">Example</h2>
+        <div class="code-view">
+            {% for snippet in code_2 %}
+   
+                <div class="code-container">
+                    <button class="copy-button" onclick="copyToClipboard()">Copy</button>
+                    <pre class="code-editor-content">
+                        
+                        <style>
+                            {{ snippet.get_highlighted_code.css | safe }}
+                        </style>
+                        {{ snippet.get_highlighted_code.html | safe }}
+                        
+                    </pre>
+                    
+                </div>
+            
+            {% endfor %}
+        </div>
+
+        <h2 style="text-align: center; color: skyblue; margin-top: 50px;">Output</h2>
+
+        <div class="code-view">
+            <div class="sub-view">
+                <div class="code-block">
+                    <p><strong>&gt;</strong> Name: Alice Age: 25</p>
+                    
+                </div>
+            </div>
+        </div>
+        <div class="notes">
+            <p>
+                While both methods are valid for logging information, using template literals is generally preferred for its clarity and ease of use, especially when dealing with longer strings or multiple variables.
+            </p>
+        </div>
+
+        <div class="notes">
+            <p>I hope this information helps clarify things for you as you continue your programming journey. Keep up the great work!</p>
+        </div>
+        
+
+        <div class="button-container">
+            <a href="{%url 'js_page21'%}"><button class="prev">Prev</button></a>
+            <a href="{%url 'js_page22'%}"><button class="next">Next</button></a>
+        </div>
+
+        </div>
+    </div>
+</main>
+<footer>
+    {%include 'footer.html'%}
+</footer>
+<script type="text/javascript" src="{%static 'assets/js/main/scripts.js'%}"></script>
+</body>
+</html>

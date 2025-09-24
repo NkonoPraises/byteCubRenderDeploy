@@ -1,0 +1,265 @@
+{%load static%}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Functions</title>
+    <link rel="stylesheet" type="text/css" href="{%static 'assets/CSS/IntroToHTML/index.css'%}">
+    <link rel="stylesheet" type="text/css" href="{%static 'assets/CSS/IntroToHTML/header.css'%}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style>
+        .chapter-pointer-19{
+	        border: 2px solid skyblue;
+        }
+        .js-shots{
+            width: 50%;
+        }
+        @media(max-width: 760px){
+            .js-shots{
+                width: 100%;
+            }
+            
+            
+        }
+        .code-container::-webkit-scrollbar{
+            /* overflow: hidden; */
+            display: none;
+        }
+        pre.code-editor-content{
+            overflow-y: hidden;
+            margin-bottom: -60px;
+            overflow-x: scroll;
+        }
+        .code-editor-content{
+            margin-top: -160px;
+            padding: 2px 0px;
+        }
+        @media(max-width:720px){
+            pre.code-editor-content{
+            width: 1500px;
+            
+            }
+        }
+    </style>
+	
+</head>
+{%include 'all/snippets/header_snippet.html'%}
+<body>
+<main>
+    <div class="main-container">
+        <div class="left-container">
+            {%include 'javaScript/snippets/left-container_snippet.html'%}
+        </div>
+        <div class="mid-container">
+            <h1>Functions</h1>
+            <div class="button-container">
+                <a href="{%url 'js_page18'%}"><button class="prev">Prev</button></a>
+                <a href="{%url 'js_page20'%}"><button class="next">Next</button></a>
+            </div>
+
+            <p style="text-align: center; font-size: large;"> Functions are one of the core building blocks of JavaScript programming, and understanding them is crucial for any programmer. </p>
+
+           
+            <h2>What is a Function?</h2>
+            <div class="notes">
+                <p>
+                    A function is a block of code designed to perform a particular task. It can take inputs, process them, and then return an output. Functions help you organize your code into reusable pieces, making it easier to read and maintain.
+                </p>
+            </div>
+
+            <h2>Why Use Functions?</h2>
+            <div class="notes">
+                <ol>
+                    <li> <strong>Reusability:</strong> You can write a function once and use it multiple times without rewriting the code.</li>
+                    <li><strong>Organization:</strong> Functions help break your code into smaller, manageable sections.</li>
+                    <li><strong>Abstraction:</strong> You can hide the complexity of the code inside a function and just call it when needed.</li>
+                </ol>
+            </div>
+
+            <h2>Creating a Function</h2>
+            <div class="notes">
+                <p>You can create a function in JavaScript using the function keyword. Here’s the basic syntax:</p>
+            </div>
+
+
+           <div class="code-view">
+            {% for snippet in code_1 %}
+   
+                <div class="code-container">
+                    <button class="copy-button" onclick="copyToClipboard()">Copy</button>
+                    <pre class="code-editor-content">
+                        
+                        <style>
+                            {{ snippet.get_highlighted_code.css | safe }}
+                        </style>
+                        {{ snippet.get_highlighted_code.html | safe }}
+                        
+                    </pre>
+                    
+                </div>
+            
+            {% endfor %}
+        </div>
+
+        <h2>Parameters and Arguments</h2>
+        <div class="notes">
+            <ul>
+                <li>A parameter is a variable that acts as a placeholder for the value that you will pass into the function when you call it.</li>
+                <li>Arguments are the actual values you pass to the function when you call it.</li>
+            </ul>
+            <p>Here’s an example of a function that takes parameters:</p>
+        </div>
+
+        <div class="code-view">
+            {% for snippet in code_2 %}
+   
+                <div class="code-container">
+                    <button class="copy-button" onclick="copyToClipboard()">Copy</button>
+                    <pre class="code-editor-content">
+                        
+                        <style>
+                            {{ snippet.get_highlighted_code.css | safe }}
+                        </style>
+                        {{ snippet.get_highlighted_code.html | safe }}
+                        
+                    </pre>
+                    
+                </div>
+            
+            {% endfor %}
+        </div>
+
+        <h2 style="text-align: center; color: skyblue; margin-top: 50px;">Output</h2>
+
+        <div class="code-view">
+            <div class="sub-view">
+                <div class="code-block">
+                    <p><strong>&gt;</strong> Hello, Alice!</p>
+                
+                </div>
+            </div>
+        </div>
+
+        <div class="notes">
+            <p> When you call <span class="emphasis">greetUser("Alice")</span>, the value of <span class="emphasis">name</span> will be <strong>"Alice"</strong>, and the output will be <strong>"Hello, Alice!"</strong>.</p>
+        </div>
+        
+        
+        <div class="notes nb" style="margin-top: 10px;">
+            <p><strong>Note:</strong></p>
+            <p>You can also create a function without arguments and parameters</p>
+        </div>
+        
+        <h2 style="text-align: center; color: skyblue; margin-top: 50px;">Example</h2>
+        <div class="notes">
+            <p>Let’s create a simple function that greets a user:</p>
+        </div>
+           <div class="code-view">
+            {% for snippet in code_3 %}
+   
+                <div class="code-container">
+                    <button class="copy-button" onclick="copyToClipboard()">Copy</button>
+                    <pre class="code-editor-content">
+                        
+                        <style>
+                            {{ snippet.get_highlighted_code.css | safe }}
+                        </style>
+                        {{ snippet.get_highlighted_code.html | safe }}
+                        
+                    </pre>
+                    
+                </div>
+            
+            {% endfor %}
+        </div>
+
+        <h2 style="text-align: center; color: skyblue; margin-top: 50px;">Output</h2>
+
+        <div class="code-view">
+            <div class="sub-view">
+                <div class="code-block">
+                    <p><strong>&gt;</strong> Hello, welcome to JavaScript!</p>
+                
+                </div>
+            </div>
+        </div>
+
+
+        <!-- <h2>Code  Explanation</h2>
+
+        <div class="notes">
+            <p><strong>1. Initialization:</strong></p>
+            <ul>
+                <li>We start by defining the number of rows and columns we want our grid to have. In this case, both are set to 3.</li>
+                <li> We create an empty array called <span class="emphasis">grid</span> which will hold our two-dimensional array.</li>
+            </ul>
+
+            <p><strong>2. Filling the Array:</strong></p>
+            <ul>
+                <li>We use a nested loop to fill our grid. The outer loop iterates over each row 'i', while the inner loop iterates over each column 'j'.</li>
+                <li> For each cell in the grid, we prompt the user to enter a number. The <span class="emphasis">prompt</span> function displays a dialog box that asks the user for input.</li>
+                <li> We convert the user input from a string to a number using <span class="emphasis">Number(userInput)</span> before storing it in the grid.</li>
+            </ul>
+
+            <p><strong>3. Displaying the Grid:</strong></p>
+            <ul>
+                <li> After filling the grid, we use another loop to log each row of the grid to the console. This shows the user what they entered.</li>
+            </ul>
+        </div> -->
+
+        
+
+        <h2>Return Statement</h2>
+        <div class="notes">
+            <p>A function can also return a value using the return statement. This allows you to use the output of the function in other parts of your code.</p>
+        </div>
+
+        <h2 style="text-align: center; color: skyblue; margin-top: 50px;">Example</h2>
+        
+           <div class="code-view">
+            {% for snippet in code_4 %}
+   
+                <div class="code-container">
+                    <button class="copy-button" onclick="copyToClipboard()">Copy</button>
+                    <pre class="code-editor-content">
+                        
+                        <style>
+                            {{ snippet.get_highlighted_code.css | safe }}
+                        </style>
+                        {{ snippet.get_highlighted_code.html | safe }}
+                        
+                    </pre>
+                    
+                </div>
+            
+            {% endfor %}
+        </div>
+
+        
+
+        <h2 style="text-align: center; color: skyblue; margin-top: 50px;">Exercise</h2>
+        <div class="notes">
+            <p>Create a Function to Calculate Area:</p>
+            <ul>
+                <li>Write a function called <span class="emphasis">calculateArea</span> that takes two parameters: <span class="emphasis">length</span> and <span class="emphasis">width</span>.</li>
+                <li>The function should return the area of a rectangle [length * width].</li>
+            </ul>
+        </div>
+        
+
+
+        <div class="button-container">
+            <a href="{%url 'js_page18'%}"><button class="prev">Prev</button></a>
+            <a href="{%url 'js_page20'%}"><button class="next">Next</button></a>
+        </div>
+
+        </div>
+    </div>
+</main>
+<footer>
+    {%include 'footer.html'%}
+</footer>
+<script type="text/javascript" src="{%static 'assets/js/main/scripts.js'%}"></script>
+</body>
+</html>

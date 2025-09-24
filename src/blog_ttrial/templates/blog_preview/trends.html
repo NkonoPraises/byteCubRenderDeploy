@@ -1,0 +1,105 @@
+{%load static%}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fashion Trends - Fashion Forward</title>
+    <link rel="stylesheet" href="css/trends-2.css">
+    
+    <link rel="stylesheet" href="{%static 'assets/CSS/blog_preview/style.css'%}">
+    <link rel="stylesheet" href="{%static 'assets/CSS/blog_preview/trends.css'%}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css">
+
+<!--     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+ -->
+</head>
+<body>
+    <header class="site-header">
+        {%include 'blog_preview/blog_preview_snippets/header.html'%}
+     </header>
+
+    <main class="trends-page">
+        <section class="trending-now">
+            <h2>Trending Now</h2>
+            <div class="trend-grid">
+                <!-- Trend 1 -->
+                <div class="trend-item">
+                    <img src="{%static 'assets/images/Front End Dev/pexels-matvalina-17360767.jpg'%}" alt="Oversized Blazers Trend">
+                    <h3>Oversized Blazers</h3>
+                    <p>Effortless and chic, oversized blazers are dominating the runways and streets.</p>
+                    <a href="#" class="trend-link">Read More <i class="fa fa-arrow-right"></i></a>
+                </div>
+
+                <!-- Trend 2 -->
+                <div class="trend-item">
+                    <img src="{%static 'assets/images/Front End Dev/pexels-gulsahaydgn-19343434.jpg'%}" alt="Statement Sleeves Trend">
+                    <h3>Statement Sleeves</h3>
+                    <p>Make a statement with dramatic sleeves - from ruffles to balloon shapes.</p>
+                    <a href="#" class="trend-link">Read More <i class="fa fa-arrow-right"></i></a>
+                </div>
+
+                <!-- Trend 3 -->
+                <div class="trend-item">
+                    <img src="{%static 'assets/images/Front End Dev/pexels-anastasia-shuraeva-5705477.jpg'%}" alt="Pastel Colors Trend">
+                    <h3>Pastel Colors</h3>
+                    <p>Soft and dreamy, pastel colors are a must-have for a fresh and feminine look.</p>
+                    <a href="#" class="trend-link">Read More <i class="fa fa-arrow-right"></i></a>                
+                </div>
+                
+                <!-- Trend 4 -->
+                <div class="trend-item">
+                    <img src="{%static 'assets/images/Front End Dev/pexels-sergio-montoya-gianello-1793150310-28669447.jpg'%}" alt="Chunky Knitwear Trend">
+                    <h3>Chunky Knitwear</h3>
+                    <p>Stay cozy and stylish with chunky knitwear pieces in bold textures and colors.</p>
+                    <a href="#" class="trend-link">Read More <i class="fa fa-arrow-right"></i></a>
+                </div>
+            </div>
+        </section>
+
+        <section class="seasonal-trends">
+            <h2>Seasonal Trends (Autumn/Winter 2023)</h2>
+            <div class="seasonal-slider">
+                <div class="slider-item">
+                    <img src="{%static 'assets/images/Front End Dev/pexels-amanjakhar-1124468.jpg'%}" alt="Leather Looks Trend">
+                    <h3>Leather Looks</h3>
+                    <p>Head-to-toe leather is making a strong statement this season.</p>
+                    <a href="#" class="trend-link">Explore <i class="fa fa-arrow-right"></i></a>
+                </div>
+                <div class="slider-item">
+                    <img src="{%static 'assets/images/Front End Dev/pexels-palefire-9947831.jpg'%}" alt="Dark Academia Trend">
+                    <h3>Dark Academia</h3>
+                    <p>Embrace a scholarly and sophisticated style with dark colors and tailored pieces.</p>
+                    <a href="#" class="trend-link">Explore <i class="fa fa-arrow-right"></i></a>
+                </div>
+            </div>
+        </section>
+
+        <section class="future-forecast">
+            <h2>Fashion Forecast (Spring/Summer 2024)</h2>
+            <div class="forecast-grid">
+              <div class="forecast-item">
+                <img src="{%static 'assets/images/Front End Dev/pexels-chandrianggara-16910575.jpg'%}" alt="Cutouts Trend">
+                <h3>Cutouts</h3>
+                <p>Expect playful cutouts and strategic reveals to dominate the spring runways.</p>
+                <a href="#" class="trend-link">Learn More <i class="fa fa-arrow-right"></i></a>
+              </div>
+              <div class="forecast-item">
+                <img src="{%static 'assets/images/Front End Dev/pexels-jaspereology-3119719.jpg'%}" alt="Sheer Fabrics Trend">
+                <h3>Sheer Fabrics</h3>
+                <p>Light and airy, sheer fabrics will bring a delicate touch to spring wardrobes.</p>
+                <a href="#" class="trend-link">Learn More <i class="fa fa-arrow-right"></i></a>
+              </div>
+            </div>
+        </section>
+    </main>
+
+   <footer class="site-footer">
+        <div class="container">
+            <p>&copy; 2025 Fashion Forward. All rights reserved.</p>
+        </div>
+    </footer>
+    <script src="js/treds.js"></script>
+</body>
+</html>

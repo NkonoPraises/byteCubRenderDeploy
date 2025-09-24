@@ -1,0 +1,211 @@
+{%load static%}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Variables</title>
+    <link rel="stylesheet" type="text/css" href="{%static 'assets/CSS/IntroToHTML/index.css'%}">
+    <link rel="stylesheet" type="text/css" href="{%static 'assets/CSS/IntroToHTML/header.css'%}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style>
+        .chapter-pointer-2{
+	        border: 2px solid skyblue;
+        }
+        .js-shots{
+            width: 50%;
+        }
+        @media(max-width: 760px){
+            .js-shots{
+                width: 100%;
+            }
+            
+        }
+        .code-container{
+            overflow: hidden;
+        }
+        pre.code-editor-content{
+            width: 100%;
+            overflow-y: hidden;
+            margin-bottom: -60px;
+        }
+        .code-editor-content{
+            margin-top: -160px;
+            padding: 2px 0px;
+        }
+    </style>
+	
+</head>
+{%include 'all/snippets/header_snippet.html'%}
+<body>
+<main>
+    <div class="main-container">
+        <div class="left-container">
+            {%include 'javaScript/snippets/left-container_snippet.html'%}
+        </div>
+        <div class="mid-container">
+            <h1>Understanding Variables in JavaScript</h1>
+            <div class="button-container">
+                <a href="{%url 'js_page1'%}"><button class="prev">Prev</button></a>
+                <a href="{%url 'js_page3'%}"><button class="next">Next</button></a>
+            </div>
+
+            <div class="notes nb">
+                <p><i style="font-size: 2.5em; color: #ffc200;" class="fa fa-lightbulb-o"></i></p>
+                <p style="font-size: large; line-height: 1.5;">Though not a must, it is good practice to end each statement with a semicolon [<strong>;</strong>] in javaScript.
+                </p>
+            </div>
+           
+
+            <h2>What Are Variables?</h2>
+            <div class="notes">
+                <p>
+                    In JavaScript, a variable is a way to name and store a value so you can use it later in your code. For example, if you want to remember a person's name or their age,
+                     you can use variables to store that information.
+                </p>
+            </div>
+
+            <h2>How to Create Variables</h2>
+            <div class="notes">
+                <p>
+                    You can create a variable using one of three keywords: <span class="emphasis">var</span>, <span class="emphasis">let</span>, or <span class="emphasis">const</span>. Here’s a simple breakdown:
+                </p>
+                <p>
+                    <strong>1. var</strong>: This is the oldest way to create a variable. It can be used anywhere in your code, but it can sometimes lead to confusion because of its scope [where it can be accessed].
+                </p>
+            </div>
+
+            <h2 style="text-align: center; color: skyblue; margin-top: 50px;">Code Example</h2>
+           <div class="code-view">
+            {% for snippet in code_1 %}
+   
+                <div class="code-container">
+                    <button class="copy-button" onclick="copyToClipboard()">Copy</button>
+                    <pre class="code-editor-content">
+                        
+                        <style>
+                            {{ snippet.get_highlighted_code.css | safe }}
+                        </style>
+                        {{ snippet.get_highlighted_code.html | safe }}
+                        
+                    </pre>
+                    
+                </div>
+            
+            {% endfor %}
+        </div>
+  
+        <div class="notes">
+            <p>In the above example, we created a variable called name and stored "Alice" in it.</p>
+        </div>
+
+        <div class="notes">
+            <p><strong>2. let</strong>: This is a newer way to create variables. It allows you to create variables that are limited to a specific block of code, which helps avoid mistakes.</p>
+        </div>
+        <h2 style="text-align: center; color: skyblue; margin-top: 50px;">Code Example</h2>
+           <div class="code-view">
+            {% for snippet in code_2 %}
+   
+                <div class="code-container">
+                    <button class="copy-button" onclick="copyToClipboard()">Copy</button>
+                    <pre class="code-editor-content">
+                        
+                        <style>
+                            {{ snippet.get_highlighted_code.css | safe }}
+                        </style>
+                        {{ snippet.get_highlighted_code.html | safe }}
+                        
+                    </pre>
+                    
+                </div>
+            
+            {% endfor %}
+        </div>
+        <div class="notes">
+            <p>In the above example, we created a variable called age and stored the numcer 25 in it.</p>
+        </div>
+
+        <div class="notes">
+            <p><strong>3. const</strong>: This is used for variables that won’t change. Once you set a value, you can’t change it later. It’s great for values that should stay the same, like the number of days in a week.</p>
+        </div>
+        <h2 style="text-align: center; color: skyblue; margin-top: 50px;">Code Example</h2>
+           <div class="code-view">
+            {% for snippet in code_3 %}
+   
+                <div class="code-container">
+                    <button class="copy-button" onclick="copyToClipboard()">Copy</button>
+                    <pre class="code-editor-content">
+                        
+                        <style>
+                            {{ snippet.get_highlighted_code.css | safe }}
+                        </style>
+                        {{ snippet.get_highlighted_code.html | safe }}
+                        
+                    </pre>
+                    
+                </div>
+            
+            {% endfor %}
+        </div>
+        <div class="notes">
+            <p>In the above example, we created a variable called daysInWeek and stored the numcer 7 in it. This variable will always hold the value 7.</p>
+        </div>
+
+        <h2>Why Use Variables?</h2>
+        <div class="notes">
+            <p>
+                Variables are essential because they allow you to store and manipulate data. For example, if you want to greet someone, you can store their name in a variable and then use that variable in a message:
+            </p>
+        </div>
+
+        <div class="code-view">
+            {% for snippet in code_4 %}
+   
+                <div class="code-container">
+                    <button class="copy-button" onclick="copyToClipboard()">Copy</button>
+                    <pre class="code-editor-content">
+                        
+                        <style>
+                            {{ snippet.get_highlighted_code.css | safe }}
+                        </style>
+                        {{ snippet.get_highlighted_code.html | safe }}
+                        
+                    </pre>
+                    
+                </div>
+            
+            {% endfor %}
+        </div>
+
+        <h2 style="text-align: center; color: skyblue; margin-top: 50px;">Output</h2>
+
+        <div class="code-view">
+            <div class="sub-view">
+                <div class="code-block">
+                    <p><strong>&gt;</strong> Hello, John!</p>
+                </div>
+            </div>
+        </div>
+
+        <h2>Comments</h2>
+        <div class="notes">
+            <p>Just to make a quick note, comments in javaScript explain your code, making it easier for someone going through it to Understand.</p>
+            <p>Use <span class="emphasis">//</span> for single line comments and <span class="emphasis">/* ... */</span> for multi-line comments.</p>
+            <p>They are ignored by the browser, so they don't affect how your code runs. </p>
+        </div>
+
+
+        <div class="button-container">
+            <a href="{%url 'js_page1'%}"><button class="prev">Prev</button></a>
+            <a href="{%url 'js_page3'%}"><button class="next">Next</button></a>
+        </div>
+
+        </div>
+    </div>
+    <footer>
+    {%include 'footer.html'%}
+</footer>
+<script type="text/javascript" src="{%static 'assets/js/main/scripts.js'%}"></script>
+</main>
+</body>
+</html>

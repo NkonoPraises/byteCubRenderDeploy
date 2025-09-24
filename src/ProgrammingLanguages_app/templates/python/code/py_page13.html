@@ -1,0 +1,304 @@
+{%load static%}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Python Inputs</title>
+    <link rel="stylesheet" type="text/css" href="{%static 'assets/CSS/IntroToHTML/index.css'%}">
+    <link rel="stylesheet" type="text/css" href="{%static 'assets/CSS/IntroToHTML/header.css'%}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style>
+        .chapter-pointer-13{
+	        border: 2px solid skyblue;
+        }
+        .js-shots{
+            width: 50%;
+        }
+        @media(max-width: 760px){
+            .js-shots{
+                width: 100%;
+            }
+            
+        }
+        .code-container{
+            overflow: hidden;
+        }
+        pre.code-editor-content{
+            width: 100%;
+            overflow-y: hidden;
+            margin-bottom: -60px;
+        }
+        .code-editor-content{
+            margin-top: -160px;
+            padding: 2px 0px;
+        }
+    </style>
+	
+</head>
+{%include 'all/snippets/header_snippet.html'%}
+<body>
+<main>
+    <div class="main-container">
+        <div class="left-container">
+            {%include 'python/snippets/left-container_snippet.html'%}
+        </div>
+        <div class="mid-container">
+            <h1>Python Inputs</h1>
+            
+            <div class="button-container">
+                <a href="{%url 'py_page12'%}"><button class="prev">Prev</button></a>
+                {%if has_answered == True%}
+                <a href="{%url 'py_page14'%}"><button class="next">Next</button></a>
+                {%else%}
+                <a href="{{BASE_URL}}/PYQ4/"><button class="next">Next</button></a>
+                {%endif%}
+            </div>
+
+           
+
+            <h2>Introduction to Inputs in Python</h2>
+            <div class="notes">
+                <p>
+                    In Python, getting input from users is essential for creating interactive programs. The <span class="emphasis">input()</span> function is used to take input from the user.
+                    This function allows you to prompt the user for information and then store that information in a variable for further processing.                
+                </p>
+            </div>
+
+          
+
+            <h2>Basic Usage of input()</h2>
+            <div class="notes">
+                <p>The <span class="emphasis">input()</span> function can be used as follows:</p>
+            </div>
+
+
+           <div class="code-view">
+            {% for snippet in code_1 %}
+   
+                <div class="code-container">
+                    <button class="copy-button" onclick="copyToClipboard()">Copy</button>
+                    <pre class="code-editor-content">
+                        
+                        <style>
+                            {{ snippet.get_highlighted_code.css | safe }}
+                        </style>
+                        {{ snippet.get_highlighted_code.html | safe }}
+                        
+                    </pre>
+                    
+                </div>
+            
+            {% endfor %}
+        </div>
+
+        <h2 style="text-align: center; color: skyblue; margin-top: 50px;">Output</h2>
+
+        <div class="code-view">
+            <div class="sub-view">
+                <div class="code-block">
+                    <p><i class="fa fa-angle-double-right"></i> Please enter something:</p>
+                </div>
+            </div>
+        </div>
+
+
+       <div class="notes">
+            <ul>
+                <li><strong>Prompt Message</strong>: The string inside the parentheses is displayed as a prompt to the user.</li>
+                <li><strong>Return Type</strong>: The value returned by <strong>input()</strong> is always a string, even if the user enters numbers.</li>
+            </ul>
+        </div>
+
+        <h2>A Simple Example</h2>
+        <div class="notes">
+            <p>Let's write a code that ask's for the user's name and then greet them.</p>
+        </div>
+
+           <div class="code-view">
+            {% for snippet in code_2 %}
+   
+                <div class="code-container">
+                    <button class="copy-button" onclick="copyToClipboard()">Copy</button>
+                    <pre class="code-editor-content">
+                        
+                        <style>
+                            {{ snippet.get_highlighted_code.css | safe }}
+                        </style>
+                        {{ snippet.get_highlighted_code.html | safe }}
+                        
+                    </pre>
+                    
+                </div>
+            
+            {% endfor %}
+        </div>
+        <h2 style="text-align: center; color: skyblue; margin-top: 50px;">Output</h2>
+
+        <div class="code-view">
+            <div class="sub-view">
+                <div class="code-block">
+                    <p><i class="fa fa-angle-double-right"></i> Hello, John!</p>
+                </div>
+            </div>
+        </div>
+
+        
+
+       
+        <h2>Inputting Numbers</h2>
+        <div class="notes">
+            <p>
+                To work with numbers, you must convert the input string to an integer or float using <span class="emphasis">int()</span> or <span class="emphasis">float()</span>.
+            </p>
+        </div>
+        
+           <div class="code-view">
+            {% for snippet in code_3 %}
+   
+                <div class="code-container">
+                    <button class="copy-button" onclick="copyToClipboard()">Copy</button>
+                    <pre class="code-editor-content">
+                        
+                        <style>
+                            {{ snippet.get_highlighted_code.css | safe }}
+                        </style>
+                        {{ snippet.get_highlighted_code.html | safe }}
+                        
+                    </pre>
+                    
+                </div>
+            
+            {% endfor %}
+        </div>
+
+        <h2 style="text-align: center; color: skyblue; margin-top: 50px;">Output</h2>
+
+        <div class="code-view">
+            <div class="sub-view">
+                <div class="code-block">
+                    <p><i class="fa fa-angle-double-right"></i> How old are you? 18</p>
+                    <p><i class="fa fa-angle-double-right"></i> You are 18 years old.</p>
+                </div>
+            </div>
+        </div>
+        
+
+       <div class="notes">
+        <p>This code takes the user's age as a string and converts it to an integer before printing it.</p>
+       </div>
+
+
+       <h2>Using Inputs with While Loops</h2>
+        <div class="notes">
+            <p>While loops can be useful when you want to repeatedly ask for input until certain conditions are met.</p>
+            <p>Let's write a code that continuously prompts the user until they enter a positive number. If the user enters a non-positive number, they are asked to try again.</p>
+        </div>
+
+        <div class="code-view">
+            {% for snippet in code_4 %}
+   
+                <div class="code-container">
+                    <button class="copy-button" onclick="copyToClipboard()">Copy</button>
+                    <pre class="code-editor-content">
+                        
+                        <style>
+                            {{ snippet.get_highlighted_code.css | safe }}
+                        </style>
+                        {{ snippet.get_highlighted_code.html | safe }}
+                        
+                    </pre>
+                    
+                </div>
+            
+            {% endfor %}
+        </div>
+
+        <h2 style="text-align: center; color: skyblue; margin-top: 50px;">Output</h2>
+
+        <div class="code-view">
+            <div class="sub-view">
+                <div class="code-block">
+                    <p><i class="fa fa-angle-double-right"></i> Please enter a positive number: -2</p>
+                    <p><i class="fa fa-angle-double-right"></i> That's not a positive number. Please try again.</p>
+                    <p><i class="fa fa-angle-double-right"></i> Please enter a positive number: -8</p>
+                    <p><i class="fa fa-angle-double-right"></i> That's not a positive number. Please try again.</p>
+                    <p><i class="fa fa-angle-double-right"></i> Please enter a positive number: 5</p>
+                    <p><i class="fa fa-angle-double-right"></i> Thank you! You entered: 5.0</p>
+                </div>
+            </div>
+        </div>
+
+        <h2>Collecting Multiple Inputs</h2>
+        <div class="notes">
+            <p>You can also use a while loop to collect multiple inputs from the user until they decide to stop.</p>
+            <p>Let's write a code that adds numbers entered by the user until they type "exit", then it displays the total sum.</p>
+        </div>
+        <div class="code-view">
+            {% for snippet in code_5 %}
+   
+                <div class="code-container">
+                    <button class="copy-button" onclick="copyToClipboard()">Copy</button>
+                    <pre class="code-editor-content">
+                        
+                        <style>
+                            {{ snippet.get_highlighted_code.css | safe }}
+                        </style>
+                        {{ snippet.get_highlighted_code.html | safe }}
+                        
+                    </pre>
+                    
+                </div>
+            
+            {% endfor %}
+        </div>
+
+        <h2 style="text-align: center; color: skyblue; margin-top: 50px;">Output</h2>
+
+        <div class="code-view">
+            <div class="sub-view">
+                <div class="code-block">
+                    <p><i class="fa fa-angle-double-right"></i> Enter a number to add to total (or type 'exit' to finish): 4</p>
+                    <p><i class="fa fa-angle-double-right"></i> Enter a number to add to total (or type 'exit' to finish): 2</p>
+                    <p><i class="fa fa-angle-double-right"></i> Enter a number to add to total (or type 'exit' to finish): 3</p>
+                    <p><i class="fa fa-angle-double-right"></i> Enter a number to add to total (or type 'exit' to finish): exit</p>
+                    <p><i class="fa fa-angle-double-right"></i> The total sum is: 9.0</p>
+                </div>
+            </div>
+
+        <div class="notes">
+           <p>The <span class="emphasis">.lower()</span> function is used to convert the user's input to lowercase. This is important for ensuring that the comparison between the user input and the string "exit" is case-insensitive.</p>
+           <p>By converting the input to lowercase, we allow the user to type "exit", "Exit", "EXIT", or any other variation in terms of casing without affecting the logic of the program. This makes the program more user-friendly.</p>
+        </div>
+
+       
+        <h2 style="text-align: center; color: skyblue; margin-top: 50px;">Exercise</h2>
+        <div class="notes">
+            
+           <ol>
+            <li> Write a program that asks the user for their favorite color. If the user enters "blue", print "That's my favorite color too!" Otherwise, print "Oh, I like that color too!"</li>
+            <li> Create a program that continuously asks the user to enter a word until they type "stop". After they type "stop", print out how many words they entered (excluding "stop").</li>
+           </ol>
+
+        </div>
+
+
+            <div class="button-container">
+                <a href="{%url 'py_page12'%}"><button class="prev">Prev</button></a>
+                {%if has_answered == True%}
+                <a href="{%url 'py_page14'%}"><button class="next">Next</button></a>
+                {%else%}
+                <a href="{{BASE_URL}}/PYQ4/"><button class="next">Next</button></a>
+                {%endif%}
+            </div>
+
+
+        </div>
+    </div>
+</main>
+<footer>
+    {%include 'footer.html'%}
+</footer>
+<script type="text/javascript" src="{%static 'assets/js/main/scripts.js'%}"></script>
+</body>
+</html>

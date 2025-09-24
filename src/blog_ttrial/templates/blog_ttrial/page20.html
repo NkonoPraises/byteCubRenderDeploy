@@ -1,0 +1,364 @@
+{%load static%}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Widget</title>
+    <link rel="stylesheet" type="text/css" href="{%static 'assets/CSS/IntroToHTML/index.css'%}">
+    <link rel="stylesheet" type="text/css" href="{%static 'assets/CSS/IntroToHTML/header.css'%}">
+    <link rel="stylesheet" type="text/css" href="{%static 'assets/CSS/blog_ttrial/header.css'%}">
+    <link rel="stylesheet" href="{%static 'assets/CSS/tabs/tabs.css'%}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style>
+        .chapter-pointer-20{
+	        border: 2px solid skyblue;
+        }
+
+        /* result styling */
+        .result{
+            padding: 0;
+            background-color: #f9f9f9;
+            color: #333;
+            line-height: 1.6;
+            max-height: 1150px;
+            overflow-y: scroll;
+        }
+        /* result styling */
+        .menu{
+            background: none;
+            border: none;
+            font-size: 25px;
+            color: #333;
+            cursor: pointer; /*cursor arrow changes to a pointer whenever it moves above the button*/
+        }
+        .result ul{
+            display: none;
+        }
+        .result .main-containa{
+            display: grid;
+            grid-template-columns: 3fr 1fr;
+            
+        }
+        .result .edit-1{
+            gap: 30px;
+            padding: 0 20px;
+        }
+        .blog-image-1{
+            max-width: 100%;
+            height: auto;
+        }
+        .blog-post a{
+            color: blue;
+        }
+        .blog-post img {
+            margin-bottom: 15px;
+            border-radius: 5px;
+        }
+        .readmore{
+        background-color: #007bff;
+        color: #fff;
+        padding: 8px 15px; /* expands/bulges the element in the vertical and horizontal direction*/
+        border-radius: 5px; /* creates rounded edges on the element*/
+        display: inline-block;
+        margin-top: 10px;
+        }
+        .blog-post.edit {
+            margin-bottom: 30px;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+        }
+        .publish-info{
+            color: gray;
+            font-size: 13px;
+            margin-bottom: 8px;
+        }
+       
+        .widget {
+            margin-bottom: 30px;
+            background-color: #fff; /*Gives the widget a unique white color*/
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px lightgrey; /*creates a shadow around the widget*/
+        }
+        .widget.edit h3 {
+            font-size: 20px;
+            margin-bottom: 15px;
+            border-bottom: 1px solid lightgray;
+            padding-bottom: 10px;
+        }
+                
+        
+        
+    </style>
+</head>
+{%include 'all/snippets/header_snippet.html'%}
+<body>
+    <main>
+    <div class="main-container">
+        <div class="left-container">
+            {%include 'snippets/2-left-container_snippet.html'%} 
+        </div>
+        <div class="mid-container">
+           <h1>Widget</h1>
+            <div class="button-container">
+                <a href="{%url 'blog_pg19'%}"><button class="prev">Prev</button></a>
+                <a href="{%url 'blog_pg21'%}"><button class="next">Next</button></a>
+            </div>
+            
+            <h2>Styling the Widget</h2>
+            <div class="notes">
+                <p>Let's give the <span style="color: orange;">widget</span> a unique appearance like the <span style="color: orange;">blog-post</span>.</p>
+            </div>
+           
+            
+
+        <h2 style="text-align: center; color: skyblue; margin-top: 50px;">style.css [.widget]</h2>
+           <div class="tab">
+        <button class="tablinks active" onclick="openTab(event, 'Tab1')">Code Snippet</button>
+        <button class="tablinks" onclick="openTab(event, 'Tab2')">Full Code</button>
+        <!-- <button class="tablinks" onclick="openTab(event, 'Tab3')">Tab 3</button> -->
+        </div>
+
+        <div id="Tab1" class="tabcontent" style="display: block;">
+        <div class="code-view">
+                    {% for snippet in code_1a %}
+        
+                        <div class="code-container">
+                            <button class="copy-button" onclick="copyToClipboard()">Copy</button>
+                            <pre class="code-editor-content">
+                                
+                                <style>
+                                    {{ snippet.get_highlighted_code.css | safe }}
+                                </style>
+                                {{ snippet.get_highlighted_code.html | safe }}
+                                
+                            </pre>
+                            
+                        </div>
+                    
+                    {% endfor %}
+                </div>
+        </div>
+
+        <div id="Tab2" class="tabcontent">
+        <div class="code-view">
+                    {% for snippet in code_1 %}
+        
+                        <div class="code-container">
+                            <button class="copy-button" onclick="copyToClipboard()">Copy</button>
+                            <pre class="code-editor-content">
+                                
+                                <style>
+                                    {{ snippet.get_highlighted_code.css | safe }}
+                                </style>
+                                {{ snippet.get_highlighted_code.html | safe }}
+                                
+                            </pre>
+                            
+                        </div>
+                    
+                    {% endfor %}
+                </div>
+        </div>
+
+        <!-- <div id="Tab3" class="tabcontent">
+        <h3>Tab 3 Content</h3>
+        <p>This is the content of Tab 3.</p>
+        </div> -->
+           
+            
+         <h2 style="text-align: center; color: skyblue; margin-top: 50px;">Result</h2>
+         <div class="result">
+            
+             <div class="header-div">
+                 <div style="display: flex; justify-content: space-between; align-items: center;" class="header-container">
+                     <div class="logo-2" >Fashion Farward</div>
+                     <nav class="main-nav nav-style">
+                         <button class="menu" style="display: none;">Menu</button>
+                         <ul style="list-style-position: inside; list-style: none; display: flex;">
+                             <li><a href="#">Trends</a></li>
+                             <li><a href="#">Designers</a></li>
+                             <li><a href="#">Outfits</a></li>
+                             <li><a href="#">Beauty</a></li>
+                             <li><a href="#">About</a></li>
+                             <li><a href="#">Contacts</a></li>
+                         </ul>
+                     </nav>
+                 </div>
+             </div>
+         
+             <div class="blog-main">
+                 <div class="main-containa edit-1" style=" border: 4px solid black;"> <!-- parent -->
+ 
+                     <div class="blog-posts"><!-- child-one -->
+                         <article class="blog-post edit">
+                            <img class="blog-image-1" src="{%static 'assets/images/Front End Dev/fashion1.jpg'%}" alt="a blog post">
+                            <h1 style="text-align: start; margin: 0;">The Latest Street Style Trends</h1>
+                            <p class="publish-info">Published on October 26, 2023 by <a href="#">Hanna Melvic</a></p>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua...</p>
+                            <a href="#" style="background-color: #007bff; color: #fff; padding: 8px 15px; border-radius: 5px;">Read More</a>
+                         </article>
+                         <article class="blog-post edit">
+                            <img class="blog-image-1" src="{%static 'assets/images/Front End Dev/fashion2.jpg'%}" alt="a blog post">
+                            <h1 style="text-align: start; margin: 0;">Designer Spotlight: New Collection</h1>
+                            <p class="publish-info">Published on October 25, 2023 by <a href="#">John Emmerich</a></p>
+                            <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat...</p>
+                            <a href="#" style="background-color: #007bff; color: #fff; padding: 8px 15px; border-radius: 5px;">Read More</a>
+                         </article>
+                     </div>
+                     <div class="side-bar">
+                        <div class="widget"> <!-- widget-1 -->
+                            <h3>About Us</h3>
+                            <img class="blog-image-1" src="{%static 'assets/images/Front End Dev/about-us.jpg'%}" alt="About Us Image">
+                            <p>A brief description of the fashion blog and its mission.</p>
+                        </div>
+            
+                        <div class="widget"></div> <!-- widget-2 -->
+            
+                        <div class="widget"></div> <!-- widget-3 -->
+            
+                     </div>
+             
+                 </div>
+             </div>
+         </div>
+
+         <div class="notes">
+            <p>If we look closely, we would notice that the <strong>widget</strong> style pattern looks like that of the <strong>blog-post</strong>.</p>
+            <p>Let's proceed by styling the heading [<strong>&lt;h3&gt;</strong>]. </p>
+         </div>
+
+         <h2 style="text-align: center; color: skyblue; margin-top: 50px;">style.css [.widget h3]</h2>
+         <div class="taba">
+        <button class="tablinksa activea" onclick="openTaba(event, 'Tab1a')">Code Snippet</button>
+        <button class="tablinksa" onclick="openTaba(event, 'Tab2a')">Full Code</button>
+        <!-- <button class="tablinks" onclick="openTab(event, 'Tab3')">Tab 3</button> -->
+        </div>
+
+        <div id="Tab1a" class="tabcontenta" style="display: block;">
+        <div class="code-view">
+                    {% for snippet in code_2a %}
+        
+                        <div class="code-container">
+                            <button class="copy-button" onclick="copyToClipboard()">Copy</button>
+                            <pre class="code-editor-content">
+                                
+                                <style>
+                                    {{ snippet.get_highlighted_code.css | safe }}
+                                </style>
+                                {{ snippet.get_highlighted_code.html | safe }}
+                                
+                            </pre>
+                            
+                        </div>
+                    
+                    {% endfor %}
+                </div>
+        </div>
+
+        <div id="Tab2a" class="tabcontenta">
+        <div class="code-view">
+                    {% for snippet in code_2 %}
+        
+                        <div class="code-container">
+                            <button class="copy-button" onclick="copyToClipboard()">Copy</button>
+                            <pre class="code-editor-content">
+                                
+                                <style>
+                                    {{ snippet.get_highlighted_code.css | safe }}
+                                </style>
+                                {{ snippet.get_highlighted_code.html | safe }}
+                                
+                            </pre>
+                            
+                        </div>
+                    
+                    {% endfor %}
+                </div>
+        </div>
+
+        <!-- <div id="Tab3" class="tabcontent">
+        <h3>Tab 3 Content</h3>
+        <p>This is the content of Tab 3.</p>
+        </div> -->
+
+        
+         
+      <h2 style="text-align: center; color: skyblue; margin-top: 50px;">Result</h2>
+      <div class="result">
+         
+          <div class="header-div">
+              <div style="display: flex; justify-content: space-between; align-items: center;" class="header-container">
+                  <div class="logo-2" >Fashion Farward</div>
+                  <nav class="main-nav nav-style">
+                      <button class="menu" style="display: none;">Menu</button>
+                      <ul style="list-style-position: inside; list-style: none; display: flex;">
+                          <li><a href="#">Trends</a></li>
+                          <li><a href="#">Designers</a></li>
+                          <li><a href="#">Outfits</a></li>
+                          <li><a href="#">Beauty</a></li>
+                          <li><a href="#">About</a></li>
+                          <li><a href="#">Contacts</a></li>
+                      </ul>
+                  </nav>
+              </div>
+          </div>
+      
+          <div class="blog-main">
+              <div class="main-containa edit-1" style=" border: 4px solid black;"> <!-- parent -->
+
+                  <div class="blog-posts"><!-- child-one -->
+                      <article class="blog-post edit">
+                         <img class="blog-image-1" src="{%static 'assets/images/Front End Dev/fashion1.jpg'%}" alt="a blog post">
+                         <h1 style="text-align: start; margin: 0;">The Latest Street Style Trends</h1>
+                         <p class="publish-info">Published on October 26, 2023 by <a href="#">Hanna Melvic</a></p>
+                         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua...</p>
+                         <a href="#" style="background-color: #007bff; color: #fff; padding: 8px 15px; border-radius: 5px;">Read More</a>
+                      </article>
+                      <article class="blog-post edit">
+                         <img class="blog-image-1" src="{%static 'assets/images/Front End Dev/fashion2.jpg'%}" alt="a blog post">
+                         <h1 style="text-align: start; margin: 0;">Designer Spotlight: New Collection</h1>
+                         <p class="publish-info">Published on October 25, 2023 by <a href="#">John Emmerich</a></p>
+                         <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat...</p>
+                         <a href="#" style="background-color: #007bff; color: #fff; padding: 8px 15px; border-radius: 5px;">Read More</a>
+                      </article>
+                  </div>
+                  <div class="side-bar">
+                     <div class="widget edit"> <!-- widget-1 -->
+                         <h3>About Us</h3>
+                         <img class="blog-image-1" src="{%static 'assets/images/Front End Dev/about-us.jpg'%}" alt="About Us Image">
+                         <p>A brief description of the fashion blog and its mission.</p>
+                     </div>
+         
+                     <div class="widget"></div> <!-- widget-2 -->
+         
+                     <div class="widget"></div> <!-- widget-3 -->
+         
+                  </div>
+          
+              </div>
+          </div>
+      </div>
+
+
+        
+    
+            <div class="button-container" style="margin-top: 50px; margin-bottom: 100px;">
+                <a href="{%url 'blog_pg19'%}"><button class="prev">Prev</button></a>
+                <a href="{%url 'blog_pg21'%}"><button class="next">Next</button></a>
+            </div>
+        </div>
+        
+        
+    </div>
+    <script src="{%static 'assets/js/tabs/tabs.js'%}"></script>
+  <footer>
+    {%include 'footer.html'%}
+</footer>
+<script type="text/javascript" src="{%static 'assets/js/main/scripts.js'%}"></script>
+</main>
+</body>
+</html>

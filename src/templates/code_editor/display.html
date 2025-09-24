@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>{{ snippet.title }}</title>
+    <style>
+      
+        body {
+            display: flex;
+            justify-content: center; /* Center horizontally */
+            align-items: center; /* Center vertically */
+            min-height: 100vh; /* Ensure the body takes up full viewport height */
+            margin: 0; /* Remove default body margins */
+        }
+
+        .code-container {
+            width: 800px; /* Adjust as needed for the square size */
+            /* Maintain square aspect ratio */
+            max-height: 400px;
+            border: 1px solid #ccc;
+            overflow: auto; /* Add scrollbars if needed */
+            padding: 10px;
+            position: relative; /* Required for absolute positioning of the button */
+        }
+
+        .copy-button {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background-color: #4CAF50; /* Green */
+            border: none;
+            color: white;
+            padding: 5px 10px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 14px;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+
+        .code-editor-content {
+            font-family: monospace; /* Use a monospace font */
+            white-space: pre-wrap; /* Allow line breaks */
+            margin-top: -310px;
+        }
+
+        /* Styling from pygments */
+        {{css | safe}}
+
+
+    </style>
+</head>
+<body style="background-color: white;">
+    <!-- {%for snip in snippet%}
+    <div class="code-container">
+        <button class="copy-button" onclick="copyToClipboard()">Copy</button>
+        {%if snip.title == "css"%}
+        <h1>{{ snip.title }}</h1>
+        {%endif%}
+        <p>Language: {{ snip.language }}</p>
+        <pre class="code-editor-content">
+            <style>
+                {{ snippet.get_highlighted_code.css | safe }}
+            </style>
+            {{ snippet.get_highlighted_code.html | safe }}
+        </pre>
+    </div>
+    {%endfor%} -->
+
+    
+<h1 style="background-color: white;">Head</h1>
+    {% for snippet in snippets %}
+   
+        <div class="code-container">
+            <button class="copy-button" onclick="copyToClipboard()">Copy</button>
+            <h3>{{ snippet.0.title }}</h3>
+            <p>Category: {{ snippet.0.category }}</p>
+            <p>Language: {{ snippet.0.language }}</p>
+            <pre class="code-editor-content">
+                <style>
+                    {{ snippet.get_highlighted_code.css | safe }}
+                </style>
+                {{ snippet.get_highlighted_code.html | safe }}
+            </pre>
+            
+        </div>
+      
+    {% endfor %}
+
+    <script>
+        function copyToClipboard() {
+            const codeElement = document.querySelector('.code-editor-content');
+            const code = codeElement.textContent;
+            navigator.clipboard.writeText(code)
+                .then(() => alert('Code copied to clipboard!'))
+                .catch(err => console.error('Failed to copy: ', err));
+        }
+    </script>
+</body>
+</html>
+
+

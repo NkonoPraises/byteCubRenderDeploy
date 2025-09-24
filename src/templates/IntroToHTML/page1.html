@@ -1,0 +1,142 @@
+{%load static%}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Intro to HTML</title>
+    <link rel="stylesheet" type="text/css" href="{%static 'assets/CSS/IntroToHTML/index.css'%}">
+    <link rel="stylesheet" type="text/css" href="{%static 'assets/CSS/IntroToHTML/header.css'%}">
+    <link rel="stylesheet" href="{%static 'assets/CSS/videos/video.css'%}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style>
+        .chapter-pointer-1{
+	        border: 2px solid skyblue;
+        }
+    </style>
+	
+</head>
+{%include 'all/snippets/header_snippet.html'%}
+<body>
+<main>
+    <div class="main-container">
+        <div class="left-container">
+            {%include 'introToHTML_app/snippets/left-container_snippet.html'%}
+        </div>
+        <div class="mid-container">
+            <h1>Hello Cub! Welcome to the world of HTML</h1>
+               <!-- Featured Video      -->
+            <div class="main-video-container">
+                    <div class="content">
+                        <h2>Featured Video</h2>
+                    </div>
+                    
+                    <div class="video-wrapper">
+                        <video id="videoPlayer" width="560" height="315"  poster="{%static 'assets/images/IntroToHTML/1757183118927.jpg'%}" controls>
+                            <!-- Sample video from Pexels -->
+                            <source  src="{%static 'assets/videos/HTML/HTML Intro-byteCub.mp4'%}" type="video/mp4">
+                            Your browser does not support the video tag.
+                        </video>
+                        
+                        <!-- Overlay navigation buttons -->
+                        <div class="overlay-controls">
+                            <div class="nav-btn" id="rewindOverlayBtn" title="Rewind 10 seconds"><i class="fa-solid fa-backward"></i></div>
+                            <div class="nav-btn" id="forwardOverlayBtn" title="Forward 10 seconds"><i class="fa-solid fa-forward"></i></div>
+                        </div>
+                    </div>
+                    
+                <div class="content">
+                    <div class="dropdown">
+                        <button class="dropdown-button">
+                            <span>Video Description</span>
+                            <span class="arrow"></span>
+                        </button>
+                        <div class="dropdown-content">
+                            <p><strong>Video Description:</strong></p>
+                            <p>Visual Studio Code <a href="https://code.visualstudio.com/download"> - Download</a></p>
+                            <p>Code Editor by StroZone developer <a href="https://play.google.com/store/apps/details?id=com.study.m.html"> - Download</a></p>
+                        </div>
+                    </div>
+
+                    <button class="interaction-button" id="interactiveButton">Click Me!</button>
+                </div>
+            </div>
+
+
+            <h2 style="text-align: center; margin-bottom: 20px;">Your Journey Begins Here!</h2>
+            <div class="notes">
+                <p>Get ready to embark on an exciting adventure into the realm of web development with us. 
+                    Let's dive into the vibrant universe of HTML<span class="emphasis">[HyperText Markup Language]</span>
+                    - the foundational building block of all things web!
+                </p>
+        <h2>What is HTML?</h2>
+        <div class="notes">
+            <p>HTML is like the skeleton of a webpage. It gives structure to your content, allowing browsers to understand how to
+                display text, images, links, and more. 
+            </p>
+        </div>
+        <h2>The Structure of HTML</h2>
+        <div class="notes">
+            <p>Every HTML document is build upon a simple structure. Here's what the structure of an HTML page looks like:</p>
+        </div>
+
+        <div class="code-view">
+            <div class="sub-view">
+                <div class="code-block">
+                    &lt;<span class="doctype">!DOCTYPE</span> <span class="tag">html</span>&gt;<br>
+                    <!-- &lt;<span class="tag">html</span> <span class="attr">lang</span>="en"&gt;<br> -->
+                     &lt;<span class="tag">html</span>&gt;<br>
+                    &lt;<span class="tag">head</span>&gt;<br>
+                    <!-- &nbsp;	&lt;<span class="tag">meta</span> <span class="attr">charset</span>="UTF-8"&gt;<br> -->
+                    &nbsp;				&lt;<span class="tag">title</span>&gt;<span class="text">My HTML Page</span>&lt;<span class="tag">/title</span>&gt;<br>
+                    &lt;<span class="tag">/head</span>&gt;<br>
+                    &lt;<span class="tag">body</span>&gt;<br>
+                    <br>
+                    &lt;<span class="tag">/body</span>&gt;<br>
+                    &lt;<span class="tag">/html</span>&gt;
+                    </div>
+            </div>
+        </div>
+
+        <h3>Breaking it Down:</h3>
+
+        <div class="notes">
+            <p> &lt;<span class="tag">html</span>&gt;, &lt;<span class="tag">head</span>&gt;,&lt;<span class="tag">body</span>&gt;, and so on... are
+            called <span class="emphasis">Tags</span>.
+            </p> 
+            <p> Tags carry specific information within them, they are declared by <span class="code emphasis">&lt;<span class="tag">tag</span>&gt;
+            </span>[openning tag] and<span class="code emphasis">&lt;<span class="tag">/tag</span>&gt;</span>[closing tag].</p>
+            <p> They act like containers and tell the browser about the kind of information 
+                that lies within them.</p>
+            <p>For example,<span class="emphasis"> &lt;<span class="tag">p</span>&gt; This is a paragraph &lt;<span class="tag">/p</span>&gt;</span> tells the browser that what is within the &lt;<span class="tag">p</span>&gt; 
+                    tag is a paragraph.</p>
+            <p><span class="code emphasis">&lt;<span class="doctype">!DOCTYPE</span> <span class="tag">html</span>&gt;</span>: This declaration tells
+            the browser to expect an HTML5 document.</p>
+            <p><span class="code emphasis">&lt;<span class="tag">html</span>&gt;</span>: The root element that wraps all your content.</p>
+            <p><span class="code emphasis">&lt;<span class="tag">head</span>&gt;</span>: Contains meta-information about your document 
+                <span class="emphasis">[like title, character set, and linked styles].</span></p>
+            <p><span class="code emphasis">&lt;<span class="tag">title</span>&gt;</span>: The title appears in the browser tab, providing a clear indication of the page's content.</p>
+            <p><span class="code emphasis">&lt;<span class="tag">body</span>&gt;</span>: This is where you place all your visible content.</p>
+        </div>
+
+        <h2>Why Learn HTML?</h2>
+        <div class="notes">
+            <p><span class="emphasis">Empower your creativity</span>: Build stunning websites from scratch!</p>
+            <p><span class="emphasis">Foundation for your languages</span>: HTML is the first step towards mastering CSS, javaScript, and more!</p>
+            <p><span class="emphasis">In-Demand Skill</span>: Web development skills are highly valued in today's job market.</p>
+            <p>In this bootcamp, we're going to provide you with everything you need to get heads-on with HTML.</p>
+        </div>
+
+        <a href="{%url 'page3_view'%}"><button class="start exp">Next</button></a>
+
+        </div>
+    </div>
+    
+</main>
+<footer>
+    {%include 'footer.html'%}
+</footer>
+<script src="{%static 'assets/js/videos/video.js'%}"></script>
+<script type="text/javascript" src="{%static 'assets/js/main/scripts.js'%}"></script>
+</body>
+</html>

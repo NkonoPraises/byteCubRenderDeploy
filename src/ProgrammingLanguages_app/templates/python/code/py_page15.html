@@ -1,0 +1,296 @@
+{%load static%}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modules in Python</title>
+    <link rel="stylesheet" type="text/css" href="{%static 'assets/CSS/IntroToHTML/index.css'%}">
+    <link rel="stylesheet" type="text/css" href="{%static 'assets/CSS/IntroToHTML/header.css'%}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style>
+        .chapter-pointer-15{
+	        border: 2px solid skyblue;
+        }
+        .js-shots{
+            width: 50%;
+        }
+        @media(max-width: 760px){
+            .js-shots{
+                width: 100%;
+            }
+            
+        }
+        .code-container{
+            overflow: hidden;
+        }
+        pre.code-editor-content{
+            width: 100%;
+            overflow-y: hidden;
+            margin-bottom: -60px;
+        }
+        .code-editor-content{
+            margin-top: -160px;
+            padding: 2px 0px;
+        }
+    </style>
+	
+</head>
+{%include 'all/snippets/header_snippet.html'%}
+<body>
+<main>
+    <div class="main-container">
+        <div class="left-container">
+            {%include 'python/snippets/left-container_snippet.html'%}
+        </div>
+        <div class="mid-container">
+            <h1>Modules in Python</h1>
+            <div class="button-container">
+                <a href="{%url 'py_page14'%}"><button class="prev">Prev</button></a>
+                <a href="{%url 'py_page16'%}"><button class="next">Next</button></a>
+            </div>
+           
+
+            <h2>What is a Module?</h2>
+            <div class="notes">
+                <p>
+                    In Python, a <strong>module</strong> is simply a file that contains Python code. This code can include functions, classes, and variables. By organizing your code into modules, you can make it more manageable and reusable.
+                </p>
+            </div>
+
+            <h2>Why Use Modules?</h2>
+            <div class="notes">
+                <ol>
+                    <li><strong>Organization</strong>: Modules help you organize your code into separate files based on functionality.</li>
+                    <li><strong>Reusability</strong>: You can reuse modules across different projects without having to rewrite the same code.</li>
+                    <li><strong>Namespace Management</strong>: Modules help avoid naming conflicts by providing a separate namespace for each module.</li>
+                </ol>
+            </div>
+            
+            <h2>Creating a Module</h2>
+            <div class="notes">
+                <p>To create a module, you simply need to create a new Python file (with a <span class="emphasis">.py</span> extension) and define your functions or classes inside it. </p>
+            </div>
+
+            <h2>Example of Creating a Module</h2>
+            <div class="notes">
+                <p>Let's create a module called <span class="emphasis">math_operations.py</span> that contains some basic mathematical functions:</p>
+            </div>
+           <div class="code-view">
+            {% for snippet in code_1 %}
+   
+                <div class="code-container">
+                    <button class="copy-button" onclick="copyToClipboard()">Copy</button>
+                    <pre class="code-editor-content">
+                        
+                        <style>
+                            {{ snippet.get_highlighted_code.css | safe }}
+                        </style>
+                        {{ snippet.get_highlighted_code.html | safe }}
+                        
+                    </pre>
+                    
+                </div>
+            
+            {% endfor %}
+        </div>
+
+       
+
+        <div class="notes">
+            <p>In this example:</p>
+            <ul>
+                <li>We created a file named <span class="emphasis">math_operations.py</span>.</li>
+                <li>Inside this file, we defined four functions: <span class="emphasis">add</span>, <span class="emphasis">subtract</span>, <span class="emphasis">multiply</span>, and <span class="emphasis">divide</span>.</li>
+            </ul>
+        </div>
+        
+
+        <h2>Accessing Modules</h2>
+        <div class="notes">
+            <p>Once you have created a module, you can use it in other Python files by importing it. The <span class="emphasis">import</span> statement is used to bring in the module so that you can access its functions and classes.</p>
+        </div>
+
+        <h2>Importing a Module</h2>
+        <div class="notes">
+            <p>You can import an entire module or specific functions from it.</p>
+        </div>
+
+        <h2>Importing the Entire Module</h2>
+        <div class="notes">
+            <p>To import the entire module, use the following syntax:</p>
+        </div>
+
+           <div class="code-view">
+            {% for snippet in code_2 %}
+   
+                <div class="code-container">
+                    <button class="copy-button" onclick="copyToClipboard()">Copy</button>
+                    <pre class="code-editor-content">
+                        
+                        <style>
+                            {{ snippet.get_highlighted_code.css | safe }}
+                        </style>
+                        {{ snippet.get_highlighted_code.html | safe }}
+                        
+                    </pre>
+                    
+                </div>
+            
+            {% endfor %}
+        </div>
+       
+        <br>
+        <div class="notes">
+            <p>After importing, you can access the functions using the dot (<span class="emphasis">.</span>) notation:</p>
+        </div>
+
+        
+           <div class="code-view">
+            {% for snippet in code_3 %}
+   
+                <div class="code-container">
+                    <button class="copy-button" onclick="copyToClipboard()">Copy</button>
+                    <pre class="code-editor-content">
+                        
+                        <style>
+                            {{ snippet.get_highlighted_code.css | safe }}
+                        </style>
+                        {{ snippet.get_highlighted_code.html | safe }}
+                        
+                    </pre>
+                    
+                </div>
+            
+            {% endfor %}
+        </div>
+
+        <h2 style="text-align: center; color: skyblue; margin-top: 50px;">Output</h2>
+
+        <div class="code-view">
+            <div class="sub-view">
+                <div class="code-block">
+                    <p><i class="fa fa-angle-double-right"></i> Addition: 8</p>
+                    <p><i class="fa fa-angle-double-right"></i> Subtraction: 6</p>
+                </div>
+            </div>
+        </div>
+        
+
+
+       <h2>Importing Specific Functions</h2>
+        <div class="notes">
+            <p>If you only need specific functions from a module, you can import them directly:</p>
+        </div>
+
+        <div class="code-view">
+            {% for snippet in code_4 %}
+   
+                <div class="code-container">
+                    <button class="copy-button" onclick="copyToClipboard()">Copy</button>
+                    <pre class="code-editor-content">
+                        
+                        <style>
+                            {{ snippet.get_highlighted_code.css | safe }}
+                        </style>
+                        {{ snippet.get_highlighted_code.html | safe }}
+                        
+                    </pre>
+                    
+                </div>
+            
+            {% endfor %}
+        </div>
+
+        <h2 style="text-align: center; color: skyblue; margin-top: 50px;">Output</h2>
+
+        <div class="code-view">
+            <div class="sub-view">
+                <div class="code-block">
+                    <p><i class="fa fa-angle-double-right"></i> Addition: 8</p>
+                    <p><i class="fa fa-angle-double-right"></i> Division: 5.0</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="notes">
+            <p>In this case, we imported only the <span class="emphasis">add</span> and <span class="emphasis">divide</span> functions from the <span class="emphasis">math_operations</span> module.</p>
+        </div>
+
+        <h2>Aliasing Modules</h2>
+        <div class="notes">
+            <p>You can also give a module or function an alias to make it easier to reference. This is done using the <span class="emphasis">as</span> keyword.</p>
+        </div>
+
+        <div class="code-view">
+            {% for snippet in code_5 %}
+   
+                <div class="code-container">
+                    <button class="copy-button" onclick="copyToClipboard()">Copy</button>
+                    <pre class="code-editor-content">
+                        
+                        <style>
+                            {{ snippet.get_highlighted_code.css | safe }}
+                        </style>
+                        {{ snippet.get_highlighted_code.html | safe }}
+                        
+                    </pre>
+                    
+                </div>
+            
+            {% endfor %}
+        </div>
+
+        <h2 style="text-align: center; color: skyblue; margin-top: 50px;">Output</h2>
+
+        <div class="code-view">
+            <div class="sub-view">
+                <div class="code-block">
+                    <p><i class="fa fa-angle-double-right"></i>  Multiplication: 20</p>
+                </div>
+            </div>
+        </div>
+
+        <h2>Summary of Importing Modules</h2>
+        <div class="notes">
+            <ul>
+                <li>Use import <span class="emphasis">module_name</span> to import the entire module.</li>
+                <li>Use <span class="emphasis">from module_name import function_name</span> to import specific functions.</li>
+                <li>Use <span class="emphasis">import module_name as alias</span> to give an alias to the module.</li>
+            </ul>
+        </div>
+
+        
+       
+        <h2 style="text-align: center; color: skyblue; margin-top: 50px;">Exercise</h2>
+        <div class="notes">
+            <p>Now that you've learned about creating and accessing modules, let's put your knowledge to the test with an exercise:</p>
+           <ol>
+            <li> Create a new module named <span class="emphasis">geometry.py</span>.</li>
+            <li> Inside this module, define two functions:
+                <ul>
+                    <li><span class="emphasis">calculate_circle_area(radius)</span> that returns the area of a circle (Area = 3.142 * radius * radius).</li>
+                    <li><span class="emphasis">calculate_rectangle_area(length, width)</span> that returns the area of a rectangle (Area = length * width).</li>
+                </ul>
+            </li>
+            <li>In a separate Python file (e.g., <span class="emphasis">main.py</span>), import your geometry module.</li>
+            <li>Call both functions with sample values and print the results.</li>
+           </ol>
+
+        </div>
+
+
+        <div class="button-container">
+            <a href="{%url 'py_page14'%}"><button class="prev">Prev</button></a>
+            <a href="{%url 'py_page16'%}"><button class="next">Next</button></a>
+        </div>
+
+        </div>
+    </div>
+</main>
+<footer>
+    {%include 'footer.html'%}
+</footer>
+<script type="text/javascript" src="{%static 'assets/js/main/scripts.js'%}"></script>
+</body>
+</html>

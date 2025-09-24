@@ -1,0 +1,326 @@
+{%load static%}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Table Styling</title>
+    <link rel="stylesheet" type="text/css" href="{%static 'assets/CSS/IntroToHTML/index.css'%}">
+    <link rel="stylesheet" type="text/css" href="{%static 'assets/CSS/IntroToHTML/header.css'%}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <style>
+        .result{
+            width: 80%;
+            display: block;
+            margin: auto;
+        }
+        .test-sub:hover{
+            background-color: orange;
+        }
+        .chapter-pointer-6{
+	        border: 2px solid skyblue;
+        }
+
+    </style>
+    
+</head>
+{%include 'all/snippets/header_snippet.html'%}
+  <body>
+    <main>
+    <div class="main-container">
+        <div class="left-container">
+            {%include 'introToCSS_app/snippets/left-container_snippet.html'%}
+        </div>
+        <div class="mid-container">
+           <h1>Table Styling</h1>
+
+            <div class="button-container">
+                <a href="{%url 'css_5'%}"><button class="prev">Prev</button></a>
+                <a href="{%url 'css_7'%}"><button class="next">Next</button></a>
+            </div>
+
+           <div class="notes">
+            <p>Styling tables in CSS can significantly enhance the visual appeal and usability of your data presentations.</p>
+            <p>Let's consider the HTML below:</p>
+           </div>
+           <h2 style="text-align: center; color: skyblue; margin-top: 50px;">HTML</h2>
+                <hr>
+                <h3 style="text-align: center; color: skyblue; margin-top: 50px;">Result</h3>
+                <div class="result">
+                    <table>
+                        <tr>
+                            <th>SN</th>
+                            <th>Name</th>
+                            <th>Age</th>
+
+                        </tr>
+                        <tr>
+                            <td>01</td>
+                            <td>Carl</td>
+                            <td>60</td>
+                        </tr>
+                        <tr>
+                            <td>02</td>
+                            <td>Kate</td>
+                            <td>23</td>
+                        </tr>
+                    </table>
+                </div>
+                <div class="notes">
+                    <p>Here are some key concepts an techniques to consider when styling HTML tables:</p>
+                </div>
+           <h2>6.1 Common CSS Properties for Table Styling</h2>
+           <div class="notes">
+            <p>1.<strong> Borders:</strong></p>
+            <p>Use the <span class="emphasis">border</span> property to define the borders of the table and its cells.</p>
+            <h3 style="margin-bottom: 20px; text-align: center; color: skyblue;">Example</h3>
+            <div class="i-code">
+                <div class="sub-icode">
+                    <div class="open-brace">
+                        table{
+                    </div>
+                    <div class="css-body"><span class="css-property">border-collapse</span><span class="css-value">: collapse;</span></div>
+                    <div class="close-brace">
+                    }
+                    </div>
+
+                    <div class="open-brace">
+                        th, td{
+                    </div>
+                    <div class="css-body"><span class="css-property">border</span><span class="css-value">: 1px solid lightgray;</span></div>
+                    <div class="close-brace">
+                    }
+                    </div>
+
+                </div>
+            </div>
+           </div>
+           <h3 style="text-align: center; color: skyblue; margin-top: 50px;">Result</h3>
+                <div class="result">
+                    <table style="border-collapse: collapse;">
+                        <tr>
+                            <th style="border: 1px solid #ddd;">SN</th>
+                            <th style="border: 1px solid #ddd;">Name</th>
+                            <th style="border: 1px solid #ddd;">Age</th>
+
+                        </tr>
+                        <tr>
+                            <td style="border: 1px solid #ddd;">01</td>
+                            <td style="border: 1px solid #ddd;">Carl</td>
+                            <td style="border: 1px solid #ddd;">60</td>
+                        </tr>
+                        <tr>
+                            <td style="border: 1px solid #ddd;">02</td>
+                            <td style="border: 1px solid #ddd;">Kate</td>
+                            <td style="border: 1px solid lightgray;">23</td>
+                        </tr>
+                    </table>
+                </div>
+                <div class="notes">
+                    <p><span class="emphasis">border-collapse: collapse;</span> merges borders.</p>
+                    <p><span class="emphasis">border: 1px solid lightgray;</span> creates a lightgray border of <strong>1px</strong> thickness around each cell.</p>
+                </div>
+
+           <div class="notes" style="margin-top: 30px;">
+            <p>2.<strong> Padding and Spacing:</strong></p>
+            <p>Adjust the spacing within cells using <span class="emphasis">padding</span> and space between cells using <span class="emphasis">border-spacing</span>. </p>
+
+            <h3 style="margin-bottom: 20px; text-align: center; color: skyblue;">Example</h3>
+            <div class="i-code">
+                <div class="sub-icode">
+                    <div class="open-brace">
+                        table{
+                    </div>
+                    <div class="css-body"><span class="css-property">border-spacing</span><span class="css-value">: 5px;</span></div>
+                    <div class="close-brace">
+                    }
+                    </div>
+
+                    <div class="open-brace">
+                        th, td{
+                    </div>
+                    <div class="css-body"><span class="css-property">padding</span><span class="css-value">: 10px;</span></div>
+                    <div class="close-brace">
+                    }
+                    </div>
+
+                </div>
+            </div>
+
+           </div>
+           <h3 style="text-align: center; color: skyblue; margin-top: 50px;">Result</h3>
+                <div class="result">
+                    <table style="border-spacing: 5px;">
+                        <tr>
+                            <th style="padding: 10px;">SN</th>
+                            <th style="padding: 10px;">Name</th>
+                            <th style="padding: 10px;">Age</th>
+
+                        </tr>
+                        <tr>
+                            <td style="padding: 10px;">01</td>
+                            <td style="padding: 10px;">Carl</td>
+                            <td style="padding: 10px;">60</td>
+                        </tr>
+                        <tr>
+                            <td style="padding: 10px;">02</td>
+                            <td style="padding: 10px;">Kate</td>
+                            <td style="padding: 10px;">23</td>
+                        </tr>
+                    </table>
+                </div>
+
+                <div class="notes">
+                    <p><span class="emphasis">border-spacing: 5px;</span> Creates a space of <strong>5px</strong> between cells.</p>
+                    <p><span class="emphasis">padding: 10px;</span> Adds space of <strong>10px</strong> inside cells.</p>
+                </div>
+
+           <div class="notes">
+                <p>3.<strong> Background Colors:</strong></p>
+                <p>Use <span class="emphasis">background-color</span> to enhance readability.</p>
+                <h3 style="margin-bottom: 20px; text-align: center; color: skyblue;">Example</h3>
+                <div class="i-code">
+                    <div class="sub-icode">
+                        <div class="open-brace">
+                            th{
+                        </div>
+                        <div class="css-body"><span class="css-property">background-color</span><span class="css-value">: lightgray;</span></div>
+                        <div class="close-brace">
+                        }
+                        </div>
+    
+                    </div>
+                </div>
+
+            </div>
+            <h3 style="text-align: center; color: skyblue; margin-top: 50px;">Result</h3>
+                <div class="result">
+                    <table>
+                        <tr>
+                            <th style="background-color: lightgray;">SN</th>
+                            <th style="background-color: lightgray;">Name</th>
+                            <th style="background-color: lightgray;">Age</th>
+
+                        </tr>
+                        <tr>
+                            <td>01</td>
+                            <td>Carl</td>
+                            <td>60</td>
+                        </tr>
+                        <tr>
+                            <td>02</td>
+                            <td>Kate</td>
+                            <td>23</td>
+                        </tr>
+                    </table>
+                </div>
+
+           <div class="notes">
+            <p>4.<strong> Text Alignment:</strong></p>
+            <p>Controls the alignment within cells using <span class="emphasis">text-align</span>.</p>
+
+            <h3 style="margin-bottom: 20px; text-align: center; color: skyblue;">Example</h3>
+            <div class="i-code">
+                <div class="sub-icode">
+                    <div class="open-brace">
+                        th{
+                    </div>
+                    <div class="css-body"><span class="css-property">text-align</span><span class="css-value">: left;</span></div>
+                    <div class="close-brace">
+                    }
+                    </div>
+
+                    <div class="open-brace">
+                        td{
+                    </div>
+                    <div class="css-body"><span class="css-property">text-align</span><span class="css-value">: center;</span></div>
+                    <div class="close-brace">
+                    }
+                    </div>
+
+                </div>
+            </div>
+
+           </div>
+           <h3 style="text-align: center; color: skyblue; margin-top: 50px;">Result</h3>
+                <div class="result">
+                    <table>
+                        <tr>
+                            <th style="text-align: left;">SN</th>
+                            <th style="text-align: left;">Name</th>
+                            <th style="text-align: left;">Age</th>
+
+                        </tr>
+                        <tr>
+                            <td style="text-align: center;">01</td>
+                            <td style="text-align: center;">Carl</td>
+                            <td style="text-align: center;">60</td>
+                        </tr>
+                        <tr>
+                            <td style="text-align: center;">02</td>
+                            <td style="text-align: center;">Kate</td>
+                            <td style="text-align: center;">23</td>
+                        </tr>
+                    </table>
+                </div>
+
+            <div class="notes">
+                <p>5.<strong> Hover Effects:</strong></p>
+                <p>Improves interactivity by adding hover effects.</p>
+
+                <h3 style="margin-bottom: 20px; text-align: center; color: skyblue;">Example</h3>
+                <div class="i-code">
+                    <div class="sub-icode">
+                        <div class="open-brace">
+                            tr:hover{
+                        </div>
+                        <div class="css-body"><span class="css-property">background-color</span><span class="css-value">: orange;</span></div>
+                        <div class="close-brace">
+                        }
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <h3 style="text-align: center; color: skyblue; margin-top: 50px;">Result</h3>
+            <div class="result">
+                <table>
+                    <tr class="test-sub">
+                        <th>SN</th>
+                        <th>Name</th>
+                        <th>Age</th>
+
+                    </tr>
+                    <tr class="test-sub">
+                        <td>01</td>
+                        <td>Carl</td>
+                        <td>60</td>
+                    </tr>
+                    <tr class="test-sub">
+                        <td>02</td>
+                        <td>Kate</td>
+                        <td>23</td>
+                    </tr>
+                </table>
+            </div>
+<p style="margin-left: 35px; line-height: 50px;"><strong>Tip:</strong> Hover on the above result to see the effect [click, if you are using a mobile phone].</p>
+            
+
+           
+           
+                <button class="run">Try it Yourself</button>
+                <div class="button-container">
+                    <a href="{%url 'css_5'%}"><button class="prev">Prev</button></a>
+                    <a href="{%url 'css_7'%}"><button class="next">Next</button></a>
+                </div>
+        </div>
+        
+        
+    </div>
+   </main>
+  <footer>
+    {%include 'footer.html'%}
+</footer>
+<script type="text/javascript" src="{%static 'assets/js/main/scripts.js'%}"></script>
+</body>
+</html>

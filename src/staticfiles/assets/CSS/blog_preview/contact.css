@@ -1,0 +1,220 @@
+/* contact.css */
+
+/* General Styles */
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f8f8f8;
+    color: #333;
+    line-height: 1.6;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+.button {
+    display: inline-block;
+    background-color: #2196F3; /* Blue */
+    color: white;
+    padding: 12px 24px;
+    border-radius: 5px;
+    text-transform: uppercase;
+    font-weight: bold;
+    letter-spacing: 0.5px;
+    transition: background-color 0.3s ease;
+    border: none;
+    cursor: pointer;
+}
+
+.button:hover {
+    background-color: #1976D2; /* Darker Blue */
+}
+
+/* Header Styles (Keeping Basic) */
+header {
+    background-color: #fff;
+    padding: 20px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+    position: sticky;
+    top: 0;
+    z-index: 10;
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    justify-content: space-around;
+}
+
+nav a {
+    display: block;
+    padding: 10px;
+    transition: color 0.3s ease;
+}
+
+nav a:hover {
+    color: #2196F3;
+}
+
+/* Contact Hero Section */
+#contact-hero {
+    display: flex;
+    align-items: center;
+    padding: 60px;
+    background-color: #fff;
+}
+
+#contact-hero .hero-image {
+    flex: 1;
+    max-width: 50%;
+}
+
+#contact-hero .hero-content {
+    flex: 1;
+    padding-left: 40px;
+}
+
+#contact-hero h1 {
+    font-size: 3em;
+    margin-bottom: 15px;
+    color: #333;
+}
+
+#contact-hero p {
+    font-size: 1.2em;
+    color: #555;
+}
+
+/* Contact Form Section */
+#contact-form-section {
+    padding: 60px;
+    text-align: center;
+}
+
+#contact-form-section h2 {
+    font-size: 2.5em;
+    margin-bottom: 30px;
+    color: #2196F3;
+}
+
+#contact-form {
+    max-width: 600px;
+    margin: 0 auto;
+    text-align: left;
+    padding: 30px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 5px;
+    color: #333;
+}
+
+.form-group input,
+.form-group textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 1em;
+    box-sizing: border-box; /* Ensure padding doesn't affect width */
+}
+
+.form-group textarea {
+    resize: vertical; /* Allow vertical resizing */
+}
+
+/* Contact Info Section */
+#contact-info-section {
+    padding: 60px;
+    background-color: #f8f8f8;
+}
+
+#contact-info-section h2 {
+    font-size: 2.5em;
+    margin-bottom: 30px;
+    text-align: center;
+    color: #2196F3;
+}
+
+.contact-info-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 40px;
+    text-align: center;
+}
+
+.contact-info-item {
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 30px;
+}
+
+.contact-info-item i {
+    font-size: 2em;
+    margin-bottom: 15px;
+    color: #2196F3;
+}
+
+.contact-info-item h3 {
+    font-size: 1.3em;
+    margin-bottom: 10px;
+    color: #333;
+}
+
+.contact-info-item p {
+    color: #555;
+}
+
+/* Footer Styles (Basic) */
+footer {
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 20px;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    #contact-hero {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    #contact-hero .hero-image {
+        max-width: 100%;
+        margin-bottom: 30px;
+    }
+
+    #contact-hero .hero-content {
+        padding-left: 0;
+    }
+
+    .contact-info-grid {
+        grid-template-columns: 1fr;
+    }
+
+    #contact-form {
+        padding: 20px;
+    }
+}

@@ -1,0 +1,9 @@
+{% extends "base2.html" %}
+{% block content %}
+  <h2>Exercises</h2>
+  <ul>
+    {% for exercise in exercises %}
+      <li><a href="{% url 'exerciseApp:exercise_detail' exercise.id %}">{{ exercise.title }}</a></li>
+    {% endfor %}
+  </ul>
+{% endblock %}

@@ -1,0 +1,89 @@
+{%load static%}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercise Four</title>
+    <link rel="stylesheet" type="text/css" href="{%static 'assets/CSS/IntroToHTML/index.css'%}">
+    <link rel="stylesheet" type="text/css" href="{%static 'assets/CSS/IntroToHTML/header.css'%}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style>
+        .HTML-exercise-4-pointer{
+	        border: 2px solid skyblue;
+        }
+        h1,h2{
+            text-align: center;
+            margin-top: -5px;
+        }
+        p{
+            text-align: center;
+        }
+
+        
+    </style>
+</head>
+{%include 'all/snippets/header_snippet.html'%}
+<body>
+    <main>
+    <div class="main-container">
+        <div class="left-container">
+            {%include 'introToHTML_app/snippets/left-container_snippet.html'%}
+        </div>
+        <div class="mid-container">
+            <h1 style="text-align: center; margin-bottom: 15px;">Exercise Four</h1>
+
+            <div class="button-container">
+                <a href="{%url 'page7b_view'%}"><button class="prev">Prev</button></a>
+                <a href="{%url 'page8_view'%}"><button class="next">Next</button></a>
+            </div>
+
+           <div class="notes">
+            <p>Replicate the following article below [name it <span class="emphasis">main.html</span>]. Let the <span class="emphasis" style="color: blue;">next</span> link connect <span class="emphasis">main.html</span> to <span class="emphasis">iphone.html</span>.</p>
+            <p>Click to <a href="{%static 'assets/images/IntroToHTML/iphone-image.jpg'%}" download=""> download </a> the image.</p>
+           </div> 
+
+           <div class="result">
+            <h1>iPhone Quality and Pricing</h1>
+            <br>
+            <img width="500px" src="{%static 'assets/images/IntroToHTML/iphone-image.jpg'%}" alt="Image of an iPhone">
+            <p><strong>- Quality</strong>: iPhones are known for their <strong>premuim build</strong>, <strong>high-end performance</strong>, and <strong>excellent camera systems</strong>. Features like <strong>iOS</strong> integration ensure smooth user experience (UX). </p>
+            <p><strong>- Pricing</strong>: Prices range from <strong>$699</strong> for base models to over <strong>$1,099</strong> for Pro versions, reflecting advanced features.</p>
+            <br>
+            <p><a style="color: blue;" href="{%url 'HTMLIntro_ex3'%}">next</a></p>
+           </div>
+           <div class="notes">
+            <p> Also, include a <span class="emphasis" style="color: blue;">back</span> link in <span class="emphasis">iphone.html</span> that takes the user back to <span class="emphasis">main.html</span>.</p>
+
+           </div>
+           <button class="run">Try it Yourself</button>
+
+            <!-- Whatsapp community button -->
+            <section id="whatsapp-community">
+                <div class="whatsapp">
+                    <p>Encountering difficulties? Our Whatsapp community is a collaborative space for sharing and assistance.</p>
+                </div>
+
+                <div class="whatsapp-button-floating">
+                    <a href="https://chat.whatsapp.com/EleIRPRKMN73Ly1GkHnjGV?mode=ems_copy_t" target="_blank">
+                        <i class="fab fa-whatsapp"></i>
+                        <span>Chat</span>
+                    </a>
+                </div>
+            </section>
+
+           <div class="button-container">
+            <a href="{%url 'page7b_view'%}"><button class="prev">Prev</button></a>
+            <a href="{%url 'page8_view'%}"><button class="next">Next</button></a>
+        </div>
+        </div>
+        
+        
+    </div>
+</main>
+<footer>
+    {%include 'footer.html'%}
+</footer>
+<script type="text/javascript" src="{%static 'assets/js/main/scripts.js'%}"></script>
+</body>
+</html>

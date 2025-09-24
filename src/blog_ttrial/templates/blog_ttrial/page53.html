@@ -1,0 +1,377 @@
+{%load static%}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flex Category</title>
+    <link rel="stylesheet" type="text/css" href="{%static 'assets/CSS/IntroToHTML/index.css'%}">
+    <link rel="stylesheet" type="text/css" href="{%static 'assets/CSS/IntroToHTML/header.css'%}">
+    <link rel="stylesheet" type="text/css" href="{%static 'assets/CSS/blog_ttrial/header.css'%}">
+    <link rel="stylesheet" href="{%static 'assets/CSS/tabs/tabs.css'%}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style>
+        .chapter-pointer-53{
+	        border: 2px solid skyblue;
+        }
+
+        /* result styling */
+        .result{
+            padding: 0;
+            max-height: 1150px;
+            overflow-y: scroll;
+        }
+        /* result styling */
+        .menu{
+            background: none;
+            border: none;
+            font-size: 25px;
+            color: #333;
+            cursor: pointer; /*cursor arrow changes to a pointer whenever it moves above the button*/
+        }
+       .result h1{
+        margin: 0;
+       }
+
+       .hero-container{
+            display: flex;
+            align-items: center;
+            padding: 30px;
+            background-color: #f9f9f9;
+        }
+ 
+        .hero-container .left-hero{
+            flex: 1;
+            max-width: 50%;
+        }
+        .tip-item img,
+        .product-item img,
+        .left-hero img {
+            max-width: 100%;
+            height: auto;
+        }
+
+        .hero-container .right-hero{
+            flex: 1;
+        }
+
+        .hero-container .right-hero{
+            flex: 1;
+            max-width: 50%;
+            padding-left: 20px;
+        }
+        .hero-container h1 {
+            font-size: 3em;
+            margin-bottom: 15px;
+            color: #e91e63; 
+        }
+
+        .hero-container p {
+            font-size: 1.2em;
+            color: #555;
+            margin-bottom: 20px;
+        }
+
+        .button {
+            display: inline-block;
+            background-color: #e91e63; /* Pink */
+            color: white;
+            padding: 12px 24px;
+            border-radius: 5px;
+            text-transform: uppercase;
+            font-weight: bold;
+            letter-spacing: 0.5px;
+            transition: background-color 0.3s ease;
+        }
+
+        .button:hover {
+            background-color: #d81b60; /* Darker Pink */
+        }
+
+        .edit ul{
+            list-style-type : none;
+        }
+       .edit ul li{
+            background-size : 20px 20px;
+            background-repeat :no-repeat;
+            background-position : 0 5px;
+            padding-left : 30px;
+        }
+        .edit ul a{
+            text-decoration: underline;
+        }
+
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(265px, 1fr));
+            gap: 20px;
+        }
+        .product-item p,
+        .product-item span{
+            padding-left: 0;
+        }
+        .product-item h3{
+            margin-top: 0;
+        }
+        .tip-item,
+        .product-item {
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            padding: 30px;
+            text-align: left;
+        }
+        .tip-item img,
+        .product-item img{
+            border-radius: 5px;
+            margin-bottom: 20px;
+        }
+        .tip-item h3,
+        .product-item h3{
+            font-size: 1.5em;
+            margin-bottom: 10px;
+            color: #333;
+        }
+        .tip-item,
+        .product-item p {
+            color: #777;
+            margin-bottom: 15px;
+        }
+
+        .product-item .price {
+            font-size: 1.3em;
+            font-weight: bold;
+            color: #e91e63; /* Pink */
+            display: block;
+            margin-bottom: 20px;
+        }
+        .beauty-tips,
+        .featured-products.edit {
+            padding: 20px;
+            text-align: center;
+        }
+        .beauty-categories h2{
+            margin-top: 0;
+        }
+        
+        .beauty-tips h2,
+        .featured-header{
+            font-size: 2.5em;
+            margin-bottom: 40px;
+            color: #e91e63; /* Pink */
+        }
+
+        .tip-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+        }
+        .tip-grid p,
+        .tip-item h3{
+            margin-top: 0;
+            padding: 0;
+        }
+        .beauty-tips{
+            background-color: #f9f9f9;
+        }
+        .beauty-categories { 
+            padding: 60px;
+            text-align: center;
+        }
+
+        .category-list {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+        }
+
+        
+    </style>
+</head>
+{%include 'all/snippets/header_snippet.html'%}
+<body>
+    <main>
+    <div class="main-container">
+        <div class="left-container">
+            {%include 'snippets/beauty-left-container_snippet.html'%} 
+        </div>
+        <div class="mid-container">
+           <h1>Flex Category</h1>
+            <div class="button-container">
+                <a href="{%url 'blog_pg52'%}"><button class="prev">Prev</button></a>
+                <a href="{%url 'blog_pg54'%}"><button class="next">Next</button></a>
+            </div>
+            <h2>Flex Box?</h2>
+            <div class="notes">
+                <p>Yeah, flex-box because we only want to control one dimension of our list. That is we only want it to align horizonatly on larg screens and on smaller screens we could just use an <strong>@media</strong> query to make the list a block element.</p>
+            </div>
+
+
+            <h2 style="text-align: center; color: skyblue; margin-top: 50px;">beauty.css [.beauty-categories & .category-list]</h2>
+            <div class="tab">
+        <button class="tablinks active" onclick="openTab(event, 'Tab1')">Code Snippet</button>
+        <button class="tablinks" onclick="openTab(event, 'Tab2')">Full Code</button>
+        <!-- <button class="tablinks" onclick="openTab(event, 'Tab3')">Tab 3</button> -->
+        </div>
+
+        <div id="Tab1" class="tabcontent" style="display: block;">
+        <div class="code-view">
+                    {% for snippet in code_1a %}
+        
+                        <div class="code-container">
+                            <button class="copy-button" onclick="copyToClipboard()">Copy</button>
+                            <pre class="code-editor-content">
+                                
+                                <style>
+                                    {{ snippet.get_highlighted_code.css | safe }}
+                                </style>
+                                {{ snippet.get_highlighted_code.html | safe }}
+                                
+                            </pre>
+                            
+                        </div>
+                    
+                    {% endfor %}
+                </div>
+        </div>
+
+        <div id="Tab2" class="tabcontent">
+        <div class="code-view">
+                    {% for snippet in code_1 %}
+        
+                        <div class="code-container">
+                            <button class="copy-button" onclick="copyToClipboard()">Copy</button>
+                            <pre class="code-editor-content">
+                                
+                                <style>
+                                    {{ snippet.get_highlighted_code.css | safe }}
+                                </style>
+                                {{ snippet.get_highlighted_code.html | safe }}
+                                
+                            </pre>
+                            
+                        </div>
+                    
+                    {% endfor %}
+                </div>
+        </div>
+
+        <!-- <div id="Tab3" class="tabcontent">
+        <h3>Tab 3 Content</h3>
+        <p>This is the content of Tab 3.</p>
+        </div> -->
+
+  
+        <h2 style="text-align: center; color: skyblue; margin-top: 50px;">Result</h2>
+        <div class="result">
+           
+            <div class="header-div">
+                <div style="display: flex; justify-content: space-between; align-items: center;" class="header-container">
+                    <div class="logo-2" >Fashion Farward</div>
+                    <nav class="main-nav nav-style">
+                        <button class="menu" style="display: none;">Menu</button>
+                        <ul style="list-style-position: inside; list-style: none; display: flex;">
+                            <li><a href="#">Trends</a></li>
+                            <li><a href="#">Designers</a></li>
+                            <li><a href="#">Outfits</a></li>
+                            <li><a href="#">Beauty</a></li>
+                            <li><a href="#">About</a></li>
+                            <li><a href="#">Contacts</a></li>
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+        
+            <div class="main">
+                <section class="hero-container">
+                    <div class="left-hero">
+                        <img  src="{%static 'assets/images/Front End Dev/pexels-thirdman-5313642.jpg'%}" alt="Beauty Hero Image">
+                    </div>
+                    <div class="right-hero">
+                        <h1>Glow Up: Your Guide to Radiant Beauty</h1>
+                        <p>Discover the latest beauty trends, expert tips, and product reviews to enhance your natural beauty and confidence.</p>
+                        <a href="#featured-products" class="button">Explore Featured Products</a>
+                    </div>
+                </section>
+
+                <!-- Featured Beauty Products section -->
+                <section id="featured-products" class="featured-products edit">
+                    <h2 class="featured-header">Featured Beauty Products</h2>
+                    <div class="product-grid">
+                        <article class="product-item" >
+                            <img src="{%static 'assets/images/Front End Dev/pexels-zeal-creatives-58866141-30592270.jpg'%}" alt="Product 1">
+                            <h3>Essie Nail Polish</h3>
+                            <p>A Popular brand of nail polish known for it's wide range of colors and long-lasting formula.</p>
+                            <span class="price">$173.00</span>
+                            <a href="#" class="button">Shop Now</a>
+                        </article>
+                        <article class="product-item">
+                            <img src="{%static 'assets/images/Front End Dev/pexels-laurachouette-21574949.jpg'%}" alt="Product 2">
+                            <h3>Chanel No. 5</h3>
+                            <p>An iconic and classic fragrance known for it's elegant and sophisticated scent.</p>
+                            <span class="price">$2500.00</span>
+                            <a href="#" class="button">Shop Now</a>
+                        </article>                
+                        <article class="product-item">
+                            <img src="{%static 'assets/images/Front End Dev/pexels-alesiakozik-7795655.jpg'%}" alt="Product 3">
+                            <h3>Moroccanoil Treatment</h3>
+                            <p>A versatile hair oil that adds shine, smooths frizz, and protects the hair from heat damage.</p>
+                            <span class="price">$90.99</span>
+                            <a href="#" class="button">Shop Now</a>
+                        </article>
+                <!-- Add more product items as needed -->
+                    </div>
+                </section>
+
+                <section class="beauty-tips">
+                    <h2>Beauty Tips & Tutorials</h2>
+                    <div class="tip-grid">
+                        <article class="tip-item">
+                            <img src="{%static 'assets/images/Front End Dev/pexels-cottonbro-4156300.jpg'%}" alt="Tip 1">
+                            <h3>Double Cleanse at Night</h3>
+                            <p>Remove makeup, then cleanse your skin again to get rid of dirt and oil that built up during the day. This prevents clogged pores and breakouts.</p>
+                        </article>
+                        <article class="tip-item">
+                            <img src="{%static 'assets/images/Front End Dev/pexels-enginakyurt-8537880.jpg'%}" alt="Tip 2">
+                            <h3>Hydrate from the Inside Out</h3>
+                            <p>Drink plenty of water throughout the day to keep your skin hydrated and glowing.</p>
+                        </article>
+                        <!-- Add more beauty tips as needed -->
+                    </div>
+                </section>
+
+                <!-- Explore Beauty by Category Section -->
+                <section class="beauty-categories" style="border:4px solid black;">
+                    <h2>Explore Beauty by Category</h2>
+                    <div class="category-list">
+                        <a href="#">Makeup</a>
+                        <a href="#">Skincare</a>
+                        <a href="#">Haircare</a>
+                        <a href="#">Fragrance</a>
+                        <a href="#">Nails</a>
+                    </div>
+                </section>
+
+            </div>
+        </div>
+
+       
+
+
+        
+            <div class="button-container" style="margin-top: 50px; margin-bottom: 100px;">
+                <a href="{%url 'blog_pg52'%}"><button class="prev">Prev</button></a>
+                <a href="{%url 'blog_pg54'%}"><button class="next">Next</button></a>
+            </div>
+        </div>
+        
+        
+    </div>
+    <script src="{%static 'assets/js/tabs/tabs.js'%}"></script>
+  <footer>
+    {%include 'footer.html'%}
+</footer>
+<script type="text/javascript" src="{%static 'assets/js/main/scripts.js'%}"></script>
+</main>
+</body>
+</html>

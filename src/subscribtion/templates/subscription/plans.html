@@ -1,0 +1,168 @@
+{%load custom_filters%}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Subscription Plans</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 40px; }
+        .plans-container { display: flex; gap: 20px; flex-wrap: wrap; justify-content: center; }
+        .plan-card { border: 2px solid #ddd; border-radius: 12px; padding: 25px; width: 320px; text-align: center; }
+        .plan-card.recommended { border-color: #4CAF50; box-shadow: 0 4px 8px rgba(76, 175, 80, 0.2); }
+        .prices { margin: 15px 0; font-size: 18px; }
+        .subscribe-btn { 
+            display: inline-block; 
+            background-color: #25D366; 
+            color: white; 
+            padding: 12px 20px; 
+            text-decoration: none; 
+            border-radius: 6px; 
+            font-weight: bold;
+            margin: 10px 0;
+        }
+        .upgrade-btn { 
+            background-color: #FF9800; 
+            color: white; 
+            padding: 12px 20px; 
+            text-decoration: none; 
+            border-radius: 6px; 
+            font-weight: bold;
+            margin: 10px 0;
+        }
+        .current-plan { 
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 20px; 
+            border-radius: 12px; 
+            margin-bottom: 30px;
+            text-align: center;
+        }
+        .disabled-btn { 
+            background-color: #ccc; 
+            cursor: not-allowed;
+            padding: 12px 20px;
+            border-radius: 6px;
+            color: #666;
+        }
+        .upgrade-price { 
+            background-color: #e8f5e8; 
+            padding: 10px; 
+            border-radius: 6px; 
+            margin: 10px 0;
+            border-left: 4px solid #4CAF50;
+        }
+        .warning { 
+            background-color: #fff3cd; 
+            color: #856404; 
+            padding: 10px; 
+            border-radius: 6px; 
+            margin: 10px 0;
+            border-left: 4px solid #ffc107;
+        }
+        .plan-features { text-align: left; margin: 15px 0; }
+        .plan-features li { margin: 8px 0; }
+        .badge {
+            background-color: #4CAF50;
+            color: white;
+            padding: 4px 8px;
+            border-radius: 12px;
+            font-size: 12px;
+            margin-left: 10px;
+        }
+    </style>
+</head>
+<body>
+    <h1 style="text-align: center;">Choose Your Subscription Plan</h1>
+    
+    {% if user_subscription %}
+    <div class="current-plan">
+        <h2>📋 Your Current Plan</h2>
+        <h3>{{ user_subscription.plan.name }} - ${{ user_subscription.plan.price_usd }}</h3>
+        <p><strong>Status:</strong> {{ user_subscription.get_status_display }}</p>
+        {% if user_subscription.status == 'active' %}
+            <p><strong>Valid until:</strong> {{ user_subscription.end_date|date:"M d, Y" }}</p>
+            <p><strong>Days remaining:</strong> {{ user_subscription.end_date|timeuntil:user_subscription.start_date }}</p>
+        {% elif user_subscription.status == 'pending' %}
+            <p class="warning">⏳ You have a pending payment. Complete it before subscribing to a new plan.</p>
+        {% endif %}
+    </div>
+    {% endif %}
+    
+    <div class="plans-container">
+    {% for plan in plans %}
+    <div class="plan-card {% if user_subscription and user_subscription.status == 'active' and user_subscription.plan == plan %}recommended{% endif %}">
+        <h2>{{ plan.name }}</h2>
+        <p>{{ plan.get_plan_type_display }}</p>
+        
+        <div class="prices">
+            <p><strong>CFA Frs:</strong> {{ plan.price_cfa }} FCFA</p>
+            <p><strong>USD:</strong> ${{ plan.price_usd }}</p>
+            <p><strong>Duration:</strong> {{ plan.duration_days }} days</p>
+        </div>
+        
+        <!-- Plan features list would go here -->
+        
+        {% if user_subscription %}
+            {% if user_subscription.status == 'pending' %}
+                <div class="disabled-btn">Complete Pending Payment First</div>
+            
+            {% elif user_subscription.status == 'active' and user_subscription.plan == plan %}
+                <div class="disabled-btn">✅ Your Current Plan</div>
+            
+            {% elif user_subscription.status == 'active' and plan.price_usd > user_subscription.plan.price_usd %}
+                <!-- UPGRADE AVAILABLE - FIXED CODE -->
+                {% with upgrade_data=upgrade_info.plan.id %}
+                    {% if upgrade_data %}
+                    <div class="upgrade-price">
+                        <strong>Upgrade Price:</strong><br>
+                        ${{ upgrade_data.usd|floatformat:2 }} USD<br>
+                        {{ upgrade_data.cfa|floatformat:0 }} CFA Frs
+                        <p class="upgrade-savings">You save: ${{ user_subscription.plan.price_usd|floatformat:2 }}</p>
+                    </div>
+                    <a href="{% url 'choose_plan' plan.id %}" class="upgrade-btn">
+                        🔄 Upgrade Now
+                    </a>
+                    {% else %}
+                    <a href="{% url 'choose_plan' plan.id %}" class="subscribe-btn">
+                        Upgrade to {{ plan.name }}
+                    </a>
+                    {% endif %}
+                {% endwith %}
+            
+            {% elif user_subscription.status == 'active' and plan.price_usd <= user_subscription.plan.price_usd %}
+                <div class="warning">
+                    ⚠️ You can only upgrade to higher-tier plans
+                </div>
+                <div class="disabled-btn">Not Available</div>
+            
+            {% else %}
+                <a href="{% url 'choose_plan' plan.id %}" class="subscribe-btn">
+                    Subscribe Now
+                </a>
+            {% endif %}
+        {% else %}
+            <a href="{% url 'choose_plan' plan.id %}" class="subscribe-btn">
+                Subscribe Now
+            </a>
+        {% endif %}
+    </div>
+    {% endfor %}
+</div>
+    
+    <div style="text-align: center; margin-top: 30px;">
+        <a href="{% url 'my_subscription' %}" style="background: #667eea; color: white; padding: 12px 20px; text-decoration: none; border-radius: 6px;">
+            📋 View My Subscriptions
+        </a>
+    </div>
+
+    <!-- Add custom template filter for dictionary lookup -->
+    <script>
+        // Simple dictionary lookup function
+        function getItem(dict, key) {
+            return dict ? dict[key] : null;
+        }
+        
+        // Make it available as a global function for the template
+        window.get_item = getItem;
+    </script>
+</body>
+</html>

@@ -1,0 +1,116 @@
+{%load static%}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Introduction To CSS</title>
+    <link rel="stylesheet" type="text/css" href="{%static 'assets/CSS/IntroToHTML/index.css'%}">
+    <link rel="stylesheet" type="text/css" href="{%static 'assets/CSS/IntroToHTML/header.css'%}">
+    <link rel="stylesheet" href="{%static 'assets/CSS/videos/video.css'%}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <style>
+        .chapter-pointer{
+	        border: 2px solid skyblue;
+        }
+    </style>
+</head>
+{%include 'all/snippets/header_snippet.html'%}
+  <body>
+    <main>
+    <div class="main-container">
+        <div class="left-container">
+            {%include 'introToCSS_app/snippets/left-container_snippet.html'%}
+        </div>
+        <div class="mid-container">
+           <h1>Introduction To CSS</h1>
+            <!-- Featured Video      -->
+            <div class="main-video-container">
+                    <div class="content">
+                        <h2>Featured Video</h2>
+                    </div>
+                    
+                    <div class="video-wrapper">
+                        <video id="videoPlayer" width="560" height="315"  poster="{%static 'assets/images/IntroToHTML/1757183118927.jpg'%}" controls>
+                            <!-- Sample video from Pexels -->
+                            <source  src="{%static 'assets/videos/CSS/Intro to CSS-byteCub.mp4'%}" type="video/mp4">
+                            Your browser does not support the video tag.
+                        </video>
+                        
+                        <!-- Overlay navigation buttons -->
+                        <div class="overlay-controls">
+                            <div class="nav-btn" id="rewindOverlayBtn" title="Rewind 10 seconds"><i class="fa-solid fa-backward"></i></div>
+                            <div class="nav-btn" id="forwardOverlayBtn" title="Forward 10 seconds"><i class="fa-solid fa-forward"></i></div>
+                        </div>
+                    </div>
+                    
+                <div class="content">
+                    <div class="dropdown">
+                        <button class="dropdown-button">
+                            <span>Video Description</span>
+                            <span class="arrow"></span>
+                        </button>
+                        <div class="dropdown-content">
+                            <p><strong>Video Description:</strong></p>
+                        </div>
+                    </div>
+
+                    <button class="interaction-button" id="interactiveButton">Click Me!</button>
+                </div>
+            </div>
+
+           <h2 style="margin-top: 20px;">What is CSS?</h2>
+           <div class="notes">
+            <p>CSS stands for <strong>Cascading Style Sheet</strong>, and it is a styling language used for styling webpages.</p>
+           </div>
+           <h2>CSS syntax:</h2>
+           <img style="height: 200px; display: block; margin: auto;" src="{%static 'assets/images/IntroToCSS/css1.png'%}">
+
+           <h3>Selectors: </h3>
+           <div class="notes">
+            <p>A selector is the target element on a webpage that you want to apply the styling on.</p>
+            <p>Some examples of selectors are &lt;p&gt;, &lt;h1&gt;,&lt;body&gt;, &lt;div&gt;, &lt;span&gt;, &lt;head&gt; and so on...</p>
+           </div>
+
+           <h3>Properties and Values:</h3>
+           <div class="notes">
+            <p><span class="emphasis">Properties:</span> Properties describe the aspects of the element you want to change, e.g color, font-size, height, width, etc.</p>
+            <p><span class="emphasis">Values:</span> Values simply specify the setting you want to use for a chosen property. For example, if we wanted to change the color we might put red,blue,violet, etc.</p>
+            <p>Below is an example of how we can style the element, <span class="emphasis">&lt;p&gt;This is a Paragraph&lt;/p&gt;</span> with CSS.</p>
+           </div>
+           <h2 style="text-align: center; color: skyblue; margin-top: 50px;">CSS</h2>
+           <div class="i-code">
+            <div class="sub-icode">
+                <div class="open-brace">
+                    p{
+                </div>
+                <div class="css-body"><span class="css-property">color</span><span class="css-value">: blue;</span></div>
+                <div class="close-brace">
+                }
+                </div>
+            </div>
+    </div>
+           <h3 style="text-align: center; color: skyblue; margin-top: 50px;">Result</h3>
+           <div class="result">
+            <p style="text-align: center; color: blue; font-size: 50px;">This is a Paragraph</p>
+           </div>
+    
+           <div class="notes">
+            <p><strong>Note:</strong></p>
+            <p><strong>Quantities</strong> in CSS are measured in <strong>px</strong>, <strong>%</strong>, <strong>rem</strong>, amd <strong>em</strong>. In this tutorial, we will mostly be using <strong>px</strong> and <strong>%</strong>.</p>
+           </div>
+          
+                <a href="{%url 'css_1'%}"><button class="start">Get Started</button></a>
+        </div>
+        
+        
+    </div>
+   </main>
+  <footer>
+    {%include 'footer.html'%}
+</footer>
+<script src="{%static 'assets/js/videos/video.js'%}"></script>
+<script type="text/javascript" src="{%static 'assets/js/main/scripts.js'%}"></script>
+</body>
+</html>

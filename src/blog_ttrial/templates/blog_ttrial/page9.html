@@ -1,0 +1,118 @@
+{%load static%}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Responsive Design</title>
+    <link rel="stylesheet" type="text/css" href="{%static 'assets/CSS/IntroToHTML/index.css'%}">
+    <link rel="stylesheet" type="text/css" href="{%static 'assets/CSS/IntroToHTML/header.css'%}">
+    <link rel="stylesheet" type="text/css" href="{%static 'assets/CSS/blog_ttrial/header.css'%}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style>
+        .chapter-pointer-9{
+	        border: 2px solid skyblue;
+        }
+
+        /* result styling */
+        .result{
+            padding: 10px 0;
+        }
+        /* result styling */
+       
+        
+        
+    </style>
+</head>
+{%include 'all/snippets/header_snippet.html'%}
+<body>
+    <main>
+    <div class="main-container">
+        <div class="left-container">
+            {%include 'snippets/left-container_snippet.html'%} 
+        </div>
+        <div class="mid-container">
+           <h1>Responsive Design</h1>
+            <div class="button-container">
+                <a href="{%url 'blog_pg8'%}"><button class="prev">Prev</button></a>
+                <a href="{%url 'blog_pg10'%}"><button class="next">Next</button></a>
+            </div>
+            <h2>Introduction</h2>
+            <div class="notes">
+                <p><strong>Responsiveness</strong> in web design referes to the ability of a website to adapt it's layout and content to different screen sizes and orientations. This ensures a seamless user experience accross various devices, such as desktops, tablets, and smartphones. </p>
+                <p>If we try resizing our computer screen, we would notice that the header of our blog website breaks and become unappealing when the screen size becomes very small. In this chapter, we are going to fix that.</p>
+
+            </div>
+
+            <h2>@media Queries</h2>
+            <div class="notes">
+                <p>The <span class="emphasis">@media</span> query in CSS is a powerful tool for creating responsive designs. It allows you to apply different styles based on the characteristics of the device, such as it's width, height, orientation and resolution.</p>
+            </div>
+
+            <h2>How @media Queries Are Used</h2>
+            <div class="notes">
+                <p>For example <span class="emphasis">@media(max-width: 830px)</span> Allows the developer to apply specific CSS styles when the viewport width is 830px or less. </p>
+                <p><span class="emphasis">@media(min-width: 830px)</span> Allows the developer to apply specific CSS styles when the viewport width is 830px or more.</p>
+            </div>
+
+            <h2 style="text-align: center; color: skyblue; margin-top: 50px;">Let's Get To Work</h2>
+            <div class="notes">
+                <p style="text-align: center;">First, let's add a button named <strong>Menu</strong> in our header navigation.</p>
+            </div>
+           <h2 style="text-align: center; color: skyblue; margin-top: 50px;">index.html</h2>
+           <div class="code-view">
+            {% for snippet in code_1 %}
+   
+                <div class="code-container">
+                    <button class="copy-button" onclick="copyToClipboard()">Copy</button>
+                    <pre class="code-editor-content">
+                        
+                        <style>
+                            {{ snippet.get_highlighted_code.css | safe }}
+                        </style>
+                        {{ snippet.get_highlighted_code.html | safe }}
+                        
+                    </pre>
+                    
+                </div>
+            
+            {% endfor %}
+        </div>
+
+        <h2 style="text-align: center; color: skyblue; margin-top: 50px;">Result</h2>
+        <div class="result">
+           <div class="scrollable">
+            <div class="header-div">
+                <div style="display: flex; justify-content: space-between; align-items: center;" class="header-container">
+                    <div class="logo-2" >Fashion Farward</div>
+                    <nav class="main-nav nav-style">
+                        <button class="menu">Menu</button>
+                        <ul style="list-style-position: inside; list-style: none; display: flex;">
+                            <li><a href="#">Trends</a></li>
+                            <li><a href="#">Designers</a></li>
+                            <li><a href="#">Outfits</a></li>
+                            <li><a href="#">Beauty</a></li>
+                            <li><a href="#">About</a></li>
+                            <li><a href="#">Contacts</a></li>
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+           </div>
+        </div>
+        
+            <div class="button-container" style="margin-top: 50px; margin-bottom: 100px;">
+                <a href="{%url 'blog_pg8'%}"><button class="prev">Prev</button></a>
+                <a href="{%url 'blog_pg10'%}"><button class="next">Next</button></a>
+            </div>
+        </div>
+        
+        
+    </div>
+  <footer>
+    {%include 'footer.html'%}
+</footer>
+<script type="text/javascript" src="{%static 'assets/js/main/scripts.js'%}"></script>
+</main>
+</body>
+</html>

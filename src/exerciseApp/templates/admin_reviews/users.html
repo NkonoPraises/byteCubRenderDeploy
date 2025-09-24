@@ -1,0 +1,39 @@
+{% extends 'admin_reviews/base3.html' %}
+
+{% block content %}
+<main class="container">
+    <a href="{% url 'exerciseApp:exercises_list' %}" class="back-link">
+        <i class="fas fa-arrow-left"></i>
+        Back to Exercises
+    </a>
+    
+    <div class="card">
+        <div class="card-header">
+            <h2>{{ exercise_title }} Submissions</h2>
+            <span class="badge badge-primary">{{ submissions|length }} submissions</span>
+        </div>
+        <div class="card-body">
+    {% if submissions %}
+    <ul class="user-list">
+        {% for submission in submissions %}
+        <li class="user-item">
+            <a href="{% url 'exerciseApp:submission_details' submission.id %}" class="user-link">
+                <span>{{ submission.user.get_full_name|default:submission.user.username }}</span>
+                <div class="user-meta">
+                    <span class="badge badge-warning">Pending</span>
+                    <i class="fas fa-chevron-right"></i>
+                </div>
+            </a>
+        </li>
+        {% endfor %}
+    </ul>
+    {% else %}
+    <div class="alert alert-info">
+        <i class="fas fa-info-circle"></i> No pending submissions for this exercise.
+    </div>
+    {% endif %}
+</div>
+    </div>
+</main>
+{% endblock %}
+

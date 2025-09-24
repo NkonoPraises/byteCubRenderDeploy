@@ -1,0 +1,265 @@
+{%load static%}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Links and File Paths in HTML</title>
+    <link rel="stylesheet" type="text/css" href="{%static 'assets/CSS/IntroToHTML/index.css'%}">
+    <link rel="stylesheet" type="text/css" href="{%static 'assets/CSS/IntroToHTML/header.css'%}">
+    <link rel="stylesheet" href="{%static 'assets/CSS/videos/video.css'%}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style>
+        .chapter-pointer-7{
+	        border: 2px solid skyblue;
+        }
+    </style>
+</head>
+{%include 'all/snippets/header_snippet.html'%}
+
+<body>
+    <main>
+    <div class="main-container">
+        <div class="left-container">
+            {%include 'introToHTML_app/snippets/left-container_snippet.html'%}
+        </div>
+        <div class="mid-container">
+           <h1 id="mainHeading">Links and Filepaths in HTML</h1>
+
+            <div class="button-container">
+                <a href="{%url 'HTMLIntro_ex3'%}"><button class="prev">Prev</button></a>
+                {%if has_answered == True%}
+                <a href="{%url 'page7b_view'%}"><button class="next">Next</button></a>
+                {%else%}
+                <a href="{{BASE_URL}}/HTMLQ3/"><button class="next">Next</button></a>
+                {%endif%}
+            </div>
+
+                <!-- Featured Video      -->
+            <div class="main-video-container">
+                    <div class="content">
+                        <h2>Featured Video</h2>
+                    </div>
+                    
+                    <div class="video-wrapper">
+                        <video id="videoPlayer" width="560" height="315"  poster="{%static 'assets/images/IntroToHTML/1757183118927.jpg'%}" controls>
+                            <!-- Sample video from Pexels -->
+                            <source  src="{%static 'assets/videos/HTML/Links and File Paths In HTML-byteCub.mp4'%}" type="video/mp4">
+                            Your browser does not support the video tag.
+                        </video>
+                        
+                        <!-- Overlay navigation buttons -->
+                        <div class="overlay-controls">
+                            <div class="nav-btn" id="rewindOverlayBtn" title="Rewind 10 seconds"><i class="fa-solid fa-backward"></i></div>
+                            <div class="nav-btn" id="forwardOverlayBtn" title="Forward 10 seconds"><i class="fa-solid fa-forward"></i></div>
+                        </div>
+                    </div>
+                    
+                <div class="content">
+                    <div class="dropdown">
+                        <button class="dropdown-button">
+                            <span>Video Description</span>
+                            <span class="arrow"></span>
+                        </button>
+                        <div class="dropdown-content">
+                            <p><strong>Video Description:</strong></p>
+                        </div>
+                    </div>
+
+                    <button class="interaction-button" id="interactiveButton">Click Me!</button>
+                </div>
+            </div>
+
+
+           <div class="notes">
+            <p>In HTML, links and file paths are essential for navigating between documents and resources on the web. Understanding how to create and manage this links is crucial for web development.</p>
+           </div>
+           <h2 style="margin-top: 20px;">7.1 Links in HTML</h2>
+           <div class="notes">
+            <p>Links are created using the <span class="emphasis">&lt;a&gt;</span>[anchor] element. Users can click on anything 
+                between the opening <span class="emphasis">&lt;a&gt;</span> tag and the closing <span class="emphasis">&lt;/a&gt;</span> tag. The primary attribute for linking is <span class="emphasis">href</span>,
+                which specifies the <strong>URL</strong> of the page or the resource the link points to.
+            </p>
+           </div>
+           <img  src="{%static 'assets/images/IntroToHTML/link1.png'%}" alt="">
+           
+           <h2 style="text-align: center; margin-top: 50px;">Types of Links</h2>
+           <h3 style="margin-top: 20px;">1- External Links:</h3>
+           <div class="notes">
+            <p>This are links that point to a different website.</p>
+           </div>
+           <h2 style="text-align: center; color: skyblue; margin-top: 50px;">Code example</h2>
+           <div class="code-view">
+            {% for snippet in code_1 %}
+   
+                <div class="code-container">
+                    <button class="copy-button" onclick="copyToClipboard()">Copy</button>
+                    <pre class="code-editor-content">
+                        
+                        <style>
+                            {{ snippet.get_highlighted_code.css | safe }}
+                        </style>
+                        {{ snippet.get_highlighted_code.html | safe }}
+                        
+                    </pre>
+                    
+                </div>
+            
+            {% endfor %}
+        </div>
+                <hr>
+                <h3 style="text-align: center; color: skyblue; margin-top: 50px;">Result</h3>
+                <div class="result">
+                    <a target="_blank" href="https://www.google.com">Google</a>
+                </div>
+                <button class="run">Try it Yourself</button>
+
+            <h3 style="margin-top: 20px;">2- Internal Links:</h3>
+            <div class="notes">
+            <p>This are links that point to another page within the same website.</p>
+            </div>
+            <h2 style="text-align: center; color: skyblue; margin-top: 50px;">Code example</h2>
+            <div class="code-view">
+                {% for snippet in code_2 %}
+       
+                    <div class="code-container">
+                        <button class="copy-button" onclick="copyToClipboard()">Copy</button>
+                        <pre class="code-editor-content">
+                            
+                            <style>
+                                {{ snippet.get_highlighted_code.css | safe }}
+                            </style>
+                            {{ snippet.get_highlighted_code.html | safe }}
+                            
+                        </pre>
+                        
+                    </div>
+                
+                {% endfor %}
+            </div>
+                <hr>
+                <h3 style="text-align: center; color: skyblue; margin-top: 50px;">Result</h3>
+                <div class="result">
+                    <a href="{%url 'HTMLIntro_ex3'%}">Exercise Three</a>
+                </div>
+                <button class="run">Try it Yourself</button>
+
+            <h3 style="margin-top: 20px;">3- Anchor Links:</h3>
+            <div class="notes">
+            <p>This are links that navigates to a specific section within the same page.</p>
+            </div>
+            <h2 style="text-align: center; color: skyblue; margin-top: 50px;">Code example</h2>
+            <div class="code-view">
+                {% for snippet in code_3 %}
+       
+                    <div class="code-container">
+                        <button class="copy-button" onclick="copyToClipboard()">Copy</button>
+                        <pre class="code-editor-content">
+                            
+                            <style>
+                                {{ snippet.get_highlighted_code.css | safe }}
+                            </style>
+                            {{ snippet.get_highlighted_code.html | safe }}
+                            
+                        </pre>
+                        
+                    </div>
+                
+                {% endfor %}
+            </div>
+                <hr>
+                <h3 style="text-align: center; color: skyblue; margin-top: 50px;">Result</h3>
+                <div class="result">
+                    <a href="#mainHeading">Main Heading</a>
+                </div>
+
+                <div class="notes">
+                    <p>
+                        When you create an anchor link [using the &lt;a&gt; tag] that points to a specific section of your webpage, you use the <span class="emphasis">id</span> attribute to mark that section. This allows users to click the link and jump directly to that section [in this case, the <strong>Links and Filepaths in HTML</strong> heading].
+                    </p>
+                </div>
+                <button class="run">Try it Yourself</button>
+
+            <h3 style="margin-top: 20px;">4- Email Links:</h3>
+            <div class="notes">
+            <p>This are links that opens the user's email client to send an email.</p>
+            </div>
+            <h2 style="text-align: center; color: skyblue; margin-top: 50px;">Code example</h2>
+            <div class="code-view">
+                {% for snippet in code_4 %}
+       
+                    <div class="code-container">
+                        <button class="copy-button" onclick="copyToClipboard()">Copy</button>
+                        <pre class="code-editor-content">
+                            
+                            <style>
+                                {{ snippet.get_highlighted_code.css | safe }}
+                            </style>
+                            {{ snippet.get_highlighted_code.html | safe }}
+                            
+                        </pre>
+                        
+                    </div>
+                
+                {% endfor %}
+            </div>
+                <hr>
+                <h3 style="text-align: center; color: skyblue; margin-top: 50px;">Result</h3>
+                <div class="result">
+                    <a href="mailto:bytecub@gmail.com">Email Us</a>
+                </div>
+                <button class="run">Try it Yourself</button>
+
+                <h2>7.2 Filepaths in HTML</h2>
+                <div class="notes">
+                    <p>Filepaths are used to specify the location of files on the server or in the web project. There are two types of filepaths: <strong>absolute</strong> and <strong>relative</strong>.</p>
+                </div>
+
+                <h3 style="margin-top: 20px;">1- Absolute Filepaths:</h3>
+                <div class="notes">
+                    <p>Absolute filepaths provide the full <strong>URL</strong> to a resource. Example, we want to access an image <span class="emphasis">[photo.jpg]</span> in the <strong>images</strong> folder of a website called <strong>'example.com'</strong>: </p>
+                    <p><span class="emphasis">&lt;img src="https://www.example.com/images/photo.jpg"&gt;</span></p>
+                </div>
+
+                <h3 style="margin-top: 20px;">2- Relative Filepaths:</h3>
+                <div class="notes">
+                    <p>It is a path relative to the current document's location. Example, we want to access an image <span class="emphasis">[photo.jpg]</span> in the <strong>the same</strong> folder that we have the HTML document we are currentlly working on: </p>
+                </div>
+
+                <div class="notes nb" style="color: black;">
+                    <ul>
+                        <li>Project Folder</li>
+                        <ul>
+                            <li>index.html</li>
+                            <li>images</li>
+                            <ul>
+                                <li>Photo.jpg</li>
+                            </ul>
+                        </ul>
+                    </ul>
+                </div>
+                <div class="notes">
+                    <p>The corresponding HTML [in 'index.html'] is as follows:</p>
+                    <p><span class="emphasis">&lt;img src="images/photo.jpg"&gt;</span></p>
+                </div>
+
+               <div class="button-container">
+                    <a href="{%url 'HTMLIntro_ex3'%}"><button class="prev">Prev</button></a>
+                    {%if has_answered == True%}
+                    <a href="{%url 'page7b_view'%}"><button class="next">Next</button></a>
+                    {%else%}
+                    <a href="{{BASE_URL}}/HTMLQ3/"><button class="next">Next</button></a>
+                    {%endif%}
+                </div>
+        </div>
+        
+        
+    </div>
+</main>
+<footer>
+    {%include 'footer.html'%}
+</footer>
+<script src="{%static 'assets/js/videos/video.js'%}"></script>
+<script type="text/javascript" src="{%static 'assets/js/main/scripts.js'%}"></script>
+</body>
+</html>

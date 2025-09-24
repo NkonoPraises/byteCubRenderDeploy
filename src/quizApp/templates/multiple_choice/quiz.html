@@ -1,0 +1,204 @@
+{%load static%}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Interactive Quiz</title>
+<style>
+   @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap');
+
+  * {
+    box-sizing: border-box;
+  }
+
+  body {
+    background: linear-gradient(135deg, #3a7bd5, #00d2ff);
+    font-family: 'Montserrat', sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+    padding: 20px;
+    color: #e0f0ff;
+  }
+
+  .quiz-container {
+    background: rgba(10, 40, 80, 0.75);
+    border-radius: 15px;
+    padding: 30px 40px;
+    max-width: 480px;
+    width: 100%;
+    box-shadow: 0 10px 35px rgba(0, 70, 140, 0.5);
+    backdrop-filter: blur(12px);
+    transition: transform 0.3s ease;
+  }
+
+  .quiz-container:hover {
+    transform: scale(1.03);
+  }
+
+  h2 {
+    font-weight: 700;
+    margin-bottom: 25px;
+    text-align: center;
+    text-shadow: 0 2px 8px rgba(0, 40, 90, 0.7);
+    color: #d0e8ff;
+  }
+
+  form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .option {
+    display: flex;
+    align-items: center;
+    background: rgba(30, 60, 110, 0.5);
+    border-radius: 10px;
+    padding: 12px 20px;
+    cursor: pointer;
+    font-size: 1.1rem;
+    font-weight: 500;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+    user-select: none;
+    position: relative;
+    color: #c0d9ff;
+  }
+
+  .option:hover {
+    background: rgba(50, 90, 150, 0.9);
+    box-shadow: 0 0 16px rgba(0, 120, 255, 0.8);
+    color: #e0f4ff;
+  }
+
+  .option input[type="radio"] {
+    display: none;
+  }
+
+  .option label {
+    flex-grow: 1;
+    cursor: pointer;
+  }
+
+  .option .letter {
+    background: #2a5db0;
+    border-radius: 50%;
+    width: 32px;
+    height: 32px;
+    color: white;
+    font-weight: 700;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: 20px;
+    user-select: none;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+  }
+
+  input[type="radio"]:checked + label {
+    color: #e0f4ff;
+    font-weight: 700;
+  }
+
+  input[type="radio"]:checked + label .letter {
+    background: #0099ff;
+    box-shadow: 0 0 14px #00b0ff;
+  }
+
+  button {
+    margin-top: 10px;
+    padding: 15px 0;
+    background: #007acc;
+    border: none;
+    border-radius: 50px;
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: white;
+    cursor: pointer;
+    box-shadow: 0 5px 20px rgba(0, 122, 204, 0.7);
+    transition: background-color 0.3s ease, transform 0.2s ease;
+  }
+
+  button:hover {
+    background-color: #005fa3;
+    transform: scale(1.05);
+  }
+
+  button:active {
+    transform: scale(0.95);
+  }
+
+  @media (max-width: 520px) {
+    .quiz-container {
+      padding: 25px 20px;
+      max-width: 100%;
+    }
+  }
+</style>
+</head>
+<body>
+
+<div class="quiz-container" role="main" aria-label="Single question quiz">
+  <h2>{{ question }}</h2>
+  {% if error %}
+    <p style="color: #ff6666; text-align:center;">{{ error }}</p>
+  {% else %}
+  <form action="{% url 'quiz_answer' %}" method="post" id="quizForm">
+    {% csrf_token %}
+    <input type="hidden" name="question_id" value="{{ question_obj.id }}" />
+    {% for key, text in options.items %}
+    <div class="option">
+      <input type="radio" id="option{{ key }}" name="answer" value="{{ key }}" />
+      <label for="option{{ key }}"><span class="letter">{{ key }}</span> {{ text }}</label>
+    </div>
+    {% endfor %}
+
+    <button type="submit" aria-label="Submit your answer" id="submitBtn">Submit</button>
+  </form>
+  {% endif %}
+</div>
+
+<!-- Sound assets -->
+<audio id="backgroundSound" src="{% static 'sounds/background-loop.mp3' %}" preload="auto" loop></audio>
+<audio id="submitSound" src="{% static 'sounds/click-submit.wav' %}" preload="auto"></audio>
+<audio id="choiceSound" src="{% static 'sounds/click-choice.wav' %}" preload="auto"></audio>
+
+<script>
+  // Play background music softly and looped
+  const backgroundSound = document.getElementById('backgroundSound');
+  backgroundSound.volume = 0.15; // low volume for background
+  backgroundSound.play().catch(() => {
+    // Autoplay restrictions: sound might not play until user interaction
+    // We'll try again on first user interaction:
+    const playBackgroundOnInteraction = () => {
+      backgroundSound.play();
+      window.removeEventListener('click', playBackgroundOnInteraction);
+    };
+    window.addEventListener('click', playBackgroundOnInteraction);
+  });
+
+  // Submit button sound
+  const submitBtn = document.getElementById('submitBtn');
+  const submitSound = document.getElementById('submitSound');
+  submitBtn.addEventListener('click', () => {
+    submitSound.currentTime = 0;
+    submitSound.play();
+  });
+
+  // Play sound on choice click
+  const choiceSound = document.getElementById('choiceSound');
+  const options = document.querySelectorAll('.option label');
+  options.forEach(label => {
+    label.addEventListener('click', () => {
+      choiceSound.currentTime = 0;
+      choiceSound.play();
+    });
+  });
+</script>
+
+</body>
+</html>
+

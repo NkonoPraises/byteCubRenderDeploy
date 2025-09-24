@@ -1,0 +1,134 @@
+{%load static%}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Data Types: Boolean</title>
+    <link rel="stylesheet" type="text/css" href="{%static 'assets/CSS/IntroToHTML/index.css'%}">
+    <link rel="stylesheet" type="text/css" href="{%static 'assets/CSS/IntroToHTML/header.css'%}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style>
+        .chapter-pointer-5{
+	        border: 2px solid skyblue;
+        }
+        .js-shots{
+            width: 50%;
+        }
+        @media(max-width: 760px){
+            .js-shots{
+                width: 100%;
+            }
+            
+            
+        }
+        .code-container::-webkit-scrollbar{
+            /* overflow: hidden; */
+            display: none;
+        }
+        pre.code-editor-content{
+            overflow-y: hidden;
+            margin-bottom: -60px;
+            overflow-x: scroll;
+        }
+        .code-editor-content{
+            margin-top: -160px;
+            padding: 2px 0px;
+        }
+        @media(max-width:720px){
+            pre.code-editor-content{
+            width: 1500px;
+            
+            }
+        }
+    </style>
+	
+</head>
+{%include 'all/snippets/header_snippet.html'%}
+<body>
+<main>
+    <div class="main-container">
+        <div class="left-container">
+            {%include 'javaScript/snippets/left-container_snippet.html'%}
+        </div>
+        <div class="mid-container">
+            <h1>Data Types: Boolean</h1>
+            <div class="button-container">
+                <a href="{%url 'js_page4'%}"><button class="prev">Prev</button></a>
+                {%if has_answerd == True%}
+                <a href="{%url 'js_page6'%}"><button class="next">Next</button></a>
+                {%else%}
+                <a href="{{BASE_URL}}/JSQ1/"><button class="next">Next</button></a>
+                {%endif%}
+            </div>
+           
+
+            <h2>What is a Boolean?</h2>
+            <div class="notes">
+               <p>In javaScript, a <strong>Boolean</strong> is a data type that can hold one or two values: <span class="emphasis">true</span> or <span class="emphasis">false</span>. These values are used to represent truth values,
+                which means they can indicate whether something is correct or incorrect, yes or no, on or off, etc.
+            </p>
+            </div>
+
+            <div class="notes">
+                <p>Let's take a social media comment for example, you can either like it or not:</p>
+            </div>
+
+           <div class="code-view">
+            {% for snippet in code_1 %}
+   
+                <div class="code-container">
+                    <button class="copy-button" onclick="copyToClipboard()">Copy</button>
+                    <pre class="code-editor-content">
+                        
+                        <style>
+                            {{ snippet.get_highlighted_code.css | safe }}
+                        </style>
+                        {{ snippet.get_highlighted_code.html | safe }}
+                        
+                    </pre>
+                    
+                </div>
+            
+            {% endfor %}
+        </div>
+  
+        <h2 style="text-align: center; color: skyblue; margin-top: 50px;">Output</h2>
+
+        <div class="code-view">
+            <div class="sub-view">
+                <div class="code-block">
+                    <p><strong>&gt;</strong> Alice liked this comment? true</p>
+                </div>
+            </div>
+        </div>
+
+        <h2>When to Use Booleans?</h2>
+        <div class="notes">
+            <p>Booleans are commonly used in conditional statements. That is, in situations where we might want to perform a specific task when a certain condition is met or not.</p>
+            <p>For example, we might want to login a user into an account if they provide the right email and password and if not, we might display 'wrong password, try again'.</p>
+            <p>Let's go ahead and look at <strong>conditional statements</strong> in the following chapter.</p>
+        </div>
+        
+        
+
+
+
+            <div class="button-container">
+                <a href="{%url 'js_page4'%}"><button class="prev">Prev</button></a>
+                {%if has_answerd == True%}
+                <a href="{%url 'js_page6'%}"><button class="next">Next</button></a>
+                {%else%}
+                <a href="{{BASE_URL}}/JSQ1/"><button class="next">Next</button></a>
+                {%endif%}
+            </div>
+
+        </div>
+    </div>
+</main>
+<footer>
+    {%include 'footer.html'%}
+</footer>
+<script type="text/javascript" src="{%static 'assets/js/main/scripts.js'%}"></script>
+</body>
+</html>

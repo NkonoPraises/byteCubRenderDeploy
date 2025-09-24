@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Subscription Status</title>
+</head>
+<body>
+    <h2>Your Subscription</h2>
+    
+    {% if subscription and subscription.is_valid %}
+        <p>You have an active <strong>{{ subscription.plan.name }}</strong> subscription.</p>
+        <p>Expires on: {{ subscription.expires_on|date:"F j, Y" }}</p>
+    {% else %}
+        <p>You don't have an active subscription.</p>
+    {% endif %}
+    
+    <h3>Available Plans</h3>
+    {% for plan in plans %}
+        <div>
+            <h4>{{ plan.name }} - ${{ plan.price }}</h4>
+            <p>{{ plan.description }}</p>
+            <a href="{% url 'subscription:choose_plan' plan.id %}">Select Plan</a>
+        </div>
+    {% endfor %}
+</body>
+</html>

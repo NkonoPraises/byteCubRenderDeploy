@@ -1,0 +1,235 @@
+{%load static%}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Variables</title>
+    <link rel="stylesheet" type="text/css" href="{%static 'assets/CSS/IntroToHTML/index.css'%}">
+    <link rel="stylesheet" type="text/css" href="{%static 'assets/CSS/IntroToHTML/header.css'%}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style>
+        .chapter-pointer-2{
+	        border: 2px solid skyblue;
+        }
+        .js-shots{
+            width: 50%;
+        }
+        @media(max-width: 760px){
+            .js-shots{
+                width: 100%;
+            }
+            
+        }
+        .code-container{
+            overflow: hidden;
+        }
+        pre.code-editor-content{
+            width: 100%;
+            overflow-y: hidden;
+            margin-bottom: -60px;
+        }
+        .code-editor-content{
+            margin-top: -160px;
+            padding: 2px 0px;
+        }
+    </style>
+	
+</head>
+{%include 'all/snippets/header_snippet.html'%}
+<body>
+<main>
+    <div class="main-container">
+        <div class="left-container">
+            {%include 'python/snippets/left-container_snippet.html'%}
+        </div>
+        <div class="mid-container">
+            <h1>Understanding Variables in Python</h1>
+            <div class="button-container">
+                <a href="{%url 'py_page1'%}"><button class="prev">Prev</button></a>
+                <a href="{%url 'py_page3'%}"><button class="next">Next</button></a>
+            </div>
+           
+
+            <h2>What Are Variables?</h2>
+            <div class="notes">
+                <p>
+                    In programming, a variable is a way to store data that you can use later in your code. Think of a variable as a labeled box where you can keep things. You can put something in the box, take it out, or change what's inside it.
+                </p>
+            </div>
+
+            <h2>Creating a Variable</h2>
+            <div class="notes">
+               <p>
+                In Python, you create a variable by simply assigning a value to it using the equals sign [ = ]. The syntax looks like this:
+               </p>
+            </div>
+
+           <div class="code-view">
+            {% for snippet in code_1 %}
+   
+                <div class="code-container">
+                    <button class="copy-button" onclick="copyToClipboard()">Copy</button>
+                    <pre class="code-editor-content">
+                        
+                        <style>
+                            {{ snippet.get_highlighted_code.css | safe }}
+                        </style>
+                        {{ snippet.get_highlighted_code.html | safe }}
+                        
+                    </pre>
+                    
+                </div>
+            
+            {% endfor %}
+        </div>
+
+        <h2>Example</h2>
+  
+        <div class="notes">
+            <p>Here's an example of creating a variable:</p>
+        </div>
+
+           <div class="code-view">
+            {% for snippet in code_2 %}
+   
+                <div class="code-container">
+                    <button class="copy-button" onclick="copyToClipboard()">Copy</button>
+                    <pre class="code-editor-content">
+                        
+                        <style>
+                            {{ snippet.get_highlighted_code.css | safe }}
+                        </style>
+                        {{ snippet.get_highlighted_code.html | safe }}
+                        
+                    </pre>
+                    
+                </div>
+            
+            {% endfor %}
+        </div>
+        <div class="notes">
+            <p>In the above example:</p>
+            <ul>
+                <li><span class="emphasis">age</span> is a variable that holds an <strong>integer</strong> value <span class="emphasis">25</span>.</li>
+                <li><span class="emphasis">name</span> is a variable that holds a <strong>string</strong> value <span class="emphasis">"Alice"</span>.</li>
+                <li><span class="emphasis">height</span> is a variable that holds a <strong>float</strong> value <span class="emphasis">5.7</span>.</li>
+            </ul>
+        </div>
+
+        <h2>Variable Naming Rules</h2>
+
+        <div class="notes">
+            <p>
+                When naming variables in Python, there are some rules you must follow:
+            </p>
+            <ol>
+                <li> Must start with a letter or an underscore: A variable name cannot start with a number.</li>
+                <li>Can contain letters, numbers, and underscores: After the first character, you can use letters, numbers, and underscores.</li>
+                <li>Case-sensitive: myVariable, MyVariable, and MYVARIABLE are all different variables.</li>
+                <li> Cannot use reserved keywords: Keywords like if, else, while, etc., cannot be used as variable names.</li>
+            </ol>
+        </div>
+        
+        <h2>Example of Valid and Invalid Variable Names</h2>
+        <br>
+           <div class="code-view">
+            {% for snippet in code_3 %}
+   
+                <div class="code-container">
+                    <button class="copy-button" onclick="copyToClipboard()">Copy</button>
+                    <pre class="code-editor-content">
+                        
+                        <style>
+                            {{ snippet.get_highlighted_code.css | safe }}
+                        </style>
+                        {{ snippet.get_highlighted_code.html | safe }}
+                        
+                    </pre>
+                    
+                </div>
+            
+            {% endfor %}
+        </div>
+
+        <h2>Using Variables</h2>
+        <div class="notes">
+            <p>
+                Once you have created variables, you can use them in your code. You can perform operations on them, concatenate strings, and much more.
+            </p>
+        </div>
+
+        <h2 style="text-align: center; color: skyblue; margin-top: 50px;">Example</h2>
+        <div class="code-view">
+            {% for snippet in code_4 %}
+   
+                <div class="code-container">
+                    <button class="copy-button" onclick="copyToClipboard()">Copy</button>
+                    <pre class="code-editor-content">
+                        
+                        <style>
+                            {{ snippet.get_highlighted_code.css | safe }}
+                        </style>
+                        {{ snippet.get_highlighted_code.html | safe }}
+                        
+                    </pre>
+                    
+                </div>
+            
+            {% endfor %}
+        </div>
+
+        <h2 style="text-align: center; color: skyblue; margin-top: 50px;">Output</h2>
+
+        <div class="code-view">
+            <div class="sub-view">
+                <div class="code-block">
+                    <p><i class="fa fa-angle-double-right"></i> 15</p>
+                </div>
+            </div>
+        </div>
+
+        <h2>Comments</h2>
+        <div class="notes">
+            <p>
+                Comments are notes in your code that are not executed by the Python interpreter. They are used to explain what your code does or to leave reminders
+                 for yourself or others who may read your code later. Comments are extremely useful for making your code more understandable.
+            </p>
+            <p>
+                In Python, you create comments using the hash symbol <span class="emphasis">#</span>. Anything following the <span class="emphasis">#</span> on that line is considered a comment.
+            </p>
+            
+        </div>
+
+        <h2 style="text-align: center; color: skyblue; margin-top: 50px;">Exercise</h2>
+        <div class="notes">
+            <p>
+                Now that you have learned about variables and comments, here's an exercise for you:
+            </p>
+            <ol>
+                <li>Create three variables:</li>
+                <ul>
+                    <li>A variable called <span class="emphasis">favorite_color</span> to store your favorite color [string].</li>
+                    <li> A variable called <span class="emphasis">age</span> to store your current age [integer].</li>
+                    <li> A variable called <span class="emphasis">height</span> to store your height in meters [float].</li>
+                </ul>
+                <li>Print all three variables.</li>
+            </ol>
+
+        </div>
+
+
+        <div class="button-container">
+            <a href="{%url 'py_page1'%}"><button class="prev">Prev</button></a>
+            <a href="{%url 'py_page3'%}"><button class="next">Next</button></a>
+        </div>
+
+        </div>
+    </div>
+</main>
+<footer>
+    {%include 'footer.html'%}
+</footer>
+<script type="text/javascript" src="{%static 'assets/js/main/scripts.js'%}"></script>
+</body>
+</html>

@@ -1,0 +1,152 @@
+{%load static%}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>String Formatting</title>
+    <link rel="stylesheet" type="text/css" href="{%static 'assets/CSS/IntroToHTML/index.css'%}">
+    <link rel="stylesheet" type="text/css" href="{%static 'assets/CSS/IntroToHTML/header.css'%}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style>
+        .chapter-pointer-5{
+	        border: 2px solid skyblue;
+        }
+        .js-shots{
+            width: 50%;
+        }
+        @media(max-width: 760px){
+            .js-shots{
+                width: 100%;
+                
+            }
+            
+        }
+        .code-container{
+            overflow: hidden;
+        }
+        pre.code-editor-content{
+            width: 100%;
+            overflow-y: hidden;
+            margin-bottom: -60px;
+        }
+        .code-editor-content{
+            margin-top: -160px;
+            padding: 2px 0px;
+        }
+    </style>
+	
+</head>
+{%include 'all/snippets/header_snippet.html'%}
+<body>
+<main>
+    <div class="main-container">
+        <div class="left-container">
+            {%include 'python/snippets/left-container_snippet.html'%}
+        </div>
+        <div class="mid-container">
+            <h1>String Formatting</h1>
+            <div class="button-container">
+                <a href="{%url 'py_page4'%}"><button class="prev">Prev</button></a>
+                {%if has_answered == True%}
+                <a href="{%url 'py_page6'%}"><button class="next">Next</button></a>
+                {%else%}
+                <a href="{{BASE_URL}}/PYQ1/"><button class="next">Next</button></a>
+                {%endif%}
+            </div>
+           <h2>f-strings & .format() method</h2>
+            <div class="notes">
+                <p>You can format strings to include variables or values using f-strings [formatted string literals] or the <span class="emphasis">.format()</span> method.</p>
+            </div>
+            <h2>Using f-strings:</h2>
+
+           <div class="code-view">
+            {% for snippet in code_1 %}
+   
+                <div class="code-container">
+                    <button class="copy-button" onclick="copyToClipboard()">Copy</button>
+                    <pre class="code-editor-content">
+                        
+                        <style>
+                            {{ snippet.get_highlighted_code.css | safe }}
+                        </style>
+                        {{ snippet.get_highlighted_code.html | safe }}
+                        
+                    </pre>
+                    
+                </div>
+            
+            {% endfor %}
+        </div>
+
+        <h2 style="text-align: center; color: skyblue; margin-top: 50px;">Output</h2>
+
+        <div class="code-view">
+            <div class="sub-view">
+                <div class="code-block">
+                    <p><i class="fa fa-angle-double-right"></i> My name is Alice and I am 30 years old.</p>
+                </div>
+            </div>
+        </div>
+
+        <h2>Using the .format() method:</h2>
+           <div class="code-view">
+            {% for snippet in code_2 %}
+   
+                <div class="code-container">
+                    <button class="copy-button" onclick="copyToClipboard()">Copy</button>
+                    <pre class="code-editor-content">
+                        
+                        <style>
+                            {{ snippet.get_highlighted_code.css | safe }}
+                        </style>
+                        {{ snippet.get_highlighted_code.html | safe }}
+                        
+                    </pre>
+                    
+                </div>
+            
+            {% endfor %}
+        </div>
+        <h2 style="text-align: center; color: skyblue; margin-top: 50px;">Output</h2>
+
+        <div class="code-view">
+            <div class="sub-view">
+                <div class="code-block">
+                    <p><i class="fa fa-angle-double-right"></i> My name is Alice and I am 30 years old.</p>
+                </div>
+            </div>
+        </div>
+
+       
+
+      <h2 style="text-align: center; color: skyblue; margin-top: 50px;">Exercise</h2>
+        <div class="notes">
+           <ol>
+            <li>Create two variables <span class="emphasis">name</span> and <span class="emphasis">age</span>. Assign your name (as a string) and your age (as an integer) to these variables.</li>
+            <li>Using an <span class="emphasis">f-string</span>: Create a message string that says: "Hello, [Your Name]! You are [Your Age] years old." Print this message.</li>
+            <li>Create the exact same message string using the <span class="emphasis">.format()</span> method. Print this message. </li>
+           </ol>
+
+        </div>
+
+
+
+            <div class="button-container">
+                <a href="{%url 'py_page4'%}"><button class="prev">Prev</button></a>
+                {%if has_answered == True%}
+                <a href="{%url 'py_page6'%}"><button class="next">Next</button></a>
+                {%else%}
+                <a href="{{BASE_URL}}/PYQ1/"><button class="next">Next</button></a>
+                {%endif%}
+            </div>
+
+        </div>
+    </div>
+</body>
+<footer>
+    {%include 'footer.html'%}
+</footer>
+<script type="text/javascript" src="{%static 'assets/js/main/scripts.js'%}"></script>
+</main>
+</html>

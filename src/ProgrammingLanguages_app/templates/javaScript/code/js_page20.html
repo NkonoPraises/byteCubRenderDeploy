@@ -1,0 +1,201 @@
+{%load static%}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Anonymous & Arrow Functions</title>
+    <link rel="stylesheet" type="text/css" href="{%static 'assets/CSS/IntroToHTML/index.css'%}">
+    <link rel="stylesheet" type="text/css" href="{%static 'assets/CSS/IntroToHTML/header.css'%}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style>
+        .chapter-pointer-20{
+	        border: 2px solid skyblue;
+        }
+        .js-shots{
+            width: 50%;
+        }
+        @media(max-width: 760px){
+            .js-shots{
+                width: 100%;
+            }
+            
+            
+        }
+        .code-container::-webkit-scrollbar{
+            /* overflow: hidden; */
+            display: none;
+        }
+        pre.code-editor-content{
+            overflow-y: hidden;
+            margin-bottom: -60px;
+            overflow-x: scroll;
+        }
+        .code-editor-content{
+            margin-top: -160px;
+            padding: 2px 0px;
+        }
+        @media(max-width:720px){
+            pre.code-editor-content{
+            width: 1500px;
+            
+            }
+        }
+    </style>
+	
+</head>
+{%include 'all/snippets/header_snippet.html'%}
+<body>
+<main>
+    <div class="main-container">
+        <div class="left-container">
+            {%include 'javaScript/snippets/left-container_snippet.html'%}
+        </div>
+        <div class="mid-container">
+            <h1>Anonymous & Arrow Functions</h1>
+            <div class="button-container">
+                <a href="{%url 'js_page19'%}"><button class="prev">Prev</button></a>
+                <a href="{%url 'js_page21'%}"><button class="next">Next</button></a>
+            </div>
+           
+            <h2>Anonymous Functions</h2>
+            <div class="notes">
+                <p>
+                    Sometimes you may want to create a function without giving it a name. These are called anonymous functions. They are often used as arguments to other functions.
+                </p>
+            </div>
+
+            <h2 style="text-align: center; color: skyblue; margin-top: 50px;">Example</h2>
+
+           <div class="code-view">
+            {% for snippet in code_1 %}
+   
+                <div class="code-container">
+                    <button class="copy-button" onclick="copyToClipboard()">Copy</button>
+                    <pre class="code-editor-content">
+                        
+                        <style>
+                            {{ snippet.get_highlighted_code.css | safe }}
+                        </style>
+                        {{ snippet.get_highlighted_code.html | safe }}
+                        
+                    </pre>
+                    
+                </div>
+            
+            {% endfor %}
+        </div>
+
+        <h2 style="text-align: center; color: skyblue; margin-top: 50px;">Output</h2>
+
+        <div class="code-view">
+            <div class="sub-view">
+                <div class="code-block">
+                    <p><strong>&gt;</strong> 16</p>
+                
+                </div>
+            </div>
+        </div>
+
+        <h2>Arrow Functions</h2>
+        <div class="notes">
+            <p>
+                Arrow functions provide a shorter syntax for writing functions in JavaScript. They are particularly useful for writing small functions.
+            </p>
+            <p>Take note of arrow functions, because we are going to be using it alot in the future.</p>
+        </div>
+
+        <h2 style="text-align: center; color: skyblue; margin-top: 50px;">Example</h2>
+        <div class="code-view">
+            {% for snippet in code_2 %}
+   
+                <div class="code-container">
+                    <button class="copy-button" onclick="copyToClipboard()">Copy</button>
+                    <pre class="code-editor-content">
+                        
+                        <style>
+                            {{ snippet.get_highlighted_code.css | safe }}
+                        </style>
+                        {{ snippet.get_highlighted_code.html | safe }}
+                        
+                    </pre>
+                    
+                </div>
+            
+            {% endfor %}
+        </div>
+
+        <h2 style="text-align: center; color: skyblue; margin-top: 50px;">Output</h2>
+
+        <div class="code-view">
+            <div class="sub-view">
+                <div class="code-block">
+                    <p><strong>&gt;</strong> 5</p>
+                
+                </div>
+            </div>
+        </div>
+
+        <h2>Using prompt() for Input</h2>
+        <div class="notes">
+            <p>You can use prompt() to take input from users and pass that input to a function. Here's how:</p>
+        </div>
+        
+           <div class="code-view">
+            {% for snippet in code_3 %}
+   
+                <div class="code-container">
+                    <button class="copy-button" onclick="copyToClipboard()">Copy</button>
+                    <pre class="code-editor-content">
+                        
+                        <style>
+                            {{ snippet.get_highlighted_code.css | safe }}
+                        </style>
+                        {{ snippet.get_highlighted_code.html | safe }}
+                        
+                    </pre>
+                    
+                </div>
+            
+            {% endfor %}
+        </div>
+
+        
+
+        <h2 style="text-align: center; color: skyblue; margin-top: 50px;">Exercise</h2>
+        <div class="notes">
+            Now that you have learned about functions in JavaScript, here are two exercises for you to try:
+        </div>
+
+        <div class="notes">
+            <p>1. Create a Function to Calculate Area:</p>
+            <ul>
+                <li>Write a function called <span class="emphasis">calculateArea</span> that takes two parameters: <span class="emphasis">length</span> and <span class="emphasis">width</span>.</li>
+                <li>The function should return the area of a rectangle [length * width].</li>
+                <li> Use <span class="emphasis">prompt()</span> to get the length and width from the user, call the function, and log the result.
+                </li>
+            </ul>
+            <p>2.  Create a Function for Temperature Conversion:</p>
+            <ul>
+                <li> Write a function called convertToFahrenheit that takes one parameter: celsius.</li>
+                <li>The function should convert Celsius to Fahrenheit using the formula:  <span class="emphasis">F = C * 9/5 + 32</span> .</li>
+                <li> Use prompt() to get the Celsius temperature from the user, call the function, and log the result.</li>
+            </ul>
+        </div>
+        
+
+
+        <div class="button-container">
+            <a href="{%url 'js_page19'%}"><button class="prev">Prev</button></a>
+            <a href="{%url 'js_page21'%}"><button class="next">Next</button></a>
+        </div>
+
+        </div>
+    </div>
+</main>
+<footer>
+    {%include 'footer.html'%}
+</footer>
+<script type="text/javascript" src="{%static 'assets/js/main/scripts.js'%}"></script>
+</body>
+</html>

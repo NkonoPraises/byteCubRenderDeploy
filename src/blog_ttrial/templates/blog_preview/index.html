@@ -1,0 +1,81 @@
+{%load static%}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fashion Forward - Your Style Guide</title>
+    <link rel="stylesheet" href="{%static 'assets/CSS/blog_preview/style.css'%}">
+    <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"> -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css">
+</head>
+<body>
+
+    <header class="site-header">
+       {%include 'blog_preview/blog_preview_snippets/header.html'%}
+    </header>
+
+    <main class="site-main">
+        <div class="container grid-container">
+
+            <section class="blog-posts">
+                <article class="blog-post">
+                    <img src="{%static 'assets/images/Front End Dev/fashion1.jpg'%}" alt="Fashion Post 1">
+                    <h2><a href="#">The Latest Street Style Trends</a></h2>
+                    <p class="post-meta">Published on October 26, 2023 by <a href="#">Hanna Melvic</a></p>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua...</p>
+                    <a href="#" class="read-more">Read More</a>
+                </article>
+
+                <article class="blog-post">
+                    <img src="{%static 'assets/images/Front End Dev/fashion2.jpg'%}" alt="Fashion Post 2">
+                    <h2><a href="#">Designer Spotlight:  New Collection</a></h2>
+                    <p class="post-meta">Published on October 25, 2023 by <a href="#">John Emmerich</a></p>
+                    <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat...</p>                    <a href="#" class="read-more">Read More</a>
+                </article>
+
+                <!-- More Blog Posts -->
+
+            </section>
+
+            <aside class="sidebar">
+                <div class="widget">
+                    <h3>About Us</h3>
+                    <img src="{%static 'assets/images/Front End Dev/about-us.jpg'%}" alt="About Us Image">
+                    <p>A brief description of the fashion blog and its mission.</p>
+                </div>
+
+                <div class="widget">
+                    <h3>Categories</h3>
+                    <ul>
+                        <li><a href="#">Street Style</a></li>
+                        <li><a href="#">Designer Fashion</a></li>
+                        <li><a href="#">Beauty Tips</a></li>
+                        <li><a href="#">Outfit Ideas</a></li>
+                    </ul>
+                </div>
+
+                <div class="widget">
+                    <h3>Follow Us</h3>
+                    <ul class="social-links">
+                        <li><a href="#"><i class="fa-brands fa-square-facebook"></i></a></li>
+                        <li><a href="#">&#120143;</a></li>
+                        <li><a href="#"><i class="fa-brands fa-instagram"></i></a></li>
+                        <li><a href="#"><i class="fa-brands fa-pinterest-square"></i></a></li>
+                    </ul>
+                </div>
+            </aside>
+        </div>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container">
+            <p>&copy; 2025 Fashion Forward. All rights reserved.</p>
+        </div>
+    </footer>
+
+
+    <script src="{%static 'assets/js/blog_preview/script.js'%}"></script>
+</body>
+</html>

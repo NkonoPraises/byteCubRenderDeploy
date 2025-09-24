@@ -1,0 +1,90 @@
+{%load static%}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fashion Designers - Fashion Forward</title>
+    <link rel="stylesheet" href="{%static 'assets/CSS/blog_preview/style.css'%}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css">
+
+    <link rel="stylesheet" href="{%static 'assets/CSS/blog_preview/designers.css'%}">
+    <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+          integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg=="
+          crossorigin="anonymous" referrerpolicy="no-referrer" /> -->
+</head>
+<body>
+    <header class="site-header">
+        {%include 'blog_preview/blog_preview_snippets/header.html'%}
+     </header>
+
+    <main class="designers-page">
+        <section class="featured-designers">
+            <h2>Featured Designers</h2>
+            <div class="designers-grid">
+                <!-- Designer 1 -->
+                <div class="designer-card">
+                    <img src="{%static 'assets/images/Front End Dev/designer_1.jpg'%}" alt="Coco Chanel">
+                    <h3>Coco Chanel</h3>
+                    <p>The iconic French designer who revolutionized women's fashion.</p>
+                    <a href="#" class="designer-link">Explore <i class="fas fa-arrow-right"></i></a>
+                </div>
+
+                <!-- Designer 2 -->
+                <div class="designer-card">
+                    <img src="{%static 'assets/images/Front End Dev/designer_2.jpg'%}" alt="Alexander McQueen">
+                    <h3>Alexander McQueen</h3>
+                    <p>Known for his avant-garde designs and theatrical runway shows.</p>
+                    <a href="#" class="designer-link">Explore <i class="fas fa-arrow-right"></i></a>
+                </div>
+
+                <!-- Designer 3 -->
+                <div class="designer-card">
+                    <img src="{%static 'assets/images/Front End Dev/designer_3.jpg'%}" alt="Miuccia Prada">
+                    <h3>Miuccia Prada</h3>
+                    <p>The creative force behind Prada, known for her intellectual and unconventional designs.</p>
+                    <a href="#" class="designer-link">Explore <i class="fas fa-arrow-right"></i></a>                </div>
+
+                 <!-- Designer 4 -->
+                <div class="designer-card">
+                    <img src="{%static 'assets/images/Front End Dev/designer_4.jpg'%}" alt="Tom Ford">
+                    <h3>Tom Ford</h3>
+                    <p>Renowned for his glamorous and sensual designs, shaping modern luxury fashion.</p>
+                    <a href="#" class="designer-link">Explore <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </div>
+        </section>
+
+        <section class="designer-spotlight">
+            <h2>Designer Spotlight: Carl Morvich</h2>
+            <div class="spotlight-content">
+                <img src="{%static 'assets/images/Front End Dev/pexels-olly-3837268.jpg'%}" alt="Designer Spotlight">
+                <div class="spotlight-text">
+                    <h3>Carl Morvich</h3>
+                    <p>A rising star in the fashion world, known for blending traditional motifs with modern aesthatics, creating impactful fashion statements globally.</p>
+                    
+                    <a href="#" class="designer-link">Discover More <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </div>
+        </section>
+
+        <section class="designers-directory">
+            <h2>Designers Directory</h2>
+            <ul>
+                <li><a href="#">A-Z Listing</a></li>
+                <li><a href="#">Emerging Designers</a></li>
+                <li><a href="#">Sustainable Designers</a></li>
+                <li><a href="#">Browse All</a></li>
+            </ul>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container">
+            <p>&copy; 2025 Fashion Forward. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

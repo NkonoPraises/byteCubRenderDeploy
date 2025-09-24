@@ -1,0 +1,225 @@
+{%load static%}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTML Tables</title>
+    <link rel="stylesheet" type="text/css" href="{%static 'assets/CSS/IntroToHTML/index.css'%}">
+    <link rel="stylesheet" type="text/css" href="{%static 'assets/CSS/IntroToHTML/header.css'%}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style>
+        .chapter-pointer-6b{
+	        border: 2px solid skyblue;
+        }
+    </style>
+	
+</head>
+{%include 'all/snippets/header_snippet.html'%}
+<main>
+<body>
+    <main>
+    <div class="main-container">
+        <div class="left-container">
+            {%include 'introToHTML_app/snippets/left-container_snippet.html'%}
+        </div>
+        <div class="mid-container">
+           <h1>HTML Tables</h1>
+           <div class="button-container">
+            <a href="{%url 'HTMLIntro_ex2'%}"><button class="prev">Prev</button></a>
+             <a href="{%url 'HTMLIntro_ex3'%}"><button class="next">Next</button></a>
+        </div>
+           <h2 style="margin-top: 20px;">6.1 Introduction to HTML Tables</h2>
+           <div class="notes">
+            <p>HTML tables are created to represent data in a structured format, organising information into rows and columns, much like a spread sheet. This allows for easy represntation and easy comparison of data.</p>
+           </div>
+           <h2>6.2 Basic Structure of an HTML Table </h2>
+           <div class="notes">
+            <ul style="margin-left: 35px;">
+                <li><span class="emphasis">&lt;tr&gt;</span>[Table Row]: Defines a row in the table.</li>
+                <li><span class="emphasis">&lt;th&gt;</span>[Table Header]: Defines a header cell in the table.</li>
+                <li><span class="emphasis">&lt;td&gt;</span>[Table Data]: Defines a standard cell in the table that contains data.</li>
+            </ul>
+           </div>
+           <h2 style="text-align: center; color: skyblue; margin-top: 50px;">Code example</h2>
+            <div class="code-view">
+                {% for snippet in code_1 %}
+    
+                    <div class="code-container">
+                        <button class="copy-button" onclick="copyToClipboard()">Copy</button>
+                        <pre class="code-editor-content">
+                            
+                            <style>
+                                {{ snippet.get_highlighted_code.css | safe }}
+                            </style>
+                            {{ snippet.get_highlighted_code.html | safe }}
+                            
+                        </pre>
+                        
+                    </div>
+                
+                {% endfor %}
+            </div>
+                <hr>
+           <h3 style="text-align: center; color: skyblue; margin-top: 50px;">Result</h3>
+           <div class="result">
+            <table border="1">
+                <tr>
+                    <th>Name</th>
+                    <th>Age</th>
+                    <th>City</th>
+                </tr>
+                <tr>
+                    <td>Emmerich </td>
+                    <td>40</td>
+                    <td>Tokyo</td>
+                </tr>
+                <tr>
+                    <td>Brentley</td>
+                    <td>21</td>
+                    <td>Hong Kong</td>
+                </tr>
+            </table>
+           </div>
+           <div class="notes">
+            <p>The <span class="emphasis">border</span> attribute tells the web browser to draw lines around the entire table and between each cell [ The boxes inside the table ].</p>
+            <p>The number [or value] choose for the border can be changed. A larger number means thicker lines [e.g., <span class="emphasis">border = "2"</span> for a slightly thicker line]. </p>
+           </div>
+           <button class="run">Try it Yourself</button>
+           
+           <h2>6.2 Column Span</h2>
+           <div class="notes">
+            <p>We may need entries in a table to stretch more than one column cell sometimes.</p>
+            <p>The<span class="emphasis">colspan</span> attribute is used in the <span class="emphasis">&lt;td&gt;</span> or <span class="emphasis">&lt;th&gt;</span> elements to specify how many colums a table should span.</p>
+           </div>
+           <h2 style="text-align: center; color: skyblue; margin-top: 50px;">Code example</h2>
+            <div class="code-view">
+                {% for snippet in code_2 %}
+    
+                    <div class="code-container">
+                        <button class="copy-button" onclick="copyToClipboard()">Copy</button>
+                        <pre class="code-editor-content">
+                            
+                            <style>
+                                {{ snippet.get_highlighted_code.css | safe }}
+                            </style>
+                            {{ snippet.get_highlighted_code.html | safe }}
+                            
+                        </pre>
+                        
+                    </div>
+                
+                {% endfor %}
+            </div>
+                <hr>
+           <h3 style="text-align: center; color: skyblue; margin-top: 50px;">Result</h3>
+           <div class="result">
+            <table border="1">
+                <tr>
+                    <th colspan="3">Class Schedule</th>
+                </tr>
+                <tr>
+                    <th>Day</th>
+                    <th>Time</th>
+                    <th>Class</th>
+                </tr>
+                <tr>
+                    <td>Monday</td>
+                    <td>9:00 AM - 10:30 AM</td>
+                    <td>Mathematics</td>
+                </tr>
+                <tr>
+                    <td>Wednesday</td>
+                    <td>11:00 AM - 12:30 PM</td>
+                    <td>History</td>
+                </tr>
+                <tr>
+                    <td>Friday</td>
+                    <td>1:00 PM - 2:30 PM</td>
+                    <td>Computer Science</td>
+                </tr>
+            </table>
+           </div>
+           <div class="notes">
+            <p><strong>Note:</strong></p>
+            <p>The color shades in the example above are only there for demonstrative purposes.</p>
+           </div>
+                <button class="run">Try it Yourself</button>
+
+                <h2>6.3 Row Span</h2>
+                <div class="notes">
+                 <p>We may need entries in a table to stretch more than one row sometimes.</p>
+                 <p>The<span class="emphasis">rowspan</span> attribute is used in the <span class="emphasis">&lt;td&gt;</span> or <span class="emphasis">&lt;th&gt;</span> elements to specify how many rows a table should span.</p>
+                </div>
+                <h2 style="text-align: center; color: skyblue; margin-top: 50px;">Code example</h2>
+                <div class="code-view">
+                    {% for snippet in code_3 %}
+           
+                        <div class="code-container">
+                            <button class="copy-button" onclick="copyToClipboard()">Copy</button>
+                            <pre class="code-editor-content">
+                                
+                                <style>
+                                    {{ snippet.get_highlighted_code.css | safe }}
+                                </style>
+                                {{ snippet.get_highlighted_code.html | safe }}
+                                
+                            </pre>
+                            
+                        </div>
+                    
+                    {% endfor %}
+                </div>
+                     <hr>
+                <h3 style="text-align: center; color: skyblue; margin-top: 50px;">Result</h3>
+                <div class="result">
+                    <table border="1">
+                        <tr>
+                            <th>Date</th>
+                            <th>Time</th>
+                            <th>Match</th>
+                            <th>Teams</th>
+                        </tr>
+                        <tr>
+                            <td rowspan="2">March 10</td>
+                            <td>10:00 AM</td>
+                            <td>Quarter Finals</td>
+                            <td>Team A vs Team B</td>
+                        </tr>
+                        <tr>
+                            <td>12:00 PM</td>
+                            <td>Quarter Finals</td>
+                            <td>Team C vs Team D</td>
+                        </tr>
+                        <tr>
+                            <td rowspan="2">March 11</td>
+                            <td>2:00 PM</td>
+                            <td>Semi Finals</td>
+                            <td>Team E vs Team F</td>
+                        </tr>
+                        <tr>
+                            <td>4:00 PM</td>
+                            <td>Semi Finals</td>
+                            <td>Team A vs Team C</td>
+                        </tr>
+
+                    </table>
+                </div>
+
+                <button class="run">Try it Yourself</button>
+                
+                <div class="button-container">
+                    <a href="{%url 'HTMLIntro_ex2'%}"><button class="prev">Prev</button></a>
+                     <a href="{%url 'HTMLIntro_ex3'%}"><button class="next">Next</button></a>
+                </div>
+        </div>
+        
+        
+    </div>
+</main>
+<footer>
+    {%include 'footer.html'%}
+</footer>
+<script type="text/javascript" src="{%static 'assets/js/main/scripts.js'%}"></script>
+</body>
+</html>

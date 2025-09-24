@@ -1,0 +1,222 @@
+{%load static%}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mobile App Development - byteCub</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, #f7fbff 0%, #e6f4ff 100%);
+            color: #333;
+            line-height: 1.6;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 1000px;
+            width: 100%;
+            margin: 0 auto;
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.12);
+        }
+        
+        header {
+            background: #87ceeb;
+            padding: 30px;
+            text-align: center;
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        header:after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 320'%3E%3Cpath fill='%23ffffff' fill-opacity='0.2' d='M0,128L48,117.3C96,107,192,85,288,112C384,139,480,213,576,218.7C672,224,768,160,864,138.7C960,117,1056,139,1152,149.3C1248,160,1344,160,1392,160L1440,160L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z'%3E%3C/path%3E%3C/svg%3E");
+            background-size: cover;
+            opacity: 0.3;
+        }
+        
+        .logo {
+            font-family: 'Poppins', sans-serif;
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+        
+        .tagline {
+            font-size: 1.2rem;
+            opacity: 0.9;
+        }
+        
+        .content {
+            padding: 40px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+        }
+        
+        @media (max-width: 768px) {
+            .content {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        .text-content {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+        
+        h1 {
+            font-family: 'Poppins', sans-serif;
+            font-size: 2.2rem;
+            color: #2c3e50;
+            margin-bottom: 20px;
+        }
+        
+        p {
+            margin-bottom: 20px;
+            font-size: 1.05rem;
+            color: #34495e;
+        }
+        
+        .highlight {
+            color: #87ceeb;
+            font-weight: 600;
+        }
+        
+        .visual-content {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .path-visual {
+            width: 100%;
+            max-width: 400px;
+            margin-bottom: 20px;
+        }
+        
+        .advantage-list {
+            background: #f8f9fa;
+            border-left: 4px solid #87ceeb;
+            padding: 20px;
+            border-radius: 0 8px 8px 0;
+            margin: 25px 0;
+        }
+        
+        .advantage-list li {
+            margin-bottom: 10px;
+            list-style-type: none;
+            display: flex;
+            align-items: flex-start;
+        }
+        
+        .advantage-list i {
+            color: #87ceeb;
+            margin-right: 10px;
+            margin-top: 4px;
+        }
+        
+        .cta-section {
+            text-align: center;
+            padding: 30px 40px 40px;
+            background: #f9fbfd;
+            border-top: 1px solid #eaeaea;
+        }
+        
+        .continue-btn {
+            display: inline-block;
+            background: #87ceeb;
+            color: white;
+            padding: 16px 45px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-family: 'Poppins', sans-serif;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+            box-shadow: 0 5px 20px rgba(135, 206, 235, 0.4);
+        }
+        
+        .continue-btn:hover {
+            background: #5cbdf9;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(135, 206, 235, 0.5);
+        }
+        
+        .benefit-tag {
+            display: inline-block;
+            background: rgba(135, 206, 235, 0.15);
+            color: #2c3e50;
+            padding: 8px 15px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            margin: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="logo">&lt;/&gt;byteCub</div>
+            <div class="tagline">Master Mobile App Development</div>
+        </header>
+        
+        <div class="content">
+            <div class="text-content">
+                <h1>Your Path to Becoming a Dual-Skilled Developer</h1>
+                
+                <p>At byteCub, we've strategically designed our Mobile App Development track to build upon the solid foundation you've established in our web development curriculum.</p>
+                
+                <div class="advantage-list">
+                    <p><i class="fas fa-check-circle"></i> Your knowledge of <span class="highlight" style="color: #e06c75;">HTML</span> <span class="highlight">&</span> <span class="highlight" style="color: #98c379;">CSS</span> will directly translate to React Native's styling approach</p>
+                    <p><i class="fas fa-check-circle"></i> Your <span class="highlight">JavaScript</span> expertise will be the core language for mobile development</p>
+                    <p><i class="fas fa-check-circle"></i> You'll leverage <span class="highlight" style="color: #e06c75;">Python</span>, <span class="highlight" style="color: #98c379;">Django</span> <span class="highlight">&</span> <span class="highlight" style="color: #d19a66;">Django REST API</span> as your backend for React Native applications</p>
+                </div>
+                
+                <p>This integrated approach means you'll graduate not just as a mobile app developer, but as a versatile full-stack developer with expertise in both web and mobile platforms.</p>
+            </div>
+            
+            <div class="visual-content">
+                <img class="path-visual" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='300' viewBox='0 0 400 300'%3E%3Cpath d='M50,150 C100,50 150,50 200,100 C250,150 300,150 350,100' stroke='%2387ceeb' stroke-width='4' fill='none' stroke-dasharray='10,6'/%3E%3Ccircle cx='50' cy='150' r='15' fill='%2387ceeb'/%3E%3Ccircle cx='200' cy='100' r='15' fill='%2387ceeb'/%3E%3Ccircle cx='350' cy='100' r='15' fill='%2387ceeb'/%3E%3Ctext x='50' y='190' font-family='Arial' font-size='12' text-anchor='middle' fill='%232c3e50'%3EWeb Foundation%3C/text%3E%3Ctext x='200' y='40' font-family='Arial' font-size='12' text-anchor='middle' fill='%232c3e50'%3EBackend Mastery%3C/text%3E%3Ctext x='350' y='190' font-family='Arial' font-size='12' text-anchor='middle' fill='%232c3e50'%3EMobile Development%3C/text%3E%3C/svg%3E" alt="Learning Path">
+                
+                <div>
+                    <span class="benefit-tag">Industry Advantage</span>
+                    <span class="benefit-tag">Dual Skillset</span>
+                    <span class="benefit-tag">Full-Stack Ready</span>
+                </div>
+            </div>
+        </div>
+        
+        <div class="cta-section">
+            <p>Join the elite group of developers who can build for both web and mobile platforms</p>
+            <a href="{%url 'page1_view'%}" class="continue-btn">Continue</a>
+        </div>
+    </div>
+</body>
+</html>

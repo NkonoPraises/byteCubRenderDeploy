@@ -1,0 +1,237 @@
+{%load static%}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modifying Lists</title>
+    <link rel="stylesheet" type="text/css" href="{%static 'assets/CSS/IntroToHTML/index.css'%}">
+    <link rel="stylesheet" type="text/css" href="{%static 'assets/CSS/IntroToHTML/header.css'%}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style>
+        .chapter-pointer-8{
+	        border: 2px solid skyblue;
+        }
+        .js-shots{
+            width: 50%;
+        }
+        @media(max-width: 760px){
+            .js-shots{
+                width: 100%;
+            }
+            
+        }
+        .code-container{
+            overflow: hidden;
+        }
+        pre.code-editor-content{
+            width: 100%;
+            overflow-y: hidden;
+            margin-bottom: -60px;
+        }
+        .code-editor-content{
+            margin-top: -160px;
+            padding: 2px 0px;
+        }
+    </style>
+	
+</head>
+{%include 'all/snippets/header_snippet.html'%}
+<body>
+<main>
+    <div class="main-container">
+        <div class="left-container">
+            {%include 'python/snippets/left-container_snippet.html'%}
+        </div>
+        <div class="mid-container">
+            <h1>Modifying Lists</h1>
+            <div class="button-container">
+                <a href="{%url 'py_page7'%}"><button class="prev">Prev</button></a>
+                <a href="{%url 'py_page9'%}"><button class="next">Next</button></a>
+            </div>
+           
+
+            <h2>Introduction</h2>
+            <div class="notes">
+                <p>
+                   Since lists are mutable, you can modify them after creation.
+                </p>
+            </div>
+
+            <h2>Adding Items</h2>
+            <div class="notes">
+               <p>You can add items to a list using the <span class="emphasis">append()</span> method or the <span class="emphasis">insert()</span> method.</p>
+            </div>
+
+            <div class="notes">
+                <p>1. <strong>Using</strong> <span class="emphasis">append()</span>: Adds an item to the end of the list.</p>
+            </div>
+
+           <div class="code-view">
+            {% for snippet in code_1 %}
+   
+                <div class="code-container">
+                    <button class="copy-button" onclick="copyToClipboard()">Copy</button>
+                    <pre class="code-editor-content">
+                        
+                        <style>
+                            {{ snippet.get_highlighted_code.css | safe }}
+                        </style>
+                        {{ snippet.get_highlighted_code.html | safe }}
+                        
+                    </pre>
+                    
+                </div>
+            
+            {% endfor %}
+        </div>
+
+        <h2 style="text-align: center; color: skyblue; margin-top: 50px;">Output</h2>
+
+        <div class="code-view">
+            <div class="sub-view">
+                <div class="code-block">
+                    <p><i class="fa fa-angle-double-right"></i> ['apple', 'banana', 'cherry', 'date', 'elderberry']</p>
+                </div>
+            </div>
+        </div>
+
+
+       <div class="notes">
+            <p>2. <strong>Using</strong> <span class="emphasis">insert()</span>: Adds an item at a specified index.</p>
+        </div>
+
+           <div class="code-view">
+            {% for snippet in code_2 %}
+   
+                <div class="code-container">
+                    <button class="copy-button" onclick="copyToClipboard()">Copy</button>
+                    <pre class="code-editor-content">
+                        
+                        <style>
+                            {{ snippet.get_highlighted_code.css | safe }}
+                        </style>
+                        {{ snippet.get_highlighted_code.html | safe }}
+                        
+                    </pre>
+                    
+                </div>
+            
+            {% endfor %}
+        </div>
+        <h2 style="text-align: center; color: skyblue; margin-top: 50px;">Output</h2>
+
+        <div class="code-view">
+            <div class="sub-view">
+                <div class="code-block">
+                    <p><i class="fa fa-angle-double-right"></i> ['apple', 'blueberry', 'banana', 'cherry', 'date', 'elderberry']</p>
+                </div>
+            </div>
+        </div>
+
+       
+        <h2>Removing Items</h2>
+        <div class="notes">
+            <p>You can remove items from a list using the <span class="emphasis">remove()</span> method or the <span class="emphasis">pop()</span> method.</p>
+        </div>
+
+        <div class="notes">
+            <p>1. <strong>Using</strong> <span class="emphasis">remove()</span>: Removes the first occurrence of a specified value.</p>
+        </div>
+        
+           <div class="code-view">
+            {% for snippet in code_3 %}
+   
+                <div class="code-container">
+                    <button class="copy-button" onclick="copyToClipboard()">Copy</button>
+                    <pre class="code-editor-content">
+                        
+                        <style>
+                            {{ snippet.get_highlighted_code.css | safe }}
+                        </style>
+                        {{ snippet.get_highlighted_code.html | safe }}
+                        
+                    </pre>
+                    
+                </div>
+            
+            {% endfor %}
+        </div>
+        <br>
+
+        <h2 style="text-align: center; color: skyblue; margin-top: 50px;">Output</h2>
+
+        <div class="code-view">
+            <div class="sub-view">
+                <div class="code-block">
+                    <p><i class="fa fa-angle-double-right"></i>  ['apple', 'blueberry', 'cherry', 'date', 'elderberry']</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="notes">
+            <p>2. <strong>Using</strong> <span class="emphasis">pop()</span>: Removes an item at a specified index and returns it. If no index is specified, it removes and returns the last item.</p>
+        </div>
+
+        <div class="code-view">
+            {% for snippet in code_4 %}
+   
+                <div class="code-container">
+                    <button class="copy-button" onclick="copyToClipboard()">Copy</button>
+                    <pre class="code-editor-content">
+                        
+                        <style>
+                            {{ snippet.get_highlighted_code.css | safe }}
+                        </style>
+                        {{ snippet.get_highlighted_code.html | safe }}
+                        
+                    </pre>
+                    
+                </div>
+            
+            {% endfor %}
+        </div>
+
+        <h2 style="text-align: center; color: skyblue; margin-top: 50px;">Output</h2>
+
+        <div class="code-view">
+            <div class="sub-view">
+                <div class="code-block">
+                    <p><i class="fa fa-angle-double-right"></i> elderberry</p>
+                    <p><i class="fa fa-angle-double-right"></i> ['apple', 'blueberry', 'cherry', 'date']</p>
+                </div>
+            </div>
+        </div>
+
+       
+        <h2 style="text-align: center; color: skyblue; margin-top: 50px;">Exercise</h2>
+        <div class="notes">
+            <p>Create an empty list called <span class="emphasis">my_shopping_list</span>.</p>
+            <p><strong>HINT:</strong> <span class="emphasis">my_shopping_list = []</span></p>
+           <ol>
+            <li>Use <span class="emphasis">append()</span> to add "Milk" to the list.</li>
+            <li>Use <span class="emphasis">append()</span> to add "Eggs" to the list.</li>
+            <li>Use <span class="emphasis">append()</span> to add "Bread" to the list.</li>
+            <li>Print <span class="emphasis">my_shopping_list</span>.</li>
+            <li>Realize you don't need "Eggs". Use <span class="emphasis">remove()</span> to take "Eggs" out of the list.</li>
+            <li>Print <span class="emphasis">my_shopping_list</span> again to see the change.</li>
+           
+           </ol>
+
+        </div>
+
+
+        <div class="button-container">
+            <a href="{%url 'py_page7'%}"><button class="prev">Prev</button></a>
+            <a href="{%url 'py_page9'%}"><button class="next">Next</button></a>
+        </div>
+
+        </div>
+    </div>
+</main>
+<footer>
+    {%include 'footer.html'%}
+</footer>
+<script type="text/javascript" src="{%static 'assets/js/main/scripts.js'%}"></script>
+</body>
+</html>

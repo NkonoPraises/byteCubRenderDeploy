@@ -1,0 +1,132 @@
+{%load static%}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Intro to javaScript</title>
+    <link rel="stylesheet" type="text/css" href="{%static 'assets/CSS/IntroToHTML/index.css'%}">
+    <link rel="stylesheet" type="text/css" href="{%static 'assets/CSS/IntroToHTML/header.css'%}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style>
+        .chapter-pointer-1{
+	        border: 2px solid skyblue;
+        }
+        .js-shots{
+            width: 50%;
+        }
+        @media(max-width: 760px){
+            .js-shots{
+                width: 100%;
+            }
+            
+        }
+    </style>
+	
+</head>
+{%include 'all/snippets/header_snippet.html'%}
+<body>
+<main>`
+    <div class="main-container">
+        <div class="left-container">
+            {%include 'javaScript/snippets/left-container_snippet.html'%}
+        </div>
+        <div class="mid-container">
+            <h1>Welcome to JavaScript:</h1>
+            <p style="text-align: center; margin-bottom: 20px; font-size: larger;">Your First Step into Interactive Programming</p>
+            <div class="notes">
+                <p>Imagine being able to bring your ideas to life on the web! <strong>JavaScript</strong> is the magic language
+                     that makes websites interactive and dynamic. Whether it’s making a button change color when you click it or
+                    displaying a cool animation, JavaScript is the tool that helps you create engaging experiences. 
+                </p>
+                <p>
+                    JavaScript is an essential part of web development, and learning it opens up a world of possibilities. Don't worry
+                    if you’ve never programmed before; everyone starts somewhere! Let’s dive into your first steps with this exciting language.
+                </p>
+        <h2 style="text-align: center;">What Makes JavaScript Special?</h2>
+        <div class="notes">
+            <p><strong>Versatile</strong>: JavaScript can be used for front-end development [what users see] and back-end development [the server-side of applications]. </p>
+            <p><strong>Easy to Learn</strong>: With a straightforward syntax and a supportive community, beginners find JavaScript approachable.</p>
+            <p><strong>Runs Everywhere</strong>: You can run JavaScript in web browsers, making it easy to test your code instantly.</p>
+        </div>
+
+        <h2 style="text-align: center;">Your First JavaScript Program: "Hello, World!"</h2>
+        <div class="notes">
+            <p>Every programmer's journey begins with a simple program that prints “Hello, World!” on the screen.
+            This program is a rite of passage that introduces you to the basics of coding.
+            </p>
+        </div>
+        <p style="text-align: center;">Here’s how you can create your very first JavaScript program:
+        </p>
+
+        <h3>1. Using a Web Browser [Windows/mac]</h3>
+        <div class="notes">
+            <p> - Open your favorite web browser [like Chrome, Firefox, or Edge].</p>
+            <p> - Right-click anywhere on the page and select <strong>Inspect</strong> or <strong>Inspect Element</strong>.</p>
+            <p> - Go to the <strong>Console</strong> tab.</p>
+            <p style="text-align: center; font-size: larger;">OR</p>
+            <p>To avoid the lengthy steps, you can simply just use the shortcut <strong>Shift</strong> + <strong>CTRL</strong> + <strong>J</strong> [on Windows/Linux]
+                or <strong>Shift</strong> + <strong>command</strong> + <strong>J</strong> [on macOS] to open the console.
+            </p>
+            <p> - Type the following code into the console and press <strong>Enter</strong>:</p>
+        </div>
+        <img src="{%static 'assets/images/javaScript/webconsole_screenshot.png'%}" alt="webconsole">
+        <h3 style="text-align: center; color: skyblue;">Result</h3>
+        <img src="{%static 'assets/images/javaScript/js_helloworld_result.png'%}" alt="webconsole">
+
+        <h3>2. Using a Mobile Phone</h3>
+        <div class="notes">
+            <p> - Go to the Google PlayStore or follow this <a href="https://play.google.com/store/apps/details?id=com.sorincovor.javascript_editor" style="text-decoration: underline;">link</a> to download the following javaScript editor. </p>
+        </div>
+        <img class="js-shots" src="{%static 'assets/images/javaScript/Screenshot_20250418-124734.png'%}" alt="javaScript editor">
+
+        <div class="notes">
+            <p> - Create a new file and call it "hello.js" [the '.js' extension is compulsory for all javaScript files].</p>
+        </div>
+        <img class="js-shots" src="{%static 'assets/images/javaScript/Screenshot_20250418-131137.png'%}" alt="javaScript editor">
+        <div class="notes">
+            <p> - Copy the following code into the code editor and click <strong>run</strong>.</p>
+        </div>
+        <img class="js-shots" src="{%static 'assets/images/javaScript/Screenshot_20250418-131213.png'%}" alt="javaScript editor">
+       
+        <h2 style="text-align: center;">Conclusion</h2>
+        <div class="notes">
+            <p>JavaScript is your gateway to creating amazing web experiences. With just a few lines of code, you’ve already taken the first
+                 step into the programming world! Keep experimenting, learning, and having fun as you explore the endless possibilities JavaScript
+                  has to offer. Remember, every great programmer started with a simple "Hello, World!"
+            </p>
+            <p>So, are you ready to dive deeper into the exciting world of JavaScript? Let’s get coding!</p>
+        </div>
+
+        <!-- <div class="code-view">
+            <div class="sub-view">
+                <div class="code-block">
+                    &lt;<span class="doctype">!DOCTYPE</span> <span class="tag">html</span>&gt;<br>
+                    &lt;<span class="tag">html</span> <span class="attr">lang</span>="en"&gt;<br>
+                    &lt;<span class="tag">head</span>&gt;<br>
+                    &nbsp;	&lt;<span class="tag">meta</span> <span class="attr">charset</span>="UTF-8"&gt;<br>
+                    &nbsp;				&lt;<span class="tag">title</span>&gt;<span class="text">My HTML Page</span>&lt;<span class="tag">/title</span>&gt;<br>
+                    &lt;<span class="tag">/head</span>&gt;<br>
+                    &lt;<span class="tag">body</span>&gt;<br>
+        
+                    &lt;<span class="tag">/body</span>&gt;<br>
+                    &lt;<span class="tag">/html</span>&gt;
+                    </div>
+            </div>
+        </div> -->
+
+
+        <div class="button-container">
+                <a href="{%url 'js_page2'%}"><button class="next">Get Started</button></a>
+            </div>
+
+        </div>
+    </div>
+    </main>
+    <footer>
+    {%include 'footer.html'%}
+</footer>
+<script type="text/javascript" src="{%static 'assets/js/main/scripts.js'%}"></script>
+
+</body>
+</html>

@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Intro to HTML</title>
+    <link rel="stylesheet" type="text/css" href="index.css">
+    <style>
+        *{
+	margin: 0;
+	padding: 0;
+	border: none;
+	box-sizing: border-box;
+}
+body{
+	font-family: sans-serif;
+	
+}
+.main-container{
+	display: flex;
+	gap: 10px;
+	width: 100%;
+}
+.left-container{
+	border: 1px solid blue;
+	width: 20%;
+	min-height: 500px;
+	position: fixed;
+}
+.mid-container{
+	width: 67%;
+	min-height: 1000px;
+	margin-left: 21.05%;
+
+}
+.right-container{
+	border: 1px solid black;
+	width: 13%;
+	min-height: 500px;
+}
+@media(max-width:720px){
+	.main-container{
+		display: block;
+		padding: 0 10px;
+	}
+	.left-container{
+		display: none;
+	}
+	.mid-container{
+		width: 100%;
+		margin-left: 0px;
+	}
+	.right-container{
+		width: 100%;
+	}
+	div.tips{
+		width: 100%;
+	}
+}
+.main-heading{
+	font-size:  35px;
+}
+.tips{
+	width: 40%;
+	margin: auto;
+	word-spacing: 2px;
+/*	background: rgb(102, 183, 189);*/
+border: 2px solid rgb(99, 213, 236);
+	border-radius: 8px;
+	margin-top: 15px;
+
+}
+.tips_1{
+	padding: 10px;
+	color: rgb(37, 4, 4);
+	font-weight: 500;
+	
+
+}
+.tips_1 span{
+ font-style: italic;
+}
+
+.emphasis{
+	background-color: #f5f5f5;
+	/* background-color: rgba(245, 245, 245, 0.599); */
+	padding: 1px 2px;
+	border-radius: 3px;
+}
+.notes{
+	
+	/* background-color: rgba(135, 207, 235, 0.619); */
+	/* background-color: rgba(99, 213, 236, 0.181); */
+	color: rgb(69, 59, 59);
+	margin-top: 2px;
+	border-radius: 5px;
+	border: 2px solid white;
+	word-spacing: 2px;
+	letter-spacing: 0.5px;
+}
+h1,h2,h3{
+	color: black;
+}
+.notes p{
+	padding: 10px;
+}
+.code{
+	color: green;
+}
+.doctype{
+	color: rgba(128, 0, 128, 0.677);
+	font-style: italic;
+}
+.attr{
+	color: rgba(128, 0, 128, 0.677);	
+}
+.tag{
+	color: red;
+}
+
+/* codeView *//* codeView *//* codeView *//* codeView *//* codeView *//* codeView */
+/* codeView *//* codeView *//* codeView *//* codeView *//* codeView *//* codeView */
+
+.sub-view{
+	border-left: 4px solid rgba(0, 0, 255, 0.551);
+}
+.code-block {
+    background-color: #f5f5f5;
+    padding: 10px;
+    border-radius: 4px;
+    font-family: 'Consolas', monospace;
+    font-size: 14px;
+    margin-bottom: 20px;
+	color: green;
+	margin-top: 10px;
+}
+.text{
+	color: rgb(60, 58, 58);
+}
+.run{
+	padding: 10px 10px;
+	background-color: rgba(0, 0, 255, 0.538);
+	border-radius: 4px;
+	font-weight: bold;
+	color: white;
+}
+.start{
+	padding: 10px 10px;
+	background-color: rgba(0, 0, 255, 0.538);
+	border-radius: 4px;
+	font-weight: bold;
+	color: white;
+	display: block;
+	margin: auto;
+	margin-top: 20px;
+	margin-bottom: 20px;
+}
+
+
+
+
+
+
+
+
+
+        .code-container {
+            width: 800px; /* Adjust as needed for the square size */
+            /* Maintain square aspect ratio */
+            max-height: 400px;
+            border: 1px solid #ccc;
+            overflow: auto; /* Add scrollbars if needed */
+            padding: 10px;
+            position: relative; /* Required for absolute positioning of the button */
+        }
+
+        .copy-button {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background-color: #4CAF50; /* Green */
+            border: none;
+            color: white;
+            padding: 5px 10px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 14px;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+
+        .code-editor-content {
+            font-family: monospace; /* Use a monospace font */
+            white-space: pre-wrap; /* Allow line breaks */
+            margin-top: -270px;
+        }
+
+        /* Styling from pygments */
+        {{css | safe}}
+
+
+    </style>
+</head>
+<body style="background-color: white;">
+    <div class="main-container">
+        <div class="left-container"></div>
+        <div class="mid-container">
+            <h1>Hello Cub! Welcome to the world of HTML:</h1>
+            <h1>Your Journey Begins Here!</h1>
+            <div class="notes">
+                <p>Get ready to embark on an exciting adventure into the realm of web development with us. 
+                    Let's dive into the vibrant universe of HTML<span class="emphasis">[HyperText Markup Language]</span>
+                    - the foundational building block of all things web!
+                </p>
+        <h2>What is HTML?</h2>
+        <div class="notes">
+            <p>HTML is like the skeleton of a webpage. It gives structure to your content, allowing browsers to understand how to
+                display text, images, links, and more. 
+            </p>
+        </div>
+        <h2>The Structure of HTML</h2>
+        <div class="notes">
+            <p>Every HTML document is build upon a simple structure. Here's what the structure of an HTML page looks like:</p>
+        </div>
+
+        <div class="code-view">
+            {% for snippet in snippets %}
+   
+        <div class="code-container">
+            <button class="copy-button" onclick="copyToClipboard()">Copy</button>
+            <h3>{{ snippet.0.title }}</h3>
+            <p>Category: {{ snippet.0.category }}</p>
+            <p>Language: {{ snippet.0.language }}</p>
+            <pre class="code-editor-content">
+                <style>
+                    {{ snippet.get_highlighted_code.css | safe }}
+                </style>
+                {{ snippet.get_highlighted_code.html | safe }}
+            </pre>
+            
+        </div>
+      
+    {% endfor %}
+        </div>
+
+        <h3>Breaking it Down:</h3>
+
+        <div class="notes">
+            <p> &lt;<span class="tag">html</span>&gt;, &lt;<span class="tag">head</span>&gt;,&lt;<span class="tag">body</span>&gt;, and so on are
+            all called <span class="emphasis">Tags</span>. Tags carry specific information within them, they are declared by <span class="code emphasis">&lt;<span class="tag">tag</span>&gt;
+            </span>[openning tag] and<span class="code emphasis">&lt;<span class="tag">/tag</span>&gt;</span>[closing tag]. They act like containers and all tell the browser about the kind of information 
+            that lies within them.For example, &lt;<span class="tag">p</span>&gt; This is a paragraph &lt;<span class="tag">/p</span>&gt; tells the browser that what is within the &lt;<span class="tag">p</span>&gt; 
+            tag is a paragraph.
+            </p> 
+            <p><span class="code emphasis">&lt;<span class="doctype">!DOCTYPE</span> <span class="tag">html</span>&gt;</span>: This declaration tells
+            the browser to expect an HTML5 document.</p>
+            <p><span class="code emphasis">&lt;<span class="tag">html</span>&gt;</span>: The root element that wraps all your content.</p>
+            <p><span class="code emphasis">&lt;<span class="tag">head</span>&gt;</span>: Contains meta-information about your document 
+                <span class="emphasis">[like title, character set, and linked styles].</span></p>
+            <p><span class="code emphasis">&lt;<span class="tag">body</span>&gt;</span>: This is where you place all your visible content.</p>
+        </div>
+
+        <h2>Why Learn HTML?</h2>
+        <div class="notes">
+            <p><span class="emphasis">Empower your creativity</span>: Build stunning websites from scratch!</p>
+            <p><span class="emphasis">Foundation for your languages</span>: HTML is the first step towards mastering CSS, javaScript, and more!</p>
+            <p><span class="emphasis">In-Demand Skill</span>: Web development skills are highly valued in today's job market.</p>
+            <p>In this bootcamp, we're going to provide you everything you need to get heads-on with html including an interactive code editor.</p>
+        </div>
+
+        <button class="start">Get Started</button>
+
+        </div>
+    </div>
+</body>
+</html>

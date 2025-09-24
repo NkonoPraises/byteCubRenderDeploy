@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercise Review Notification</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #282c34; /* Dark background, typical of code editors */
+            color: #abb2bf; /* Muted, light text for readability */ /* light skyblue background */
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .container {
+            background-color: #3e4451;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+            text-align: center;
+            max-width: 400px;
+        }
+        h1 {
+            color: #e06c75; /* skyblue */
+            margin-bottom: 20px;
+        }
+        p {
+            margin-bottom: 20px;
+            line-height: 1.5;
+        }
+        .proceed-btn {
+           background-color: #61afef; /* Blue, like function names */
+            color: #282c34; /* Inverted color scheme for contrast */
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s ease;
+        }
+        .proceed-btn:hover {
+            background-color: #56b6c2; /* Lighter blue on hover */
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Exercise Review Notification</h1>
+        <p>Your exercise submission will be reviewed and rated by our team. Please note that if your rating falls below 70%, you will be required to re-complete the exercise to meet the necessary standards.</p>
+        <a href="{%url 'blog_pg60'%}"><button class="proceed-btn">Proceed</button></a>
+    </div>
+  <footer>
+    {%include 'footer.html'%}
+</footer>
+<script type="text/javascript" src="{%static 'assets/js/main/scripts.js'%}"></script>
+</main>
+</body>
+</html>

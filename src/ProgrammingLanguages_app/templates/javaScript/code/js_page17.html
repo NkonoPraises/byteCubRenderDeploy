@@ -1,0 +1,213 @@
+{%load static%}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Two Dimensional Arrays</title>
+    <link rel="stylesheet" type="text/css" href="{%static 'assets/CSS/IntroToHTML/index.css'%}">
+    <link rel="stylesheet" type="text/css" href="{%static 'assets/CSS/IntroToHTML/header.css'%}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style>
+        .chapter-pointer-17{
+	        border: 2px solid skyblue;
+        }
+        .js-shots{
+            width: 50%;
+        }
+        @media(max-width: 760px){
+            .js-shots{
+                width: 100%;
+            }
+            
+            
+        }
+        .code-container::-webkit-scrollbar{
+            /* overflow: hidden; */
+            display: none;
+        }
+        pre.code-editor-content{
+            overflow-y: hidden;
+            margin-bottom: -60px;
+            overflow-x: scroll;
+        }
+        .code-editor-content{
+            margin-top: -160px;
+            padding: 2px 0px;
+        }
+        @media(max-width:720px){
+            pre.code-editor-content{
+            width: 1500px;
+            
+            }
+        }
+    </style>
+	
+</head>
+{%include 'all/snippets/header_snippet.html'%}
+<body>
+<main>
+    <div class="main-container">
+        <div class="left-container">
+            {%include 'javaScript/snippets/left-container_snippet.html'%}
+        </div>
+        <div class="mid-container">
+            <h1>Introduction to Two Dimensional Arrays</h1>
+            <div class="button-container">
+                <a href="{%url 'js_page16'%}"><button class="prev">Prev</button></a>
+                <a href="{%url 'js_page18'%}"><button class="next">Next</button></a>
+            </div>
+           
+
+            <h2>What is a Two Dimensional Array?</h2>
+            <div class="notes">
+               <p>
+                A <span class="emphasis">two-dimensional array</span> (often referred to as a 2D array) is an array of arrays. It allows you to store data in a grid-like structure, where each element can be accessed using two indices:
+                 one for the row and one for the column. This is particularly useful for representing matrices, tables, or any data that can be organized in rows and columns.
+               </p>
+            </div>
+
+            <h2>Creating Two-Dimensional Arrays</h2>
+            <div class="notes">
+                <p>
+                    You can create a two-dimensional array in JavaScript using nested arrays. Here’s how you can do it:
+                </p>
+            </div>
+
+           <div class="code-view">
+            {% for snippet in code_1 %}
+   
+                <div class="code-container">
+                    <button class="copy-button" onclick="copyToClipboard()">Copy</button>
+                    <pre class="code-editor-content">
+                        
+                        <style>
+                            {{ snippet.get_highlighted_code.css | safe }}
+                        </style>
+                        {{ snippet.get_highlighted_code.html | safe }}
+                        
+                    </pre>
+                    
+                </div>
+            
+            {% endfor %}
+        </div>
+        <div class="notes">
+            <p>In this example, <span class="emphasis">matrix</span> is a 2D array with 3 rows and 3 columns.</p>
+        </div>
+
+
+        <h2>Accessing Elements in a Two-Dimensional Array</h2>
+        <div class="notes">
+            <p>
+                To access an element in a two-dimensional array, you use two indices: the first index for the row and the second index for the column.
+            </p>
+        </div>
+
+        <h2 style="text-align: center; color: skyblue; margin-top: 50px;">Example</h2>
+           <div class="code-view">
+            {% for snippet in code_2 %}
+   
+                <div class="code-container">
+                    <button class="copy-button" onclick="copyToClipboard()">Copy</button>
+                    <pre class="code-editor-content">
+                        
+                        <style>
+                            {{ snippet.get_highlighted_code.css | safe }}
+                        </style>
+                        {{ snippet.get_highlighted_code.html | safe }}
+                        
+                    </pre>
+                    
+                </div>
+            
+            {% endfor %}
+        </div>
+
+        <h2 style="text-align: center; color: skyblue; margin-top: 50px;">Output</h2>
+
+        <div class="code-view">
+            <div class="sub-view">
+                <div class="code-block">
+                    <p><strong>&gt;</strong> 2</p>
+                    <p><strong>&gt;</strong> 7</p>
+                </div>
+            </div>
+        </div>
+
+
+        <h2>Modifying Elements in a Two-Dimensional Array</h2>
+
+        <div class="notes">
+            <p>
+                You can change the value of an element in a 2D array by accessing it through its row and column indices.
+            </p>
+        </div>
+
+        <h2 style="text-align: center; color: skyblue; margin-top: 50px;">Example</h2>
+        <div class="code-view">
+            {% for snippet in code_3 %}
+   
+                <div class="code-container">
+                    <button class="copy-button" onclick="copyToClipboard()">Copy</button>
+                    <pre class="code-editor-content">
+                        
+                        <style>
+                            {{ snippet.get_highlighted_code.css | safe }}
+                        </style>
+                        {{ snippet.get_highlighted_code.html | safe }}
+                        
+                    </pre>
+                    
+                </div>
+            
+            {% endfor %}
+        </div>
+
+        <h2 style="text-align: center; color: skyblue; margin-top: 50px;">Output</h2>
+
+        <div class="code-view">
+            <div class="sub-view">
+                <div class="code-block">
+                    <p><strong>&gt;</strong> [1, 2, 3]</p>
+                    <p><strong>&gt;</strong> [4, 10, 6]</p>
+                    <p><strong>&gt;</strong> [7, 8, 9]</p>
+            
+                </div>
+            </div>
+        </div>
+        
+
+        <h2 style="text-align: center; color: skyblue; margin-top: 50px;">Exercise</h2>
+        <div class="notes">
+            <ol>
+               <li>Given the following 2D array of names, change the name in the first row and second column to a different name and log the modified array.</li>
+               <div class="code-view">
+                    <div class="sub-view">
+                        <div class="code-block">
+                            <p> ['Alice', 'Bob'],</p>
+                            <p> ['Charlie', 'David'],</p>
+                            <p> ['Eve', 'Frank']</p>
+                
+                        </div>
+                    </div>
+                </div>
+                <li>Add a new row of names and log the updated array. Hint: Use the <span class="emphasis">push()</span> method</li>
+            </ol>
+        </div>
+
+
+        <div class="button-container">
+            <a href="{%url 'js_page16'%}"><button class="prev">Prev</button></a>
+            <a href="{%url 'js_page18'%}"><button class="next">Next</button></a>
+        </div>
+
+        </div>
+    </div>
+</main>
+<footer>
+    {%include 'footer.html'%}
+</footer>
+<script type="text/javascript" src="{%static 'assets/js/main/scripts.js'%}"></script>
+</body>
+</html>

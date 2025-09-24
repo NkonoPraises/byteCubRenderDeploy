@@ -1,0 +1,103 @@
+{%load static%}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTML Headings</title>
+    <link rel="stylesheet" type="text/css" href="{%static 'assets/CSS/IntroToHTML/index.css'%}">
+    <link rel="stylesheet" type="text/css" href="{%static 'assets/CSS/IntroToHTML/header.css'%}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style>
+        .chapter-pointer-4{
+	        border: 2px solid skyblue;
+        }
+    </style>
+</head>
+{%include 'all/snippets/header_snippet.html'%}
+<body>
+    <main>
+    <div class="main-container">
+        <div class="left-container">
+            {%include 'introToHTML_app/snippets/left-container_snippet.html'%}
+        </div>
+        <div class="mid-container">
+            <h1 style="text-align: center; margin-bottom: 15px;">HTML Headings</h1>
+
+            <div class="button-container">
+                <a href="{%url 'page3_view'%}"><button class="prev">Prev</button></a>
+                <a href="{%url 'page5_view'%}"><button class="next">Next</button></a>
+            </div>
+
+            <h2>3.1 Introduction to Headings</h2>
+            <div class="notes">
+                <p>Like other forms of writting, <span class="emphasis">HTML Headings</span> are vital for organizing content, optimizing user experience and much more. By using the appropriate heading levels, web developers can create well-structured and accessible pages.</p>
+                
+            </div>
+            <h2>3.2 Heading Levels</h2>
+            <div class="notes">
+                <p>HTML defines <strong>six</strong> levels of headings ranging from <span class="emphasis">&lt;h1&gt;</span> to <span class="emphasis">&lt;h6&gt;</span>. Each level indicates the importance of the heading, with &lt;h1&gt; being the most significant and &lt;h6&gt; being the least.</p>
+                <p><strong>Note:</strong></p>
+                <p>&lt;h1&gt; usually appears on the top of the page and should only be used once on a page.</p>
+                <p>&lt;h2&gt; Is mostly used to group content into different parts.</p>
+                <p>&lt;h3&gt; to &lt;h6&gt; are used for sub-headings with decreasing importance. An example can be seen in the image below.</p>
+                <img style="height: 300px; display: block; margin: auto;" src="{%static 'assets/images/IntroToHTML/heading1.png'%}"  alt="">
+                <h2 style="text-align: center; color: skyblue; margin-top: 50px;">Code example</h2>
+                <div class="code-view">
+                    {% for snippet in code %}
+           
+                <div class="code-container">
+                    <button class="copy-button" onclick="copyToClipboard()">Copy</button>
+                    <pre class="code-editor-content">
+                        
+                        <style>
+                            {{ snippet.get_highlighted_code.css | safe }}
+                        </style>
+                        {{ snippet.get_highlighted_code.html | safe }}
+                        
+                    </pre>
+                    
+                </div>
+              
+            {% endfor %}
+                </div>
+                <hr>
+                <h3 style="text-align: center; color: skyblue; margin-top: 50px;">Result</h3>
+                
+                <div class="result">
+                    <h1 style="text-align: left; color: black; border-bottom: none; margin-bottom: 0; padding: 0;">This is a First level heading</h1>
+                    <h2 style="color: black; margin-top: 0;">This is a Second level heading</h2>
+                    <h3 style="margin-top: 0;">This is a Third level heading</h3>
+                    <h4>This is a Fourth level heading</h4>
+                    <h5>This is a Fifth level heading</h5>
+                    <h6>This is a Sixth level heading</h6>
+                </div>
+            </div>
+            <button class="run">Try it Yourself</button>
+            <div class="button-container" style="margin-top: 50px; margin-bottom: 50px;">
+                <a href="{%url 'page3_view'%}"><button class="prev">Prev</button></a>
+                <a href="{%url 'page5_view'%}"><button class="next">Next</button></a>
+            </div>
+        </div>
+        
+        
+    </div>
+    
+    <script>
+        function copyToClipboard() {
+            const codeElement = document.querySelector('.code-editor-content-2');
+            const code = codeElement.textContent;
+            
+            navigator.clipboard.writeText(code)
+                .then(() => alert('Code copied to clipboard!'))
+                .catch(err => console.error('Failed to copy: ', err));
+        }
+    </script> 
+      
+</main>
+<footer>
+    {%include 'footer.html'%}
+</footer>
+<script type="text/javascript" src="{%static 'assets/js/main/scripts.js'%}"></script>
+</body>
+</html>

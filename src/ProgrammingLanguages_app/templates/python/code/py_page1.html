@@ -1,0 +1,85 @@
+{%load static%}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Intro to Python</title>
+    <link rel="stylesheet" type="text/css" href="{%static 'assets/CSS/IntroToHTML/index.css'%}">
+    <link rel="stylesheet" type="text/css" href="{%static 'assets/CSS/IntroToHTML/header.css'%}">
+    <link rel="stylesheet" href="{%static 'assets/CSS/videos/video.css'%}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style>
+        .chapter-pointer-1{
+	        border: 2px solid skyblue;
+        }
+        .js-shots{
+            width: 50%;
+        }
+        @media(max-width: 760px){
+            .js-shots{
+                width: 100%;
+            }
+            
+        }
+
+    </style>
+	
+</head>
+{%include 'all/snippets/header_snippet.html'%}
+<body>
+<main>
+    <div class="main-container">
+        <div class="left-container">
+            {%include 'python/snippets/left-container_snippet.html'%}
+        </div>
+        <div class="mid-container">
+            <h1>Welcome to Python Programming</h1>
+
+            <div class="video-container">
+    <div class="content">
+        <h2>Featured Video</h2>
+    </div>
+    <div class="video-wrapper">
+        
+        <video width="560" height="315" controls src="{%static 'assets/videos/test.mp4'%}"  allowfullscreen>
+
+    </div>
+    <div class="content">
+        <div class="dropdown">
+            <button class="dropdown-button">
+                <span>Video Description</span>
+                <span class="arrow"></span>
+            </button>
+            <div class="dropdown-content">
+                <p><strong>Video Description:</strong></p>
+                <p>This is where you can add a detailed description about the video. You can write about the content, the purpose of the video, or any other relevant information. This section is now a drop-down, allowing users to toggle its visibility.</p>
+                <p>You can add more paragraphs here as needed to fully describe your video content.</p>
+            </div>
+        </div>
+
+        <!-- <button class="interaction-button" id="interactiveButton">Click Me!</button> -->
+    </div>
+</div>
+
+           
+
+        <div class="button-container">
+            <a href="{%url 'py_page2'%}"><button class="next">Get Started</button></a>
+        </div>
+      
+
+        </div>
+    </div>
+</main>
+<footer>
+    {%include 'footer.html'%}
+</footer>
+<script type="text/javascript" src="{%static 'assets/js/main/scripts.js'%}"></script>
+<script src="{%static 'assets/js/videos/video.js'%}"></script>
+<script type="text/javascript" src="{%static 'assets/js/main/scripts.js'%}">
+</script>
+<!-- <script type="text/javascript" src="{%static 'assets/js/main/search.js'%}"></script>
+<script type="text/javascript" src="{%static 'assets/js/main/headerScroll.js'%}"></script> -->
+</body>
+</html>

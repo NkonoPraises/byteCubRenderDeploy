@@ -1,0 +1,290 @@
+{%load static%}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>For Loops</title>
+    <link rel="stylesheet" type="text/css" href="{%static 'assets/CSS/IntroToHTML/index.css'%}">
+    <link rel="stylesheet" type="text/css" href="{%static 'assets/CSS/IntroToHTML/header.css'%}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style>
+        .chapter-pointer-14{
+	        border: 2px solid skyblue;
+        }
+        .js-shots{
+            width: 50%;
+        }
+        @media(max-width: 760px){
+            .js-shots{
+                width: 100%;
+            }
+            
+            
+        }
+        .code-container::-webkit-scrollbar{
+            /* overflow: hidden; */
+            display: none;
+        }
+        pre.code-editor-content{
+            overflow-y: hidden;
+            margin-bottom: -60px;
+            overflow-x: scroll;
+        }
+        .code-editor-content{
+            margin-top: -160px;
+            padding: 2px 0px;
+        }
+        @media(max-width:720px){
+            pre.code-editor-content{
+            width: 1500px;
+            
+            }
+        }
+    </style>
+	
+</head>
+{%include 'all/snippets/header_snippet.html'%}
+<body>
+<main>
+    <div class="main-container">
+        <div class="left-container">
+            {%include 'javaScript/snippets/left-container_snippet.html'%}
+        </div>
+        <div class="mid-container">
+            <h1>Introduction to For Loops in JavaScript</h1>
+
+            <div class="button-container">
+                <a href="{%url 'js_page13'%}"><button class="prev">Prev</button></a>
+                {%if has_answerd == True%}
+                <a href="{%url 'js_page15'%}"><button class="next">Next</button></a>
+                {%else%}
+                <a href="{{BASE_URL}}/JSQ3/"><button class="next">Next</button></a>
+                {%endif%}
+            </div>
+           
+
+            <h2>For Loops</h2>
+            <div class="notes">
+                <p>
+                    A <span class="emphasis">for</span> loop is a control structure in JavaScript that allows you to execute a block of code a specific number of times. It is particularly useful when you know in advance how many times you want to iterate through a block of code.
+                     The <span class="emphasis">for</span> loop consists of three main parts: initialization, condition, and increment/decrement. Each of these parts are seperated from eachother by a semi-colon [';'].
+                </p>
+            </div>
+            <h2 style="text-align: center; color: skyblue; margin-top: 50px;">Syntax of For Loop</h2>
+           <div class="code-view">
+            {% for snippet in code_1 %}
+   
+                <div class="code-container">
+                    <button class="copy-button" onclick="copyToClipboard()">Copy</button>
+                    <pre class="code-editor-content">
+                        
+                        <style>
+                            {{ snippet.get_highlighted_code.css | safe }}
+                        </style>
+                        {{ snippet.get_highlighted_code.html | safe }}
+                        
+                    </pre>
+                    
+                </div>
+            
+            {% endfor %}
+        </div>
+        <div class="notes">
+            <ul>
+                <li><strong>initialization</strong>: This is where you declare and initialize a loop control variable [e.g., let i = 0].</li>
+                <li><strong>condition</strong>: This is a boolean [true or false] expression that is evaluated before each iteration. The loop continues as long as this condition is true.</li>
+                <li><strong>increment/decrement</strong>: This is where you update the loop control variable [e.g., i++ to increment or i-- to decrement].</li>
+            </ul>
+        </div>
+
+
+
+
+        <h2 style="text-align: center; color: skyblue; margin-top: 50px;">Example</h2>
+        
+        <div class="notes">
+            <p>Let's look at a simple example where we use a <span class="emphasis">for</span> loop to print the numbers from 1 to 5.</p>
+        </div>
+
+           <div class="code-view">
+            {% for snippet in code_2 %}
+   
+                <div class="code-container">
+                    <button class="copy-button" onclick="copyToClipboard()">Copy</button>
+                    <pre class="code-editor-content">
+                        
+                        <style>
+                            {{ snippet.get_highlighted_code.css | safe }}
+                        </style>
+                        {{ snippet.get_highlighted_code.html | safe }}
+                        
+                    </pre>
+                    
+                </div>
+            
+            {% endfor %}
+        </div>
+
+  
+        <h2 style="text-align: center; color: skyblue; margin-top: 50px;">Output</h2>
+
+        <div class="code-view">
+            <div class="sub-view">
+                <div class="code-block">
+                    <p><strong>&gt;</strong> 1</p>
+                    <p><strong>&gt;</strong> 2</p>
+                    <p><strong>&gt;</strong> 3</p>
+                    <p><strong>&gt;</strong> 4</p>
+                    <p><strong>&gt;</strong> 5</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="notes">
+            <p>In the above example:</p>
+            <ul>
+                <li>We initialize <span class="emphasis">i</span> to 1.</li>
+                <li>The condition checks if <span class="emphasis">i</span> is less than or equal to 5.</li>
+                <li>Inside the loop, we print [or log] the current value of <span class="emphasis">i</span>.</li>
+                <li>After each iteration, <span class="emphasis">i</span> is incremented by 1</li>
+            </ul>
+        </div>
+
+
+        <h2>Using For Loops with User Input</h2>
+        <div class="notes">
+            <p>
+                You can also use <span class="emphasis">for</span> loops to repeat actions based on user input. For example, let's create a program that asks the user how many times they want to print a message.
+            </p>
+        </div>
+
+        <div class="code-view">
+            {% for snippet in code_3 %}
+   
+                <div class="code-container">
+                    <button class="copy-button" onclick="copyToClipboard()">Copy</button>
+                    <pre class="code-editor-content">
+                        
+                        <style>
+                            {{ snippet.get_highlighted_code.css | safe }}
+                        </style>
+                        {{ snippet.get_highlighted_code.html | safe }}
+                        
+                    </pre>
+                    
+                </div>
+            
+            {% endfor %}
+        </div>
+
+        <h2 style="text-align: center; color: skyblue; margin-top: 50px;">Output</h2>
+
+        <div class="code-view">
+            <div class="sub-view">
+                <div class="code-block">
+                    <p><strong>&gt;</strong> How many times do you want to print 'Hello'? &nbsp;<i class="fa fa-caret-right"></i> 3</p>
+                    <p><strong>&gt;</strong> Hello!</p>
+                    <p><strong>&gt;</strong> Hello!</p>
+                    <p><strong>&gt;</strong> Hello!</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="notes">
+            <p>In the above example:</p>
+            <ul>
+                <li>The user is prompted to enter a number.</li>
+                <li>The <span class="emphasis">for</span> loop runs from 0 to one less than the number entered by the user.</li>
+                <li>Each iteration prints "Hello!" to the console.</li>
+            </ul>
+        </div>
+
+        <h2>Nested For Loops</h2>
+        <div class="notes">
+            <p>You can also nest <span class="emphasis">for</span> loops inside each other. This is useful for working with multi-dimensional data, like arrays or matrices.</p>
+        </div>
+
+        <h2 style="text-align: center; color: skyblue; margin-top: 50px;">Example</h2>
+
+           <div class="code-view">
+            {% for snippet in code_4 %}
+   
+                <div class="code-container">
+                    <button class="copy-button" onclick="copyToClipboard()">Copy</button>
+                    <pre class="code-editor-content">
+                        
+                        <style>
+                            {{ snippet.get_highlighted_code.css | safe }}
+                        </style>
+                        {{ snippet.get_highlighted_code.html | safe }}
+                        
+                    </pre>
+                    
+                </div>
+            
+            {% endfor %}
+        </div>
+
+  
+        <h2 style="text-align: center; color: skyblue; margin-top: 50px;">Output</h2>
+
+        <div class="code-view">
+            <div class="sub-view">
+                <div class="code-block">
+                    <p><strong>&gt;</strong> i:1 j:1</p>
+                    <p><strong>&gt;</strong> i:2 j:2</p>
+                    <p><strong>&gt;</strong> i:1 j:1</p>
+                    <p><strong>&gt;</strong> i:2 j:2</p>
+                    <p><strong>&gt;</strong> i:1 j:1</p>
+                    <p><strong>&gt;</strong> i:2 j:2</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="notes">
+            <p>In this example, the outer loop runs three times, and for each iteration of the outer loop, the inner loop runs two times, resulting in a combination of <span class="emphasis">i</span> and <span class="emphasis">j</span> values being printed.</p>
+        </div>
+
+
+        <h2 style="text-align: center; color: skyblue; margin-top: 50px;">Exercise</h2>
+        <div class="notes">
+            <ol>
+                <li>Write a program that prompts the user for a number and then uses a <span class="emphasis">for</span> loop to print the multiplication table for that number from 1 to 10. For example, if the user enters 3, the output should be:</li>
+                <div class="code-view">
+                    <div class="sub-view">
+                        <div class="code-block">
+                            <p><strong>&gt;</strong> 3 x 1 = 3</p>
+                            <p><strong>&gt;</strong> 3 x 2 = 6</p>
+                            <p><strong>&gt;</strong> ...</p>
+                            <p><strong>&gt;</strong> 3 x 10 = 30</p>
+                    
+                        </div>
+                    </div>
+                </div>
+                <li>
+                    Create a program that prompts the user for a number and then uses a <span class="emphasis">for</span> loop to calculate the sum of all numbers from 1 to that number. After calculating the sum, print the result.
+                     For example, if the user enters 5, the output should be "The sum is 15" [1 + 2 + 3 + 4 + 5]. Hint: Use nested <span class="emphasis">for</span> loop.
+                </li>
+            </ol>
+        </div>
+
+
+            <div class="button-container">
+                <a href="{%url 'js_page13'%}"><button class="prev">Prev</button></a>
+                {%if has_answerd == True%}
+                <a href="{%url 'js_page15'%}"><button class="next">Next</button></a>
+                {%else%}
+                <a href="{{BASE_URL}}/JSQ3/"><button class="next">Next</button></a>
+                {%endif%}
+            </div>
+
+        </div>
+    </div>
+</main>
+<footer>
+    {%include 'footer.html'%}
+</footer>
+<script type="text/javascript" src="{%static 'assets/js/main/scripts.js'%}"></script>
+</body>
+</html>

@@ -1,0 +1,231 @@
+{%load static%}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Strings</title>
+    <link rel="stylesheet" type="text/css" href="{%static 'assets/CSS/IntroToHTML/index.css'%}">
+    <link rel="stylesheet" type="text/css" href="{%static 'assets/CSS/IntroToHTML/header.css'%}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style>
+        .chapter-pointer-4{
+	        border: 2px solid skyblue;
+        }
+        .js-shots{
+            width: 50%;
+        }
+        @media(max-width: 760px){
+            .js-shots{
+                width: 100%;
+            }
+            
+        }
+        .code-container{
+            overflow: hidden;
+        }
+        pre.code-editor-content{
+            width: 100%;
+            overflow-y: hidden;
+            margin-bottom: -60px;
+        }
+        .code-editor-content{
+            margin-top: -160px;
+            padding: 2px 0px;
+        }
+    </style>
+	
+</head>
+{%include 'all/snippets/header_snippet.html'%}
+<body>
+<main>
+    <div class="main-container">
+        <div class="left-container">
+            {%include 'python/snippets/left-container_snippet.html'%}
+        </div>
+        <div class="mid-container">
+            <h1>Strings</h1>
+            <div class="button-container">
+                <a href="{%url 'py_page3'%}"><button class="prev">Prev</button></a>
+                <a href="{%url 'py_page5'%}"><button class="next">Next</button></a>
+            </div>
+           
+
+            <h2>Introduction to the String Data Type in Python</h2>
+            <div class="notes">
+                <p>
+                    In Python, a <span class="emphasis">string</span> is a data type used to represent text. Strings are sequences of characters and can include letters, numbers, symbols, and spaces.
+                     They are enclosed in either single quotes ['...'] or double quotes ["..."].
+                </p>
+            </div>
+
+            <h2>Creating Strings</h2>
+            <div class="notes">
+               <p>
+                You can create a string by simply assigning text to a variable. </p>
+                <p>Here are some examples:</p>
+            </div>
+
+           <div class="code-view">
+            {% for snippet in code_1 %}
+   
+                <div class="code-container">
+                    <button class="copy-button" onclick="copyToClipboard()">Copy</button>
+                    <pre class="code-editor-content">
+                        
+                        <style>
+                            {{ snippet.get_highlighted_code.css | safe }}
+                        </style>
+                        {{ snippet.get_highlighted_code.html | safe }}
+                        
+                    </pre>
+                    
+                </div>
+            
+            {% endfor %}
+        </div>
+
+        <div class="notes">
+            <p>Both of these methods are valid and can be used interchangeably.</p>
+        </div>
+        <h2>String Operations</h2>
+  
+        <div class="notes">
+            <p>Python provides various operations that you can perform on strings:</p>
+        </div>
+        <div class="notes">
+            <p><strong>1. Concatenation: </strong> Joining two or more strings together.</p>
+        </div>
+
+        <h2 style="text-align: center; color: skyblue; margin-top: 50px;">Example</h2>
+           <div class="code-view">
+            {% for snippet in code_2 %}
+   
+                <div class="code-container">
+                    <button class="copy-button" onclick="copyToClipboard()">Copy</button>
+                    <pre class="code-editor-content">
+                        
+                        <style>
+                            {{ snippet.get_highlighted_code.css | safe }}
+                        </style>
+                        {{ snippet.get_highlighted_code.html | safe }}
+                        
+                    </pre>
+                    
+                </div>
+            
+            {% endfor %}
+        </div>
+        <h2 style="text-align: center; color: skyblue; margin-top: 50px;">Output</h2>
+
+        <div class="code-view">
+            <div class="sub-view">
+                <div class="code-block">
+                    <p><i class="fa fa-angle-double-right"></i> StevenGrek</p>
+                    <p><i class="fa fa-angle-double-right"></i>  Steven Grek</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="notes">
+            <p>Using <strong>spaced</strong> double qoutes between the first_name and last_name creates a space between them.</p>
+        </div>
+
+        <div class="notes">
+            <p><strong>2. Length:</strong> Finding the number of characters in a string using the <span class="emphasis">len()</span> function.</p>
+        </div>
+        
+        <h2 style="text-align: center; color: skyblue; margin-top: 50px;">Example</h2>
+           <div class="code-view">
+            {% for snippet in code_3 %}
+   
+                <div class="code-container">
+                    <button class="copy-button" onclick="copyToClipboard()">Copy</button>
+                    <pre class="code-editor-content">
+                        
+                        <style>
+                            {{ snippet.get_highlighted_code.css | safe }}
+                        </style>
+                        {{ snippet.get_highlighted_code.html | safe }}
+                        
+                    </pre>
+                    
+                </div>
+            
+            {% endfor %}
+        </div>
+        <br>
+        <h2 style="text-align: center; color: skyblue; margin-top: 50px;">Output</h2>
+
+        <div class="code-view">
+            <div class="sub-view">
+                <div class="code-block">
+                    <p><i class="fa fa-angle-double-right"></i> 5</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="notes">
+            <p><strong>4. Changing Case:</strong> You can change the case of a string using methods like <span class="emphasis">.upper()</span>, <span class="emphasis">.lower()</span>, and <span class="emphasis">.title()</span>.</p>
+        </div>
+
+        <h2 style="text-align: center; color: skyblue; margin-top: 50px;">Example</h2>
+        <div class="code-view">
+            {% for snippet in code_4 %}
+   
+                <div class="code-container">
+                    <button class="copy-button" onclick="copyToClipboard()">Copy</button>
+                    <pre class="code-editor-content">
+                        
+                        <style>
+                            {{ snippet.get_highlighted_code.css | safe }}
+                        </style>
+                        {{ snippet.get_highlighted_code.html | safe }}
+                        
+                    </pre>
+                    
+                </div>
+            
+            {% endfor %}
+        </div>
+
+        <h2 style="text-align: center; color: skyblue; margin-top: 50px;">Output</h2>
+
+        <div class="code-view">
+            <div class="sub-view">
+                <div class="code-block">
+                    <p><i class="fa fa-angle-double-right"></i> HELLO WORLD</p>
+                    <p><i class="fa fa-angle-double-right"></i> Hello World</p>
+                </div>
+            </div>
+        </div>
+
+
+
+        <h2 style="text-align: center; color: skyblue; margin-top: 50px;">Exercise</h2>
+        <div class="notes">
+           <ol>
+            <li>Create two string variables: <span class="emphasis">word1</span> [e.g, "python"] and <span class="emphasis">word2</span> [e.g, "programming"].</li>
+            <li>Concantenate <span class="emphasis">word1</span> and <span class="emphasis">word2</span> with a space in between to form a new string called <span class="emphasis">full_phrase</span> [e.g, "python programming"].</li>
+            <li>Print the <span class="emphasis">full_phrase</span>.</li>
+            <li>Print the length of <span class="emphasis">full_phrase</span>.</li>
+            <li>Print <span class="emphasis">full_phrase</span> with the first letter of each word capitalised.</li>
+           </ol>
+
+        </div>
+
+
+        <div class="button-container">
+            <a href="{%url 'py_page3'%}"><button class="prev">Prev</button></a>
+            <a href="{%url 'py_page5'%}"><button class="next">Next</button></a>
+        </div>
+
+        </div>
+    </div>
+</main>
+<footer>
+    {%include 'footer.html'%}
+</footer>
+<script type="text/javascript" src="{%static 'assets/js/main/scripts.js'%}"></script>
+</body>
+</html>

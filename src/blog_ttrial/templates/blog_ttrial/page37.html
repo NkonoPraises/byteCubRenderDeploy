@@ -1,0 +1,426 @@
+{%load static%}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Styling the Slider items</title>
+    <link rel="stylesheet" type="text/css" href="{%static 'assets/CSS/IntroToHTML/index.css'%}">
+    <link rel="stylesheet" type="text/css" href="{%static 'assets/CSS/IntroToHTML/header.css'%}">
+    <link rel="stylesheet" type="text/css" href="{%static 'assets/CSS/blog_ttrial/header.css'%}">
+    <link rel="stylesheet" href="{%static 'assets/CSS/tabs/tabs.css'%}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style>
+        .chapter-pointer-37{
+	        border: 2px solid skyblue;
+        }
+
+        /* result styling */
+        .result{
+            padding: 0;
+        }
+        /* result styling */
+        .menu{
+            background: none;
+            border: none;
+            font-size: 25px;
+            color: #333;
+            cursor: pointer; /*cursor arrow changes to a pointer whenever it moves above the button*/
+        }
+       .result h1{
+        margin: 0;
+       }
+       .main{
+        padding: 6px;
+       }
+       .items-container{
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 15px;
+       }
+
+       .result .trend-item img{
+        width: 100%;
+        height: 200px;
+        object-fit: cover;
+
+       }
+       .trend-item h3 {
+            margin: 15px;
+            font-size: 1.3em;
+            color: #333;
+        }
+        .trend-item p {
+            margin: 0 15px 15px;
+            color: #666;
+            line-height: 1.5;
+        }
+
+        .trend-item .trend-link {
+            display: block;
+            background-color: #2980b9;
+            color: #fff;
+            text-align: center;
+            padding: 12px;
+            text-decoration: none;
+            transition: background-color 0.3s;
+        }
+  
+  .trend-item .trend-link:hover {
+            background-color: #3498db;
+        }
+        .trend-item {
+            background-color: #fff;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+        .trend-item{
+            transition: transform 0.3s ease;
+        }
+        .trend-item.trend-item:hover{
+            transform: translateY(-5px);
+        }
+        .seasonal-trends h1,
+        .trending-now h1 {
+            text-align: center;
+            margin-bottom: 30px;
+            color: #333;
+            font-size: 1.7em;
+            border-bottom: 2px solid #eee;
+            padding-bottom: 10px;
+        }
+
+        /* Seasonal Trends Section */
+        .seasonal-trends {
+            margin-top: 40px;
+        }
+        
+        .seasonal-slider {
+            display: flex;
+            overflow-x: auto;
+            padding-bottom: 20px; 
+        }
+        .slider-item {
+            flex-grow: 0;
+            flex-shrink: 0;
+            flex-basis: 80%;
+            min-width: 80%;
+            background-color: #fff;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            margin-right: 20px;
+        }
+        /* Hide scrollbar for Chrome, Safari and Opera */
+        .seasonal-slider::-webkit-scrollbar {
+            display: none;
+        }
+        
+        /* Hide scrollbar for Internet Explorer, Edge and Firefox */
+        .seasonal-slider {
+            -ms-overflow-style: none;  /* Internet Explorer and Edge */
+            scrollbar-width: none;  /* Firefox */
+        }
+
+        .slider-item img {
+            width: 100%;
+            height: 300px;
+            object-fit: cover; /* Maintain aspect ratio */
+        }
+        .slider-item h3 {
+            margin: 15px;
+            font-size: 25px;
+            color: #333;
+        }
+
+        .slider-item p {
+            margin: 0 0 15px 15px;
+            color: #666;
+            line-height: 1.5;
+        }
+        .slider-item .trend-link.edit {
+            display: block;
+            background-color: #9b59b6;
+            color: #fff;
+            text-align: center;
+            padding: 12px;
+            text-decoration: none;
+            transition: background-color 0.3s;
+        }
+        
+        .slider-item .trend-link.edit:hover {
+            background-color: #af7ac6;
+        }
+
+
+        
+    </style>
+</head>
+{%include 'all/snippets/header_snippet.html'%}
+<body>
+    <main>
+    <div class="main-container">
+        <div class="left-container">
+            {%include 'snippets/trends-left-container_snippet.html'%} 
+        </div>
+        <div class="mid-container">
+           <h1>Styling the Slider items</h1>
+            <div class="button-container">
+                <a href="{%url 'blog_pg36'%}"><button class="prev">Prev</button></a>
+                <a href="{%url 'blog_pg38'%}"><button class="next">Next</button></a>
+            </div>
+            <h2>Title & Details</h2>
+
+           <h2 style="text-align: center; color: skyblue; margin-top: 50px;">trends.css [.slider-item h3 & .slider-item p]</h2>
+           <div class="tab">
+        <button class="tablinks active" onclick="openTab(event, 'Tab1')">Code Snippet</button>
+        <button class="tablinks" onclick="openTab(event, 'Tab2')">Full Code</button>
+        <!-- <button class="tablinks" onclick="openTab(event, 'Tab3')">Tab 3</button> -->
+        </div>
+
+        <div id="Tab1" class="tabcontent" style="display: block;">
+        <div class="code-view">
+                    {% for snippet in code_1a %}
+        
+                        <div class="code-container">
+                            <button class="copy-button" onclick="copyToClipboard()">Copy</button>
+                            <pre class="code-editor-content">
+                                
+                                <style>
+                                    {{ snippet.get_highlighted_code.css | safe }}
+                                </style>
+                                {{ snippet.get_highlighted_code.html | safe }}
+                                
+                            </pre>
+                            
+                        </div>
+                    
+                    {% endfor %}
+                </div>
+        </div>
+
+        <div id="Tab2" class="tabcontent">
+        <div class="code-view">
+                    {% for snippet in code_1 %}
+        
+                        <div class="code-container">
+                            <button class="copy-button" onclick="copyToClipboard()">Copy</button>
+                            <pre class="code-editor-content">
+                                
+                                <style>
+                                    {{ snippet.get_highlighted_code.css | safe }}
+                                </style>
+                                {{ snippet.get_highlighted_code.html | safe }}
+                                
+                            </pre>
+                            
+                        </div>
+                    
+                    {% endfor %}
+                </div>
+        </div>
+
+        <!-- <div id="Tab3" class="tabcontent">
+        <h3>Tab 3 Content</h3>
+        <p>This is the content of Tab 3.</p>
+        </div> -->
+
+   
+        <h2 style="text-align: center; color: skyblue; margin-top: 50px;">Result</h2>
+        <div class="result">
+        
+            <div class="header-div">
+                <div style="display: flex; justify-content: space-between; align-items: center;" class="header-container">
+                    <div class="logo-2" >Fashion Farward</div>
+                    <nav class="main-nav nav-style">
+                        <button class="menu" style="display: none;">Menu</button>
+                        <ul style="list-style-position: inside; list-style: none; display: flex;">
+                            <li><a href="#">Trends</a></li>
+                            <li><a href="#">Designers</a></li>
+                            <li><a href="#">Outfits</a></li>
+                            <li><a href="#">Beauty</a></li>
+                            <li><a href="#">About</a></li>
+                            <li><a href="#">Contacts</a></li>
+                        </ul>
+                    </nav >
+                </div>
+            </div>
+        
+            <div class="main">
+                <section class="trending-now">
+                    <h1>Trending Now</h1> 
+                    <div class="items-container">
+            
+                        <!-- children containers -->
+                        <article class="trend-item" >
+                            <img src="{%static 'assets/images/Front End Dev/pexels-matvalina-17360767.jpg'%}" alt="Image of a Trending Now Item">
+                            <h3>Oversized Blazers</h3>
+                            <p style="padding: 0;">Effortless and chic, oversized blazers are dominating the runways and streets.</p>
+                            <a href="#" class="trend-link">Read More <i class="fa fa-arrow-right"></i></a>
+                        </article>
+                        
+                        <article class="trend-item">
+                            <img src="{%static 'assets/images/Front End Dev/pexels-gulsahaydgn-19343434.jpg'%}" alt="Statement Sleeves Trend">
+                            <h3>Statement Sleeves</h3>
+                            <p>Make a statement with dramatic sleeves - from ruffles to balloon shapes.</p>
+                            <a href="#" class="trend-link">Read More <i class="fa fa-arrow-right"></i></a>
+                        </article>
+                    </div>
+                </section>
+                <!-- seasonal trends section -->
+                <section class="seasonal-trends"><!-- parent [1] -->
+                    <h1>Seasonal Trends (Autumn/Winter 2023)</h1>
+                    <div class="seasonal-slider"><!-- parent sub-container [2]-->
+                        <article class="slider-item"> <!-- child-one [3] -->
+                            <img  src="{%static 'assets/images/Front End Dev/pexels-amanjakhar-1124468.jpg'%}" alt="Leather Looks Trend">
+                            <h3>Leather Looks</h3>
+                            <p>Head-to-toe leather is making a strong statement this season.</p>
+                            <a href="#" class="trend-link">Explore <i class="fa fa-arrow-right"></i></a>
+                        </article>
+                        <article class="slider-item"> <!-- child-two [3] -->
+                            <img src="{%static 'assets/images/Front End Dev/pexels-palefire-9947831.jpg'%}" alt="Dark Academia Trend">
+                            <h3>Dark Academia</h3>
+                            <p>Embrace a scholarly and sophisticated style with dark colors and tailored pieces.</p>
+                            <a href="#" class="trend-link">Explore <i class="fa fa-arrow-right"></i></a>        
+                        </article>
+                    </div>
+                </section>
+            </div>
+        </div>
+
+        <h2>Styling the Explore link</h2>
+        <h2 style="text-align: center; color: skyblue; margin-top: 50px;">trends.css [.slider-item .trend-link]</h2>
+           <div class="taba">
+        <button class="tablinksa activea" onclick="openTaba(event, 'Tab1a')">Code Snippet</button>
+        <button class="tablinksa" onclick="openTaba(event, 'Tab2a')">Full Code</button>
+        <!-- <button class="tablinks" onclick="openTab(event, 'Tab3')">Tab 3</button> -->
+        </div>
+
+        <div id="Tab1a" class="tabcontenta" style="display: block;">
+        <div class="code-view">
+                    {% for snippet in code_2a %}
+        
+                        <div class="code-container">
+                            <button class="copy-button" onclick="copyToClipboard()">Copy</button>
+                            <pre class="code-editor-content">
+                                
+                                <style>
+                                    {{ snippet.get_highlighted_code.css | safe }}
+                                </style>
+                                {{ snippet.get_highlighted_code.html | safe }}
+                                
+                            </pre>
+                            
+                        </div>
+                    
+                    {% endfor %}
+                </div>
+        </div>
+
+        <div id="Tab2a" class="tabcontenta">
+        <div class="code-view">
+                    {% for snippet in code_2 %}
+        
+                        <div class="code-container">
+                            <button class="copy-button" onclick="copyToClipboard()">Copy</button>
+                            <pre class="code-editor-content">
+                                
+                                <style>
+                                    {{ snippet.get_highlighted_code.css | safe }}
+                                </style>
+                                {{ snippet.get_highlighted_code.html | safe }}
+                                
+                            </pre>
+                            
+                        </div>
+                    
+                    {% endfor %}
+                </div>
+        </div>
+
+        <!-- <div id="Tab3" class="tabcontent">
+        <h3>Tab 3 Content</h3>
+        <p>This is the content of Tab 3.</p>
+        </div> -->
+
+   
+        <h2 style="text-align: center; color: skyblue; margin-top: 50px;">Result</h2>
+        <div class="result">
+        
+            <div class="header-div">
+                <div style="display: flex; justify-content: space-between; align-items: center;" class="header-container">
+                    <div class="logo-2" >Fashion Farward</div>
+                    <nav class="main-nav nav-style">
+                        <button class="menu" style="display: none;">Menu</button>
+                        <ul style="list-style-position: inside; list-style: none; display: flex;">
+                            <li><a href="#">Trends</a></li>
+                            <li><a href="#">Designers</a></li>
+                            <li><a href="#">Outfits</a></li>
+                            <li><a href="#">Beauty</a></li>
+                            <li><a href="#">About</a></li>
+                            <li><a href="#">Contacts</a></li>
+                        </ul>
+                    </nav >
+                </div>
+            </div>
+        
+            <div class="main">
+                <section class="trending-now">
+                    <h1>Trending Now</h1> 
+                    <div class="items-container">
+            
+                        <!-- children containers -->
+                        <article class="trend-item" >
+                            <img src="{%static 'assets/images/Front End Dev/pexels-matvalina-17360767.jpg'%}" alt="Image of a Trending Now Item">
+                            <h3>Oversized Blazers</h3>
+                            <p style="padding: 0;">Effortless and chic, oversized blazers are dominating the runways and streets.</p>
+                            <a href="#" class="trend-link">Read More <i class="fa fa-arrow-right"></i></a>
+                        </article>
+                        
+                        <article class="trend-item">
+                            <img src="{%static 'assets/images/Front End Dev/pexels-gulsahaydgn-19343434.jpg'%}" alt="Statement Sleeves Trend">
+                            <h3>Statement Sleeves</h3>
+                            <p>Make a statement with dramatic sleeves - from ruffles to balloon shapes.</p>
+                            <a href="#" class="trend-link">Read More <i class="fa fa-arrow-right"></i></a>
+                        </article>
+                    </div>
+                </section>
+                <!-- seasonal trends section -->
+                <section class="seasonal-trends"><!-- parent [1] -->
+                    <h1>Seasonal Trends (Autumn/Winter 2023)</h1>
+                    <div class="seasonal-slider"><!-- parent sub-container [2]-->
+                        <article class="slider-item"> <!-- child-one [3] -->
+                            <img  src="{%static 'assets/images/Front End Dev/pexels-amanjakhar-1124468.jpg'%}" alt="Leather Looks Trend">
+                            <h3>Leather Looks</h3>
+                            <p>Head-to-toe leather is making a strong statement this season.</p>
+                            <a style="margin-bottom: 0;" href="#" class="trend-link edit">Explore <i class="fa fa-arrow-right"></i></a>
+                        </article>
+                        <article class="slider-item"> <!-- child-two [3] -->
+                            <img src="{%static 'assets/images/Front End Dev/pexels-palefire-9947831.jpg'%}" alt="Dark Academia Trend">
+                            <h3>Dark Academia</h3>
+                            <p>Embrace a scholarly and sophisticated style with dark colors and tailored pieces.</p>
+                            <a href="#" class="trend-link edit">Explore <i class="fa fa-arrow-right"></i></a>        
+                        </article>
+                    </div>
+                </section>
+            </div>
+        </div>
+
+        
+            <div class="button-container" style="margin-top: 50px; margin-bottom: 100px;">
+                <a href="{%url 'blog_pg36'%}"><button class="prev">Prev</button></a>
+                <a href="{%url 'blog_pg38'%}"><button class="next">Next</button></a>
+            </div>
+        </div>
+        
+        
+    </div>
+    <script src="{%static 'assets/js/tabs/tabs.js'%}"></script>
+  <footer>
+    {%include 'footer.html'%}
+</footer>
+<script type="text/javascript" src="{%static 'assets/js/main/scripts.js'%}"></script>
+</main>
+</body>
+</html>

@@ -1,0 +1,96 @@
+{% extends 'admin_reviews/base3.html' %}
+
+{% block content %}
+<main class="container">
+    <a href="{% url 'exerciseApp:exercise_submissions' submission.title %}" class="back-link">
+        <i class="fas fa-arrow-left"></i>
+        Back to Submissions
+    </a>
+    
+    <div class="card">
+        <div class="card-header">
+            <h2>{{ submission.title }}</h2>
+            <span>Submitted by: {{ submission.user.get_full_name|default:submission.user.username }}</span>
+        </div>
+        <div class="card-body">
+            <div class="submission-meta">
+                <div class="meta-item">
+                    <span class="meta-label">Submission Date</span>
+                    <span class="meta-value">{{ submission.date|date:"F d, Y - H:i" }}</span>
+                </div>
+                <div class="meta-item">
+                    <span class="meta-label">Status</span>
+                    <span class="meta-value">{% if submission.verified %}Reviewed{% else %}Pending{% endif %}</span>
+                </div>
+                <div class="meta-item">
+                    <span class="meta-label">Language</span>
+                    <span class="meta-value">{{ submission.type }}</span>
+                </div>
+            </div>
+            
+            <h3>Solution Code:</h3>
+            <div class="code-container-edit">
+                <div class="code-toolbar">
+                    <button class="copy-btn" id="copyBtn" title="Copy to clipboard">
+                        <i class="far fa-copy"></i> Copy Code
+                    </button>
+                </div>
+                <pre><code class="language-{{ submission.type|lower }}" id="codeBlock">{{ submission.code }}</code></pre>
+            </div>
+            
+            <div class="review-form">
+                <h3>Review Submission</h3>
+                <form id="reviewForm" method="POST" action="{% url 'exerciseApp:submit_review' submission.id %}">
+                    {% csrf_token %}
+                    <div class="form-group">
+                        <label for="remarks" class="form-label">Remarks</label>
+                        <textarea id="remarks" name="remarks" class="form-control" placeholder="Enter your feedback on the code..." required></textarea>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="score" class="form-label">Score (0-100)</label>
+                        <input type="number" id="score" name="score" class="form-control" min="0" max="100" value="0" required>
+                    </div>
+                    
+                    <div class="form-check">
+                        <input type="checkbox" id="deleteSubmission" name="delete" class="form-check-input">
+                        <label for="deleteSubmission" class="form-check-label">Delete this submission</label>
+                    </div>
+                    
+                    <div class="btn-group">
+                        <button type="submit" class="btn">Submit Review</button>
+                        <a href="{% url 'exerciseApp:exercise_submissions' submission.title %}" class="btn btn-danger">Cancel</a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</main>
+{% endblock %}
+
+{% block scripts %}
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.5.1/highlight.min.js"></script>
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        hljs.highlightAll();
+        
+        // Copy code functionality
+        const copyBtn = document.getElementById('copyBtn');
+        if (copyBtn) {
+            copyBtn.addEventListener('click', function() {
+                const codeBlock = document.getElementById('codeBlock');
+                navigator.clipboard.writeText(codeBlock.textContent).then(() => {
+                    const originalText = copyBtn.innerHTML;
+                    copyBtn.innerHTML = '<i class="fas fa-check"></i> Copied!';
+                    setTimeout(() => {
+                        copyBtn.innerHTML = originalText;
+                    }, 2000);
+                });
+            });
+        }
+        
+        
+    });
+
+</script>
+{% endblock %}

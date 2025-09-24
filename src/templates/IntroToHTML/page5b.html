@@ -1,0 +1,164 @@
+{%load static%}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Important Markups Involved With HTML Paragraphs</title>
+    <link rel="stylesheet" type="text/css" href="{%static 'assets/CSS/IntroToHTML/index.css'%}">
+    <link rel="stylesheet" type="text/css" href="{%static 'assets/CSS/IntroToHTML/header.css'%}">
+    <link rel="stylesheet" href="{%static 'assets/CSS/videos/video.css'%}">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style>
+        .chapter-pointer-5b{
+	        border: 2px solid skyblue;
+        }
+        .result p{
+            line-height: 1.7;
+        }
+    </style>
+</head>
+{%include 'all/snippets/header_snippet.html'%}
+<body>
+    <main>
+    <div class="main-container">
+        <div class="left-container">
+            {%include 'introToHTML_app/snippets/left-container_snippet.html'%} 
+        </div>
+        <div class="mid-container">
+            <h1 style="margin-top: 20px;">4.2 Important Markups Involved With HTML Paragraphs</h1>
+            <div class="button-container">
+                <a href="{%url 'page5_view'%}"><button class="prev">Prev</button></a>
+                <a href="{%url 'HTMLIntro_ex1'%}"><button class="next">Next</button></a>
+            </div>
+
+             <!-- Featured Video      -->
+            <div class="main-video-container">
+                    <div class="content">
+                        <h2>Featured Video</h2>
+                    </div>
+                    
+                    <div class="video-wrapper">
+                        <video id="videoPlayer" width="560" height="315"  poster="{%static 'assets/images/IntroToHTML/1757183118927.jpg'%}" controls>
+                            <!-- Sample video from Pexels -->
+                            <source  src="{%static 'assets/videos/HTML/HTML Markups-byteCub.mp4'%}" type="video/mp4">
+                            Your browser does not support the video tag.
+                        </video>
+                        
+                        <!-- Overlay navigation buttons -->
+                        <div class="overlay-controls">
+                            <div class="nav-btn" id="rewindOverlayBtn" title="Rewind 10 seconds"><i class="fa-solid fa-backward"></i></div>
+                            <div class="nav-btn" id="forwardOverlayBtn" title="Forward 10 seconds"><i class="fa-solid fa-forward"></i></div>
+                        </div>
+                    </div>
+                    
+                <div class="content">
+                    <div class="dropdown">
+                        <button class="dropdown-button">
+                            <span>Video Description</span>
+                            <span class="arrow"></span>
+                        </button>
+                        <div class="dropdown-content">
+                            <p><strong>Video Description:</strong></p>
+                            <p>This is where you can add a detailed description about the video. You can write about the content, the purpose of the video, or any other relevant information. This section is now a drop-down, allowing users to toggle its visibility.</p>
+                            <p>You can add more paragraphs here as needed to fully describe your video content.</p>
+                        </div>
+                    </div>
+
+                    <button class="interaction-button" id="interactiveButton">Click Me!</button>
+                </div>
+            </div>
+
+
+           <div class="notes">
+            <p>When working with HTML Paragraphs, several Important markups and elements are commonly used. Here are some key ones.</p>
+           </div>
+
+          
+           <h2 style="text-align: center; color: skyblue; margin-top: 50px;">Code example</h2>
+           <div class="code-view">
+            {% for snippet in code %}
+   
+                <div class="code-container">
+                    <button class="copy-button" onclick="copyToClipboard()">Copy</button>
+                    <pre class="code-editor-content">
+                        
+                        <style>
+                            {{ snippet.get_highlighted_code.css | safe }}
+                        </style>
+                        {{ snippet.get_highlighted_code.html | safe }}
+                        
+                    </pre>
+                    
+                </div>
+            
+            {% endfor %}
+        </div>
+                <hr>
+                <h3 style="text-align: center; color: skyblue; margin-top: 50px;">Result</h3>
+                <div style="color: black;" class="result">
+                    <center>
+                        <!-- First section -->
+                       <section>
+                              <h1 style="margin-top: 5px;">The Web: A Double-Edged Sword</h1>
+                              <p>The internet, built by diligent <i>web developers</i>, has revolutionized communication and commerce. They craft intricate systems, turning lines of code into interactive experiences. These digital architects design websites and applications that power our modern world.</p>
+                        </section> 
+              
+                        <br>
+                        
+                        <!-- Second section -->
+                        <section>
+                              <h2 style="margin-top: 5px;">The Shadowy Side: Hackers</h2>
+                              <p>However, this vibrant ecosystem is constantly threatened by <strong>hackers</strong>. These individuals seek to exploit vulnerabilities in systems, often with malicious intent. Their actions range from data breaches and identity theft to the disruption of critical infrastructure.</p>
+                        </section>
+                   </center>
+                </div>
+                <button class="run">Try it Yourself</button>
+
+                <h3>4.2.1 <span class="emphasis">&lt;center&gt;</span>: </h3>
+                <div class="notes">
+                 <p> The <span class="emphasis">&lt;center&gt; Content &lt;/center&gt;</span> tag is used to center-align text and elements within a webpage. </p>
+                </div>
+
+                <h3>4.2.2 Comment [<span class="emphasis">&lt;!-- First section --&gt;</span>]: </h3>
+                <div class="notes">
+                    <p>Comments in HTML are used notes or explanations within the code that are not displayed in the browser. Their purpose is to help developers understand and maintain their code by providing context and details.</p>
+                </div>
+
+                <h3>4.2.3 <span class="emphasis">&lt;section&gt;</span>: </h3>
+                <div class="notes">
+                    <p> The <span class="emphasis">&lt;section&gt; Content &lt;/section&gt;</span> tag is used to group content into different independent sections. </p>
+                </div>
+
+                <h3>4.2.4 <span class="emphasis">&lt;i&gt;</span>: </h3>
+                <div class="notes">
+                    <p> The <span class="emphasis">&lt;i&gt;italic&lt;/i&gt;</span> tag is used to emphasize text, typically rendering it in italics. This can be useful for highlighting specific words or phrases within a paragraph.</p>
+                </div>
+
+                <h3>4.2.5 <span class="emphasis">&lt;br&gt;</span>: </h3>
+                <div class="notes">
+                    <p>The line break tag is used to insert a line break [line spacing] within elements in a webpage. In the above case, it creates a spacing between the two sections.</p>
+                </div>
+
+                <h3>4.2.6 <span class="emphasis">&lt;strong&gt;</span>: </h3>
+                <div class="notes">
+                     <p> This tag is used to indicate that the text is of strong importance. By default, it renders the text in bold, which can help emphasize keypoints within a paragraph.</p>
+                </div>
+
+            <div class="button-container" style="margin-top: 50px; margin-bottom: 100px;">
+                <a href="{%url 'page5_view'%}"><button class="prev">Prev</button></a>
+                <a href="{%url 'HTMLIntro_ex1'%}"><button class="next">Next</button></a>
+            </div>
+        </div>
+        
+        
+    </div>
+</main>
+<footer>
+    {%include 'footer.html'%}
+</footer>
+<script src="{%static 'assets/js/videos/video.js'%}"></script>
+<script type="text/javascript" src="{%static 'assets/js/main/scripts.js'%}"></script>
+</body>
+</html>

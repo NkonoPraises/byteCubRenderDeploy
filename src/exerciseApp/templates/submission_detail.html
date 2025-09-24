@@ -1,0 +1,61 @@
+{% extends "base2.html" %}
+
+{% load static %}
+
+{% block content %}
+  <div class="container">
+    <h2>Submission Details</h2>
+    {% if submission %}
+      <div class="row">
+        <div class="col-md-6">
+          <h3>Your Code</h3>
+          <pre id="user-code">{{ submission.code }}</pre>
+        </div>
+        <div class="col-md-6">
+          <h3>Correct Answer</h3>
+          <pre id="correct-code">{{ correct_answer }}</pre>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-12">
+          <p>Score: {{ submission.score }}</p>
+        </div>
+      </div>
+    {% else %}
+      <p>No submission has been made. Redirect back to the main page to get questions.</p>
+    {% endif %}
+  </div>
+
+  <section class="leaderboard-section">
+        <h3>Leaderboard</h3>
+        <p>Your Rank: {{ rank }}</p>
+        <ol>
+            {% for entry in leaderboard %}
+                <li>{{ entry.user.username }} - {{ entry.total_score }}</li>
+            {% endfor %}
+        </ol>
+    </section>
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/6.65.7/codemirror.min.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/6.65.7/codemirror.min.js"></script>
+  
+  <style>
+    /* Adjust to your desired theme */
+    .CodeMirror {
+      border: 1px solid #eee;
+      height: auto;
+      width: 100%;
+      font-size: 14px;
+      line-height: 1.4;
+      background-color: #f9f9f9;
+    }
+    pre {
+        background-color: black;
+        color: white;
+        border-radius: 5px;
+        padding: 10px;
+        font-family: monospace;
+    }
+  </style>
+{% endblock %}
+

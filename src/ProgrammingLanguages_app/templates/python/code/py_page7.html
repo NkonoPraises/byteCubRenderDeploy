@@ -1,0 +1,257 @@
+{%load static%}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Accessing List Items</title>
+    <link rel="stylesheet" type="text/css" href="{%static 'assets/CSS/IntroToHTML/index.css'%}">
+    <link rel="stylesheet" type="text/css" href="{%static 'assets/CSS/IntroToHTML/header.css'%}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style>
+        .chapter-pointer-7{
+	        border: 2px solid skyblue;
+        }
+        .js-shots{
+            width: 50%;
+        }
+        @media(max-width: 760px){
+            .js-shots{
+                width: 100%;
+            }
+            
+        }
+        .code-container{
+            overflow: hidden;
+        }
+        pre.code-editor-content{
+            width: 100%;
+            overflow-y: hidden;
+            margin-bottom: -60px;
+        }
+        .code-editor-content{
+            margin-top: -160px;
+            padding: 2px 0px;
+        }
+    </style>
+	
+</head>
+{%include 'all/snippets/header_snippet.html'%}
+<body>
+<main>
+    <div class="main-container">
+        <div class="left-container">
+            {%include 'python/snippets/left-container_snippet.html'%}
+        </div>
+        <div class="mid-container">
+            <h1>Accessing List Items</h1>
+            <div class="button-container">
+                <a href="{%url 'py_page6'%}"><button class="prev">Prev</button></a>
+                <a href="{%url 'py_page8'%}"><button class="next">Next</button></a>
+            </div>
+           
+
+            <h2>Introduction</h2>
+            <div class="notes">
+                <p>
+                   You can access individual items in a list using their <span class="emphasis">index</span>. Remember that Python uses zero-based indexing, which means that the first item is at index 0.
+                </p>
+            </div>
+
+            <h2>Accessing Elements by Index</h2>
+            <div class="notes">
+               <p>Here's how you can access elements from the fruits list:</p>
+            </div>
+
+           <div class="code-view">
+            {% for snippet in code_1 %}
+   
+                <div class="code-container">
+                    <button class="copy-button" onclick="copyToClipboard()">Copy</button>
+                    <pre class="code-editor-content">
+                        
+                        <style>
+                            {{ snippet.get_highlighted_code.css | safe }}
+                        </style>
+                        {{ snippet.get_highlighted_code.html | safe }}
+                        
+                    </pre>
+                    
+                </div>
+            
+            {% endfor %}
+        </div>
+
+        <h2 style="text-align: center; color: skyblue; margin-top: 50px;">Output</h2>
+
+        <div class="code-view">
+            <div class="sub-view">
+                <div class="code-block">
+                    <p><i class="fa fa-angle-double-right"></i> apple</p>
+                    <p><i class="fa fa-angle-double-right"></i>  banana</p>
+                </div>
+            </div>
+        </div>
+
+
+        <h2>Negative Indexing</h2>
+  
+        <div class="notes">
+            <p>You can also use negative indexing to access items from the end of the list. The last item has an index of <span class="emphasis">-1</span>, the second-to-last has an index of <span class="emphasis">-2</span>, and so on.</p>
+        </div>
+
+        <h2 style="text-align: center; color: skyblue; margin-top: 50px;">Example</h2>
+           <div class="code-view">
+            {% for snippet in code_2 %}
+   
+                <div class="code-container">
+                    <button class="copy-button" onclick="copyToClipboard()">Copy</button>
+                    <pre class="code-editor-content">
+                        
+                        <style>
+                            {{ snippet.get_highlighted_code.css | safe }}
+                        </style>
+                        {{ snippet.get_highlighted_code.html | safe }}
+                        
+                    </pre>
+                    
+                </div>
+            
+            {% endfor %}
+        </div>
+        <h2 style="text-align: center; color: skyblue; margin-top: 50px;">Output</h2>
+
+        <div class="code-view">
+            <div class="sub-view">
+                <div class="code-block">
+                    <p><i class="fa fa-angle-double-right"></i> date</p>
+                    <p><i class="fa fa-angle-double-right"></i>  cherry</p>
+                </div>
+            </div>
+        </div>
+
+       
+        <h2>Slicing Lists</h2>
+        <div class="notes">
+            <p>You can access a portion (or slice) of a list using slicing syntax. The syntax for slicing is as follows:</p>
+        </div>
+        
+           <div class="code-view">
+            {% for snippet in code_3 %}
+   
+                <div class="code-container">
+                    <button class="copy-button" onclick="copyToClipboard()">Copy</button>
+                    <pre class="code-editor-content">
+                        
+                        <style>
+                            {{ snippet.get_highlighted_code.css | safe }}
+                        </style>
+                        {{ snippet.get_highlighted_code.html | safe }}
+                        
+                    </pre>
+                    
+                </div>
+            
+            {% endfor %}
+        </div>
+        <br>
+
+        <div class="notes">
+            <ul>
+                <li><span class="emphasis">start</span> is the index where the slice begins (inclusive).</li>
+                <li><span class="emphasis">end</span> is the index where the slice ends (exclusive).</li>
+            </ul>
+        </div>
+
+        <h2 style="text-align: center; color: skyblue; margin-top: 50px;">Example</h2>
+        <div class="code-view">
+            {% for snippet in code_4 %}
+   
+                <div class="code-container">
+                    <button class="copy-button" onclick="copyToClipboard()">Copy</button>
+                    <pre class="code-editor-content">
+                        
+                        <style>
+                            {{ snippet.get_highlighted_code.css | safe }}
+                        </style>
+                        {{ snippet.get_highlighted_code.html | safe }}
+                        
+                    </pre>
+                    
+                </div>
+            
+            {% endfor %}
+        </div>
+
+        <h2 style="text-align: center; color: skyblue; margin-top: 50px;">Output</h2>
+
+        <div class="code-view">
+            <div class="sub-view">
+                <div class="code-block">
+                    <p><i class="fa fa-angle-double-right"></i> ['banana', 'cherry']</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="notes" style="margin-bottom: -10px; margin-top: 10px;">
+            <p>If you omit <span class="emphasis">start</span>, it defaults to <span class="emphasis">0</span>. If you omit <span class="emphasis">end</span>, it defaults to the length of the list.</p>
+        </div>
+
+         <h2 style="text-align: center; color: skyblue; margin-top: 50px;">Example</h2>
+        <div class="code-view">
+            {% for snippet in code_5 %}
+   
+                <div class="code-container">
+                    <button class="copy-button" onclick="copyToClipboard()">Copy</button>
+                    <pre class="code-editor-content">
+                        
+                        <style>
+                            {{ snippet.get_highlighted_code.css | safe }}
+                        </style>
+                        {{ snippet.get_highlighted_code.html | safe }}
+                        
+                    </pre>
+                    
+                </div>
+            
+            {% endfor %}
+        </div>
+
+        <h2 style="text-align: center; color: skyblue; margin-top: 50px;">Output</h2>
+
+        <div class="code-view">
+            <div class="sub-view">
+                <div class="code-block">
+                    <p><i class="fa fa-angle-double-right"></i> ['apple', 'banana', 'cherry', 'date']</p>
+                    <p><i class="fa fa-angle-double-right"></i> ['cherry', 'date']</p>
+                </div>
+            </div>
+        </div>
+
+
+        <h2 style="text-align: center; color: skyblue; margin-top: 50px;">Exercise</h2>
+        <div class="notes">
+           <ol>
+            <li>Create a list called <span class="emphasis">sentence</span> containing the words: ['The', 'quick', 'brown', 'fox', 'jumps', 'over', 'the', 'lazy', 'dog'].</li>
+            <li>Print the word at index 3.</li>
+            <li>Create a new list called <span class="emphasis">phrase1</span> by slicing <span class="emphasis">sentence</span> to get ['quick', 'brown', 'fox']. Print <span class="emphasis">phrase1</span>. </li>
+            <li>Create a new list called <span class="emphasis">phrase2</span> by slicing <span class="emphasis">sentence</span> to get ['jumps', 'over', 'the']. Print <span class="emphasis">phrase2</span>.</li>
+           </ol>
+
+        </div>
+
+
+        <div class="button-container">
+            <a href="{%url 'py_page6'%}"><button class="prev">Prev</button></a>
+            <a href="{%url 'py_page8'%}"><button class="next">Next</button></a>
+        </div>
+
+        </div>
+    </div>
+</main>
+<footer>
+    {%include 'footer.html'%}
+</footer>
+<script type="text/javascript" src="{%static 'assets/js/main/scripts.js'%}"></script>
+</body>
+</html>

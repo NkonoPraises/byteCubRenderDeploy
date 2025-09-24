@@ -1,0 +1,68 @@
+*{
+    margin: 0;
+    border: none;
+    box-sizing: border-box;
+    font-family: sans-serif;
+}
+.main-container{
+    width: 100%;
+    height: 100vh;
+    border: 1px solid red;
+}
+
+.element{
+    height: 200px;
+    width: 200px;
+    background-color: rgb(61, 61, 179);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: popins;
+    font-weight: bold;
+    font-size: larger;
+    color: white;
+
+    animation-name: spin;
+    animation-duration: 3s;
+    animation-timing-function: ease-in-out; /* nature of the animation*/
+    animation-delay: 1s; /* time b4 the animation starts*/
+    animation-iteration-count: 1; /*how many times the animation should play*/
+    /* animation-iteration-count: infinite;  */
+    animation-direction: alternate; /* controls the direction of the animation*/
+    /* animation-direction: normal; */
+   /* animation-fill-mode: forwards; makes the animation to pause in its last state*/
+   animation-play-state: running;/* This lets the user interact with the animation. See how it is used with the hover element below*/
+
+   /* animation: 3s spin ease-in-out 1s infinite alternate; summerises the above animation code in one line */
+}
+
+.element:hover{
+    animation-play-state: paused;
+}
+
+@keyframes spin{
+    0%{
+
+    }
+    50%{
+        scale: 2;
+        transform: rotate(0);
+        border-radius: 0;
+    }
+    100%{
+        transform: rotate(360deg);
+        border-radius: 50%;
+        scale: 2;
+    }
+}
+
+
+
+/* using javascript to contol the animation-play-state
+
+const element = document.getElementClassName("element")[0]
+const playButton = document.getElementById("playButton")
+const pauseButton = document.getElementById("pauseButton")
+
+playButton.addEventListener('click', () => element.style.animationPlayState = "running")
+pauseButton.addEventListener('click', () => element.style.animationPlayState = "pause") */

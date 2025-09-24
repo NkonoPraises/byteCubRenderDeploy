@@ -1,0 +1,266 @@
+{%load static%}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Looping Through Lists in Python</title>
+    <link rel="stylesheet" type="text/css" href="{%static 'assets/CSS/IntroToHTML/index.css'%}">
+    <link rel="stylesheet" type="text/css" href="{%static 'assets/CSS/IntroToHTML/header.css'%}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style>
+        .chapter-pointer-9{
+	        border: 2px solid skyblue;
+        }
+        .js-shots{
+            width: 50%;
+        }
+        @media(max-width: 760px){
+            .js-shots{
+                width: 100%;
+            }
+            
+        }
+        .code-container{
+            overflow: hidden;
+        }
+        pre.code-editor-content{
+            width: 100%;
+            overflow-y: hidden;
+            margin-bottom: -60px;
+        }
+        .code-editor-content{
+            margin-top: -160px;
+            padding: 2px 0px;
+        }
+    </style>
+	
+</head>
+{%include 'all/snippets/header_snippet.html'%}
+<body>
+<main>
+    <div class="main-container">
+        <div class="left-container">
+            {%include 'python/snippets/left-container_snippet.html'%}
+        </div>
+        <div class="mid-container">
+            <h1>Looping Through Lists in Python</h1>
+
+            <div class="button-container">
+                <a href="{%url 'py_page8'%}"><button class="prev">Prev</button></a>
+                {%if has_answered == True%}
+                <a href="{%url 'py_page9b'%}"><button class="next">Next</button></a>
+                {%else%}
+                <a href="{{BASE_URL}}/PYQ2/"><button class="next">Next</button></a>
+                {%endif%}
+            </div>
+           
+
+            <h2>Introduction</h2>
+            <div class="notes">
+                <p>
+                  Looping through lists is a fundamental concept in programming that allows you to access and manipulate each item in a list one by one. In Python, there are several ways to loop through lists, but the most common method is using a <span class="emphasis">for</span> loop.
+                </p>
+            </div>
+
+            <h2>Using a For Loop to Iterate Through a List</h2>
+            <div class="notes">
+               <p>The <span class="emphasis">for</span> loop allows you to iterate over the elements in a list. The syntax for a <span class="emphasis">for</span>  loop is as follows:</p>
+            </div>
+
+
+           <div class="code-view">
+            {% for snippet in code_1 %}
+   
+                <div class="code-container">
+                    <button class="copy-button" onclick="copyToClipboard()">Copy</button>
+                    <pre class="code-editor-content">
+                        
+                        <style>
+                            {{ snippet.get_highlighted_code.css | safe }}
+                        </style>
+                        {{ snippet.get_highlighted_code.html | safe }}
+                        
+                    </pre>
+                    
+                </div>
+            
+            {% endfor %}
+        </div>
+
+
+       <div class="notes">
+            <p>Here's how it works:</p>
+            <ul>
+                <li><span class="emphasis">item</span> is a variable that takes the value of each element in the list during each iteration.</li>
+                <li><span class="emphasis">list</span> is the collection you want to loop through.</li>
+                <li>The code block that follows the <span class="emphasis">for</span> statement (indented) will execute for each item in the list.</li>
+            </ul>
+        </div>
+
+        <h2>Example of Looping Through a List</h2>
+
+        <div class="notes">
+            <p>Let's take a look at an example where we print each fruit from our fruits list:</p>
+        </div>
+
+           <div class="code-view">
+            {% for snippet in code_2 %}
+   
+                <div class="code-container">
+                    <button class="copy-button" onclick="copyToClipboard()">Copy</button>
+                    <pre class="code-editor-content">
+                        
+                        <style>
+                            {{ snippet.get_highlighted_code.css | safe }}
+                        </style>
+                        {{ snippet.get_highlighted_code.html | safe }}
+                        
+                    </pre>
+                    
+                </div>
+            
+            {% endfor %}
+        </div>
+        <h2 style="text-align: center; color: skyblue; margin-top: 50px;">Output</h2>
+
+        <div class="code-view">
+            <div class="sub-view">
+                <div class="code-block">
+                    <p><i class="fa fa-angle-double-right"></i> apple</p>
+                    <p><i class="fa fa-angle-double-right"></i> banana</p>
+                    <p><i class="fa fa-angle-double-right"></i> cherry</p>
+                    <p><i class="fa fa-angle-double-right"></i> date</p>
+                </div>
+            </div>
+        </div>
+
+       
+        <h2>Importance of Indentation</h2>
+        <div class="notes">
+            <p>
+                In Python, indentation is crucial because it defines the scope of loops, functions, and other control structures.
+                The code that is indented beneath the <span class="emphasis">for</span> statement is considered part of the loop.
+                If you forget to indent or use inconsistent indentation, Python will raise an <span class="emphasis">IndentationError</span>.</span> method.
+            </p>
+        </div>
+
+        <div class="notes">
+            <p>For example, if we accidentally forget to indent the print statement:</p>
+        </div>
+        
+           <div class="code-view">
+            {% for snippet in code_3 %}
+   
+                <div class="code-container">
+                    <button class="copy-button" onclick="copyToClipboard()">Copy</button>
+                    <pre class="code-editor-content">
+                        
+                        <style>
+                            {{ snippet.get_highlighted_code.css | safe }}
+                        </style>
+                        {{ snippet.get_highlighted_code.html | safe }}
+                        
+                    </pre>
+                    
+                </div>
+            
+            {% endfor %}
+        </div>
+        <br>
+
+        <h2 style="text-align: center; color: skyblue; margin-top: 50px;">Output</h2>
+
+        <div class="code-view">
+            <div class="sub-view">
+                <div class="code-block">
+                    <p><i class="fa fa-angle-double-right"></i>  <span style="color: red;">IndentationError</span></p>
+                </div>
+            </div>
+        </div>
+
+        <div class="notes">
+            <p>This code will result in an error because the <span class="emphasis">print(fruit)</span> line is not indented properly. It should be indented to indicate that it belongs to the <span class="emphasis">for</span> loop.</p>
+        </div>
+
+        <h2>Nested Loops</h2>
+        <div class="notes">
+            <p>
+                You can also use loops within loops, which are called <span class="emphasis">nested loops</span>.
+                For instance, if you have a list of lists (a two-dimensional list), you can use nested loops to access each item.
+            </p>
+        </div>
+        <div class="code-view">
+            {% for snippet in code_4 %}
+   
+                <div class="code-container">
+                    <button class="copy-button" onclick="copyToClipboard()">Copy</button>
+                    <pre class="code-editor-content">
+                        
+                        <style>
+                            {{ snippet.get_highlighted_code.css | safe }}
+                        </style>
+                        {{ snippet.get_highlighted_code.html | safe }}
+                        
+                    </pre>
+                    
+                </div>
+            
+            {% endfor %}
+        </div>
+
+        <h2 style="text-align: center; color: skyblue; margin-top: 50px;">Output</h2>
+
+        <div class="code-view">
+            <div class="sub-view">
+                <div class="code-block">
+                    <p><i class="fa fa-angle-double-right"></i> 1</p>
+                    <p><i class="fa fa-angle-double-right"></i> 2</p>
+                    <p><i class="fa fa-angle-double-right"></i> 3</p>
+                    <p><i class="fa fa-angle-double-right"></i> 4</p>
+                    <p><i class="fa fa-angle-double-right"></i> 5</p>
+                    <p><i class="fa fa-angle-double-right"></i> 6</p>
+                    <p><i class="fa fa-angle-double-right"></i> 7</p>
+                    <p><i class="fa fa-angle-double-right"></i> 8</p>
+                    <p><i class="fa fa-angle-double-right"></i> 9</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="notes">
+            <p>In this example, the outer loop iterates through each row of the matrix, and the inner loop iterates through each number in that row.</p>
+        </div>
+
+       
+        <h2 style="text-align: center; color: skyblue; margin-top: 50px;">Exercise</h2>
+        <div class="notes">
+            <p>Now it’s your turn! Try writing a program that does the following:</p>
+            
+           <ol>
+            <li>Create a list of your favorite colors.</li>
+            <li> Use a <span class="emphasis">for</span> loop to print each color in the list.</li>
+            <li>Add a condition inside the loop to print "I love [color]!" for each color.</li>
+            
+           </ol>
+
+        </div>
+
+
+            <div class="button-container">
+                <a href="{%url 'py_page8'%}"><button class="prev">Prev</button></a>
+                {%if has_answered == True%}
+                <a href="{%url 'py_page9b'%}"><button class="next">Next</button></a>
+                {%else%}
+                <a href="{{BASE_URL}}/PYQ2/"><button class="next">Next</button></a>
+                {%endif%}
+            </div>
+
+        </div>
+    </div>
+</main>
+<footer>
+    {%include 'footer.html'%}
+</footer>
+<script type="text/javascript" src="{%static 'assets/js/main/scripts.js'%}"></script>
+</body>
+</html>

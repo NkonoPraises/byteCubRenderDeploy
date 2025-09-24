@@ -1,0 +1,68 @@
+{%load static%}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tags</title>
+    <link rel="stylesheet" type="text/css" href="{%static 'assets/CSS/IntroToHTML/index.css'%}">
+    <link rel="stylesheet" type="text/css" href="{%static 'assets/CSS/IntroToHTML/header.css'%}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style>
+        .chapter-pointer-3{
+	        border: 2px solid skyblue;
+        }
+    </style>
+</head>
+{%include 'all/snippets/header_snippet.html'%}
+<body>
+    <main>
+    <div class="main-container">
+        <div class="left-container">
+            {%include 'introToHTML_app/snippets/left-container_snippet.html'%}
+        </div>
+        <div class="mid-container">
+            <h1 style="text-align: center; margin-bottom: 15px;">Tags and Attributes</h1>
+
+            <div class="button-container">
+                <a href="{%url 'page1_view'%}"><button class="prev">Prev</button></a>
+                <a href="{%url 'page4_view'%}"><button class="next">Next</button></a>
+            </div>
+
+            <h2>2.1 What are HTML Tags?</h2>
+
+            <div class="notes">
+                <p><span class="emphasis">Tags</span> are used to markup the start of an HTML element. They are usually enclosed in angle brackets.
+                Below is an example of a tag:</p>
+            </div>
+            <img class="image" src="{%static 'assets/images/IntroToHTML/tags2.png'%}" alt="paragraph tag">
+            <div class="notes">
+                <p>The above <span class="emphasis">'p'</span> tag denotes a paragraph. Though they are quite a few exceptions, tags usually have an openning
+                and a closing element as seen above. The closing tag is marked by a backward slash <span class="emphasis"><span class="tag">/</span></span>.</p>
+            </div>
+            <h2 style="margin-top: 10px;">2.2 What are HTML Attributes?</h2>
+            <div class="notes">
+                <p><span class="emphasis">Attributes</span> add additional information to a tag. They are usually placed in the opening tag and holds great 
+                significance to the information wrapped in the tag.</p>
+            </div>
+            <img class="image" src="{%static 'assets/images/IntroToHTML/tags4.png'%}" alt="paragraph tag with attribute">
+           <div class="notes"> <p>As seen above, attributes consist of an <span class="emphasis">Attribute Name</span> and an <span class="emphasis">Attribute Value</span>. </p>
+            <p>The attribute names tells the browser what type of attribute is being called and the attribute value specifies the property of that attribute to be implimented.</p>
+            <P>The above <span class="emphasis">lang</span> attribute specifies the language used in the paragraph<span class="emphasis">['en' is the short for English].</span> </P>
+            </div>
+
+            <div class="button-container">
+                <a href="{%url 'page1_view'%}"><button class="prev">Prev</button></a>
+                <a href="{%url 'page4_view'%}"><button class="next">Next</button></a>
+            </div>
+        </div>
+        
+        
+    </div>
+</main>
+<footer>
+    {%include 'footer.html'%}
+</footer>
+<script type="text/javascript" src="{%static 'assets/js/main/scripts.js'%}"></script>
+</body>
+</html>

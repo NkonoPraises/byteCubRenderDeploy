@@ -1,0 +1,229 @@
+{%load static%}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Do-While Loops</title>
+    <link rel="stylesheet" type="text/css" href="{%static 'assets/CSS/IntroToHTML/index.css'%}">
+    <link rel="stylesheet" type="text/css" href="{%static 'assets/CSS/IntroToHTML/header.css'%}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style>
+        .chapter-pointer-13{
+	        border: 2px solid skyblue;
+        }
+        .js-shots{
+            width: 50%;
+        }
+        @media(max-width: 760px){
+            .js-shots{
+                width: 100%;
+            }
+            
+            
+        }
+        .code-container::-webkit-scrollbar{
+            /* overflow: hidden; */
+            display: none;
+        }
+        pre.code-editor-content{
+            overflow-y: hidden;
+            margin-bottom: -60px;
+            overflow-x: scroll;
+        }
+        .code-editor-content{
+            margin-top: -160px;
+            padding: 2px 0px;
+        }
+        @media(max-width:720px){
+            pre.code-editor-content{
+            width: 1500px;
+            
+            }
+        }
+    </style>
+	
+</head>
+{%include 'all/snippets/header_snippet.html'%}
+<body>
+<main>
+    <div class="main-container">
+        <div class="left-container">
+            {%include 'javaScript/snippets/left-container_snippet.html'%}
+        </div>
+        <div class="mid-container">
+            <h1>Introduction to Do-While Loops in JavaScript</h1>
+            <div class="button-container">
+                <a href="{%url 'js_page12'%}"><button class="prev">Prev</button></a>
+                <a href="{%url 'js_page14'%}"><button class="next">Next</button></a>
+            </div>
+           
+
+            <h2>Do-While Loops</h2>
+            <div class="notes">
+                <p>A <span class="emphasis">do-while</span> loop is a control structure in JavaScript that allows you to execute a block of code at least once and then continue executing it as long as a specified condition is true.
+                    This is particularly useful when you want to ensure that the code inside the loop runs at least one time, regardless of whether the condition is true or false initially.
+                </p>
+            </div>
+            <h2 style="text-align: center; color: skyblue; margin-top: 50px;">Syntax of Do-While Loop</h2>
+           <div class="code-view">
+            {% for snippet in code_1 %}
+   
+                <div class="code-container">
+                    <button class="copy-button" onclick="copyToClipboard()">Copy</button>
+                    <pre class="code-editor-content">
+                        
+                        <style>
+                            {{ snippet.get_highlighted_code.css | safe }}
+                        </style>
+                        {{ snippet.get_highlighted_code.html | safe }}
+                        
+                    </pre>
+                    
+                </div>
+            
+            {% endfor %}
+        </div>
+        <div class="notes">
+            <ul>
+                <li><strong>do</strong>: This keyword starts the loop.</li>
+                <li><strong>code to be executed</strong>: This block of code will run at least once.</li>
+                <li><strong>while (condition)</strong>: After executing the code block, the loop checks the condition. If it evaluates to true, the loop will run again.</li>
+            </ul>
+        </div>
+
+
+
+
+        <h2 style="text-align: center; color: skyblue; margin-top: 50px;">Example</h2>
+        
+        <div class="notes">
+            <p>Let's look at a simple example where we use a <span class="emphasis">do-while</span> loop to prompt the user for their favorite number and print it. The loop will continue until the user enters a negative number.</p>
+        </div>
+
+           <div class="code-view">
+            {% for snippet in code_2 %}
+   
+                <div class="code-container">
+                    <button class="copy-button" onclick="copyToClipboard()">Copy</button>
+                    <pre class="code-editor-content">
+                        
+                        <style>
+                            {{ snippet.get_highlighted_code.css | safe }}
+                        </style>
+                        {{ snippet.get_highlighted_code.html | safe }}
+                        
+                    </pre>
+                    
+                </div>
+            
+            {% endfor %}
+        </div>
+
+  
+        <h2 style="text-align: center; color: skyblue; margin-top: 50px;">Output</h2>
+
+        <div class="code-view">
+            <div class="sub-view">
+                <div class="code-block">
+                    <p><strong>&gt;</strong> Your favorite number is: 3</p>
+                    <p><strong>&gt;</strong> Your favorite number is: 7</p>
+                    <p><strong>&gt;</strong> Your favorite number is: -5</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="notes">
+            <p>In the above example:</p>
+            <ul>
+                <li>The <span class="emphasis">do</span> block prompts the user to enter their favorite number and logs it.</li>
+                <li>After the user enters a number, the <span class="emphasis">while</span> condition checks if the number is non-negative..</li>
+                <li>If the user enters a negative number, the loop will stop.</li>
+             
+            </ul>
+        </div>
+
+        <h2>Key Differences Between While and Do-While Loops</h2>
+        <div class="notes">
+            <ul>
+                <li><strong>Execution Guarantee</strong>: A <span class="emphasis">do-while</span> loop guarantees that the code inside the loop will run at least once, even if the condition is false from the start.
+                     In contrast, a <span class="emphasis">while</span> loop may not execute at all if the condition is false initially.
+                </li>
+                <li><strong>Condition Check</strong>: In a <span class="emphasis">do-while</span>, the condition is checked after the code block has executed, while in a <span class="emphasis">while</span> loop, the condition is checked before executing the code block.</li>
+            </ul>
+        </div>
+
+
+        <h2>Using Do-While Loops with User Input</h2>
+        <div class="notes">
+            <p>
+                You can also use <span class="emphasis">do-while</span> loops to repeatedly prompt the user for input until a certain condition is met. For example, let's create a program that keeps asking the user for a password until they enter the correct one.
+            </p>
+        </div>
+
+        <div class="code-view">
+            {% for snippet in code_3 %}
+   
+                <div class="code-container">
+                    <button class="copy-button" onclick="copyToClipboard()">Copy</button>
+                    <pre class="code-editor-content">
+                        
+                        <style>
+                            {{ snippet.get_highlighted_code.css | safe }}
+                        </style>
+                        {{ snippet.get_highlighted_code.html | safe }}
+                        
+                    </pre>
+                    
+                </div>
+            
+            {% endfor %}
+        </div>
+
+        <!-- <h2 style="text-align: center; color: skyblue; margin-top: 50px;">Output</h2>
+
+        <div class="code-view">
+            <div class="sub-view">
+                <div class="code-block">
+                    <p><strong>&gt;</strong> You entered: 2</p>
+                    <p><strong>&gt;</strong> You entered: 40</p>
+                    <p><strong>&gt;</strong> You entered: 7</p>
+                    <p><strong>&gt;</strong> You entered a negative number.</p>
+                    <p><strong>&gt;</strong> Exiting the loop.</p>
+                </div>
+            </div>
+        </div> -->
+
+        <div class="notes">
+            <p>In the above example:</p>
+            <ul>
+                <li>The loop continues to prompt the user for the password until they enter the correct one.</li>
+                <li>If the password is incorrect, a message is displayed, and the loop repeats.</li>
+            </ul>
+        </div>
+
+
+
+        <h2 style="text-align: center; color: skyblue; margin-top: 50px;">Exercise</h2>
+        <div class="notes">
+            <ol>
+                <li>Write a program that prompts the user to enter a starting number for a countdown. Use a <span class="emphasis">do-while</span> loop to print the countdown to zero. After reaching zero, print "Countdown complete!"</li>
+                <li>Create a program that asks the user for their favorite color using a <span class="emphasis">do-while</span> loop. The loop should continue until the user enters "stop". After exiting the loop, print a message saying "Thank you for sharing your favorite colors!"</li>
+            </ol>
+        </div>
+
+
+        <div class="button-container">
+            <a href="{%url 'js_page12'%}"><button class="prev">Prev</button></a>
+            <a href="{%url 'js_page14'%}"><button class="next">Next</button></a>
+        </div>
+
+        </div>
+    </div>
+</main>
+<footer>
+    {%include 'footer.html'%}
+</footer>
+<script type="text/javascript" src="{%static 'assets/js/main/scripts.js'%}"></script>
+</body>
+</html>

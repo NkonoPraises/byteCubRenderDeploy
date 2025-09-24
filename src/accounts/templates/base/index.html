@@ -1,0 +1,553 @@
+{%load static%}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>byteCub | Web & Mobile Development Bootcamp</title>
+    <link rel="stylesheet" href="{%static 'assets/CSS/base/style.css'%}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+</head>
+<body>
+    <!-- Header -->
+    <header id="header">
+        <div class="container">
+            <nav>
+                <a href="#" class="logo"><i class="fas fa-code"></i> byteCub</a>
+                <button class="mobile-menu-btn" id="mobileMenuBtn">
+                    <i class="fas fa-bars"></i>
+                </button>
+                <ul class="nav-links" id="navLinks">
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#features">Features</a></li>
+                    <li><a href="#courses">Courses</a></li>
+                    <li><a href="#projects">Projects</a></li>
+                    <li><a href="#stack">Learning Paths</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-text">
+                    <h1>Launch Your Tech Career with <span>byteCub</span></h1>
+                    <p>Master in-demand web and mobile development skills through our project-based bootcamp. Learn from industry experts, build real-world projects, and join a thriving community of developers.</p>
+                    <div class="cta-buttons">
+                        <a href="#stack" class="btn btn-primary">Enroll Now</a>
+                        <a href="#courses" class="btn btn-outline">Explore Courses</a>
+                    </div>
+                </div>
+                <div class="hero-image">
+                    <img src="{%static 'assets/images/Landing Page/hero.jpeg'%}" alt="Coding on laptop">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features" id="features">
+        <div class="container">
+            <div class="section-title">
+                <h2>Why Choose byteCub?</h2>
+                <p>We provide everything you need to go from beginner to professional developer in just a few months</p>
+            </div>
+            <div class="features-grid">
+                <div class="feature-card" data-aos="fade-up">
+                    <div class="feature-icon">
+                        <i class="fas fa-laptop-code"></i>
+                    </div>
+                    <h3>Project-Based Learning</h3>
+                    <p>Learn by building real-world projects like AI image generators, e-commerce sites, and chat applications that you can showcase in your portfolio.</p>
+                </div>
+                <div class="feature-card" data-aos="fade-up" data-aos-delay="100">
+                    <div class="feature-icon" style="color: var(--success);">
+                        <i class="fas fa-chalkboard-teacher"></i>
+                    </div>
+                    <h3>Expert Guidance</h3>
+                    <p>Get your exercises and projects reviewed by industry professionals who provide personalized feedback to help you improve.</p>
+                </div>
+                <div class="feature-card" data-aos="fade-up" data-aos-delay="200">
+                    <div class="feature-icon" style="color: var(--secondary);">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <h3>Active Community</h3>
+                    <p>Join our WhatsApp community to collaborate, share ideas, and get direct support from instructors and fellow students.</p>
+                </div>
+                <div class="feature-card" data-aos="fade-up" data-aos-delay="300">
+                    <div class="feature-icon" style="color: var(--danger);">
+                        <i class="fas fa-briefcase"></i>
+                    </div>
+                    <h3>Career Ready</h3>
+                    <p>Our curriculum is designed to meet industry standards, preparing you for freelance work or full-time employment.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Courses Section -->
+    <section class="courses" id="courses">
+        <div class="container">
+            <div class="section-title">
+                <h2>Our Comprehensive Courses</h2>
+                <p>Choose your learning path and master the skills that will transform your career</p>
+            </div>
+            <div class="course-tabs">
+                <button class="tab-btn active" data-tab="frontend">Frontend</button>
+                <button class="tab-btn" data-tab="backend">Backend</button>
+                <button class="tab-btn" data-tab="fullstack">Full Stack</button>
+            </div>
+            <div class="tab-content active" id="frontend">
+                <div class="course-grid">
+                    <div class="course-card">
+                        <div class="course-image">
+                            <img src="{%static 'assets/images/Landing Page/web-design.jpeg'%}" alt="HTML CSS Course">
+                        </div>
+                        <div class="course-info">
+                            <h3>Modern Web Design</h3>
+                            <p>Master HTML5, CSS3, and Bootstrap to create beautiful, responsive websites that work on any device.</p>
+                            <div class="course-meta">
+                                <span class="course-duration"><i class="far fa-clock"></i> 8 Weeks</span>
+                                <span class="course-level beginner">Beginner</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="course-card">
+                        <div class="course-image">
+                            <img src="{%static 'assets/images/Landing Page/javaScript.jpeg'%}"  alt="JavaScript Course">
+                        </div>
+                        <div class="course-info">
+                            <h3>JavaScript Fundamentals</h3>
+                            <p>Learn core JavaScript concepts, DOM manipulation, and modern ES6+ features to make your websites interactive.</p>
+                            <div class="course-meta">
+                                <span class="course-duration"><i class="far fa-clock"></i> 10 Weeks</span>
+                                <span class="course-level advanced">Advanced</span>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- <div class="course-card">
+                        <div class="course-image">
+                            <img src="https://images.unsplash.com/photo-1633356122544-f134324a6cee?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="React Course">
+                        </div>
+                        <div class="course-info">
+                            <h3>React Mastery</h3>
+                            <p>Build dynamic single-page applications with React, React Hooks, and modern frontend architecture.</p>
+                            <div class="course-meta">
+                                <span class="course-duration"><i class="far fa-clock"></i> 10 Weeks</span>
+                                <span class="course-level advanced">Advanced</span>
+                            </div>
+                        </div>
+                    </div> -->
+                </div>
+            </div>
+            <div class="tab-content" id="backend">
+                <div class="course-grid">
+                    <div class="course-card">
+                        <div class="course-image">
+                            <img src="{%static 'assets/images/Landing Page/python.jpeg'%}" alt="Python Course">
+                        </div>
+                        <div class="course-info">
+                            <h3>Python Programming</h3>
+                            <p>Learn Python fundamentals, data structures, and algorithms to build a strong programming foundation.</p>
+                            <div class="course-meta">
+                                <span class="course-duration"><i class="far fa-clock"></i> 6 Weeks</span>
+                                <span class="course-level beginner">Beginner</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="course-card">
+                        <div class="course-image">
+                            <img src="{%static 'assets/images/Landing Page/django.jpeg'%}" alt="Django Course">
+                        </div>
+                        <div class="course-info">
+                            <h3>Django Backend Development</h3>
+                            <p>Build robust web applications with Django, Django REST framework, and PostgreSQL databases.</p>
+                            <div class="course-meta">
+                                <span class="course-duration"><i class="far fa-clock"></i> 10 Weeks</span>
+                                <span class="course-level intermediate">Intermediate</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="course-card">
+                        <div class="course-image">
+                            <img src="{%static 'assets/images/Landing Page/api.jpg'%}" alt="API Course">
+                        </div>
+                        <div class="course-info">
+                            <h3>API Development</h3>
+                            <p>Learn to design, build, and secure RESTful APIs that power modern web and mobile applications.</p>
+                            <div class="course-meta">
+                                <span class="course-duration"><i class="far fa-clock"></i> 8 Weeks</span>
+                                <span class="course-level advanced">Advanced</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="tab-content" id="fullstack">
+                <div class="course-grid">
+                    <div class="course-card">
+                        <div class="course-image">
+                            <img src="{%static 'assets/images/Landing Page/full-stack.jpeg'%}" alt="Full Stack Course">
+                        </div>
+                        <div class="course-info">
+                            <h3>Full Stack Web Development</h3>
+                            <p>Combine frontend and backend skills to build complete web applications from scratch.</p>
+                            <div class="course-meta">
+                                <span class="course-duration"><i class="far fa-clock"></i> 12 Weeks</span>
+                                <span class="course-level intermediate">Intermediate</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="course-card">
+                        <div class="course-image">
+                            <img src="{%static 'assets/images/Landing Page/mobile-development.jpeg'%}" alt="Mobile App Course">
+                        </div>
+                        <div class="course-info">
+                            <h3>React Native Mobile Development</h3>
+                            <p>Build cross-platform mobile apps for iOS and Android using React Native and Expo.</p>
+                            <div class="course-meta">
+                                <span class="course-duration"><i class="far fa-clock"></i> 10 Weeks</span>
+                                <span class="course-level advanced">Advanced</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="course-card">
+                        <div class="course-image">
+                            <img src="{%static 'assets/images/Landing Page/ecommerce.jpeg'%}" alt="E-commerce Course">
+                        </div>
+                        <div class="course-info">
+                            <h3>E-commerce Application</h3>
+                            <p>Develop a complete multivendor e-commerce platform with payment integration and admin dashboard.</p>
+                            <div class="course-meta">
+                                <span class="course-duration"><i class="far fa-clock"></i> 14 Weeks</span>
+                                <span class="course-level advanced">Advanced</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Carousel -->
+    <section class="projects" id="projects">
+        <div class="container">
+            <div class="section-title">
+                <h2>Hands-On Projects You'll Build</h2>
+                <p>These are just a few of the real-world projects you'll complete during the bootcamp</p>
+            </div>
+            <div class="carousel">
+                <div class="carousel-inner" id="carouselInner">
+                    <div class="carousel-item">
+                        <div class="project-card">
+                            <div class="project-image">
+                                <img src="{%static 'assets/images/Landing Page/image-generator-project.png'%}" alt="AI Image Generator">
+                            </div>
+                            <div class="project-info">
+                                <h3>AI Image Generator</h3>
+                                <p>Build an application that generates custom images using AI APIs, with user-friendly controls and sharing features.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <div class="project-card">
+                            <div class="project-image">
+                                <img src="{%static 'assets/images/Landing Page/fashion-blog-project.png'%}" alt="Fashion Blog">
+                            </div>
+                            <div class="project-info">
+                                <h3>Fashion Blog Platform</h3>
+                                <p>Create a responsive fashion blog with content management, user authentication, and social sharing capabilities.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <div class="project-card">
+                            <div class="project-image">
+                                <img src="{%static 'assets/images/Landing Page/ecommerce-project1.png'%}" alt="E-commerce Website">
+                            </div>
+                            <div class="project-info">
+                                <h3>Multivendor E-commerce</h3>
+                                <p>Develop a complete online marketplace with vendor dashboards, product management, and secure checkout.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <div class="project-card">
+                            <div class="project-image">
+                                <img src="{%static 'assets/images/Landing Page/chatapp-project.png'%}" alt="Chat Application">
+                            </div>
+                            <div class="project-info">
+                                <h3>Real-time Chat Application</h3>
+                                <p>Build a modern chat app with real-time messaging, user profiles, and notification systems using WebSockets.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="carousel-controls">
+                    <button class="carousel-control" id="prevBtn"><i class="fas fa-chevron-left"></i></button>
+                    <button class="carousel-control" id="nextBtn"><i class="fas fa-chevron-right"></i></button>
+                </div>
+                <div class="carousel-indicators" id="carouselIndicators">
+                    <span class="indicator active"></span>
+                    <span class="indicator"></span>
+                    <span class="indicator"></span>
+                    <span class="indicator"></span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section class="testimonials">
+        <div class="container">
+            <div class="section-title">
+                <h2>What Our Students Say</h2>
+                <p>Hear from graduates who transformed their careers with byteCub</p>
+            </div>
+            <div class="testimonial-grid">
+                <div class="testimonial-card">
+                    <div class="testimonial-content">
+                        <p>The project-based approach at byteCub gave me the confidence to start freelancing immediately after completing the bootcamp. I landed my first client within one month!</p>
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">
+                            <img src="{%static 'assets/images/Landing Page/testimonial-1.jpg'%}" alt="Sarah Johnson">
+                        </div>
+                        <div class="author-info">
+                            <h4>Sarah Johnson</h4>
+                            <p>Freelance Web Developer</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="testimonial-content">
+                        <p>As a complete beginner, I was nervous about learning to code. The byteCub community and expert reviews made all the difference. Now I'm building apps I never thought possible.</p>
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">
+                            <img src="{%static 'assets/images/Landing Page/testimonial-2.jpg'%}" alt="Ramson Afumbom">
+                        </div>
+                        <div class="author-info">
+                            <h4>Ramson Afumbom</h4>
+                            <p>Frontend Developer</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="testimonial-content">
+                        <p>The Django course was incredibly thorough. The e-commerce and ai project we built became the foundation for my startup. The instructors were always available to help through challenges.</p>
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">
+                            <img src="{%static 'assets/images/Landing Page/testimonial-3.jpg'%}" alt="Nesla Bekenyui">
+                        </div>
+                        <div class="author-info">
+                            <h4>Nesla Bekenyui</h4>
+                            <p>Web and Mobile App Developer</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing -->
+    <!-- <section class="pricing" >
+        <div class="container">
+            <div class="section-title">
+                <h2>Simple, Transparent Pricing</h2>
+                <p>Choose the plan that fits your goals and budget</p>
+            </div>
+            <div class="pricing-grid">
+                <div class="pricing-card">
+                    <h3>Starter</h3>
+                    <div class="price">$199 <span>/ month</span></div>
+                    <ul class="pricing-features">
+                        <li><i class="fas fa-check"></i> Access to one course</li>
+                        <li><i class="fas fa-check"></i> Weekly exercise reviews</li>
+                        <li><i class="fas fa-check"></i> Community access</li>
+                        <li><i class="fas fa-times"></i> Project reviews</li>
+                        <li><i class="fas fa-times"></i> 1:1 mentorship</li>
+                    </ul>
+                    <a href="{%url 'page1_view'%}" class="btn btn-outline">Get Started</a>
+                </div>
+                <div class="pricing-card popular">
+                    <h3>Professional</h3>
+                    <div class="price">$349 <span>/ month</span></div>
+                    <ul class="pricing-features">
+                        <li><i class="fas fa-check"></i> Access to all courses</li>
+                        <li><i class="fas fa-check"></i> Weekly exercise reviews</li>
+                        <li><i class="fas fa-check"></i> Detailed project reviews</li>
+                        <li><i class="fas fa-check"></i> Community access</li>
+                        <li><i class="fas fa-check"></i> Monthly 1:1 mentorship</li>
+                    </ul>
+                    <a href="#" class="btn btn-primary">Get Started</a>
+                </div>
+                <div class="pricing-card">
+                    <h3>Immersion</h3>
+                    <div class="price">$999 <span>/ 3 months</span></div>
+                    <ul class="pricing-features">
+                        <li><i class="fas fa-check"></i> Everything in Professional</li>
+                        <li><i class="fas fa-check"></i> Weekly 1:1 mentorship</li>
+                        <li><i class="fas fa-check"></i> Career coaching</li>
+                        <li><i class="fas fa-check"></i> Portfolio review</li>
+                        <li><i class="fas fa-check"></i> Job placement assistance</li>
+                    </ul>
+                    <a href="#" class="btn btn-outline">Get Started</a>
+                </div>
+            </div>
+        </div>
+    </section> -->
+
+    <!-- Enrollment -->
+
+    <section class="enrollment-section" id="stack">
+        <div class="section-header">
+            <h2>Start Your Tech Career Today</h2>
+            <p>Choose from our specialized bootcamps designed to launch your career in tech. Learn from industry experts with hands-on projects.</p>
+        </div>
+        
+        <div class="cards-container">
+            <!-- Front End Card -->
+            <div class="course-card">
+                <div class="card-header">
+                    <img src="{%static 'assets/images/Landing Page/photo-1555949963-ff9fe0c870eb.jpeg'%}"  alt="Front End Development">
+                    <div class="card-content">
+                        <h3>Front End Development</h3>
+                        <ul class="features-enr">
+                            <li><i class="fas fa-check"></i> HTML, CSS, JavaScript</li>
+                            <li><i class="fas fa-check"></i> UI/UX for web</li>
+                            <li><i class="fas fa-check"></i> Responsive design principles</li>
+                            <li><i class="fas fa-check"></i> Build 10+ real-world projects</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="card-footer">
+                   <a href="{%url 'page1_view'%}" class="enroll-btn">Enroll Now</a>
+                </div>
+            </div>
+            
+            <!-- Back End Card -->
+            <div class="course-card">
+                <div class="card-header">
+                    <img src="{%static 'assets/images/Landing Page/photo-1581276879432-15e50529f34b.jpeg'%}"  alt="Back End Development">
+                    <div class="card-content">
+                        <h3>Back End Development</h3>
+                        <ul class="features-enr">
+                            <li><i class="fas fa-check"></i> Python</li>
+                            <li><i class="fas fa-check"></i> Database design & management</li>
+                            <li><i class="fas fa-check"></i> API development & security</li>
+                            <li><i class="fas fa-check"></i> Deployment & cloud services</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="card-footer">
+                    <a href="{%url 'backend_webdev_landing'%}" class="enroll-btn">Enroll Now</a>
+                </div>
+            </div>
+            
+            <!-- Full Stack Card -->
+            <div class="course-card popular">
+                <div class="card-header">
+                    <img src="{%static 'assets/images/Landing Page/photo-1507238691740-187a5b1d37b8.jpeg'%}"  alt="Full Stack Development">
+                    <div class="card-content">
+                        <h3>Full Stack Development</h3>
+                        <ul class="features-enr">
+                            <li><i class="fas fa-check"></i> Front-end & back-end technologies</li>
+                            <li><i class="fas fa-check"></i> Complete project lifecycles</li>
+                            <li><i class="fas fa-check"></i> DevOps & deployment strategies</li>
+                            <li><i class="fas fa-check"></i> Portfolio development</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="card-footer">
+                    <a href="{%url 'page1_view'%}" class="enroll-btn">Enroll Now</a>
+                </div>
+            </div>
+            
+            <!-- Mobile App Card -->
+            <div class="course-card">
+                <div class="card-header">
+                    <img src="{%static 'assets/images/Landing Page/photo-1511707171634-5f897ff02aa9.jpeg'%}"  alt="Mobile App Development">
+                    <div class="card-content">
+                        <h3>Mobile App Development</h3>
+                        <ul class="features-enr">
+                            <li><i class="fas fa-check"></i> iOS & Android development</li>
+                            <li><i class="fas fa-check"></i> React Native framework</li>
+                            <li><i class="fas fa-check"></i> UI/UX for mobile</li>
+                            <li><i class="fas fa-check"></i> App/Play store deployment</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="card-footer">
+                    <a href="{%url 'mobile_appdev_landing'%}" class="enroll-btn">Enroll Now</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta">
+        <div class="container">
+            <h2>Ready to Transform Your Career?</h2>
+            <p>Join byteCub today and gain the skills, projects, and community support you need to succeed as a developer.</p>
+            <a href="#stack" class="btn btn-light">Enroll Now</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer id="contact">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h3>About byteCub</h3>
+                    <p>byteCub is a project-based coding bootcamp that teaches in-demand web and mobile development skills through hands-on learning and expert guidance.</p>
+                    <div class="social-links">
+                        <a href="https://wa.me/+237695221180?text=Hello%20byteCub%20team:"><i class="fab fa-whatsapp"></i></a>
+                        <a href="#"><i class="fab fa-telegram"></i></a>
+                        <!-- <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a> -->
+                    </div>
+                </div>
+                <div class="footer-col">
+                    <h3>Quick Links</h3>
+                    <ul class="footer-links">
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#features">Features</a></li>
+                        <li><a href="#courses">Courses</a></li>
+                        <li><a href="#projects">Projects</a></li>
+                        <li><a href="#pricing">Pricing</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h3>Courses</h3>
+                    <ul class="footer-links">
+                        <li><a href="#">Frontend Development</a></li>
+                        <li><a href="#">Backend with Django</a></li>
+                        <li><a href="#">Full Stack Web</a></li>
+                        <li><a href="#">React Native Mobile</a></li>
+                        <li><a href="#">HTMX & Bootstrap</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h3>Contact Us</h3>
+                    <ul class="footer-contact">
+                        <li><a href="mailto:bytecub@gmail.com"><i class="fas fa-envelope"></i> bytecub@gmail.com</a></li>
+                        <li><i class="fas fa-phone"></i> +237 695221180</li>
+        
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 byteCub. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+<script src="{%static 'assets/js/base/script.js'%}"></script>
+</body>
+</html>

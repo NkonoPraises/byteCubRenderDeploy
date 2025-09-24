@@ -1,0 +1,307 @@
+{%load static%}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>While Loops in Python</title>
+    <link rel="stylesheet" type="text/css" href="{%static 'assets/CSS/IntroToHTML/index.css'%}">
+    <link rel="stylesheet" type="text/css" href="{%static 'assets/CSS/IntroToHTML/header.css'%}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style>
+        .chapter-pointer-12{
+	        border: 2px solid skyblue;
+        }
+        .js-shots{
+            width: 50%;
+        }
+        @media(max-width: 760px){
+            .js-shots{
+                width: 100%;
+            }
+            
+        }
+        .code-container{
+            overflow: hidden;
+        }
+        pre.code-editor-content{
+            width: 100%;
+            overflow-y: hidden;
+            margin-bottom: -60px;
+        }
+        .code-editor-content{
+            margin-top: -160px;
+            padding: 2px 0px;
+        }
+    </style>
+	
+</head>
+{%include 'all/snippets/header_snippet.html'%}
+<body>
+<main>
+    <div class="main-container">
+        <div class="left-container">
+            {%include 'python/snippets/left-container_snippet.html'%}
+        </div>
+        <div class="mid-container">
+            <h1>While Loops</h1>
+            <div class="button-container">
+                <a href="{%url 'py_page11'%}"><button class="prev">Prev</button></a>
+                <a href="{%url 'py_page13'%}"><button class="next">Next</button></a>
+            </div>
+           
+
+            <h2>What is a While Loop?</h2>
+            <div class="notes">
+                <p>
+                    A while loop is a control flow statement that allows code to be executed repeatedly based on a given condition. 
+                    It continues to run as long as the condition evaluates to <span class="emphasis">True</span>. Once the condition becomes <span class="emphasis">False</span>, the loop stops executing.                
+                </p>
+            </div>
+
+            <h2>Why Use While Loops?</h2>
+            <div class="notes">
+               <p>While loops are useful when you do not know beforehand how many times you need to iterate. For instance, you might want to keep asking a user for input until they provide a valid response or keep processing data until there are no more items left to process.</p>
+            </div>
+
+            <h2>Basic Syntax of a While Loop</h2>
+            <div class="notes">
+                <p>The syntax for a while loop in Python is as follows:</p>
+            </div>
+
+
+           <div class="code-view">
+            {% for snippet in code_1 %}
+   
+                <div class="code-container">
+                    <button class="copy-button" onclick="copyToClipboard()">Copy</button>
+                    <pre class="code-editor-content">
+                        
+                        <style>
+                            {{ snippet.get_highlighted_code.css | safe }}
+                        </style>
+                        {{ snippet.get_highlighted_code.html | safe }}
+                        
+                    </pre>
+                    
+                </div>
+            
+            {% endfor %}
+        </div>
+
+
+       <div class="notes">
+            <ul>
+                <li><strong>condition</strong>: This is an expression that evaluates to either <span class="emphasis">True</span> or <span class="emphasis">False</span>. If it is <span class="emphasis">True</span>, the code block inside the loop will execute. If it is <span class="emphasis">False</span>, the loop will terminate.</li>
+                <li>The code block inside the loop should be indented to indicate that it belongs to the loop.</li>
+            </ul>
+        </div>
+
+        <h2>Example of a While Loop</h2>
+
+        <div class="notes">
+            <p>Let's look at a simple example of a while loop:</p>
+        </div>
+
+           <div class="code-view">
+            {% for snippet in code_2 %}
+   
+                <div class="code-container">
+                    <button class="copy-button" onclick="copyToClipboard()">Copy</button>
+                    <pre class="code-editor-content">
+                        
+                        <style>
+                            {{ snippet.get_highlighted_code.css | safe }}
+                        </style>
+                        {{ snippet.get_highlighted_code.html | safe }}
+                        
+                    </pre>
+                    
+                </div>
+            
+            {% endfor %}
+        </div>
+        <h2 style="text-align: center; color: skyblue; margin-top: 50px;">Output</h2>
+
+        <div class="code-view">
+            <div class="sub-view">
+                <div class="code-block">
+                    <p><i class="fa fa-angle-double-right"></i> Count is: 0</p>
+                    <p><i class="fa fa-angle-double-right"></i> Count is: 1</p>
+                    <p><i class="fa fa-angle-double-right"></i> Count is: 2</p>
+                    <p><i class="fa fa-angle-double-right"></i> Count is: 3</p>
+                    <p><i class="fa fa-angle-double-right"></i> Count is: 4</p>
+                </div>
+            </div>
+        </div>
+
+        <h2>Explanation of the Example:</h2>
+        <div class="notes">
+            
+            <ol>
+                <li><strong>Initialization</strong>: We start by initializing a variable <span class="emphasis">count</span> to <span class="emphasis">0</span>.</li>
+                <li><strong>Condition Check</strong>: The while loop checks if <span class="emphasis">count</span> is less than <span class="emphasis">5</span>. Since <span class="emphasis">0</span> is less than <span class="emphasis">5</span>, the condition is <span class="emphasis">True</span>, and the code inside the loop executes.</li>
+                <li><strong>Code Execution</strong>: It prints "Count is: 0".</li>
+                <li><strong>Incrementing</strong>: The line <span class="emphasis">count += 1</span> increments the value of <span class="emphasis">count</span> by <span class="emphasis">1</span>, making it <span class="emphasis">1</span>.</li>
+                <li><strong>Repeat</strong>: The loop goes back to check the condition again. This process repeats until <span class="emphasis">count</span> reaches <span class="emphasis">5</span>.</li>
+                <li><strong>Termination</strong>: When <span class="emphasis">count</span> becomes <span class="emphasis">5</span>, the condition <span class="emphasis">count < 5</span> evaluates to <span class="emphasis">False</span>, and the loop stops executing.</li>
+            </ol>
+        </div>
+
+       
+        <h2>Infinite Loops</h2>
+        <div class="notes">
+            <p>
+              Be careful with while loops, as it's easy to create an infinite loop—a loop that never ends. This happens when the condition never becomes False. For example: 
+            </p>
+        </div>
+        
+           <div class="code-view">
+            {% for snippet in code_3 %}
+   
+                <div class="code-container">
+                    <button class="copy-button" onclick="copyToClipboard()">Copy</button>
+                    <pre class="code-editor-content">
+                        
+                        <style>
+                            {{ snippet.get_highlighted_code.css | safe }}
+                        </style>
+                        {{ snippet.get_highlighted_code.html | safe }}
+                        
+                    </pre>
+                    
+                </div>
+            
+            {% endfor %}
+        </div>
+        <br>
+
+       <div class="notes">
+        <p>In this case, since the condition is always <span class="emphasis">True</span>, this loop will run indefinitely until you manually stop the program (e.g., by pressing Ctrl+C in most environments).</p>
+       </div>
+
+
+       <h2>Using Break and Continue Statements</h2>
+        <div class="notes">
+            <p>You can control the flow of a while loop using <span class="emphasis">break</span> and <span class="emphasis">continue</span> statements:</p>
+            <ul>
+                <li><strong>break</strong>: Exits the loop immediately, regardless of the condition.</li>
+                <li><strong>continue</strong>: Skips the current iteration and goes back to the beginning of the loop.</li>
+            </ul>
+        </div>
+
+       
+        <h2>Example Using Break</h2>
+        <div class="code-view">
+            {% for snippet in code_4 %}
+   
+                <div class="code-container">
+                    <button class="copy-button" onclick="copyToClipboard()">Copy</button>
+                    <pre class="code-editor-content">
+                        
+                        <style>
+                            {{ snippet.get_highlighted_code.css | safe }}
+                        </style>
+                        {{ snippet.get_highlighted_code.html | safe }}
+                        
+                    </pre>
+                    
+                </div>
+            
+            {% endfor %}
+        </div>
+
+        <h2 style="text-align: center; color: skyblue; margin-top: 50px;">Output</h2>
+
+        <div class="code-view">
+            <div class="sub-view">
+                <div class="code-block">
+                    <p><i class="fa fa-angle-double-right"></i> Count is: 0</p>
+                    <p><i class="fa fa-angle-double-right"></i> Count is: 1</p>
+                    <p><i class="fa fa-angle-double-right"></i> Count is: 2</p>
+                    <p><i class="fa fa-angle-double-right"></i> Count is: 3</p>
+                    <p><i class="fa fa-angle-double-right"></i> Count is: 4</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="notes">
+            <p>In this example, the loop will print values from <span class="emphasis">0</span> to <span class="emphasis">4</span>. When count reaches <span class="emphasis">5</span>, the <span class="emphasis">break</span> statement executes, and the loop terminates.</p>
+        </div>
+
+        <h2>Example Using Continue</h2>
+        <div class="code-view">
+            {% for snippet in code_5 %}
+   
+                <div class="code-container">
+                    <button class="copy-button" onclick="copyToClipboard()">Copy</button>
+                    <pre class="code-editor-content">
+                        
+                        <style>
+                            {{ snippet.get_highlighted_code.css | safe }}
+                        </style>
+                        {{ snippet.get_highlighted_code.html | safe }}
+                        
+                    </pre>
+                    
+                </div>
+            
+            {% endfor %}
+        </div>
+
+        <h2 style="text-align: center; color: skyblue; margin-top: 50px;">Output</h2>
+
+        <div class="code-view">
+            <div class="sub-view">
+                <div class="code-block">
+                    <p><i class="fa fa-angle-double-right"></i> Count is: 1</p>
+                    <p><i class="fa fa-angle-double-right"></i> Count is: 2</p>
+                    <p><i class="fa fa-angle-double-right"></i> Count is: 4</p>
+                    <p><i class="fa fa-angle-double-right"></i> Count is: 5</p>
+                </div>
+            </div>
+
+        <h2>Best Practices for While Loops</h2>
+        <div class="notes">
+            <ol>
+                <li><strong>Ensure Termination</strong>: Always ensure that your while loop has a way to terminate. Otherwise, you may end up with an infinite loop.</li>
+                <li><strong>Use Clear Conditions</strong>: Make sure that your conditions are clear and understandable.</li>
+                <li><strong>Keep It Simple</strong>: Avoid overly complex conditions in your while loops. Simplicity makes your code easier to read and maintain.</li>
+            </ol>
+        </div>
+
+       
+        <h2 style="text-align: center; color: skyblue; margin-top: 50px;">Exercise</h2>
+        <div class="notes">
+            <p>Now that you have learned about while loops, here's an exercise for you:</p>
+            
+           <ol>
+            <li>Create a variable called <span class="emphasis">number</span> and set it to a positive integer.</li>
+            <li>Write a while loop that:
+                <ul>
+                    <li> Prints "The number is X" where X is the current value of <span class="emphasis">number</span>.</li>
+                    <li> Decrements <span class="emphasis">number</span> by 1 each time through the loop ("<span class="emphasis">number -= 1</span>").</li>
+                    <li>Stops when <span class="emphasis">number</span> reaches <span class="emphasis">0</span>.</li>
+                </ul>
+            </li>
+            <li>After the loop, print "Countdown complete!".</li>
+            
+           </ol>
+
+        </div>
+
+
+        <div class="button-container">
+            <a href="{%url 'py_page11'%}"><button class="prev">Prev</button></a>
+            <a href="{%url 'py_page13'%}"><button class="next">Next</button></a>
+        </div>
+
+        </div>
+    </div>
+</main>
+<footer>
+    {%include 'footer.html'%}
+</footer>
+<script type="text/javascript" src="{%static 'assets/js/main/scripts.js'%}"></script>
+</body>
+</html>

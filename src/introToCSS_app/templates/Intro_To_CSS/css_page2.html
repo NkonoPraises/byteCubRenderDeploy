@@ -1,0 +1,205 @@
+{%load static%}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS Selectors</title>
+    <link rel="stylesheet" type="text/css" href="{%static 'assets/CSS/IntroToHTML/index.css'%}">
+    <link rel="stylesheet" type="text/css" href="{%static 'assets/CSS/IntroToHTML/header.css'%}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style>
+        .chapter-pointer-2{
+	        border: 2px solid skyblue;
+        }
+    </style>
+</head>
+{%include 'all/snippets/header_snippet.html'%}
+  <body>
+    <main>
+    
+    <div class="main-container">
+        <div class="left-container">
+            {%include 'introToCSS_app/snippets/left-container_snippet.html'%}
+        </div>
+        <div class="mid-container">
+           <h1>CSS Selectors</h1>
+            <div class="button-container">
+                <a href="{%url 'css_1'%}"><button class="prev">Prev</button></a>
+                <a href="{%url 'css_3'%}"><button class="next">Next</button></a>
+            </div>
+
+           <div class="notes">
+            <p>CSS selectors are patterns used to <strong>target</strong> and <strong>style</strong> HTML elements in a webpage. Mastering CSS selectors is key to applying styles effectively accross a webpage.</p>
+           </div>
+           <h2>2.1 Types of CSS Selectors</h2>
+
+           <div class="notes">
+            <ul>
+                <li><span class="emphasis">Universal Selector[*]</span>: Selects all element in the document.</li> 
+            </ul>
+            <h3 style="margin-bottom: 20px; text-align: center; color: skyblue;">Example</h3>
+            <div class="i-code">
+                <div class="sub-icode">
+                    <div class="open-brace">
+                        *{
+                    </div>
+                    <div class="css-body"><span class="css-property">font-family</span><span class="css-value">: sans-serif;</span></div>
+                    <div class="close-brace">
+                    }
+                    </div>
+                </div>
+            </div>
+
+            <div class="notes">
+                <ul>
+                    <li><span class="emphasis">Element Selector</span>: Selects all elements of a specific HTML type.</li> 
+                </ul>
+                <h3 style="margin-bottom: 20px; text-align: center; color: skyblue;">Example</h3>
+                <div class="i-code">
+                    <div class="sub-icode">
+                        <div class="open-brace">
+                            p{
+                        </div>
+                        <div class="css-body"><span class="css-property">font-size</span><span class="css-value">: 20px;</span></div>
+                        <div class="close-brace">
+                        }
+                        </div>
+                    </div>
+                </div>
+                <P style="margin-left: 35px;">In the above example, all <span class="emphasis">&lt;p&gt;</span> elements within the HTML document are targeted.</P>
+            </div>
+            
+            <div class="notes">
+                <ul>
+                    <li><span class="emphasis">Class Selector[.]</span>: Selects all elements of a specific class attribute.</li> 
+                </ul>
+                <h3 style="margin-bottom: 20px; text-align: center; color: skyblue;">Example</h3>
+                <div class="i-code">
+                    <div class="sub-icode">
+                        <div class="open-brace">
+                            .container{
+                        </div>
+                        <div class="css-body"><span class="css-property">background-color</span><span class="css-value">: blue;</span></div>
+                        <div class="close-brace">
+                        }
+                        </div>
+                    </div>
+                </div>
+                <P style="margin-left: 35px;">In the above example, all elements with the <strong>class</strong> attribute <span class="emphasis">container</span>, are targeted.</P>
+
+
+           </div>
+
+           <div class="notes">
+                <ul>
+                    <li><span class="emphasis">ID Selector[#]</span>: Selects all elements of a specific ID attribute.</li> 
+                </ul>
+                <h3 style="margin-bottom: 20px; text-align: center; color: skyblue;">Example</h3>
+                <div class="i-code">
+                    <div class="sub-icode">
+                        <div class="open-brace">
+                            #amount{
+                        </div>
+                        <div class="css-body"><span class="css-property">font-size</span><span class="css-value">: 50px;</span></div>
+                        <div class="close-brace">
+                        }
+                        </div>
+                    </div>
+            </div>
+                <P style="margin-left: 35px;">In the above example, all elements with  the <strong>ID</strong> attribute <span class="emphasis">amount</span>, are targeted.</P>
+            </div>
+
+            <div class="notes">
+                <ul>
+                    <li><span class="emphasis">Descendant Selector</span>: Selects all elements that are descendants of a specified element.</li> 
+                </ul>
+                <h3 style="margin-bottom: 20px; text-align: center; color: skyblue;">Example</h3>
+                <div class="i-code">
+                    <div class="sub-icode">
+                        <div class="open-brace">
+                            .container p{
+                        </div>
+                        <div class="css-body"><span class="css-property">font-size</span><span class="css-value">: 50px;</span></div>
+                        <div class="close-brace">
+                        }
+                        </div>
+                    </div>
+            </div>
+                <P style="margin-left: 35px;">In the above example, all <span class="emphasis">&lt;p&gt;</span> elements within <span class="emphasis">container</span> <strong>class</strong> , are targeted.</P>
+            </div>
+
+            <div class="notes">
+                <ul>
+                    <li><span class="emphasis">Child Selector</span>: Selects all elements that are descendants of a specified element.</li> 
+                </ul>
+                <h3 style="margin-bottom: 20px; text-align: center; color: skyblue;">Example</h3>
+                <div class="i-code">
+                    <div class="sub-icode">
+                        <div class="open-brace">
+                            li > a{
+                        </div>
+                        <div class="css-body"><span class="css-property">text-decoration</span><span class="css-value">: none;</span></div>
+                        <div class="close-brace">
+                        }
+                        </div>
+                    </div>
+            </div>
+                <P style="margin-left: 35px;">In the above example, any <span class="emphasis">&lt;a&gt;</span> elements that are within the <span class="emphasis">&lt;li&gt;</span> element are targeted but not other <span class="emphasis">&lt;a&gt;</span> elements in the page.</P>
+            </div>
+
+            <div class="notes">
+                <ul>
+                    <li><span class="emphasis">Adjacent Sibling Selector</span>: Selects an element that is immediately next to a specified element.</li> 
+                </ul>
+                <h3 style="margin-bottom: 20px; text-align: center; color: skyblue;">Example</h3>
+                <div class="i-code">
+                    <div class="sub-icode">
+                        <div class="open-brace">
+                            h2 + p{
+                        </div>
+                        <div class="css-body"><span class="css-property">margin-top</span><span class="css-value">: 0;</span></div>
+                        <div class="close-brace">
+                        }
+                        </div>
+                    </div>
+            </div>
+                <P style="margin-left: 35px;">In the above example, the <span class="emphasis">&lt;p&gt;</span> element that is directly next to the <span class="emphasis">&lt;h2&gt;</span> element is targeted but not other <span class="emphasis">&lt;p&gt;</span> elements in the page.</P>
+            </div>
+
+
+            <div class="notes">
+                <ul>
+                    <li><span class="emphasis">General Sibling Selector</span>: Selects all siblings of a specified element.</li> 
+                </ul>
+                <h3 style="margin-bottom: 20px; text-align: center; color: skyblue;">Example</h3>
+                <div class="i-code">
+                    <div class="sub-icode">
+                        <div class="open-brace">
+                            h2 ~ p{
+                        </div>
+                        <div class="css-body"><span class="css-property">color</span><span class="css-value">: red;</span></div>
+                        <div class="close-brace">
+                        }
+                        </div>
+                    </div>
+            </div>
+                <P style="margin-left: 35px;">In the above example, all the <span class="emphasis">&lt;p&gt;</span> elements that are siblings of the<span class="emphasis">&lt;h2&gt;</span> element  are targeted.</P>
+            </div>
+           
+                <button class="run">Try it Yourself</button>
+                <div class="button-container">
+                    <a href="{%url 'css_1'%}"><button class="prev">Prev</button></a>
+                    <a href="{%url 'css_3'%}"><button class="next">Next</button></a>
+                </div>
+        </div>
+        
+        
+    </div>
+</main>
+  <footer>
+    {%include 'footer.html'%}
+</footer>
+<script type="text/javascript" src="{%static 'assets/js/main/scripts.js'%}"></script>
+</body>
+</html>

@@ -1,0 +1,207 @@
+{%load static%}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Looping Through Two Dimensional Arrays</title>
+    <link rel="stylesheet" type="text/css" href="{%static 'assets/CSS/IntroToHTML/index.css'%}">
+    <link rel="stylesheet" type="text/css" href="{%static 'assets/CSS/IntroToHTML/header.css'%}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style>
+        .chapter-pointer-18{
+	        border: 2px solid skyblue;
+        }
+        .js-shots{
+            width: 50%;
+        }
+        @media(max-width: 760px){
+            .js-shots{
+                width: 100%;
+            }
+            
+            
+        }
+        .code-container::-webkit-scrollbar{
+            /* overflow: hidden; */
+            display: none;
+        }
+        pre.code-editor-content{
+            overflow-y: hidden;
+            margin-bottom: -60px;
+            overflow-x: scroll;
+        }
+        .code-editor-content{
+            margin-top: -160px;
+            padding: 2px 0px;
+        }
+        @media(max-width:720px){
+            pre.code-editor-content{
+            width: 1500px;
+            
+            }
+        }
+    </style>
+	
+</head>
+{%include 'all/snippets/header_snippet.html'%}
+<body>
+<main>
+    <div class="main-container">
+        <div class="left-container">
+            {%include 'javaScript/snippets/left-container_snippet.html'%}
+        </div>
+        <div class="mid-container">
+            <h1>Looping Through Two-Dimensional Arrays</h1>
+
+            <div class="button-container">
+                <a href="{%url 'js_page17'%}"><button class="prev">Prev</button></a>
+                {%if has_answerd == True%}
+                <a href="{%url 'js_page19'%}"><button class="next">Next</button></a>
+                {%else%}
+                <a href="{{BASE_URL}}/JSQ4/"><button class="next">Next</button></a>
+                {%endif%}
+            </div>
+
+            <div class="notes nb">
+                <p><i style="font-size: 2.5em; color: #ffc200;" class="fa fa-lightbulb-o"></i></p>
+                <p style="font-size: large; line-height: 1.5;">"Programmers are the architects of the digital world, transforming complex problems into elegant solutions.
+                     With each line of code, they demonstrate that great thinking is not just about finding answers, but about asking the right questions and envisioning possibilities."
+                </p>
+            </div>
+           
+
+            <h2>Nested Loop</h2>
+            <div class="notes">
+               <p>
+                You can use nested loops to iterate through all the elements of a two-dimensional array. The outer loop iterates through the rows, while the inner loop iterates through the columns.               </p>
+            </div>
+
+            <h2 style="text-align: center; color: skyblue; margin-top: 50px;">Example</h2>
+
+           <div class="code-view">
+            {% for snippet in code_1 %}
+   
+                <div class="code-container">
+                    <button class="copy-button" onclick="copyToClipboard()">Copy</button>
+                    <pre class="code-editor-content">
+                        
+                        <style>
+                            {{ snippet.get_highlighted_code.css | safe }}
+                        </style>
+                        {{ snippet.get_highlighted_code.html | safe }}
+                        
+                    </pre>
+                    
+                </div>
+            
+            {% endfor %}
+        </div>
+        <h2 style="text-align: center; color: skyblue; margin-top: 50px;">Output</h2>
+
+        <div class="code-view">
+            <div class="sub-view">
+                <div class="code-block">
+                    <p><strong>&gt;</strong> 1</p>
+                    <p><strong>&gt;</strong> 2</p>
+                    <p><strong>&gt;</strong> 3</p>
+                    <p><strong>&gt;</strong> ...</p>
+                    <p><strong>&gt;</strong> 9</p>
+                </div>
+            </div>
+        </div>
+
+
+        <h2>Using Two-Dimensional Arrays with User Input</h2>
+        <div class="notes">
+            <p>
+                You can also create a two-dimensional array based on user input. For example, let’s create a program that allows the user to fill a 3x3 matrix.
+            </p>
+        </div>
+
+        <h2 style="text-align: center; color: skyblue; margin-top: 50px;">Example</h2>
+           <div class="code-view">
+            {% for snippet in code_2 %}
+   
+                <div class="code-container">
+                    <button class="copy-button" onclick="copyToClipboard()">Copy</button>
+                    <pre class="code-editor-content">
+                        
+                        <style>
+                            {{ snippet.get_highlighted_code.css | safe }}
+                        </style>
+                        {{ snippet.get_highlighted_code.html | safe }}
+                        
+                    </pre>
+                    
+                </div>
+            
+            {% endfor %}
+        </div>
+
+        <h2 style="text-align: center; color: skyblue; margin-top: 50px;">Output [based on random inputs]</h2>
+
+        <div class="code-view">
+            <div class="sub-view">
+                <div class="code-block">
+                    <p><strong>&gt;</strong>  [3, 4, 1]</p>
+                    <p><strong>&gt;</strong> [2, 0, 5]</p>
+                    <p><strong>&gt;</strong> [1, 3, 0]</p>
+                </div>
+            </div>
+        </div>
+
+
+        <h2>Code  Explanation</h2>
+
+        <div class="notes">
+            <p><strong>1. Initialization:</strong></p>
+            <ul>
+                <li>We start by defining the number of rows and columns we want our grid to have. In this case, both are set to 3.</li>
+                <li> We create an empty array called <span class="emphasis">grid</span> which will hold our two-dimensional array.</li>
+            </ul>
+
+            <p><strong>2. Filling the Array:</strong></p>
+            <ul>
+                <li>We use a nested loop to fill our grid. The outer loop iterates over each row 'i', while the inner loop iterates over each column 'j'.</li>
+                <li> For each cell in the grid, we prompt the user to enter a number. The <span class="emphasis">prompt</span> function displays a dialog box that asks the user for input.</li>
+                <li> We convert the user input from a string to a number using <span class="emphasis">Number(userInput)</span> before storing it in the grid.</li>
+            </ul>
+
+            <p><strong>3. Displaying the Grid:</strong></p>
+            <ul>
+                <li> After filling the grid, we use another loop to log each row of the grid to the console. This shows the user what they entered.</li>
+            </ul>
+        </div>
+
+        
+
+        <h2 style="text-align: center; color: skyblue; margin-top: 50px;">Exercise</h2>
+        <div class="notes">
+            <p>Now it's your turn! Modify the above code to create a 4x4 grid instead of a 3x3 grid. After filling the grid with user input, calculate and display the sum of all numbers in the grid.</p>
+        </div>
+        <div class="notes nb">
+            <p><strong>Hint:</strong></p>
+            <p>You will need to add another variable to keep track of the sum as you fill in the grid and then log that sum after displaying the grid.</p>
+        </div>
+
+
+            <div class="button-container">
+                <a href="{%url 'js_page17'%}"><button class="prev">Prev</button></a>
+                {%if has_answerd == True%}
+                <a href="{%url 'js_page19'%}"><button class="next">Next</button></a>
+                {%else%}
+                <a href="{{BASE_URL}}/JSQ4/"><button class="next">Next</button></a>
+                {%endif%}
+            </div>
+
+
+        </div>
+    </div>
+</main>
+<footer>
+    {%include 'footer.html'%}
+</footer>
+<script type="text/javascript" src="{%static 'assets/js/main/scripts.js'%}"></script>
+</body>
+</html>

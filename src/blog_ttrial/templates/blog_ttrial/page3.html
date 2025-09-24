@@ -1,0 +1,84 @@
+{%load static%}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Header</title>
+    <link rel="stylesheet" type="text/css" href="{%static 'assets/CSS/IntroToHTML/index.css'%}">
+    <link rel="stylesheet" type="text/css" href="{%static 'assets/CSS/IntroToHTML/header.css'%}">
+    <link rel="stylesheet" href="{%static 'assets/CSS/tabs/tabs.css'%}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style>
+        .chapter-pointer-3{
+	        border: 2px solid skyblue;
+        }
+        
+    </style>
+</head>
+{%include 'all/snippets/header_snippet.html'%}
+<body>
+    <main>
+    <div class="main-container">
+        <div class="left-container">
+            {%include 'snippets/left-container_snippet.html'%} 
+        </div>
+        <div class="mid-container">
+           <h1>Breaking Down The Header</h1>
+
+            <div class="button-container">
+                <a href="{%url 'blog_pg2'%}"><button class="prev">Prev</button></a>
+                <a href="{%url 'blog_pg4'%}"><button class="next">Next</button></a>
+            </div>
+
+
+           <img style="width: 100%; margin-bottom: 20px; margin-top: -50px;" src="{%static 'assets/images/Front End Dev/fashion-blog-header.png'%}" alt="partitioning the header">
+           <div class="notes">
+            <p>The header can be seen to contain three components which are; </p>
+            <ul>
+                <li><strong>The Parent</strong>: Embedding two child Components [Child 1 and Child 2].</li>
+                <li><strong>Child 1</strong>: Holding the brand logo/name.</li>
+                <li><strong>Child 2</strong>: Holding a <strong>list</strong> of navigations.</li>
+            </ul>
+            <p>Each of this components are enclosed in <span class="emphasis">&lt;div&gt;</span>[short for division] tags. In the above case, we have a parent <strong>div</strong> nesting two child <strong>div</strong>s.</p>
+            <p>The primary purpose of a &lt;div&gt; is to act as a container for grouping other HTML elements together. &lt;div&gt; is a block-level element, which means it takes up the full width available to it and starts on a new line, giving it it's popularity amongs programmers. </p>
+           </div>
+
+           <h2 style="text-align: center; color: skyblue; margin-top: 50px;">Code example</h2>
+           <div class="code-view">
+            {% for snippet in code %}
+   
+                <div class="code-container">
+                    <button class="copy-button" onclick="copyToClipboard()">Copy</button>
+                    <pre class="code-editor-content">
+                        
+                        <style>
+                            {{ snippet.get_highlighted_code.css | safe }}
+                        </style>
+                        {{ snippet.get_highlighted_code.html | safe }}
+                        
+                    </pre>
+                    
+                </div>
+            
+            {% endfor %}
+        </div>
+          
+
+
+            <div class="button-container" style="margin-top: 50px; margin-bottom: 100px;">
+                <a href="{%url 'blog_pg2'%}"><button class="prev">Prev</button></a>
+                <a href="{%url 'blog_pg4'%}"><button class="next">Next</button></a>
+            </div>
+        </div>
+        
+        
+    </div>
+    <script src="{%static 'assets/js/tabs/tabs.js'%}"></script>
+  <footer>
+    {%include 'footer.html'%}
+</footer>
+<script type="text/javascript" src="{%static 'assets/js/main/scripts.js'%}"></script>
+</main>
+</body>
+</html>

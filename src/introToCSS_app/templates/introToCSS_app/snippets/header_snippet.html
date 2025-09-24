@@ -1,0 +1,88 @@
+
+<header>
+    <nav class="nav-1">
+        <div class="logo-section">
+            <div class="logo">byteCub</div>
+        </div>
+        <div class="search">
+            <div class="form">
+            <form  method="get" action="/search/">
+            <input  type="search" id="search" class="search-field"  placeholder="{{query}}" name="query"  >
+            <span class="icon "><button id="icon" type="submit" style="cursor: pointer;  ">
+                <div class="fa fa-search actual-icon" ></div>
+            </span ></button>
+            </form>
+            </div>
+            <div class="search-2"><i class="fas fa-search"></i></div>
+        </div>
+        <div class="accounts-section">
+            <div class="cart">
+                <a href="Ecom-cart.html">
+                    <div class="fa fa-shopping-cart cart-color"></div>
+                    <!-- <span class="cart-count"></span> -->
+                </a>
+            </div>
+            <div class="heart">
+                <div class="fa fa-heart cart-color"></div>
+                <!-- <span class="cart-count"></span> -->
+            </div>
+            <div class="sec language" id="sec"><a class="settings fa fa-language"></a></div>
+            <div class="sec accounts open" id="sec"><a class="fas fa-user"></a></div>
+            <div class="settings-display"> 
+                <div class="close-filter">bro</div>
+                <div>broddddddd</div>
+                <div>bro</div>
+                <button class="close-settings">Close</button>
+            </div>
+        </div>
+
+    </nav>
+    <div class="account-items" id="account-items" >
+        <ul>
+            <li>Sign in</li>
+            <li>Create account</li>
+        </ul>
+    </div>
+    <div class="nav-2 ">
+        <a href="{%url 'page1_view'%}"><div class="course-title">HTML</div></a> 
+       <a href="#"><div style="border-bottom: 2px solid skyblue;"  class="course-title">CSS</div></a>
+       <a href="#"><div class="course-title">Bootstrap</div></a>
+       <a href="{%url 'js_page1'%}"><div class="course-title">javaScript</div></a> 
+       <a href="{%url 'py_page1'%}"><div class="course-title">Python</div></a> 
+       <a href="#"><div class="course-title">HTMX</div></a>  
+    </div> 
+
+
+    <div class="nav-3">		<!--the bottom nav bar for small screens-->
+        <div class="home style">
+            <a href="Ecom-base.html"  >
+                <div class="home-icon fas fa-home"></div>
+                <div class="home-text style-2">Home</div>
+            </a>
+        </div>
+        <div class="category-2 style">
+            <div class="fas fa-list  category-icon"></div>
+            <div class="category-2-text style-2">Category</div>
+        </div>
+        <div class="trade style">
+            <div class=" trade-icon fas fa-exchange"></div>
+            <div class="trade-text style-2">Trade</div>
+        </div>
+        <div class="wish-heart-2 style">
+            <div class=" heart-2 fas fa-heart"></div>
+            <div class="wishlist-text style-2">Wishlist</div>
+        </div>
+        <div class="account-2 style">
+            <div class="account-icon fas fa-user"></div>
+            <div class="account-text style-2">Account</div>
+        </div>
+    </div>
+    <div class="search-bar">
+        <form method="get" action="/search/">
+            <i class="search-back fa fa-arrow-left"></i>
+            <input  type="search" placeholder="search products" name="query">
+            <span ><button type="submit"><i class="fas fa-search"></i></button></span>
+        </form>
+    </div>
+
+</header>

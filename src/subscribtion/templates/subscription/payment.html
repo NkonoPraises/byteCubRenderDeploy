@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Payment</title>
+</head>
+<body>
+    <h2>Subscribe to {{ plan.name }}</h2>
+    <p>Price: ${{ plan.price }}</p>
+    
+    <!-- Add your payment form/integration here -->
+    <form action="{% url 'subscription:payment_success' plan.id %}" method="post">
+        {% csrf_token %}
+        <button type="submit">Pay Now</button>
+    </form>
+    
+    <a href="{% url 'subscription:payment_cancel' %}">Cancel</a>
+</body>
+</html>

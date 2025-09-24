@@ -1,0 +1,286 @@
+{%load static%}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Python Dictionaries</title>
+    <link rel="stylesheet" type="text/css" href="{%static 'assets/CSS/IntroToHTML/index.css'%}">
+    <link rel="stylesheet" type="text/css" href="{%static 'assets/CSS/IntroToHTML/header.css'%}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style>
+        .chapter-pointer-14b{
+	        border: 2px solid skyblue;
+        }
+        .js-shots{
+            width: 50%;
+        }
+        @media(max-width: 760px){
+            .js-shots{
+                width: 100%;
+            }
+            
+        }
+        .code-container{
+            overflow: hidden;
+        }
+        pre.code-editor-content{
+            width: 100%;
+            overflow-y: hidden;
+            margin-bottom: -60px;
+        }
+        .code-editor-content{
+            margin-top: -160px;
+            padding: 2px 0px;
+        }
+    </style>
+	
+</head>
+{%include 'all/snippets/header_snippet.html'%}
+<body>
+<main>
+    <div class="main-container">
+        <div class="left-container">
+            {%include 'python/snippets/left-container_snippet.html'%}
+        </div>
+        <div class="mid-container">
+            <h1>Python Dictionaries</h1>
+            <div class="button-container">
+                <a href="{%url 'py_page14'%}"><button class="prev">Prev</button></a>
+                <a href="{%url 'py_page14c'%}"><button class="next">Next</button></a>
+            </div>
+           
+
+            <h2>What is a Dictionary in Python?</h2>
+            <div class="notes">
+                <p>
+                    A dictionary in Python is an unordered collection of items that stores data in key-value pairs. Each key is unique and is used to access the corresponding value. 
+                    Dictionaries are mutable, meaning you can change them after they have been created. Some characteristics of dictionaries are:
+
+                    <ul>
+                        <li><strong>Unordered:</strong> The items in a dictionary do not have a specific order.</li>
+                        <li><strong>Mutable:</strong> You can add, remove, or change items in a dictionary.</li>
+                        <li><strong>Key-Value Pairs:</strong> Each item is stored as a pair, where the key is unique and the value can be of any data type (string, integer, list, etc.).</li>
+                        <li><strong>Dynamic:</strong>  You can change the size of a dictionary dynamically.</li>
+                    </ul>
+
+                </p>
+            </div>
+
+            <h2>Creating a Dictionary</h2>
+            <div class="notes">
+                <p>You can create a dictionary using curly braces <span class="emphasis">{}</span> or the <span class="emphasis">dict()</span> constructor.</p>
+            </div>
+
+          
+
+            <h2>Using Curly Braces</h2>
+            <br>
+
+           <div class="code-view">
+            {% for snippet in code_1 %}
+   
+                <div class="code-container">
+                    <button class="copy-button" onclick="copyToClipboard()">Copy</button>
+                    <pre class="code-editor-content">
+                        
+                        <style>
+                            {{ snippet.get_highlighted_code.css | safe }}
+                        </style>
+                        {{ snippet.get_highlighted_code.html | safe }}
+                        
+                    </pre>
+                    
+                </div>
+            
+            {% endfor %}
+        </div>
+
+        <h2 style="text-align: center; color: skyblue; margin-top: 50px;">Output</h2>
+
+        <div class="code-view">
+            <div class="sub-view">
+                <div class="code-block">
+                    <p><i class="fa fa-angle-double-right"></i> {'name': 'Alice', 'age': 25, 'city': 'New York'}</p>
+                </div>
+            </div>
+        </div>
+
+        <h2> Using the dict() Constructor</h2>
+        <br>
+           <div class="code-view">
+            {% for snippet in code_2 %}
+   
+                <div class="code-container">
+                    <button class="copy-button" onclick="copyToClipboard()">Copy</button>
+                    <pre class="code-editor-content">
+                        
+                        <style>
+                            {{ snippet.get_highlighted_code.css | safe }}
+                        </style>
+                        {{ snippet.get_highlighted_code.html | safe }}
+                        
+                    </pre>
+                    
+                </div>
+            
+            {% endfor %}
+        </div>
+
+         <h2 style="text-align: center; color: skyblue; margin-top: 50px;">Output</h2>
+
+        <div class="code-view">
+            <div class="sub-view">
+                <div class="code-block">
+                    <p><i class="fa fa-angle-double-right"></i> {'name': 'Alice', 'age': 25, 'city': 'New York'}</p>
+                </div>
+            </div>
+        </div>
+       
+        
+
+        
+
+       
+        <h2>Accessing Values</h2>
+        <div class="notes">
+            <p>
+                You can access values in a dictionary by referring to their keys.
+            </p>
+        </div>
+        
+           <div class="code-view">
+            {% for snippet in code_3 %}
+   
+                <div class="code-container">
+                    <button class="copy-button" onclick="copyToClipboard()">Copy</button>
+                    <pre class="code-editor-content">
+                        
+                        <style>
+                            {{ snippet.get_highlighted_code.css | safe }}
+                        </style>
+                        {{ snippet.get_highlighted_code.html | safe }}
+                        
+                    </pre>
+                    
+                </div>
+            
+            {% endfor %}
+        </div>
+
+        <h2 style="text-align: center; color: skyblue; margin-top: 50px;">Output</h2>
+
+        <div class="code-view">
+            <div class="sub-view">
+                <div class="code-block">
+                    <p><i class="fa fa-angle-double-right"></i> Alice</p>
+                    <p><i class="fa fa-angle-double-right"></i> 25</p>
+                </div>
+            </div>
+        </div>
+        
+
+
+       <h2>Adding and Updating Items</h2>
+        <div class="notes">
+            <p>You can add new key-value pairs or update existing ones.</p>
+        </div>
+
+        <div class="code-view">
+            {% for snippet in code_4 %}
+   
+                <div class="code-container">
+                    <button class="copy-button" onclick="copyToClipboard()">Copy</button>
+                    <pre class="code-editor-content">
+                        
+                        <style>
+                            {{ snippet.get_highlighted_code.css | safe }}
+                        </style>
+                        {{ snippet.get_highlighted_code.html | safe }}
+                        
+                    </pre>
+                    
+                </div>
+            
+            {% endfor %}
+        </div>
+
+        <h2 style="text-align: center; color: skyblue; margin-top: 50px;">Output</h2>
+
+        <div class="code-view">
+            <div class="sub-view">
+                <div class="code-block">
+                    <p><i class="fa fa-angle-double-right"></i> {'name': 'Alice', 'age': 25, 'city': 'New York', 'email': 'alice@example.com'}</p>
+                    <p><i class="fa fa-angle-double-right"></i> {'name': 'Alice', 'age': 26, 'city': 'New York', 'email': 'alice@example.com'}</p>
+                </div>
+            </div>
+        </div>
+
+        <h2>Removing Items</h2>
+            <div class="notes">
+                <p>
+                    <p>You can remove items from a dictionary using the <span class="emphasis">del</span> statement or the <span class="emphasis">pop()</span> method.</p>
+                </p>
+            </div>
+           <div class="code-view">
+            {% for snippet in code_5 %}
+   
+                <div class="code-container">
+                    <button class="copy-button" onclick="copyToClipboard()">Copy</button>
+                    <pre class="code-editor-content">
+                        
+                        <style>
+                            {{ snippet.get_highlighted_code.css | safe }}
+                        </style>
+                        {{ snippet.get_highlighted_code.html | safe }}
+                        
+                    </pre>
+                    
+                </div>
+            
+            {% endfor %}
+        </div>
+
+        <h2 style="text-align: center; color: skyblue; margin-top: 50px;">Output</h2>
+
+        <div class="code-view">
+            <div class="sub-view">
+                <div class="code-block">
+                    <p><i class="fa fa-angle-double-right"></i> {'name': 'Alice', 'age': 26, 'email': 'alice@example.com'}</p>
+                    <p><i class="fa fa-angle-double-right"></i> alice@example.com</p>
+                    <p><i class="fa fa-angle-double-right"></i> {'name': 'Alice', 'age': 26}</p>
+                </div>
+            </div>
+        </div>
+
+        
+
+        
+       
+        <h2 style="text-align: center; color: skyblue; margin-top: 50px;">Exercise</h2>
+        <div class="notes">
+            <p>Create a dictionary named <span class="emphasis">student</span> that contains the following information: name (string), age (integer), grade (string). </p>
+           <ol>
+            <li>Print the dictionary.</li>
+            <li> write code to access and print the student's name and age.</li>
+            <li> Add an entry for <span class="emphasis">email</span> to the <span class="emphasis">student</span> dictionary and update the <span class="emphasis">grade</span>. Print the updated dictionary.</li>
+            <li>Remove the <span class="emphasis">age</span> entry from the <span class="emphasis">student</span> dictionary and print the modified dictionary.</li>
+           </ol>
+
+        </div>
+
+
+        <div class="button-container">
+            <a href="{%url 'py_page14'%}"><button class="prev">Prev</button></a>
+            <a href="{%url 'py_page14c'%}"><button class="next">Next</button></a>
+        </div>
+
+        </div>
+    </div>
+</main>
+<footer>
+    {%include 'footer.html'%}
+</footer>
+<script type="text/javascript" src="{%static 'assets/js/main/scripts.js'%}"></script>
+</body>
+</html>

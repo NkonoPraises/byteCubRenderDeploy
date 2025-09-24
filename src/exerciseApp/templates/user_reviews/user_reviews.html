@@ -1,0 +1,116 @@
+{%load static%}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Intro to Python</title>
+    <link rel="stylesheet" type="text/css" href="{%static 'assets/CSS/admin_review/admin_review.css'%}">
+    <link rel="stylesheet" type="text/css" href="{%static 'assets/CSS/IntroToHTML/header.css'%}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style>
+        header a{
+            text-decoration: none;
+        }
+        .fa-book{
+            color: rgba(0, 0, 0, 0.479);
+        }
+
+    </style>
+	
+</head>
+{%include 'all/snippets/header_snippet.html'%}
+<main class="container">
+    <div class="card">
+        <div class="card-header">
+            <h2>My Code Submissions & Reviews</h2>
+        </div>
+        <div class="card-body">
+            <!-- Pending Submissions Section -->
+            {% if pending_submissions %}
+            <div class="section-header">
+                <h3><i class="fas fa-clock"></i> Pending Review</h3>
+            </div>
+            <div class="submissions-list">
+                {% for submission in pending_submissions %}
+                <div class="submission-item pending">
+                    <div class="submission-header">
+                        <h4>{{ submission.title }}</h4>
+                        <div class="submission-meta">
+                            <span class="badge badge-secondary">
+                                <i class="fas fa-hourglass-half"></i> Pending
+                            </span>
+                            <span class="date">{{ submission.date|date:"F d, Y" }}</span>
+                            <button class="btn btn-sm btn-outline-primary toggle-code" data-submission-id="{{ submission.id }}">
+                                <i class="fas fa-code"></i> View Code
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <div class="code-container collapse" id="code-{{ submission.id }}">
+                        <div class="code-toolbar">
+                            <button class="code-btn copy-btn" data-code-id="{{ submission.id }}">
+                                <i class="fas fa-copy"></i> Copy
+                            </button>
+                        </div>
+                        <pre><code class="language-{{ submission.type|lower }}">{{ submission.code }}</code></pre>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+            {% endif %}
+
+            <!-- Reviewed Submissions Section -->
+            {% if reviews %}
+            <div class="section-header">
+                <h3><i class="fas fa-check-circle"></i> Reviewed</h3>
+            </div>
+            <div class="reviews-list">
+                {% for review in reviews %}
+                <div class="review-item">
+                    <div class="review-header">
+                        <h4>{{ review.exercise_title }}</h4>
+                        <div class="review-meta">
+                            <span class="badge badge-{% if review.status == 'passed' %}success{% elif review.status == 'fair' %}warning{% else %}danger{% endif %}">
+                                {{ review.score }}/100 - {{ review.status|title }}
+                            </span>
+                            <span class="date">{{ review.date|date:"F d, Y" }}</span>
+                            <button class="btn btn-sm btn-outline-primary toggle-code" data-review-id="{{ review.id }}">
+                                <i class="fas fa-code"></i> View Code
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <div class="review-body">
+                        <div class="remarks">
+                            <h5>Feedback:</h5>
+                            <p>{{ review.remarks }}</p>
+                        </div>
+                        
+                        <div class="code-container collapse" id="code-{{ review.id }}">
+                            <div class="code-toolbar">
+                                <button class="code-btn copy-btn" data-code-id="{{ review.id }}">
+                                    <i class="fas fa-copy"></i> Copy
+                                </button>
+                            </div>
+                            <pre><code class="language-python">{{ review.code }}</code></pre>
+                            </div>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+            {% else %}
+            <div class="alert alert-info">
+                <i class="fas fa-info-circle"></i> You haven't received any reviews yet.
+            </div>
+            {% endif %}
+        </div>
+    </div>
+</main>
+<footer>
+    {%include 'footer.html'%}
+</footer>
+<script type="text/javascript" src="{%static 'assets/js/main/scripts.js'%}"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.5.1/highlight.min.js"></script>
+<script type="text/javascript" src="{%static 'assets/js/admin_review/user_review.js'%}"></script>
+</html>

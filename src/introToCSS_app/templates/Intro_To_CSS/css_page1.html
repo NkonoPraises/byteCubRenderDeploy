@@ -1,0 +1,129 @@
+{%load static%}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Adding CSS To a Webpage</title>
+    <link rel="stylesheet" type="text/css" href="{%static 'assets/CSS/IntroToHTML/index.css'%}">
+    <link rel="stylesheet" type="text/css" href="{%static 'assets/CSS/IntroToHTML/header.css'%}">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style>
+        .chapter-pointer-1{
+	        border: 2px solid skyblue;
+        }
+    </style>
+</head>
+{%include 'all/snippets/header_snippet.html'%}
+<main>
+
+<body style="background-color: white;">
+    <div class="main-container">
+        <div class="left-container">
+            {%include 'introToCSS_app/snippets/left-container_snippet.html'%}
+
+        </div>
+        <div class="mid-container">
+           <h1>Adding CSS To a Webpage</h1>
+
+           <div class="button-container">
+            <a href="{%url 'intro_to_css'%}"><button class="prev">Prev</button></a>
+            <a href="{%url 'css_2'%}"><button class="next">Next</button></a>
+         </div>
+
+           <div class="notes">
+            <p>Adding CSS to a webpage can be accomplished through several methods, each with its own use cases and benefits. Here are some primary ways to incorperate CSS into your HTML document </p>
+           </div>
+           <h2>1.1 EXternal CSS</h2>
+           <div class="notes">
+            <p>It involves linking to a separate file that containes all the styles for the webpage. This is the most common method, especially for larger websites, as it allows for easier <strong>maintenance</strong> and <strong>reusability</strong> accross multiple pages.</p>
+            <p>To style a webpage using <strong>external CSS</strong>, first create a separate file and name it with the <span class="emphasis">.css</span> extension  [for example <span class="emphasis">style.css</span>]</p>
+           </div>
+           <h2 style="text-align: center; color: skyblue;">style.css</h2>
+           <div class="i-code">
+            <div class="sub-icode">
+                <div class="open-brace">
+                    p{
+                </div>
+                <div class="css-body"><span class="css-property">color</span><span class="css-value">: orange;</span></div>
+                <div class="close-brace">
+                }
+                </div>
+            </div>
+            </div>
+
+           <h2 style="text-align: center; color: skyblue;">HTML</h2>
+           <div class="code-view">
+            {% for snippet in code %}
+   
+                <div class="code-container">
+                    <button class="copy-button" onclick="copyToClipboard()">Copy</button>
+                    <pre class="code-editor-content">
+                        
+                        <style>
+                            {{ snippet.get_highlighted_code.css | safe }}
+                        </style>
+                        {{ snippet.get_highlighted_code.html | safe }}
+                        
+                    </pre>
+                    
+                </div>
+            
+            {% endfor %}
+        </div>
+           
+           <h3 style="text-align: center; color: skyblue; ">Result</h3>
+           <div class="result">
+            <p style="font-style: italic; color: orange; font-size: 50px; text-align: center;">This is a Paragraph</p>
+           </div>
+           <h3>Key Points:</h3>
+           <div class="notes">
+            <p>The <span class="emphasis">&lt;link&gt;</span> element can be used in and HTML document to link different files that we want to work with together. In this case, we want to see how we can link a CSS file using this element.</p>
+            <p>It should be noted that, the <span class="emphasis">&lt;link&gt;</span> element does not have a closing tag, and it is placed inside the <span class="emphasis">&lt;head&gt;</span> of an HTML document. It should use three attributes: </p>
+            <ol>
+                <li><span class="emphasis">href:</span>This specifies the path to the CSS file.</li>
+                <li><span class="emphasis">type:</span>It specifies the type of document being linked to. The value should be <span class="emphasis">text/css</span> as seen above.</li>
+                <li><span class="emphasis">rel:</span>It stands for <strong>relationship</strong> and it specifies the relationship between the HTML document and the file being linked to. The value should be <span class="emphasis">stylesheet</span> when linking to a CSS file.</li>
+            </ol>
+           </div>
+           <h2>1.2 Internal CSS</h2>
+           <div class="notes">
+            <p>Internal CSS is defined within a <span class="emphasis">&lt;style&gt;</span> tag in the <span class="emphasis">&lt;head&gt;</span> section of the HTML document.</p>
+            <p>It <strong>cannot</strong> be reused accross multiple HTML documents since it is built inside the document itself.</p>
+           </div>
+           <h2 style="text-align: center; color: skyblue; margin-top: 50px;">HTML</h2>
+                <hr>
+                <h3 style="text-align: center; color: skyblue; margin-top: 50px;">Result</h3>
+                <div class="result">
+                    <p style="font-style: italic; color: orange; font-size: 50px; text-align: center;">This is a Paragraph</p>
+                </div>
+                <button class="run">Try it Yourself</button>
+
+            <h2>1.3 Inline CSS</h2>
+            <div class="notes">
+                <p>It involves adding the CSS styles directly within an HTML element using the <span class="emphasis">style</span> attribute. </p>
+                <p>This method is useful for applying unique styles to a single element without affecting others.</p>
+            </div>
+            <h2 style="text-align: center; color: skyblue; margin-top: 50px;">HTML</h2>
+            <h3 style="text-align: center; color: skyblue; margin-top: 50px;">Result</h3>
+                <div class="result">
+                    <p style="font-style: italic; color: orange; font-size: 50px; text-align: center;">This is a Paragraph</p>
+                </div>
+                <button class="run">Try it Yourself</button>
+            <div class="button-container">
+                <a href="{%url 'intro_to_css'%}"><button class="prev">Prev</button></a>
+                <a href="{%url 'css_2'%}"><button class="next">Next</button></a>
+            </div>
+        </div>
+        
+        
+    </div>
+   </main>
+  <footer>
+    {%include 'footer.html'%}
+</footer>
+<script type="text/javascript" src="{%static 'assets/js/main/scripts.js'%}"></script>
+</body>
+</main>
+</html>

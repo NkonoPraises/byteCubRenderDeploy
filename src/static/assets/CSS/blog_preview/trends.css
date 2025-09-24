@@ -1,0 +1,199 @@
+/* Trends Page Specific Styling */
+.trends-page {
+    padding: 20px;
+  }
+  
+  .trends-page h2 {
+    text-align: center;
+    margin-bottom: 30px;
+    color: #333;
+    font-size: 2em;
+    border-bottom: 2px solid #eee;
+    padding-bottom: 10px;
+  }
+  
+  /* Trending Now Section */
+  .trending-now .trend-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+  }
+  
+  .trend-item {
+    background-color: #fff;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+  }
+  
+  .trend-item:hover {
+    transform: translateY(-5px);
+  }
+  
+  .trend-item img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+  }
+  
+  .trend-item h3 {
+    margin: 15px;
+    font-size: 1.3em;
+    color: #333;
+  }
+  
+  .trend-item p {
+    margin: 0 15px 15px;
+    color: #666;
+    line-height: 1.5;
+  }
+  
+  .trend-item .trend-link {
+    display: block;
+    background-color: #2980b9;
+    color: #fff;
+    text-align: center;
+    padding: 12px;
+    text-decoration: none;
+    transition: background-color 0.3s;
+  }
+  
+  .trend-item .trend-link:hover {
+    background-color: #3498db;
+  }
+  
+  /* Seasonal Trends Section (Slider) */
+  .seasonal-trends {
+    margin-top: 40px;
+  }
+  
+  .seasonal-slider {
+    display: flex;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    padding-bottom: 20px; /* Add padding for scrollbar */
+  }
+  
+  .slider-item {
+    flex: 0 0 80%; /* Take up 80% of the container width */
+    min-width: 80%; /* Ensure each item takes up the specified width */
+    scroll-snap-align: start;
+    background-color: #fff;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    margin-right: 20px;
+  }
+  
+  /* Hide scrollbar for Chrome, Safari and Opera */
+  .seasonal-slider::-webkit-scrollbar {
+    display: none;
+  }
+  
+  /* Hide scrollbar for IE, Edge and Firefox */
+  .seasonal-slider {
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;  /* Firefox */
+  }
+  
+  .slider-item img {
+      width: 100%;
+      height: 300px; /* Adjust as needed */
+      object-fit: cover; /* Maintain aspect ratio */
+  }
+  
+  .slider-item h3 {
+      margin: 15px;
+      font-size: 1.5em;
+      color: #333;
+  }
+  
+  .slider-item p {
+      margin: 0 15px 15px;
+      color: #666;
+      line-height: 1.5;
+  }
+  
+  .slider-item .trend-link {
+    display: block;
+    background-color: #9b59b6;
+    color: #fff;
+    text-align: center;
+    padding: 12px;
+    text-decoration: none;
+    transition: background-color 0.3s;
+  }
+  
+  .slider-item .trend-link:hover {
+      background-color: #af7ac6;
+  }
+  
+  /* Future Forecast Section (Grid) */
+  .future-forecast {
+    margin-top: 40px;
+  }
+  
+  .forecast-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+  }
+  
+  .forecast-item {
+    background-color: #fff;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+  }
+  
+  .forecast-item:hover {
+    transform: translateY(-5px);
+  }
+  
+  .forecast-item img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+  }
+  
+  .forecast-item h3 {
+    margin: 15px;
+    font-size: 1.3em;
+    color: #333;
+  }
+  
+  .forecast-item p {
+    margin: 0 15px 15px;
+    color: #666;
+    line-height: 1.5;
+  }
+  
+  .forecast-item .trend-link {
+    display: block;
+    background-color: #e67e22;
+    color: #fff;
+    text-align: center;
+    padding: 12px;
+    text-decoration: none;
+    transition: background-color 0.3s;
+  }
+  
+  .forecast-item .trend-link:hover {
+    background-color: #f39c12;
+  }
+  
+  /* Responsive Adjustments */
+  @media (max-width: 768px) {
+      .trending-now .trend-grid,
+      .future-forecast .forecast-grid {
+          grid-template-columns: 1fr; /* Stack items on smaller screens */
+      }
+  
+      .slider-item {
+          flex: 0 0 95%;
+          min-width: 95%;
+          margin-right: 10px;
+      }
+  }

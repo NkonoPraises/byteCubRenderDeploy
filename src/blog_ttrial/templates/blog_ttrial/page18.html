@@ -1,0 +1,57 @@
+{%load static%}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercise One</title>
+    <link rel="stylesheet" type="text/css" href="{%static 'assets/CSS/IntroToHTML/index.css'%}">
+    <link rel="stylesheet" type="text/css" href="{%static 'assets/CSS/IntroToHTML/header.css'%}">
+    <link rel="stylesheet" type="text/css" href="{%static 'assets/CSS/blog_ttrial/header.css'%}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style>
+        .chapter-pointer-18{
+	        border: 2px solid skyblue;
+        }
+
+    </style>
+</head>
+{%include 'all/snippets/header_snippet.html'%}
+<body>
+    <main>
+    <div class="main-container">
+        <div class="left-container">
+            {%include 'snippets/2-left-container_snippet.html'%} 
+        </div>
+        <div class="mid-container">
+           <h1>Exercise One</h1>
+            <div class="button-container">
+                <a href="{%url 'blog_pg17'%}"><button class="prev">Prev</button></a>
+                <a href="{%url 'blog_pg19'%}"><button class="next">Next</button></a>
+            </div>
+
+            <div class="notes">
+                <p>Edit the second &lt;article&gt; to obtain the following result.</p>
+            </div>
+            
+            <img style="width: 100%; margin-bottom: 20px; margin-top: 10px;" src="{%static 'assets/images/Front End Dev/exercise1-sample.png'%}" alt="partitioning the header">
+            <p style="text-align: center;">Download Image below.</p>
+            <a href="{%static 'assets/images/Front End Dev/fashion2.jpg'%}" download=""> <button class="start">Download</button></a>
+
+        
+    
+            <div class="button-container" style="margin-top: 50px; margin-bottom: 100px;">
+                <a href="{%url 'blog_pg17'%}"><button class="prev">Prev</button></a>
+                <a href="{%url 'blog_pg19'%}"><button class="next">Next</button></a>
+            </div>
+        </div>
+        
+        
+    </div>
+  <footer>
+    {%include 'footer.html'%}
+</footer>
+<script type="text/javascript" src="{%static 'assets/js/main/scripts.js'%}"></script>
+</main>
+</body>
+</html>

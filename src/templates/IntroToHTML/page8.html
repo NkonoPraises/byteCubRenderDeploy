@@ -1,0 +1,322 @@
+{%load static%}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTML Forms</title>
+    <link rel="stylesheet" type="text/css" href="{%static 'assets/CSS/IntroToHTML/index.css'%}">
+    <link rel="stylesheet" type="text/css" href="{%static 'assets/CSS/IntroToHTML/header.css'%}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style>
+        .chapter-pointer-8{
+	        border: 2px solid skyblue;
+        }
+    </style>
+</head>
+{%include 'all/snippets/header_snippet.html'%}
+
+<body>
+    <main>
+    <div class="main-container">
+        <div class="left-container">
+            {%include 'introToHTML_app/snippets/left-container_snippet.html'%}
+        </div>
+        <div class="mid-container">
+           <h1>HTML Forms</h1>
+           
+                <div class="button-container">
+                    <a href="{%url 'HTMLIntro_ex4'%}"><button class="prev">Prev</button></a>
+                    {%if has_answered == True%}
+                    <a href="{%url 'HTMLIntro_ex5'%}"><button class="next">Next</button></a>
+                    {%else%}
+                    <a href="{{BASE_URL}}/HTMLQ4/"><button class="next">Next</button></a>
+                    {%endif%}
+                </div>
+
+
+           <h2 style="margin-top: 20px;">9.1 Introduction to HTML Forms</h2>
+           <div class="notes">
+            <p>HTML forms are used to collect user input. Froms can include various elements such as text fields, checkboxes, radio buttons, etc.</p>
+            <p>The <span class="emphasis">&lt;form&gt;</span> element wraps all the input elements and defines how the data will be sent to the server. Below is an example of an HTML form.</p>
+           </div>
+           <img style="height: 400px; display: block; margin: auto;" src="{%static 'assets/images/IntroToHTML/blog-steps-to-build-forms-in-html-image-10.jpg'%}"  alt="Form example">
+           
+           <h2 style="text-align: center; color: skyblue; margin-top: 50px;">Using a Form</h2>
+           <div class="code-view">
+            {% for snippet in code_1 %}
+   
+                <div class="code-container">
+                    <button class="copy-button" onclick="copyToClipboard()">Copy</button>
+                    <pre class="code-editor-content">
+                        
+                        <style>
+                            {{ snippet.get_highlighted_code.css | safe }}
+                        </style>
+                        {{ snippet.get_highlighted_code.html | safe }}
+                        
+                    </pre>
+                    
+                </div>
+            
+            {% endfor %}
+        </div>
+                <hr>
+                <h3 style="text-align: center; color: skyblue; margin-top: 50px;">Result</h3>
+                <div class="result">
+                    <form action="submit_form.php" method="get">
+                        <p>This is were the form controls will appear.</p>
+                    </form>
+                </div>
+                <button class="run">Try it Yourself</button>
+            <h3>Key Attributes:</h3>
+            <div class="notes">
+                <p><strong>action:</strong> The URL where the form data will be sent for processing.</p>
+                <p><strong>method:</strong> The HTTP method to use [GET or POST].</p>
+            </div>
+
+            <h2>9.2 Form Elements</h2>
+            <div class="notes">
+                <p><strong class="emphasis">9.2.1 Text Input:</strong> For single line text input.</p>
+                <h2 style="text-align: center; color: skyblue; margin-top: 10px;">Code example</h2>
+                <div class="code-view">
+                    {% for snippet in code_2 %}
+           
+                        <div class="code-container">
+                            <button class="copy-button" onclick="copyToClipboard()">Copy</button>
+                            <pre class="code-editor-content">
+                                
+                                <style>
+                                    {{ snippet.get_highlighted_code.css | safe }}
+                                </style>
+                                {{ snippet.get_highlighted_code.html | safe }}
+                                
+                            </pre>
+                            
+                        </div>
+                    
+                    {% endfor %}
+                </div>
+                <hr>
+                <h3 style="text-align: center; color: skyblue; margin-top: 50px;">Result</h3>
+                <div class="result">
+                    <form action="submit_form.php" method="get">
+                        <p>
+                            <label>Username:</label>
+                            <input style="border: 2px solid black;" type="text" name="text">
+                        </p>
+                    </form>
+                </div>
+                <button class="run" style="margin-bottom: 50px;">Try it Yourself</button>
+
+                <p><strong class="emphasis" >9.2.2 Password Input:</strong> For secure text input.</p>
+                <h2 style="text-align: center; color: skyblue; margin-top: 10px;">Code example</h2>
+                <div class="code-view">
+                    {% for snippet in code_3 %}
+           
+                        <div class="code-container">
+                            <button class="copy-button" onclick="copyToClipboard()">Copy</button>
+                            <pre class="code-editor-content">
+                                
+                                <style>
+                                    {{ snippet.get_highlighted_code.css | safe }}
+                                </style>
+                                {{ snippet.get_highlighted_code.html | safe }}
+                                
+                            </pre>
+                            
+                        </div>
+                    
+                    {% endfor %}
+                </div>
+                <hr>
+                <h3 style="text-align: center; color: skyblue; margin-top: 50px;">Result</h3>
+                <div class="result">
+                    <form action="submit_form.php" method="get">
+                        <p>
+                            <p>Password:</p>
+                            <input style="border: 2px solid black;" type="password" name="password">
+                        </p>
+                    </form>
+                </div>
+                <button style="margin-bottom: 50px;" class="run">Try it Yourself</button>
+
+                <p><strong class="emphasis" >9.2.3 Email Input:</strong> Specifically for email address.</p>
+                <h2 style="text-align: center; color: skyblue; margin-top: 10px;">Code example</h2>
+                <div class="code-view">
+                    {% for snippet in code_4 %}
+           
+                        <div class="code-container">
+                            <button class="copy-button" onclick="copyToClipboard()">Copy</button>
+                            <pre class="code-editor-content">
+                                
+                                <style>
+                                    {{ snippet.get_highlighted_code.css | safe }}
+                                </style>
+                                {{ snippet.get_highlighted_code.html | safe }}
+                                
+                            </pre>
+                            
+                        </div>
+                    
+                    {% endfor %}
+                </div>
+                <hr>
+                <h3 style="text-align: center; color: skyblue; margin-top: 50px;">Result</h3>
+                <div class="result">
+                    <form action="submit_form.php" method="get">
+                        <p>
+                            <p>Email:</p>
+                            <input style="border: 2px solid black;" type="email" name="user_email">
+                        </p>
+                    </form>
+                </div>
+                <button style="margin-bottom: 50px;" class="run">Try it Yourself</button>
+                
+                <p><strong class="emphasis" >9.2.4 Select Dropdown:</strong> For secure text input.</p>
+                <h2 style="text-align: center; color: skyblue; margin-top: 10px;">Code example</h2>
+                <div class="code-view">
+                    {% for snippet in code_5 %}
+           
+                        <div class="code-container">
+                            <button class="copy-button" onclick="copyToClipboard()">Copy</button>
+                            <pre class="code-editor-content">
+                                
+                                <style>
+                                    {{ snippet.get_highlighted_code.css | safe }}
+                                </style>
+                                {{ snippet.get_highlighted_code.html | safe }}
+                                
+                            </pre>
+                            
+                        </div>
+                    
+                    {% endfor %}
+                </div>
+                <hr>
+                <h3 style="text-align: center; color: skyblue; margin-top: 50px;">Result</h3>
+                <div class="result">
+                    <form action="submit_form.php" method="get">
+                       <select name="country" id="">
+                        <option value="China">China</option>
+                        <option value="Japan">Japan</option>
+                        <option value="Singapore">Singapore</option>
+                       </select>
+                    </form>
+                </div>
+                <button style="margin-bottom: 50px;" class="run">Try it Yourself</button>
+
+                <p><strong class="emphasis" >9.2.5 Radio button and Checkbox:</strong> For bolean options [yes or no options].</p>
+        
+                <h2 style="text-align: center; color: skyblue; margin-top: 10px;">Code example</h2>
+                <div class="code-view">
+                    {% for snippet in code_6 %}
+           
+                        <div class="code-container">
+                            <button class="copy-button" onclick="copyToClipboard()">Copy</button>
+                            <pre class="code-editor-content">
+                                
+                                <style>
+                                    {{ snippet.get_highlighted_code.css | safe }}
+                                </style>
+                                {{ snippet.get_highlighted_code.html | safe }}
+                                
+                            </pre>
+                            
+                        </div>
+                    
+                    {% endfor %}
+                </div>
+                <hr>
+                <h3 style="text-align: center; color: skyblue; margin-top: 50px;">Result</h3>
+                <div class="result">
+                    <p>Do you agree with our terms and conditions? </p>
+                    <input type="radio" name="terms-and-conditions" value="yes">
+                    <input type="checkbox" name="terms-and-conditions" value="yes">
+                </div>
+                <div class="notes">
+                    <p>The <span class="emphasis">value</span> attribute contains the default bolean option.</p>
+                </div>
+                <button style="margin-bottom: 50px;" class="run">Try it Yourself</button>
+
+                <p><strong class="emphasis" >10.2.6 Textarea:</strong> For multi-line text input.</p>
+                <h2 style="text-align: center; color: skyblue; margin-top: 10px;">Code example</h2>
+                <div class="code-view">
+                    {% for snippet in code_7 %}
+           
+                        <div class="code-container">
+                            <button class="copy-button" onclick="copyToClipboard()">Copy</button>
+                            <pre class="code-editor-content">
+                                
+                                <style>
+                                    {{ snippet.get_highlighted_code.css | safe }}
+                                </style>
+                                {{ snippet.get_highlighted_code.html | safe }}
+                                
+                            </pre>
+                            
+                        </div>
+                    
+                    {% endfor %}
+                </div>
+                <hr>
+                <h3 style="text-align: center; color: skyblue; margin-top: 50px;">Result</h3>
+                <div class="result">
+                    <p>Bio: </p>
+                    <textarea style="border: 2px solid black;" name="bio" id=""></textarea>
+                   
+                </div>
+                <button style="margin-bottom: 50px;" class="run">Try it Yourself</button>
+
+                <p><strong class="emphasis" >9.2.7 Button:</strong> Mostly used for form submission or some type of form action.</p>
+                <h2 style="text-align: center; color: skyblue; margin-top: 10px;">Code example</h2>
+                <div class="code-view">
+                    {% for snippet in code_8 %}
+           
+                        <div class="code-container">
+                            <button class="copy-button" onclick="copyToClipboard()">Copy</button>
+                            <pre class="code-editor-content">
+                                
+                                <style>
+                                    {{ snippet.get_highlighted_code.css | safe }}
+                                </style>
+                                {{ snippet.get_highlighted_code.html | safe }}
+                                
+                            </pre>
+                            
+                        </div>
+                    
+                    {% endfor %}
+                </div>
+                <hr>
+                <h3 style="text-align: center; color: skyblue; margin-top: 50px;">Result</h3>
+                <div class="result">
+                    <button style="padding: 5px;">Submit</button>
+                   
+                </div>
+                <button style="margin-bottom: 50px;" class="run">Try it Yourself</button>
+                
+            </div>
+
+            
+        
+            <div class="button-container">
+                <a href="{%url 'HTMLIntro_ex4'%}"><button class="prev">Prev</button></a>
+                {%if has_answered == True%}
+                <a href="{%url 'HTMLIntro_ex5'%}"><button class="next">Next</button></a>
+                {%else%}
+                <a href="{{BASE_URL}}/HTMLQ4/"><button class="next">Next</button></a>
+                {%endif%}
+            </div>
+            
+        </div>
+        
+        
+    </div>
+</main>
+<footer>
+    {%include 'footer.html'%}
+</footer>
+<script type="text/javascript" src="{%static 'assets/js/main/scripts.js'%}"></script>
+</body>
+</html>

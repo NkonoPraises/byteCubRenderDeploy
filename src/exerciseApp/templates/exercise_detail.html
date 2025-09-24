@@ -1,0 +1,38 @@
+{% extends "base2.html" %}
+
+{% block content %}
+  <h2>{{ exercise.title }}</h2>
+  <p>{{ exercise.description }}</p>
+  <p>Instructions: {{ exercise.instructions }}</p>
+
+    <p>Attempts: {{ num_attempts }}</p>
+    {% if num_attempts < 3 %}
+
+    {% if num_attempts < 2 %}
+        <p style="color: orangered">Submit code Below | {{num_attempts}} attempt left</p>
+    {% else %}
+        <p style="color: red">You've attempted the excercise. </p>
+    {% endif %}
+  <form method="post" style="width: 90%;">
+    {% csrf_token %}
+      <textarea id="code-editor" name="code" style="width: 100%;">{{ form.code.value }}</textarea>
+    <button type="submit">Submit Code</button>
+  </form>
+    {% endif %}
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/6.65.7/codemirror.min.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/6.65.7/codemirror.min.js"></script>
+<script>
+    var editor = CodeMirror.fromTextArea(document.getElementById("code-editor"), {
+        mode: "python",
+        theme: "default",
+        lineNumbers: true,
+        indentUnit: 4,
+        indentWithTabs: true,
+        lineWrapping: true,
+        autofocus: true,
+        styleActiveLine: true
+    });
+</script>
+{% endblock %}
+

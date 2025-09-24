@@ -1,0 +1,62 @@
+{%load static%}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Coding Plan</title>
+    <link rel="stylesheet" type="text/css" href="{%static 'assets/CSS/IntroToHTML/index.css'%}">
+    <link rel="stylesheet" type="text/css" href="{%static 'assets/CSS/IntroToHTML/header.css'%}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style>
+        .chapter-pointer-2{
+	        border: 2px solid skyblue;
+        }
+        
+    </style>
+</head>
+{%include 'all/snippets/header_snippet.html'%}
+<body>
+    <main>
+    <div class="main-container">
+        <div class="left-container">
+            {%include 'snippets/left-container_snippet.html'%} 
+        </div>
+        <div class="mid-container">
+           <h1>Coding Plan</h1>
+
+            <div class="button-container">
+                <a href="{%url 'blog_pg1'%}"><button class="prev">Prev</button></a>
+                <a href="{%url 'blog_pg3'%}"><button class="next">Next</button></a>
+            </div>
+
+            <h2>Importance</h2>
+            <div class="notes">
+                <p><strong>Break's down complexity</strong>: A plan allows you to break a large daunting task into smaller, more manageable steps. This makes the overall project feel less overwhelming.</p>
+                <p><strong>Enforces Structure</strong>: A plan encourages you to think about the overall structure and architecture of your code. This results in cleaner, more organized code that is easier to understand and maintain. </p>
+                <p><strong>Estimate's Time</strong>: A plan allows you estimate how long each task will take. This helps you set realistic deadlines and manage your time effectively.</p>
+            </div>
+
+           <h2 style="margin-top: 20px;">Let's Breakdown The hompage</h2>
+           <img style="width: 100%;" src="{%static 'assets/images/Front End Dev/blog-partitioning.png'%}" alt="partitioning the blog">
+           <div class="notes">
+            <p>As seen above, our hompage can be devided into three parts namely; <span class="emphasis">&lt;header&gt;</span> which is the <strong>top</strong> part, <span class="emphasis">&lt;main&gt;</span> which is the <strong>middle</strong> part, and <span class="emphasis">&lt;footer&gt;</span> which is the <strong>bottom</strong> part. </p>
+            <p>In the following chapters, we are going to breakdown each part of the hompage, touch all the underlying components, and reveal the techniques involved in coding such a webpage.</p>
+           </div>
+
+
+            <div class="button-container" style="margin-top: 50px; margin-bottom: 100px;">
+                <a href="{%url 'blog_pg1'%}"><button class="prev">Prev</button></a>
+                <a href="{%url 'blog_pg3'%}"><button class="next">Next</button></a>
+            </div>
+        </div>
+        
+        
+    </div>
+  <footer>
+    {%include 'footer.html'%}
+</footer>
+<script type="text/javascript" src="{%static 'assets/js/main/scripts.js'%}"></script>
+</main>
+</body>
+</html>

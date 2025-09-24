@@ -1,0 +1,145 @@
+{%load static%}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercise Two</title>
+    <link rel="stylesheet" type="text/css" href="{%static 'assets/CSS/IntroToHTML/index.css'%}">
+    <link rel="stylesheet" type="text/css" href="{%static 'assets/CSS/IntroToHTML/header.css'%}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style>
+         body {
+      font-family: 'Arial', sans-serif; /* A more professional default font */
+      margin: 0;
+      padding: 0;
+      
+      color: #333;
+    }
+
+    .section {
+      padding: 20px;
+      margin-bottom: 20px;
+      border-radius: 5px;
+    }
+
+    .section1 { background-color: #e9ecef; /* Light Gray */}
+    .section2 { background-color: #f8f9fa; /* Lighter Gray */}
+    .section3 { background-color: #e9ecef; /* Light Gray */}
+
+    .h1style {
+      color: #343a40; /* Dark Gray */
+      font-size: 2.0em;
+      font-family: 'Georgia', serif; /* A more professional font for headings */
+      text-align: center;
+    }
+
+    .h2style {
+      color: #495057; /* Medium Gray */
+      font-size: 1.6em;
+      font-family: 'Georgia', serif;
+    }
+
+    .h3style {
+      color: #545b62; /* Slightly Darker Gray */
+      font-size: 1.4em;
+      font-family: 'Georgia', serif;
+    }
+
+    .pstyle {
+      font-size: 1.1em;
+      line-height: 1.6; /* Improved readability */
+    }
+
+
+    .hacker {
+      color: #dc3545; /* Red, for emphasis and warning */
+      font-weight: bold; /* Even stronger emphasis */
+    }
+
+    .footer {
+      text-align: center;
+      padding: 10px;
+      background-color: #343a40;
+      color: #fff;
+      font-size: 0.8em;
+    }
+
+
+        .chapter-pointer-ex2{
+	        border: 2px solid skyblue;
+        }
+    .result{
+        background-color: #f4f4f4;
+    }
+    </style>
+</head>
+{%include 'all/snippets/header_snippet.html'%}
+  <body>
+    <main>
+    <div class="main-container">
+        <div class="left-container">
+            {%include 'introToCSS_app/snippets/left-container_snippet.html'%}
+        </div>
+        <div class="mid-container">
+           <h1>Exercise Two</h1>
+            <div class="button-container">
+                <a href="{%url 'css_4'%}"><button class="prev">Prev</button></a>
+                <a href="{%url 'css_5'%}"><button class="next">Next</button></a>
+            </div>
+            <div class="notes">
+                <p>Replicate the article below about <strong>Web Developers</strong> and <strong>Hackers</strong>. Name it <span class="emphasis">complete-article.html</span></p>
+                <p><strong>Use:</strong></p>
+                <p>- The <span class="emphasis">&lt;article&gt; &lt;article/&gt;</span> markup to seperate the article into the various sections as seen below.</p>
+                <p>- The <span class="emphasis">class</span> attribute to independently style the components and sections of the article accordingly.</p>
+                <p>- A background-color of <span class="emphasis">#f4f4f4</span> for the body, <span class="emphasis">#e9ecef</span> for the first and third section, and <span class="emphasis">#f8f9fa</span>  for the second section. </p>
+                <p>- The <span class="emphasis">&lt;footer&gt; &lt;footer/&gt;</span> markup for the last section [&copy; 2024 Security Insights]. Give it a background-color of  <span class="emphasis">#343a40</span>.</p>
+            </div>
+          <div class="result">
+            <section class="section section1">
+                <h1 class="h1style">The Web: A Double-Edged Sword</h1>
+                <p class="pstyle">The internet, built by diligent <i>web developers</i>, has revolutionized communication and commerce. They craft intricate systems, turning lines of code into interactive experiences. These digital architects design websites and applications that power our modern world.</p>
+              </section>
+            
+              <section class="section section2">
+                <h2 class="h2style">The Shadowy Side: Hackers</h2>
+                <p class="pstyle">However, this vibrant ecosystem is constantly threatened by <i class="hacker">hackers</i>. These individuals seek to exploit vulnerabilities in systems, often with malicious intent. Their actions range from data breaches and identity theft to the disruption of critical infrastructure.</p>
+              </section>
+            
+              <section class="section section3">
+                <h3 class="h3style">The Perpetual Battle for Security</h3>
+                <p class="pstyle">The relationship between web developers and hackers is a dynamic tension, a constant back-and-forth. Developers strive to build secure systems, while hackers probe for weaknesses. Staying ahead requires constant vigilance, adaptation, and a deep understanding of both offensive and defensive security principles. Ethical hacking, where security professionals mimic malicious hackers to identify vulnerabilities, has become a key component of modern security strategies.</p>
+              </section>
+            
+              <footer class="footer">
+                &copy; 2024 Security Insights
+              </footer>
+          </div>
+          <button class="run">Try it Yourself</button>
+          
+          <!-- Whatsapp community button -->
+          <section id="whatsapp-community">
+              <div class="whatsapp">
+                  <p>Encountering difficulties? Our Whatsapp community is a collaborative space for sharing and assistance.</p>
+              </div>
+
+              <div class="whatsapp-button-floating">
+                  <a href="https://chat.whatsapp.com/EleIRPRKMN73Ly1GkHnjGV?mode=ems_copy_t" target="_blank">
+                      <i class="fab fa-whatsapp"></i>
+                      <span>Chat</span>
+                  </a>
+              </div>
+          </section>
+      
+        <div class="button-container">
+                <a href="{%url 'css_4'%}"><button class="prev">Prev</button></a>
+                <a href="{%url 'css_5'%}"><button class="next">Next</button></a>
+            </div>
+    </div>
+   </main>
+  <footer>
+    {%include 'footer.html'%}
+</footer>
+<script type="text/javascript" src="{%static 'assets/js/main/scripts.js'%}"></script>
+</body>
+</html>

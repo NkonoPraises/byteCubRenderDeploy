@@ -1,0 +1,244 @@
+{%load static%}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tuples</title>
+    <link rel="stylesheet" type="text/css" href="{%static 'assets/CSS/IntroToHTML/index.css'%}">
+    <link rel="stylesheet" type="text/css" href="{%static 'assets/CSS/IntroToHTML/header.css'%}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style>
+        .chapter-pointer-9b{
+	        border: 2px solid skyblue;
+        }
+        .js-shots{
+            width: 50%;
+        }
+        @media(max-width: 760px){
+            .js-shots{
+                width: 100%;
+            }
+            
+        }
+        .code-container{
+            overflow: hidden;
+        }
+        pre.code-editor-content{
+            width: 100%;
+            overflow-y: hidden;
+            margin-bottom: -60px;
+        }
+        .code-editor-content{
+            margin-top: -160px;
+            padding: 2px 0px;
+        }
+    </style>
+	
+</head>
+{%include 'all/snippets/header_snippet.html'%}
+<body>
+<main>
+    <div class="main-container">
+        <div class="left-container">
+            {%include 'python/snippets/left-container_snippet.html'%}
+        </div>
+        <div class="mid-container">
+            <h1>Tuples</h1>
+
+            <div class="button-container">
+                <a href="{%url 'py_page9'%}"><button class="prev">Prev</button></a>
+                <a href="{%url 'py_page10'%}"><button class="next">Next</button></a>
+                
+            </div>
+           
+
+            <h2>Introduction</h2>
+            <div class="notes">
+                <p>
+                    A tuple is a built-in data structure in Python that is similar to a list but has some key differences. 
+                    Tuples are used to store multiple items in a single variable. The main characteristics of tuples are:                
+                </p>
+                <ul>
+                    <li><strong>Immutable:</strong> Once a tuple is created, you cannot change its elements (that is, you cannot add, remove, or modify items).</li>
+                    <li><strong>Ordered:</strong>The items in a tuple have a defined order, and you can access them using indexing.</li>
+                    <li><strong>Heterogeneous:</strong>Tuples can contain elements of different data types (e.g., integers, strings, lists, etc.).</li>
+                </ul>
+            </div>
+
+            <h2>Creating a Tuple</h2>
+            <div class="notes">
+               <p>You can create a tuple by placing the items inside parentheses <span class="emphasis">()</span> and separating them with commas.</p>
+            </div>
+
+            <h2>Basic Tuple Creation</h2>
+           <div class="code-view">
+            {% for snippet in code_1 %}
+   
+                <div class="code-container">
+                    <button class="copy-button" onclick="copyToClipboard()">Copy</button>
+                    <pre class="code-editor-content">
+                        
+                        <style>
+                            {{ snippet.get_highlighted_code.css | safe }}
+                        </style>
+                        {{ snippet.get_highlighted_code.html | safe }}
+                        
+                    </pre>
+                    
+                </div>
+            
+            {% endfor %}
+        </div>
+
+        <h2 style="text-align: center; color: skyblue; margin-top: 50px;">Output</h2>
+
+        <div class="code-view">
+            <div class="sub-view">
+                <div class="code-block">
+                    <p><i class="fa fa-angle-double-right"></i> (1, 2, 3, 4, 5)</p>
+                </div>
+            </div>
+        </div>
+
+
+        <h2>Tuple with Different Data Types</h2>
+
+           <div class="code-view">
+            {% for snippet in code_2 %}
+   
+                <div class="code-container">
+                    <button class="copy-button" onclick="copyToClipboard()">Copy</button>
+                    <pre class="code-editor-content">
+                        
+                        <style>
+                            {{ snippet.get_highlighted_code.css | safe }}
+                        </style>
+                        {{ snippet.get_highlighted_code.html | safe }}
+                        
+                    </pre>
+                    
+                </div>
+            
+            {% endfor %}
+        </div>
+        <h2 style="text-align: center; color: skyblue; margin-top: 50px;">Output</h2>
+
+        <div class="code-view">
+            <div class="sub-view">
+                <div class="code-block">
+                    <p><i class="fa fa-angle-double-right"></i> (1, "Hello", 3.14, True)</p>
+                </div>
+            </div>
+        </div>
+
+       
+        <h2>Accessing Tuple Elements</h2>
+        <div class="notes">
+            <p>
+                You can access the elements of a tuple using indexing. Remember that indexing starts at 0.            
+            </p>
+        </div>
+        
+           <div class="code-view">
+            {% for snippet in code_3 %}
+   
+                <div class="code-container">
+                    <button class="copy-button" onclick="copyToClipboard()">Copy</button>
+                    <pre class="code-editor-content">
+                        
+                        <style>
+                            {{ snippet.get_highlighted_code.css | safe }}
+                        </style>
+                        {{ snippet.get_highlighted_code.html | safe }}
+                        
+                    </pre>
+                    
+                </div>
+            
+            {% endfor %}
+        </div>
+        <br>
+
+        <h2 style="text-align: center; color: skyblue; margin-top: 50px;">Output</h2>
+
+        <div class="code-view">
+            <div class="sub-view">
+                <div class="code-block">
+                    <p><i class="fa fa-angle-double-right"></i>  10</p>
+                    <p><i class="fa fa-angle-double-right"></i>  30</p>
+                </div>
+            </div>
+        </div>
+
+        <h2>Slicing a Tuple</h2>
+        <div class="notes">
+            <p>
+                You can also slice a tuple to get a subset of its elements.
+            </p>
+        </div>
+        <div class="code-view">
+            {% for snippet in code_4 %}
+   
+                <div class="code-container">
+                    <button class="copy-button" onclick="copyToClipboard()">Copy</button>
+                    <pre class="code-editor-content">
+                        
+                        <style>
+                            {{ snippet.get_highlighted_code.css | safe }}
+                        </style>
+                        {{ snippet.get_highlighted_code.html | safe }}
+                        
+                    </pre>
+                    
+                </div>
+            
+            {% endfor %}
+        </div>
+
+        <h2 style="text-align: center; color: skyblue; margin-top: 50px;">Output</h2>
+
+        <div class="code-view">
+            <div class="sub-view">
+                <div class="code-block">
+                    <p><i class="fa fa-angle-double-right"></i> (2, 3, 4)</p>
+                    
+                </div>
+            </div>
+        </div>
+
+        <div class="notes">
+            <p>
+                In summary, tuples are versatile data structures that allow you to store multiple items in an ordered and immutable way. 
+                While they differ from lists in terms of mutability (tuples cannot be modified after creation), many operations that can be done on lists can also be performed on tuples, such as looping, indexing and slicing.
+            </p>
+        </div>
+
+       
+        <h2 style="text-align: center; color: skyblue; margin-top: 50px;">Exercise</h2>
+        <div class="notes">
+            <p> Create a tuple called <span class="emphasis">fruits</span> that contains at least five different fruit names.</p>
+            <ul>
+                <li>Print the second and fourth fruits from the tuple.</li>
+                <li>Loop through the <span class="emphasis">fruits</span> tuple and print all the fruits in the tuple.</li>
+            </ul>
+    
+
+        </div>
+
+
+            <div class="button-container">
+                <a href="{%url 'py_page9'%}"><button class="prev">Prev</button></a>
+                <a href="{%url 'py_page10'%}"><button class="next">Next</button></a>
+                
+            </div>
+
+        </div>
+    </div>
+</main>
+<footer>
+    {%include 'footer.html'%}
+</footer>
+<script type="text/javascript" src="{%static 'assets/js/main/scripts.js'%}"></script>
+</body>
+</html>

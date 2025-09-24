@@ -1,0 +1,52 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}byteCub Quiz{% endblock %}</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap">
+    <link rel="stylesheet" href="{% static 'assets/CSS/quiz/style.css' %}">
+    
+</head>
+<body>
+    <header>
+        <h1>Quiz</h1>
+        <nav>
+            {% if user.is_authenticated %}
+                <span>Welcome, {{ user.username }}!</span>
+                <a href="{% url 'logout' %}">Logout</a>
+            {% else %}
+                <a href="{% url 'login' %}">Login</a>
+                <a href="{% url 'register' %}">Register</a>
+            {% endif %}
+        </nav>
+    </header>
+
+    <main>
+        {% block content %}
+        {% endblock %}
+    </main>
+
+    <footer>
+        <p>&copy; 2025 byteCub</p>
+    </footer>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+  const codeEditor = document.querySelector('.code-editor');
+
+  if (codeEditor) {
+    codeEditor.addEventListener('input', function() {
+      // Implement code highlighting here using libraries like Prism.js or Highlight.js
+      // For example:
+      // Prism.highlightElement(codeEditor);
+      // The specific code will depend on the chosen library
+
+      //Preserves Code - just keeps the same code.
+    });
+  }
+});
+    </script>
+</body>
+</html>

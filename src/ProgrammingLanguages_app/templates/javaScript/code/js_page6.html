@@ -1,0 +1,225 @@
+{%load static%}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Conditional Statements: if</title>
+    <link rel="stylesheet" type="text/css" href="{%static 'assets/CSS/IntroToHTML/index.css'%}">
+    <link rel="stylesheet" type="text/css" href="{%static 'assets/CSS/IntroToHTML/header.css'%}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style>
+        .chapter-pointer-6{
+	        border: 2px solid skyblue;
+        }
+        .js-shots{
+            width: 50%;
+        }
+        @media(max-width: 760px){
+            .js-shots{
+                width: 100%;
+            }
+            
+            
+        }
+        .code-container::-webkit-scrollbar{
+            /* overflow: hidden; */
+            display: none;
+        }
+        pre.code-editor-content{
+            overflow-y: hidden;
+            margin-bottom: -60px;
+            overflow-x: scroll;
+        }
+        .code-editor-content{
+            margin-top: -160px;
+            padding: 2px 0px;
+        }
+        @media(max-width:720px){
+            pre.code-editor-content{
+            width: 1500px;
+            
+            }
+        }
+    </style>
+	
+</head>
+{%include 'all/snippets/header_snippet.html'%}
+<body>
+<main>
+    <div class="main-container">
+        <div class="left-container">
+            {%include 'javaScript/snippets/left-container_snippet.html'%}
+        </div>
+        <div class="mid-container">
+            <h1>Conditional Statements: if</h1>
+            <div class="button-container">
+                <a href="{%url 'js_page5'%}"><button class="prev">Prev</button></a>
+                <a href="{%url 'js_page7'%}"><button class="next">Next</button></a>
+            </div>
+           
+
+            <h2>Introduction</h2>
+            <div class="notes">
+                <p>Conditional statements are fundamental in programming, allowing you to execute different code segments based on certain conditions.
+                    In JavaScript, the most common types of conditional statements are <strong>if</strong>, <strong>else if</strong>, and <strong>else</strong>. 
+                </p>
+            </p>
+            </div>
+
+            <h2>The if Statement</h2>
+            <div class="notes">
+                <p>The if statement is used to test a condition. If the condition evaluates to <span class="emphasis">true</span>, the code inside the <span class="emphasis">if</span> block will be executed. Here’s a simple example:</p>
+            </div>
+
+           <div class="code-view">
+            {% for snippet in code_1 %}
+   
+                <div class="code-container">
+                    <button class="copy-button" onclick="copyToClipboard()">Copy</button>
+                    <pre class="code-editor-content">
+                        
+                        <style>
+                            {{ snippet.get_highlighted_code.css | safe }}
+                        </style>
+                        {{ snippet.get_highlighted_code.html | safe }}
+                        
+                    </pre>
+                    
+                </div>
+            
+            {% endfor %}
+        </div>
+        <div class="notes nb">
+            <p><strong>Note:</strong></p>
+            <p>If you are using a web browser's console, try writing all the code from 'if' until the curly closing bracket '}' before pressing enter. That is, write it on a <strong>single</strong> line and let it flow to the following lines on it's on, else your code wouldn't run properly.</p>
+        </div>
+  
+        <h2 style="text-align: center; color: skyblue; margin-top: 50px;">Output</h2>
+
+        <div class="code-view">
+            <div class="sub-view">
+                <div class="code-block">
+                    <p><strong>&gt;</strong>It's a hot day!</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="notes">
+            <p>In the above example, since the temperature is greater than 25, the output will be "It's a hot day!".</p>
+        </div>
+
+         
+            <h2 style="text-align: center; color: skyblue; margin-top: 50px;">Example Two</h2>
+           <div class="code-view">
+            {% for snippet in code_2 %}
+   
+                <div class="code-container">
+                    <button class="copy-button" onclick="copyToClipboard()">Copy</button>
+                    <pre class="code-editor-content">
+                        
+                        <style>
+                            {{ snippet.get_highlighted_code.css | safe }}
+                        </style>
+                        {{ snippet.get_highlighted_code.html | safe }}
+                        
+                    </pre>
+                    
+                </div>
+            
+            {% endfor %}
+        </div>
+        <h2 style="text-align: center; color: skyblue; margin-top: 50px;">Output</h2>
+
+        <div class="code-view">
+            <div class="sub-view">
+                <div class="code-block">
+                    <p><strong>&gt;</strong> Welcome, Alice!</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="notes">
+            <p>The above statement reads, if password is true, log  "Welcome, Alice!".</p>
+        </div>
+        
+        <h2>JavaScript prompt()</h2>
+        <div class="notes">
+            <p>
+                Just to give a quick walk through, the prompt() function in JavaScript is a built-in method that displays a dialog box that prompts the user for input.
+                It can be used to gather information from the user, such as their name, age, or any other data you need.
+                The dialog box will have an input field where the user can type their response.
+            </p>
+        </div>
+
+        <h2 style="text-align: center; color: skyblue; margin-top: 50px;">Example</h2>
+        <div class="code-view">
+            {% for snippet in code_3 %}
+   
+                <div class="code-container">
+                    <button class="copy-button" onclick="copyToClipboard()">Copy</button>
+                    <pre class="code-editor-content">
+                        
+                        <style>
+                            {{ snippet.get_highlighted_code.css | safe }}
+                        </style>
+                        {{ snippet.get_highlighted_code.html | safe }}
+                        
+                    </pre>
+                    
+                </div>
+            
+            {% endfor %}
+        </div>
+
+        <div class="notes">
+            <p> <strong>userInput</strong>: This variable will store the value entered by the user.</p>
+            <p><strong>"Enter your input here:"</strong>: This is the message that appears in the dialog box, asking the user for input.</p>
+        </div>
+
+        <div class="notes">
+            <p>Conditional statements, like <span class="emphasis">if</span>, allow you to execute different code based on certain conditions.
+             When you use <span class="emphasis">prompt()</span> to get user input, you can use conditional statements to make decisions based on that input.</p>
+        </div>
+
+        <h2 style="text-align: center; color: skyblue; margin-top: 50px;">Example</h2>
+        <div class="code-view">
+            {% for snippet in code_4 %}
+   
+                <div class="code-container">
+                    <button class="copy-button" onclick="copyToClipboard()">Copy</button>
+                    <pre class="code-editor-content">
+                        
+                        <style>
+                            {{ snippet.get_highlighted_code.css | safe }}
+                        </style>
+                        {{ snippet.get_highlighted_code.html | safe }}
+                        
+                    </pre>
+                    
+                </div>
+            
+            {% endfor %}
+        </div>
+       
+        
+        <h2 style="text-align: center; color: skyblue; margin-top: 50px;">Exercise</h2>
+        <div class="notes">
+            <p>Write an if statement that checks if a user’s input (using prompt) is less than 10. If it is, log [console.log] "Your number is small!" to the console.</p>
+        </div>
+
+
+        <div class="button-container">
+            <a href="{%url 'js_page5'%}"><button class="prev">Prev</button></a>
+            <a href="{%url 'js_page7'%}"><button class="next">Next</button></a>
+        </div>
+
+        </div>
+    </div>
+</main>
+<footer>
+    {%include 'footer.html'%}
+</footer>
+<script type="text/javascript" src="{%static 'assets/js/main/scripts.js'%}"></script>
+</body>
+</html>

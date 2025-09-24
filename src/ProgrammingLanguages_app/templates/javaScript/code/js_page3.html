@@ -1,0 +1,173 @@
+{%load static%}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Data Types: Number</title>
+    <link rel="stylesheet" type="text/css" href="{%static 'assets/CSS/IntroToHTML/index.css'%}">
+    <link rel="stylesheet" type="text/css" href="{%static 'assets/CSS/IntroToHTML/header.css'%}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style>
+        .chapter-pointer-3{
+	        border: 2px solid skyblue;
+        }
+        .js-shots{
+            width: 50%;
+        }
+        @media(max-width: 760px){
+            .js-shots{
+                width: 100%;
+            }
+            
+        }
+        .code-container{
+            overflow: hidden;
+        }
+        pre.code-editor-content{
+            width: 100%;
+            overflow-y: hidden;
+            margin-bottom: -60px;
+        }
+        .code-editor-content{
+            margin-top: -160px;
+            padding: 2px 0px;
+        }
+    </style>
+	
+</head>
+{%include 'all/snippets/header_snippet.html'%}
+<body>
+<main>
+    <div class="main-container">
+        <div class="left-container">
+            {%include 'javaScript/snippets/left-container_snippet.html'%}
+        </div>
+        <div class="mid-container">
+            <h1>Data Types: Number</h1>
+            <div class="button-container">
+                <a href="{%url 'js_page2'%}"><button class="prev">Prev</button></a>
+                <a href="{%url 'js_page4'%}"><button class="next">Next</button></a>
+            </div>
+           
+
+            <h2>What Are Data Types?</h2>
+            <div class="notes">
+                <p>In javaScript, data types are categories of values. The main types include:</p>
+                <ul>
+                    <li><strong>String</strong>: Text [e.g "Hello"]. Strings are usually declared in double qoutes [" ... "].</li>
+                    <li><strong>Number</strong>: Numeric values [e.g  42]. Numbers don't need any qoutes around them.</li>
+                    <li><strong>Boolean</strong>: true or false.</li>
+                </ul>
+            </div>
+
+            <h2>The Number Data Type</h2>
+            <div class="notes">
+                <p>In javaScript, the <span class="emphasis">number</span> data type is used to represent whole numbers [intergers] and decimal [floating point values].
+                    This makes it a versatile type for performing calculations and handling various mathematical operations.
+                </p>
+            </div>
+
+            <h2>Arithmetic Operations on Numbers</h2>
+            <div class="notes">
+                <p>JavaScript supports several arithmetic operations that allow you to perform calculations easily:</p>
+                <ul>
+                    <li><strong>Addition (`+`)</strong>: Combines two numbers.</li>
+                    <li><strong>Subtraction (`-`)</strong>: Finds the difference between two numbers.</li>
+                    <li><strong>Multiplication (`*`)</strong>: Calculates the product of two numbers.</li>
+                    <li><strong>Division (`/`)</strong>: Divides one number by another.</li>
+                    <li><strong>Modulus (`%`)</strong>: Returns the remainder of a division operation [e.g. 5 % 2 returns 1 ]. Take note of the <strong>modulus</strong> operator because we are going to be using it alot in the future.</li>
+                </ul>
+            </div>
+
+            <h2 style="text-align: center; color: skyblue; margin-top: 50px;"> Example</h2>
+           <div class="code-view">
+            {% for snippet in code_1 %}
+   
+                <div class="code-container">
+                    <button class="copy-button" onclick="copyToClipboard()">Copy</button>
+                    <pre class="code-editor-content">
+                        
+                        <style>
+                            {{ snippet.get_highlighted_code.css | safe }}
+                        </style>
+                        {{ snippet.get_highlighted_code.html | safe }}
+                        
+                    </pre>
+                    
+                </div>
+            
+            {% endfor %}
+        </div>
+  
+        <h2 style="text-align: center; color: skyblue; margin-top: 50px;">Output</h2>
+
+        <div class="code-view">
+            <div class="sub-view">
+                <div class="code-block">
+                    <p><strong>&gt;</strong> 5.5</p>
+                </div>
+            </div>
+        </div>
+
+        <h2>A Simple Calculator</h2>
+        <div class="notes">
+            <p>Here’s a simple example of a calculator that performs basic arithmetic operations:</p>
+        </div>
+        
+           <div class="code-view">
+            {% for snippet in code_2 %}
+   
+                <div class="code-container">
+                    <button class="copy-button" onclick="copyToClipboard()">Copy</button>
+                    <pre class="code-editor-content">
+                        
+                        <style>
+                            {{ snippet.get_highlighted_code.css | safe }}
+                        </style>
+                        {{ snippet.get_highlighted_code.html | safe }}
+                        
+                    </pre>
+                    
+                </div>
+            
+            {% endfor %}
+        </div>
+        <h2 style="text-align: center; color: skyblue; margin-top: 50px;">Output</h2>
+
+        <div class="code-view">
+            <div class="sub-view">
+                <div class="code-block">
+                    <p><strong>&gt;</strong> Sum: 24</p>
+                    <p><strong>&gt;</strong> Difference: 16</p>
+                    <p><strong>&gt;</strong> Product: 80</p>
+                    <p><strong>&gt;</strong> Quotient: 5</p>
+                </div>
+            </div>
+        </div>
+        
+        <h2 style="text-align: center; color: skyblue; margin-top: 50px;">Exercise</h2>
+        <div class="notes">
+            <p>Now it’s your turn! Create a simple program that calculates the area of a rectangle. Use the following steps:</p>
+            <ol>
+                <li>Declare two variables: <span class="emphasis">length</span> and <span class="emphasis">width</span>, and assign them numeric values.</li>
+                <li>Calculate the area using the formula: <span class="emphasis">area = length * width</span>.</li>
+                <li>Print the result to the console.</li>
+            </ol>
+        </div>
+
+
+        <div class="button-container">
+            <a href="{%url 'js_page2'%}"><button class="prev">Prev</button></a>
+            <a href="{%url 'js_page4'%}"><button class="next">Next</button></a>
+        </div>
+
+        </div>
+    </div>
+</main>
+<footer>
+    {%include 'footer.html'%}
+</footer>
+<script type="text/javascript" src="{%static 'assets/js/main/scripts.js'%}"></script>
+</body>
+</html>

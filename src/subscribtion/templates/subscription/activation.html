@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Subscription Activation</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 40px; }
+        table { width: 100%; border-collapse: collapse; margin: 20px 0; }
+        th, td { border: 1px solid #ddd; padding: 8px; text-align: left; }
+        th { background-color: #f2f2f2; }
+        .form-group { margin: 15px 0; }
+        label { display: block; margin-bottom: 5px; }
+        input[type="text"], input[type="email"] { padding: 8px; width: 300px; }
+        button { background-color: #4CAF50; color: white; padding: 10px 15px; border: none; cursor: pointer; }
+        
+        /* Copy button styles */
+        .copy-btn { 
+            background-color: #2196F3; 
+            color: white; 
+            border: none; 
+            padding: 4px 8px; 
+            margin-left: 5px; 
+            cursor: pointer; 
+            border-radius: 3px; 
+            font-size: 12px;
+        }
+        .copy-btn:hover { background-color: #0b7dda; }
+        
+        /* Search styles */
+        .search-container { margin: 20px 0; }
+        .search-input { 
+            padding: 10px; 
+            width: 300px; 
+            border: 1px solid #ddd; 
+            border-radius: 4px; 
+        }
+        .search-btn { 
+            padding: 10px 15px; 
+            background-color: #666; 
+            color: white; 
+            border: none; 
+            border-radius: 4px; 
+            cursor: pointer; 
+        }
+        
+        /* Highlight search results */
+        .highlight { background-color: yellow; }
+        
+        /* Messages styling */
+        .messages { 
+            padding: 10px; 
+            margin: 10px 0; 
+            border-radius: 4px; 
+        }
+        .success { background-color: #d4edda; color: #155724; }
+        .error { background-color: #f8d7da; color: #721c24; }
+    </style>
+</head>
+<body>
+    <h1>Subscription Activation</h1>
+    
+    {% if messages %}
+    <div class="messages">
+        {% for message in messages %}
+        <div class="{% if message.tags %}{{ message.tags }}{% endif %}">
+            {{ message }}
+        </div>
+        {% endfor %}
+    </div>
+    {% endif %}
+    
+    <!-- Search functionality -->
+    <div class="search-container">
+        <form method="get">
+            <input type="text" name="search" class="search-input" placeholder="Search by email..." value="{{ search_query }}">
+            <button type="submit" class="search-btn">Search</button>
+            {% if search_query %}
+                <a href="{% url 'subscription:activation' %}" style="margin-left: 10px;">Clear Search</a>
+            {% endif %}
+        </form>
+    </div>
+    
+    <h2>Pending Subscriptions ({{ pending_subscriptions.count }})</h2>
+    {% if pending_subscriptions %}
+    <table>
+        <thead>
+            <tr>
+                <th>User Email</th>
+                <th>Plan</th>
+                <th>Subscription ID</th>
+                <th>Created At</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for subscription in pending_subscriptions %}
+            <tr>
+                <td>
+                    <span class="email-value" id="email-{{ subscription.id }}">{{ subscription.user.email }}</span>
+                    <button class="copy-btn copy-email-btn" data-email="{{ subscription.user.email }}" title="Copy email">📧</button>
+                </td>
+                <td>{{ subscription.plan.name }}</td>
+                <td>
+                    <span class="sub-id-value" id="subid-{{ subscription.id }}">{{ subscription.subscription_id }}</span>
+                    <button class="copy-btn copy-subid-btn" data-subid="{{ subscription.subscription_id }}" title="Copy Subscription ID">📋</button>
+                </td>
+                <td>{{ subscription.created_at|date:"M d, Y H:i" }}</td>
+                <td>
+                    <button class="copy-btn fill-form-btn" data-subid="{{ subscription.subscription_id }}" data-email="{{ subscription.user.email }}" title="Fill form with this subscription">
+                        Fill Form
+                    </button>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    {% else %}
+    <p>No pending subscriptions{% if search_query %} matching "{{ search_query }}"{% endif %}</p>
+    {% endif %}
+    
+    <h2>Activate Subscription</h2>
+    <form method="post">
+        {% csrf_token %}
+        <div class="form-group">
+            <label for="id_subscription_id">Subscription ID:</label>
+            {{ form.subscription_id }}
+            <button type="button" class="copy-btn paste-btn" data-target="id_subscription_id">📋 Paste</button>
+        </div>
+        <div class="form-group">
+            <label for="id_transaction_id">Transaction ID:</label>
+            {{ form.transaction_id }}
+        </div>
+        <div class="form-group">
+            <label for="id_payment_method">Payment Method:</label>
+            {{ form.payment_method }}
+        </div>
+        <button type="submit">Activate Subscription</button>
+    </form>
+    
+    <h2>Active Subscriptions ({{ active_subscriptions.count }})</h2>
+    {% if active_subscriptions %}
+    <table>
+        <thead>
+            <tr>
+                <th>User Email</th>
+                <th>Plan</th>
+                <th>Start Date</th>
+                <th>End Date</th>
+                <th>Payment Method</th>
+                <th>Subscription ID</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for subscription in active_subscriptions %}
+            <tr>
+                <td>
+                    <span class="email-value" id="active-email-{{ subscription.id }}">{{ subscription.user.email }}</span>
+                    <button class="copy-btn copy-email-btn" data-email="{{ subscription.user.email }}" title="Copy email">📧</button>
+                </td>
+                <td>{{ subscription.plan.name }}</td>
+                <td>{{ subscription.start_date|date:"M d, Y" }}</td>
+                <td>{{ subscription.end_date|date:"M d, Y" }}</td>
+                <td>{{ subscription.payment_method }}</td>
+                <td>
+                    <span class="sub-id-value" id="active-subid-{{ subscription.id }}">{{ subscription.subscription_id }}</span>
+                    <button class="copy-btn copy-subid-btn" data-subid="{{ subscription.subscription_id }}" title="Copy Subscription ID">📋</button>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    {% else %}
+    <p>No active subscriptions{% if search_query %} matching "{{ search_query }}"{% endif %}</p>
+    {% endif %}
+
+    <script>
+        // Copy to clipboard function
+        function copyToClipboard(text) {
+            navigator.clipboard.writeText(text).then(() => {
+                alert('Copied to clipboard: ' + text);
+            }).catch(err => {
+                console.error('Failed to copy: ', err);
+                // Fallback for older browsers
+                const textArea = document.createElement('textarea');
+                textArea.value = text;
+                document.body.appendChild(textArea);
+                textArea.select();
+                document.execCommand('copy');
+                document.body.removeChild(textArea);
+                alert('Copied to clipboard: ' + text);
+            });
+        }
+        
+        // Paste from clipboard function
+        function pasteFromClipboard(fieldId) {
+            navigator.clipboard.readText().then(text => {
+                document.getElementById(fieldId).value = text;
+            }).catch(err => {
+                console.error('Failed to read clipboard: ', err);
+                alert('Could not read from clipboard. Please paste manually.');
+            });
+        }
+        
+        // Fill form with subscription data
+        function fillForm(subscriptionId, email) {
+            document.getElementById('id_subscription_id').value = subscriptionId;
+            document.getElementById('id_transaction_id').value = 'TRX-' + new Date().getTime();
+            document.getElementById('id_payment_method').focus();
+            alert('Form filled with subscription ID: ' + subscriptionId + '\nEmail: ' + email);
+        }
+        
+        // Add event listeners when DOM is loaded
+        document.addEventListener('DOMContentLoaded', function() {
+            // Copy email buttons
+            document.querySelectorAll('.copy-email-btn').forEach(button => {
+                button.addEventListener('click', function() {
+                    const email = this.getAttribute('data-email');
+                    copyToClipboard(email);
+                });
+            });
+            
+            // Copy subscription ID buttons
+            document.querySelectorAll('.copy-subid-btn').forEach(button => {
+                button.addEventListener('click', function() {
+                    const subId = this.getAttribute('data-subid');
+                    copyToClipboard(subId);
+                });
+            });
+            
+            // Fill form buttons
+            document.querySelectorAll('.fill-form-btn').forEach(button => {
+                button.addEventListener('click', function() {
+                    const subId = this.getAttribute('data-subid');
+                    const email = this.getAttribute('data-email');
+                    fillForm(subId, email);
+                });
+            });
+            
+            // Paste buttons
+            document.querySelectorAll('.paste-btn').forEach(button => {
+                button.addEventListener('click', function() {
+                    const targetId = this.getAttribute('data-target');
+                    pasteFromClipboard(targetId);
+                });
+            });
+            
+            // Highlight search results if search query exists
+            const searchQuery = "{{ search_query }}";
+            if (searchQuery) {
+                const emailElements = document.querySelectorAll('.email-value');
+                const subIdElements = document.querySelectorAll('.sub-id-value');
+                
+                const highlightText = (element, query) => {
+                    const text = element.textContent;
+                    const regex = new RegExp(query, 'gi');
+                    element.innerHTML = text.replace(regex, match => 
+                        `<span class="highlight">${match}</span>`
+                    );
+                };
+                
+                emailElements.forEach(el => highlightText(el, searchQuery));
+                subIdElements.forEach(el => highlightText(el, searchQuery));
+            }
+        });
+    </script>
+</body>
+</html>

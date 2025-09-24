@@ -1,0 +1,235 @@
+/* Basic Reset */
+*, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Arial', sans-serif; /* Choose a suitable font */
+    background-color: #f9f9f9;
+    color: #333;
+    line-height: 1.6;
+    
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+a {
+    color: #007bff; /* Link color */
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* Header */
+.site-header {
+    background-color: #fff;
+    padding: 20px 0;
+    border-bottom: 1px solid #eee;
+    position: sticky;
+    top: 0;
+    z-index: 100; /* Ensure it stays on top */
+}
+
+.site-header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #333;
+}
+
+/* Navigation */
+.main-nav ul {
+    list-style: none;
+    display: flex;
+}
+
+.main-nav li {
+    margin-left: 20px;
+}
+
+.main-nav a {
+    color: #555;
+    padding: 5px 10px;
+    display: block;
+}
+
+.main-nav a:hover {
+    background-color: #f0f0f0;
+    border-radius: 5px;
+}
+
+/* Mobile Menu Button (Initially Hidden) */
+.mobile-menu-toggle {
+    display: none;  /* Hidden by default on larger screens */
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    color: #333;
+    cursor: pointer;
+}
+
+/* Main Content */
+.site-main {
+    padding: 30px 0;
+}
+
+.grid-container {
+    display: grid;
+    grid-template-columns: 3fr 1fr; /* Blog posts wider than sidebar */
+    gap: 30px;
+}
+
+/* Blog Posts */
+.blog-post {
+    margin-bottom: 30px;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+}
+
+.blog-post img {
+    margin-bottom: 15px;
+    border-radius: 5px;
+}
+
+.blog-post h2 {
+    font-size: 1.75rem;
+    margin-bottom: 10px;
+}
+
+.blog-post h2 a {
+    color: inherit;
+}
+
+.post-meta {
+    font-size: 0.85rem;
+    color: #777;
+    margin-bottom: 15px;
+}
+
+.read-more {
+    display: inline-block;
+    background-color: #007bff;
+    color: #fff;
+    padding: 8px 15px;
+    border-radius: 5px;
+    margin-top: 10px;
+}
+
+.read-more:hover {
+    background-color: #0056b3;
+    text-decoration: none;
+}
+
+/* Sidebar */
+.sidebar {
+    padding: 20px;
+}
+
+.widget {
+    margin-bottom: 30px;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+}
+
+.widget h3 {
+    font-size: 1.25rem;
+    margin-bottom: 15px;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 10px;
+}
+
+.widget ul {
+    list-style: none;
+}
+
+.widget li {
+    margin-bottom: 8px;
+}
+
+.social-links {
+    display: flex;
+    justify-content: space-around; /* Distribute links evenly */
+}
+
+.social-links a {
+    font-size: 1.5rem;
+    color: #555;
+}
+
+/* Footer */
+.site-footer {
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    padding: 20px 0;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .grid-container {
+        grid-template-columns: 1fr; /* Stack blog posts and sidebar */
+    }
+
+    .sidebar {
+        order: -1; /* Move sidebar above blog posts on smaller screens */
+    }
+
+    .main-nav ul {
+        position: fixed;
+        inset: 0 0 0 30%;
+        background: hsl(0 0% 100% / 0.1);
+        backdrop-filter: blur(1rem);
+        list-style: none;
+        padding: min(30vh, 10rem) 2em;
+        margin: 0;
+        flex-direction: column;
+        transform: translateX(100%);
+        transition: transform 350ms ease-out;
+    }
+
+    .main-nav ul[data-visible="true"] {
+        transform: translateX(0%);
+    }
+
+    .main-nav .nav-list {
+        display: flex;
+        flex-direction: column;
+        align-items: start;
+        gap: 2em;
+    }
+
+    .mobile-menu-toggle {
+        display: block; /* Show the mobile menu button */
+        z-index: 9999; /* Ensure it's always on top */
+    }
+
+    /*.mobile-menu-toggle[aria-expanded="true"] {
+        position: fixed;
+        top: 1rem;
+        right: 1rem;
+ 
+    }*/
+}
