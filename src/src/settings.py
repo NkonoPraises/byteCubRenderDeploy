@@ -100,6 +100,9 @@ AWS_S3_ENDPOINT_URL = os.environ.get('AWS_S3_ENDPOINT_URL')
 AWS_ACCESS_KEY_ID = os.environ.get('R2_ACCESS_KEY_ID')
 AWS_SECRET_ACCESS_KEY = os.environ.get('R2_SECRET_ACCESS_KEY')
 AWS_STORAGE_BUCKET_NAME = os.environ.get('R2_BUCKET_NAME')
+AWS_CUSTOM_DOMAIN=os.environ.get('AWS_CUSTOM_DOMAIN')
+AWS_S3_SIGNATURE_VERSION = 's3v4'
+AWS_S3_REGION_NAME = 'auto'
 AWS_DEFAULT_ACL = os.environ.get('AWS_DEFAULT_ACL') # Make sure files are publicly accessible
 
 # Password validation
@@ -129,7 +132,7 @@ USE_TZ = True
 
 # Static and Media Files
 # https://docs.djangoproject.com/en/5.1/howto/static-files/
-STATIC_URL = '/static/'
+STATIC_URL = F'https://{AWS_CUSTOM_DOMAIN}/static/'
 STATICFILES_DIRS = (
     os.path.join(BASE_DIR, 'static'),
 )
@@ -148,4 +151,4 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 if DEBUG:
     BASE_URL = 'http://127.0.0.1:8000/'
 else:
-    BASE_URL = 'https://bytecubrender-1.onrender.com'
+    BASE_URL = 'https://bytecub.onrender.com'
