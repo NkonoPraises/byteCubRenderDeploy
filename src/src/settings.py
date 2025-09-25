@@ -382,11 +382,11 @@ USE_TZ = True
 # else:
 #     BASE_URL = 'https://bytecub.onrender.com'
 
-R2_ACCESS_KEY_ID = os.getenv("R2_ACCESS_KEY_ID")
-R2_SECRET_ACCESS_KEY = os.getenv("R2_SECRET_ACCESS_KEY")
-R2_BUCKET_NAME = os.getenv("R2_BUCKET_NAME", "bytecub-static")
-R2_ENDPOINT_URL = os.getenv("R2_ENDPOINT_URL")
-R2_CUSTOM_DOMAIN = os.getenv("R2_CUSTOM_DOMAIN", "static.bytecub.tech")
+AWS_ACCESS_KEY_ID = os.getenv("AWS_ACCESS_KEY_ID")
+AWS_SECRET_ACCESS_KEY = os.getenv("AWS_SECRET_ACCESS_KEY")
+AWS_STORAGE_BUCKET_NAME = os.getenv("AWS_STORAGE_BUCKET_NAME")
+AWS_S3_ENDPOINT_URL = os.getenv("AWS_S3_ENDPOINT_URL")
+AWS_S3_CUSTOM_DOMAIN = os.getenv("AWS_S3_CUSTOM_DOMAIN")
 
 
 # STATIC_URL='/static/'
@@ -397,29 +397,29 @@ R2_CUSTOM_DOMAIN = os.getenv("R2_CUSTOM_DOMAIN", "static.bytecub.tech")
 # )
 
 # Static (CSS, JS)
-STATIC_URL = f"https://{R2_CUSTOM_DOMAIN}/static/"
+STATIC_URL = f"https://{AWS_S3_CUSTOM_DOMAIN}/static/"
 # Media (uploads, videos)
-MEDIA_URL = f"https://{R2_CUSTOM_DOMAIN}/media/"
+MEDIA_URL = f"https://{AWS_S3_CUSTOM_DOMAIN}/media/"
 
 
 STORAGES = {
     "default": {  # For media uploads
         "BACKEND": "storages.backends.s3boto3.S3Boto3Storage",
         "OPTIONS": {
-        "access_key": R2_ACCESS_KEY_ID,
-            "secret_key": R2_SECRET_ACCESS_KEY,
-            "bucket_name": R2_BUCKET_NAME,
-            "endpoint_url": R2_ENDPOINT_URL,
+        "access_key": AWS_ACCESS_KEY_ID,
+            "secret_key": AWS_SECRET_ACCESS_KEY,
+            "bucket_name": AWS_STORAGE_BUCKET_NAME,
+            "endpoint_url": AWS_S3_ENDPOINT_URL,
         },
     },
     "staticfiles": {  # For collectstatic
         "BACKEND": "storages.backends.s3boto3.S3Boto3Storage",
         "OPTIONS": {
-            "access_key": R2_ACCESS_KEY_ID,
-            "secret_key": R2_SECRET_ACCESS_KEY,
-            "bucket_name": R2_BUCKET_NAME,
-            "endpoint_url": R2_ENDPOINT_URL,
-            "custom_domain": f"{R2_CUSTOM_DOMAIN}/static",
+            "access_key": AWS_ACCESS_KEY_ID,
+            "secret_key": AWS_SECRET_ACCESS_KEY,
+            "bucket_name": AWS_STORAGE_BUCKET_NAME,
+            "endpoint_url": AWS_S3_ENDPOINT_URL,
+            "custom_domain": f"{AWS_S3_CUSTOM_DOMAIN}/static",
         },
     },
 }
